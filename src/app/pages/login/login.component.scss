@@ -1,0 +1,54 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #7b68ee;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(123, 104, 238));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(113, 113, 168), rgb(17, 5, 87))
+}
+.logo{
+  width: 120px;
+  height: 80px;
+  color: #eeeeee;
+
+}
+.cartao{
+  width: 400px;
+  height: 500px;
+
+}
+.texto{
+  width: 400px;
+  height: 150px;
+}
+.card{
+
+  width: 400px;
+  height: 500px;
+  background-color: #261d5b;
+}
+
+//.gradient-custom-2 {
+//  /* fallback for old browsers */
+//  background: #fccb90;
+//
+//  /* Chrome 10-25, Safari 5.1-6 */
+//  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+//
+//  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+//}
+//
+//@media (min-width: 700px) {
+//  .gradient-form {
+//    height: 100vh !important;
+//  }
+//}
+//@media (min-width: 700px) {
+//  .gradient-custom-2 {
+//    border-top-right-radius: .3rem;
+//    border-bottom-right-radius: .3rem;
+//  }
+//}
