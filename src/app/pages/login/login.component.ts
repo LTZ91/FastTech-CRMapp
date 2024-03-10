@@ -3,7 +3,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ListAllCitiesComponent} from "../city/list-all-cities/list-all-cities.component";
 
 @Component({
   selector: 'app-login',
