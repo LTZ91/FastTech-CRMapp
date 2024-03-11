@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from "./pages/login/login.component";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FooterComponent } from './tamplate/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavBarComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

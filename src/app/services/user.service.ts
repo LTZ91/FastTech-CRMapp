@@ -13,12 +13,12 @@ export class UserService {
 
   login(user: IUser){
     console.log(user)
-    return this.httpclient.post<ILoginResponse>(`${API_URL}/Account`, user)
-
+    return this.httpclient.post<ILoginResponse>(`${API_URL}/Account`, user);
   }
   isAuthenticated():boolean{
-    const token =localStorage.getItem('token')
-    if(token){
+    const token =localStorage.getItem('token');
+
+    if(token){console.log(token);
       return true
     }
     return false
