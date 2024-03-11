@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './tamplate/footer/footer.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { FooterComponent } from './tamplate/footer/footer.component';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

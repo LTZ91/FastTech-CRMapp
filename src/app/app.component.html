@@ -1,5 +1,5 @@
 <app-login *ngIf="!userService.isAuthenticated()" ></app-login>
 
-<app-nav-bar *ngIf="!userService.isAuthenticated()"></app-nav-bar>
+<app-nav-bar *ngIf="userService.isAuthenticated()"></app-nav-bar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

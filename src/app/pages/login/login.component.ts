@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
     })
   }
 
-  // protected readonly onsubmit = onsubmit
+  protected readonly onsubmit = onsubmit
 
   onSubmit() {
     console.log(this.formLogin.value)
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit{
         localStorage.setItem('token', value.token)
         localStorage.setItem('userName', value.userName)
         localStorage.setItem('email', value.email)
-        this.router.navigate(['/home'])
+        // this.router.navigate(['/home'])
       }
     })
   }
