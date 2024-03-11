@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit{
     })
   }
 
-  protected readonly onsubmit = onsubmit
+  // protected readonly onsubmit = onsubmit
 
   onSubmit() {
+    console.log(this.formLogin.value)
     this.userService.login(this.formLogin.value).subscribe(value => {
       if (value){
         localStorage.setItem('token', value.token)
