@@ -10,6 +10,7 @@ import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './tamplate/footer/footer.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SideBarComponent } from './tamplate/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     LoginComponent,
     NavBarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
