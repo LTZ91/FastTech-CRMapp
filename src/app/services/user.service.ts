@@ -10,18 +10,15 @@ export class UserService {
 
   constructor(private httpclient:HttpClient) { }
 
+  isAuthenticated():boolean{
+    const token =localStorage.getItem('token');
+    return token ? true : false;
+  }
 
-  login(user: IUser){
+
+  login(user: ILoginResponse){
     console.log(user)
     return this.httpclient.post<ILoginResponse>(`${API_URL}/Account`, user);
   }
-  isAuthenticated():boolean{
-    const token =localStorage.getItem('token');
-
-    if(token){console.log(token);
-      return true
-    }
-    return false
-  }
-
+  
 }
