@@ -1,61 +1,63 @@
-<body >
 
-<div id="wrapper" class="toggled" >
 
-  <!-- Sidebar -->
-  <div id="sidebar-wrapper" style="overflow: hidden">
+<div id="wrapper">
+
+  <aside id="sidebar-wrapper">
+    <div class="sidebar-brand">
+      <img src="../../../assets/fasttech.png" alt="logo" class="logo" style="height: 120px; width: 130px; margin-top: -30px; margin-right: 30px">
+    </div>
     <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a href="#">
-          Start Bootstrap
-        </a>
-      </li>
       <li>
-        <a href="#">Dashboard</a>
+        <a href="/home" class="d-flex align-items-center "><span class="material-icons" routerLink="/home" >home</span>Home</a>
       </li>
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/operation-transference"><span class="material-icons">repeat</span>Transeferência</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center"><span class="material-icons">payments</span>Levantamento</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/account"><span class="material-icons" >account_circle</span>Criar Usuário</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" ><span class="material-icons" >person_add</span>Nova</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/account-type"><span class="material-icons" >switch_account</span>Tipo de Conta</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" ><span class="material-icons" >account_balance</span>Deposito</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" ><span class="material-icons" >history</span>Historico</a>-->
+<!--      </li>-->
       <li>
-        <a href="#">Shortcuts</a>
-      </li>
-      <li>
-        <a href="#">Overview</a>
-      </li>
-      <li>
-        <a href="#">Events</a>
-      </li>
-      <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a href="#">Services</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
+        <a class="d-flex align-items-center" routerLink="/create-user" ><span class="material-symbols-outlined">person_add</span>Novo usuário</a>
       </li>
     </ul>
-  </div>
-  <!-- /#sidebar-wrapper -->
+  </aside>
 
-  <!-- Page Content -->
-<!--  <div id="page-content-wrapper">-->
-<!--    <div class="container-fluid">-->
-<!--      <h1>Simple Sidebar</h1>-->
-<!--      <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>-->
-<!--      <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>-->
-<!--      <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>-->
-<!--    </div>-->
-<!--  </div>-->
-  <!-- /#page-content-wrapper -->
+  <div id="navbar-wrapper">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand" id="sidebar-toggle"><span class="material-icons">menu</span></a>
+        </div>
+        <div class="d-flex">
+          <div>
+            <button mat-mini-fab class="logout" ><span class="material-icons" (click)="onLogout()">logout</span></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <section id="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </section>
 
 </div>
-<!-- /#wrapper -->
-
-<!-- Menu Toggle Script -->
-<script>
-  $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
-</script>
-
-
-</body>

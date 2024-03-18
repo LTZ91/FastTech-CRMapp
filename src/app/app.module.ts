@@ -6,26 +6,26 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from "./pages/login/login.component";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
-import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
 import { HomeComponent } from './pages/home/home.component';
-import { FooterComponent } from './tamplate/footer/footer.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SideBarComponent } from './tamplate/side-bar/side-bar.component';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavBarComponent,
     HomeComponent,
-    FooterComponent,
-    SideBarComponent
+    SideBarComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({}, {})
 
   ],
   providers: [

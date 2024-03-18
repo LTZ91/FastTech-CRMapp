@@ -1,19 +1,15 @@
 .gradient-custom {
   /* fallback for old browsers */
-  background: #7b68ee;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(113, 112, 112));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(113, 113, 168), rgb(17, 5, 87))
+  //background: #7b68ee;
+  //
+  ///* Chrome 10-25, Safari 5.1-6 */
+  //background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(113, 112, 112));
+  //
+  ///* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  //background: linear-gradient(to right, rgb(113, 113, 168), rgb(17, 5, 87))
+  background-color: hsl(0, 6%, 84%)
 }
-.logo{
-  width: 120px;
-  height: 80px;
-  color: #eeeeee;
 
-}
 .cartao{
   width: 400px;
   height: 500px;
@@ -22,12 +18,16 @@
 .texto{
   width: 400px;
   height: 150px;
+  color: #e88420;
 }
 .card{
 
   width: 400px;
   height: 500px;
-  background-color: #261d5b;
+  background-color: black;
+}
+.text{
+  color: #e88420;
 }
 
 

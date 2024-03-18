@@ -1,6 +1,9 @@
-<app-login *ngIf="!userService.isAuthenticated()" ></app-login>
+<!--<app-login *ngIf="!userService.isAuthenticated()" ></app-login>-->
 
-<app-nav-bar *ngIf="userService.isAuthenticated()"></app-nav-bar>
-<app-side-bar></app-side-bar>
-<!--<router-outlet></router-outlet>-->
-<app-footer></app-footer>
+<!--<app-nav-bar *ngIf="userService.isAuthenticated()"></app-nav-bar>-->
+<!--<app-side-bar></app-side-bar>-->
+<!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->
+<!--&lt;!&ndash;<app-footer></app-footer>&ndash;&gt;-->
+
+<app-login *ngIf="!userService.isAuthenticated()" ></app-login>
+<app-side-bar *ngIf="userService.isAuthenticated()"></app-side-bar>

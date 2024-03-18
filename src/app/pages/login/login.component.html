@@ -1,37 +1,37 @@
-<section class="vh-100 gradient-custom">
+<section class="vh-100 gradient-custom" xmlns="http://www.w3.org/1999/html">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card  text-white" style="border-radius: 1rem;">
-<!--            <img src="../../../assets/fasttech.png" alt="Bootstrap" class="img">-->
-          <div class="card-body p-5 text-center" *ngIf="formLogin">
+      <img src="../../../assets/fasttech.png" alt="Bootstrap" class="img" style="height: 500px; width: 400px" >
+
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 card" style="border-radius: 1rem;" >
+<!--            <img src="../../../assets/fasttech.png" alt="Bootstrap" class="img" style="height: 40px; width: 50px" >-->
+          <div class="card-body p-5 text-center"  *ngIf="formLogin">
 
             <form style="height: 100px; width: 300px">
 
               <div class="" [formGroup]="formLogin">
-                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                <h2 class="fw-bold mb-2 text-uppercase text">Login</h2>
                 <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
-                <div class="form-outline form-white mb-4">
+                <div class="form-outline form-white mb-4 text-white-50">
                   <input type="email" id="emailX" class="form-control form-control-lg"
                          formControlName="email"/>
                   <label class="form-label" for="emailX">Email</label>
                 </div>
 
-                <div class="form-outline form-white mb-4">
+                <div class="form-outline form-white mb-4 text-white-50">
                   <input type="password" id="typePasswordX" class="form-control form-control-lg"
                          formControlName="password"/>
                   <label class="form-label" for="typePasswordX">Password</label>
                 </div>
 
-                <button class="btn btn-outline-light btn-lg px-5 " type="button" (click)="onSubmit()">Login</button>
+                <button class="btn btn-outline-light btn-lg px-5 text-white"  type="button" (click)="onSubmit()">Login</button>
               </div>
             </form>
           </div>
           <div>
             <a href="#!" class="text-white-50 fw-bold"  style="margin: 70%">Reset password</a>
           </div>
-        </div>
       </div>
     </div>
   </div>
