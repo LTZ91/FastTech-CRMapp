@@ -1,9 +1,9 @@
 import {createAction, props} from "@ngrx/store";
 import {IUser} from "../../app/models/user";
 
-export const getAllUser = createAction('[CREATE USER] Get all Users')
-export const getUserSuccess = createAction('[CREATE USER] Get all Users Success', props<{payload: IUser[]}>())
-export const getUserFail = createAction('[CREATE USER] Get all Users Fail', props<{payload: any}>())
+export const getAllUser = createAction('[GET USER] Get all Users')
+export const getUserSuccess = createAction('[GET USER] Get all Users Success', props<{payload: IUser[]}>())
+export const getUserFail = createAction('[GET USER] Get all Users Fail', props<{payload: any}>())
 
 
 export const addUser = createAction('[CREATE USER] Add User', props<{payload: IUser}>())

@@ -1,0 +1,22 @@
+<form class="row g-3 "  [formGroup]="formUser">
+    <div class="col-md-6">
+      <label for="inputUserName" class="form-label">User Name</label>
+      <input type="text" class="form-control" id="inputUserName" formControlName="userName">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="abc@gmail.com" formControlName="email">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPhoneNumber" class="form-label">Phone Number</label>
+      <input type="text" class="form-control" id="inputPhoneNumber" placeholder="+258" formControlName="phoneNumber">
+    </div>
+    <div class="col-md-6">
+      <label for="inputFullName" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="inputFullName" formControlName="fullName">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" (click)="createUser()">Create</button>
+    </div>
+  </form>
+

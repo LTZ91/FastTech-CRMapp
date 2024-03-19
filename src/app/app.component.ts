@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserService} from "./services/user.service";
+import {LoginService} from "./services/login.service";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,6 @@ import {UserService} from "./services/user.service";
 export class AppComponent {
   title = 'FrontEnd-CRM';
 
-  constructor(public userService: UserService) {
+  constructor(public userService: LoginService) {
   }
 }

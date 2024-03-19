@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
+import {LoginService} from "../../services/login.service";
 import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -13,7 +13,7 @@ import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
 export class LoginComponent implements OnInit{
 
   constructor(
-    private userService: UserService,
+    private loginService: LoginService,
     private formBuilder: FormBuilder,
     private router: Router,
     private modalService: NgbModal
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
     console.log(this.formLogin.value)
-    this.userService.login(this.formLogin.value).subscribe(value => {
+    this.loginService.login(this.formLogin.value).subscribe(value => {
       if (value){
         localStorage.setItem('token', value.token)
         localStorage.setItem('userName', value.userName)

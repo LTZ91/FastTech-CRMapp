@@ -2056,7 +2056,22 @@
   dependencies:
     tslib "^2.3.0"
 
-"@ngrx/store@^17.1.1":
+"@ngrx/effects@^17.1.1":
+  version "17.1.1"
+  resolved "https://registry.npmjs.org/@ngrx/effects/-/effects-17.1.1.tgz"
+  integrity sha512-VDNVI70wfEwqoNliffAiMhsPry0CWKkifCLmfzr+SZEEdAaPEBr4FtRrrdcdq/ovmkcgoWukkH2MBljbCyHwtA==
+  dependencies:
+    "@ngrx/operators" "17.0.0-beta.0"
+    tslib "^2.0.0"
+
+"@ngrx/operators@17.0.0-beta.0":
+  version "17.0.0-beta.0"
+  resolved "https://registry.npmjs.org/@ngrx/operators/-/operators-17.0.0-beta.0.tgz"
+  integrity sha512-EbO8AONuQ6zo2v/mPyBOi4y0CTAp1x4Z+bx7ZF+Pd8BL5ma53BTCL1TmzaeK5zPUe0yApudLk9/ZbHXPnVox5A==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngrx/store@^17.1.1", "@ngrx/store@17.1.1":
   version "17.1.1"
   resolved "https://registry.npmjs.org/@ngrx/store/-/store-17.1.1.tgz"
   integrity sha512-MGbKLTcl4uq2Uzx+qbMYNy6xW+JnkpRiznaGFX2/NFflq/zNZsjbxZrvn4/Z6ClVYIjj3uadjM1fupwMYMJxVA==

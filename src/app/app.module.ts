@@ -9,8 +9,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { HomeComponent } from './pages/home/home.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SideBarComponent } from './tamplate/side-bar/side-bar.component';
-import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { StoreModule } from '@ngrx/store';
+import {UserEffects} from "../store/effects/user.effects";
+import {EffectsModule} from "@ngrx/effects";
+import {CreateUserComponent} from "./pages/user/create-user/create-user.component";
+import { ListUserComponent } from './pages/user/list-user/list-user.component';
+import {userReducers} from "../store/reducers/user.reducers";
+import {reducers} from "../store/reducers";
+import {MatButton} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -18,14 +24,18 @@ import { StoreModule } from '@ngrx/store';
     LoginComponent,
     HomeComponent,
     SideBarComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([UserEffects]),
+    MatButton,
+
 
   ],
   providers: [
