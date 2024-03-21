@@ -14,9 +14,8 @@ import {UserEffects} from "../store/effects/user.effects";
 import {EffectsModule} from "@ngrx/effects";
 import {CreateUserComponent} from "./pages/user/create-user/create-user.component";
 import { ListUserComponent } from './pages/user/list-user/list-user.component';
-import {userReducers} from "../store/reducers/user.reducers";
 import {reducers} from "../store/reducers";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatMiniFabButton} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -35,6 +34,7 @@ import {MatButton} from "@angular/material/button";
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects]),
     MatButton,
+    MatMiniFabButton,
 
 
   ],

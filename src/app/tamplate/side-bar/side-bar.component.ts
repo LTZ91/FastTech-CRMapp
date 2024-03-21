@@ -10,7 +10,8 @@ export class SideBarComponent implements OnInit{
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   onLogout() {
     console.log('teste')
     localStorage.removeItem('token')

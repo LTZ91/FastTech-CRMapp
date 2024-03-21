@@ -9,6 +9,6 @@ import {LoginService} from "./services/login.service";
 export class AppComponent {
   title = 'FrontEnd-CRM';
 
-  constructor(public userService: LoginService) {
+  constructor(public loginService: LoginService) {
   }
 }

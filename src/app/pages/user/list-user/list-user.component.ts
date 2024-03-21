@@ -31,8 +31,8 @@ export class ListUserComponent implements OnInit{
   selectAllUsers$ = this.store.pipe(select (selectAllUsers));
   selectUsersUpdate$ = this.store.pipe(select(selectUsersUpdate));
   selectUsersDelete$ = this.store.pipe(select (selectAllUsersDelete));
-  // selectUsersIsOpen$ = this.store.pipe(select (selectUserIsOpen));
-  // selectUserIsSaved$ = this.store.pipe(select (selectUserIsSaved));
+  selectUsersIsOpen$ = this.store.pipe(select (selectUserIsOpen));
+  selectUserIsSaved$ = this.store.pipe(select (selectUserIsSaved));
   private dialogRef!: MatDialogRef<any>;
 
   ngOnInit(): void {
@@ -45,28 +45,28 @@ export class ListUserComponent implements OnInit{
     })
     this.store.dispatch(getAllUser());
 
-    // this.selectUsersUpdate$.subscribe(data =>{
-    //   if(data) {
-    //     this.store.dispatch(getAllUser())
-    //   }
-    // })
-    //
-    // this.selectUsersDelete$.subscribe(data =>{
-    //   if(data) {
-    //     this.store.dispatch(getAllUser())
-    //   }
-    // })
+    this.selectUsersUpdate$.subscribe(data =>{
+      if(data) {
+        this.store.dispatch(getAllUser())
+      }
+    })
 
-    // this.selectUsersIsOpen$.subscribe(data =>{
-    //   if(!data && this.dialogRef){
-    //     this.dialogRef.close(data)
-    //   }
-    // })
-    // this.selectUserIsSaved$.subscribe(data => {
-    //   if(data){
-    //     this.store.dispatch(getAllUser())
-    //   }
-    // })
+    this.selectUsersDelete$.subscribe(data =>{
+      if(data) {
+        this.store.dispatch(getAllUser())
+      }
+    })
+
+    this.selectUsersIsOpen$.subscribe(data =>{
+      if(!data && this.dialogRef){
+        this.dialogRef.close(data)
+      }
+    })
+    this.selectUserIsSaved$.subscribe(data => {
+      if(data){
+        this.store.dispatch(getAllUser())
+      }
+    })
 
   }
 
@@ -100,7 +100,5 @@ export class ListUserComponent implements OnInit{
     this.store.dispatch(showDialog())
   }
 
-  // onStepper() {
-  //   this.dialogRef = this.dialog.open(NewUserStepperComponent);
-  // }
+
 }

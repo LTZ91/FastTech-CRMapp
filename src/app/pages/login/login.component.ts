@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit{
     private formBuilder: FormBuilder,
     private router: Router,
     private modalService: NgbModal
-){ }
+  ){ }
   formLogin!:FormGroup;
 
   ngOnInit(): void {
@@ -41,4 +41,3 @@ export class LoginComponent implements OnInit{
     })
   }
 }
-
