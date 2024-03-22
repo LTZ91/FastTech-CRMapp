@@ -13,6 +13,7 @@ import {
 } from "../../../../store/selectors/user.selectors";
 import {getAllUser, showDialog} from "../../../../store/actions/user.actions";
 import {CreateUserComponent} from "../create-user/create-user.component";
+import {DeleteUserComponent} from "../delete-user/delete-user.component";
 
 @Component({
   selector: 'app-list-user',
@@ -87,13 +88,13 @@ export class ListUserComponent implements OnInit{
 
     this.store.dispatch(showDialog())
   }
-  // onDelete(user: IUser){
-  //   this.onSelectedUser.emit(user)
-  //   this.dialogRef = this.dialog.open(UsersDeleteComponent);
-  //   this.dialogRef.componentInstance.user= user
-  //
-  //   this.store.dispatch(showDialog())
-  // }
+  onDelete(user: IUser){
+    this.onSelectedUser.emit(user)
+    this.dialogRef = this.dialog.open(DeleteUserComponent);
+    this.dialogRef.componentInstance.user= user
+
+    this.store.dispatch(showDialog())
+  }
 
   onSubmit() {
     this.dialogRef = this.dialog.open(CreateUserComponent);

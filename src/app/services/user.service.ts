@@ -45,12 +45,13 @@ export class UserService {
 
     return this.httpClient.get<IUser>(`${API_URL}/User/:id`, option);
   }
-  deleteUser(){
+  deleteUser(user: IUser){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.delete<IUser>(`${API_URL}/User`, option)
+
+    return this.httpClient.delete<IUser>(`${API_URL}/User/${user.id}`, option)
   }
 
   showMessageFail(msg: string): void {

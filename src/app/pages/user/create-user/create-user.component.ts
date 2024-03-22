@@ -20,7 +20,8 @@ export class CreateUserComponent implements  OnInit{
     private userService: UserService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private store: Store <IUserState>) {}
+    private store: Store <IUserState>,
+    private modalRef: MatDialogRef<any>) {}
 
   formUser!: FormGroup;
   @Input() user !: IUser;
@@ -29,12 +30,6 @@ export class CreateUserComponent implements  OnInit{
   isOpen !: boolean;
   ngOnInit(): void {
 
-    // this.selectClientsIsOpen$.subscribe(data => {
-    //   if(data && this.dialogRef){
-    //     this.isOpen = data;
-    //     this.dialogRef.close(data);
-    //   }
-    // });
 
     if(this.user){
       this.formUser = this.formBuilder.group({
@@ -62,14 +57,14 @@ export class CreateUserComponent implements  OnInit{
 
 
 
-  createUser() {
-    console.log(this.formUser.value)
-    this.userService.createUser(this.formUser.value).subscribe(value => {
-      if (value) {
-        // this.router.navigate(['/users-list'])
-      }
-    })
-  }
+  // createUser() {
+  //   console.log(this.formUser.value)
+  //   this.userService.createUser(this.formUser.value).subscribe(value => {
+  //     if (value) {
+  //       // this.router.navigate(['/users-list'])
+  //     }
+  //   })
+  // }
 
 
 
@@ -82,6 +77,7 @@ export class CreateUserComponent implements  OnInit{
       this.store.dispatch(addUser({payload: this.formUser.value}));
       this.userService.showMessageSuccess('Usuário Criado com Sucesso')
     }
+    this.modalRef.close("true")
 
   }
   cancel() {

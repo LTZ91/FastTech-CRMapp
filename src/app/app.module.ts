@@ -16,6 +16,8 @@ import {CreateUserComponent} from "./pages/user/create-user/create-user.componen
 import { ListUserComponent } from './pages/user/list-user/list-user.component';
 import {reducers} from "../store/reducers";
 import {MatButton, MatMiniFabButton} from "@angular/material/button";
+import { DeleteUserComponent } from './pages/user/delete-user/delete-user.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {MatButton, MatMiniFabButton} from "@angular/material/button";
     HomeComponent,
     SideBarComponent,
     CreateUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    DeleteUserComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

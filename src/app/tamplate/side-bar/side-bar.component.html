@@ -9,10 +9,7 @@
         <a href="/home" class="d-flex align-items-center "><span class="material-icons" routerLink="/home" >home</span>Home</a>
       </li>
       <li>
-        <a class="d-flex align-items-center" routerLink="/list-user" ><span class="material-symbols-outlined" >person_add</span>Lista de usuários</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/create-user" ><span class="material-symbols-outlined">person_add</span>Novo usuário</a>
+        <a class="d-flex align-items-center" routerLink="/list-user" ><span class="material-symbols-outlined">group</span>Users</a>
       </li>
     </ul>
   </aside>
@@ -25,7 +22,7 @@
         </div>
         <div class="d-flex">
           <div>
-            <button mat-mini-fab class="logout"><span class="material-icons" (click)="onLogout()">logout</span></button>
+            <button mat-mini-fab class="logout" (click)="onLogout()"><span class="material-icons" >logout</span></button>
           </div>
         </div>
       </div>

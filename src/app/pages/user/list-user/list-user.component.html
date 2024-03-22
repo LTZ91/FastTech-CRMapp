@@ -1,22 +1,17 @@
-<button mat-raised-button (click)="onSubmit()"
-        color="primary">
-  Novo Usuário
-</button>
+<div>
+  <button mat-mini-fab class="add"><span class="material-symbols-outlined" (click)="onSubmit()">person_add</span></button>
+</div>
 
 
-<table class="table" style="width: 300px; height: 200px;">
-  <thead>
+<table class="table" >
+  <thead class="thead-light">
   <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Email</th>
-    <th scope="col">User Name</th>
-    <th scope="col">Full Name</th>
-    <th scope="col">Phone Number</th>
-<!--    <th scope="col">Naturalidade</th>-->
-<!--    <th scope="col">Genero</th>-->
-<!--    <th scope="col">Data de Nascimento</th>-->
-<!--    <th scope="col">Endereco</th>-->
-    <th scope="col">Accoes</th>
+    <th scope="row">ID</th>
+    <th scope="row">Email</th>
+    <th scope="row">User Name</th>
+    <th scope="row">Full Name</th>
+    <th scope="row">Phone Number</th>
+    <th scope="row">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -26,15 +21,11 @@
     <td>{{users.userName}}</td>
     <td>{{users.fullName}}</td>
     <td>{{users.phoneNumber}}</td>
-<!--    <td>{{clients.placeOfBirth}}</td>-->
-<!--    <td>{{clients.gender}}</td>-->
-<!--    <td>{{clients.dateOfBirth}}</td>-->
-<!--    <td>{{clients.address}}</td>-->
     <th><span  type="button" class="material-icons edit"
                (click)="onEdit(users)">
       edit
     </span>
-      <span type="button" class="material-icons delete " >
+      <span type="button" class="material-icons delete" (click)="onDelete(users)">
         delete
       </span></th>
   </tr>

@@ -4,6 +4,7 @@ import {LoginComponent} from "./pages/login/login.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {CreateUserComponent} from "./pages/user/create-user/create-user.component";
 import {ListUserComponent} from "./pages/user/list-user/list-user.component";
+import {DeleteUserComponent} from "./pages/user/delete-user/delete-user.component";
 
 export const routes: Routes = [
   // {
@@ -26,7 +27,10 @@ export const routes: Routes = [
     path:'list-user', component:
     ListUserComponent
   },
-
+  {
+    path:'delete-user', component:
+    DeleteUserComponent
+  },
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
