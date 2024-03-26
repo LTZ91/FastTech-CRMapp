@@ -57,17 +57,6 @@ export class CreateUserComponent implements  OnInit{
 
 
 
-  // createUser() {
-  //   console.log(this.formUser.value)
-  //   this.userService.createUser(this.formUser.value).subscribe(value => {
-  //     if (value) {
-  //       // this.router.navigate(['/users-list'])
-  //     }
-  //   })
-  // }
-
-
-
   editUser() {
     if (this.user) {
       this.store.dispatch(editUser({payload: this.formUser.value}));

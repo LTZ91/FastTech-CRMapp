@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {Router} from "@angular/router";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
@@ -14,27 +14,35 @@ import {
 import {getAllUser, showDialog} from "../../../../store/actions/user.actions";
 import {CreateUserComponent} from "../create-user/create-user.component";
 import {DeleteUserComponent} from "../delete-user/delete-user.component";
+import {FormControl} from "@angular/forms";
+import {map, Observable, startWith} from "rxjs";
 
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
   styleUrl: './list-user.component.scss'
 })
-export class ListUserComponent implements OnInit{
+export class ListUserComponent implements OnInit, OnChanges{
 
   constructor( private userService: UserService, private router: Router,
                public dialog: MatDialog,
                private store: Store<IUserState>) { }
 
+  @Input()
   userList!: IUser[];
+  user!: IUser[] | null;
+
   @Output() onSelectedUser = new EventEmitter<IUser>();
-  user!: IUser[];
   selectAllUsers$ = this.store.pipe(select (selectAllUsers));
   selectUsersUpdate$ = this.store.pipe(select(selectUsersUpdate));
   selectUsersDelete$ = this.store.pipe(select (selectAllUsersDelete));
   selectUsersIsOpen$ = this.store.pipe(select (selectUserIsOpen));
   selectUserIsSaved$ = this.store.pipe(select (selectUserIsSaved));
   private dialogRef!: MatDialogRef<any>;
+
+  filter = new FormControl('', { nonNullable: true });
+  dataFilter!: IUser[] | null;
+  user$!: Observable<IUser[] | null>;
 
   ngOnInit(): void {
     //this.getAll();
@@ -95,7 +103,31 @@ export class ListUserComponent implements OnInit{
 
     this.store.dispatch(showDialog())
   }
+  search(args: any) {
+    const text = this.filterText.trim()
+    if (text === '') {
+      this.dataFilter = this.user
+    }else{
+      this.dataFilter= this.user!.filter(users =>
+        users.userName.toLowerCase().includes(text.toLowerCase())
+      );
+    }
+    return this.dataFilter;
+  }
 
+  get filterText(){
+    return this.filter.value;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.user){
+      this.dataFilter = this.user
+      this.user$ = this.filter.valueChanges.pipe(
+        startWith(''),
+        map((text) => this.search(text)),
+      );
+    }
+  }
   onSubmit() {
     this.dialogRef = this.dialog.open(CreateUserComponent);
     this.store.dispatch(showDialog())
