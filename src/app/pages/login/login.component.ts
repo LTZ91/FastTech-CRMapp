@@ -3,6 +3,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
 import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ResetPasswordComponent} from "../reset-password/reset-password.component";
+import {ForgetPasswordComponent} from "../forget-password/forget-password.component";
 
 @Component({
   selector: 'app-login',
@@ -16,9 +19,10 @@ export class LoginComponent implements OnInit{
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal, public dialog: MatDialog
   ){ }
   formLogin!:FormGroup;
+  private dialogRef!: MatDialogRef<any>;
 
   ngOnInit(): void {
     this.formLogin = this.formBuilder.group({
@@ -28,6 +32,7 @@ export class LoginComponent implements OnInit{
   }
 
   protected readonly onsubmit = onsubmit
+
 
   onSubmit() {
     console.log(this.formLogin.value)
@@ -39,5 +44,9 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['/home'])
       }
     })
+  }
+
+  onReset() {
+    this.dialogRef= this.dialog.open(ForgetPasswordComponent);
   }
 }

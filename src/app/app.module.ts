@@ -15,9 +15,13 @@ import {EffectsModule} from "@ngrx/effects";
 import {CreateUserComponent} from "./pages/user/create-user/create-user.component";
 import { ListUserComponent } from './pages/user/list-user/list-user.component';
 import {reducers} from "../store/reducers";
-import {MatButton, MatMiniFabButton} from "@angular/material/button";
+import {MatButton, MatIconButton, MatMiniFabButton} from "@angular/material/button";
 import { DeleteUserComponent } from './pages/user/delete-user/delete-user.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import {MatFormField} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
+import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     CreateUserComponent,
     ListUserComponent,
     DeleteUserComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,10 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     EffectsModule.forRoot([UserEffects]),
     MatButton,
     MatMiniFabButton,
+    MatFormField,
+    MatInput,
+    NgbTooltip,
+    MatIconButton,
 
 
   ],

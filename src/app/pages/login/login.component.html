@@ -23,13 +23,12 @@
                          formControlName="password"/>
                   <label class="form-label" for="typePasswordX">Password</label>
                 </div>
-
                 <button class="btn btn-outline-light btn-lg px-5 text-white"  type="button" (click)="onSubmit()">Login</button>
               </div>
+              <div>
+                <a routerLink="/forget-password" (click)="onReset()">Forget password?</a>
+              </div>
             </form>
-          </div>
-          <div>
-            <a routerLink="/reset-password" class="text-white-50 fw-bold"  style="margin: 70%">Reset password</a>
           </div>
       </div>
     </div>

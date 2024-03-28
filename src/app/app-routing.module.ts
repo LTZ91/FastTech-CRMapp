@@ -6,12 +6,9 @@ import {CreateUserComponent} from "./pages/user/create-user/create-user.componen
 import {ListUserComponent} from "./pages/user/list-user/list-user.component";
 import {DeleteUserComponent} from "./pages/user/delete-user/delete-user.component";
 import {ResetPasswordComponent} from "./pages/reset-password/reset-password.component";
+import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.component";
 
 export const routes: Routes = [
-  // {
-  //   path:'', component:
-  //   HomeComponent
-  // },
   {
     path:'home', component:
     HomeComponent
@@ -36,6 +33,11 @@ export const routes: Routes = [
     path:'reset-password', component:
     ResetPasswordComponent
   },
+  {
+    path:'forget-password', component:
+    ForgetPasswordComponent
+  },
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -19,4 +19,6 @@ export class SideBarComponent implements OnInit{
     localStorage.removeItem('email')
     this.router.navigate(['/login'])
   }
+
+
 }
