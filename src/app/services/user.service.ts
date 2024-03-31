@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {IUser} from "../models/user";
 import {API_URL} from "../../environments/environment";
+import {ResetPassword} from "../models/reset-password";
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,17 @@ export class UserService {
 
     return this.httpClient.delete<IUser>(`${API_URL}/User/${user.id}`, option)
   }
+
+  resetPassword(reset: ResetPassword){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.put<ResetPassword>(`${API_URL}/User/resetPassword`, option)
+  }
+
+
 
   showMessageFail(msg: string): void {
     this.snackBar.open(msg, "X", {
