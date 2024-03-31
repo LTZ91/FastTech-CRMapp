@@ -5,8 +5,8 @@ import {HomeComponent} from "./pages/home/home.component";
 import {CreateUserComponent} from "./pages/user/create-user/create-user.component";
 import {ListUserComponent} from "./pages/user/list-user/list-user.component";
 import {DeleteUserComponent} from "./pages/user/delete-user/delete-user.component";
-import {ResetPasswordComponent} from "./pages/reset-password/reset-password.component";
 import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.component";
+import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 
 export const routes: Routes = [
   {
@@ -30,8 +30,8 @@ export const routes: Routes = [
     DeleteUserComponent
   },
   {
-    path:'reset-password', component:
-    ResetPasswordComponent
+    path:'change-password', component:
+    ChangePasswordComponent
   },
   {
     path:'forget-password', component:

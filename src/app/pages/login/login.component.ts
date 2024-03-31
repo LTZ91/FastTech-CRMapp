@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
 import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {ResetPasswordComponent} from "../reset-password/reset-password.component";
 import {ForgetPasswordComponent} from "../forget-password/forget-password.component";
 
 @Component({

@@ -94,7 +94,6 @@ export class ListUserComponent implements OnInit, OnChanges{
     this.dialogRef = this.dialog.open(CreateUserComponent);
     this.dialogRef.componentInstance.user = user
 
-    this.store.dispatch(showDialog())
   }
   onDelete(user: IUser){
     this.onSelectedUser.emit(user)

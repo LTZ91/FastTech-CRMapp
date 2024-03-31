@@ -6,11 +6,11 @@ import {Store} from "@ngrx/store";
 import {IUserState} from "../../../store/reducers/user.reducers";
 
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrl: './reset-password.component.scss'
+  selector: 'app-change-password',
+  templateUrl: './change-password.component.html',
+  styleUrl: './change-password.component.scss'
 })
-export class ResetPasswordComponent implements OnInit{
+export class ChangePasswordComponent implements OnInit{
 
   constructor(private userService: UserService,
               private store: Store <IUserState>) {
@@ -39,7 +39,7 @@ export class ResetPasswordComponent implements OnInit{
   }
 
   cancel() {
-    this.store.dispatch(hideDialog());
+   this.changePasswordForm.reset()
 
   }
 }
