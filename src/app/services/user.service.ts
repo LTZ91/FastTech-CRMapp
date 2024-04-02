@@ -61,7 +61,7 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<ResetPassword>(`${API_URL}/User/resetPassword`, option)
+    return this.httpClient.put<ResetPassword>(`${API_URL}/User/resetPassword`, reset, option)
   }
 
 

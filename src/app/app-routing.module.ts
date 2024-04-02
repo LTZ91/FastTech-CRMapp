@@ -7,6 +7,7 @@ import {ListUserComponent} from "./pages/user/list-user/list-user.component";
 import {DeleteUserComponent} from "./pages/user/delete-user/delete-user.component";
 import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
+import {CreateClientComponent} from "./pages/clients/create-client/create-client.component";
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
   {
     path:'forget-password', component:
     ForgetPasswordComponent
+  },
+  {
+    path:'create-client', component:
+    CreateClientComponent
   },
 
 ]

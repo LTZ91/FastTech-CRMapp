@@ -22,6 +22,7 @@ import {MatInput} from "@angular/material/input";
 import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
+import { CreateClientComponent } from './pages/clients/create-client/create-client.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {ChangePasswordComponent} from "./pages/change-password/change-password.c
     DeleteUserComponent,
     ChangePasswordComponent,
     ForgetPasswordComponent,
+    CreateClientComponent,
   ],
   imports: [
     BrowserModule,
