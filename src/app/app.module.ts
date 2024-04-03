@@ -23,6 +23,7 @@ import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 import { CreateClientComponent } from './pages/clients/create-client/create-client.component';
+import { ListClientComponent } from './pages/clients/list-client/list-client.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CreateClientComponent } from './pages/clients/create-client/create-clie
     ChangePasswordComponent,
     ForgetPasswordComponent,
     CreateClientComponent,
+    ListClientComponent,
   ],
   imports: [
     BrowserModule,

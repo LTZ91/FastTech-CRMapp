@@ -8,6 +8,7 @@ import {DeleteUserComponent} from "./pages/user/delete-user/delete-user.componen
 import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 import {CreateClientComponent} from "./pages/clients/create-client/create-client.component";
+import {ListClientComponent} from "./pages/clients/list-client/list-client.component";
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
   {
     path:'create-client', component:
     CreateClientComponent
+  },
+  {
+    path:'list-client', component:
+    ListClientComponent
   },
 
 ]
