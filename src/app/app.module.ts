@@ -24,6 +24,8 @@ import { ForgetPasswordComponent } from './pages/forget-password/forget-password
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 import { CreateClientComponent } from './pages/clients/create-client/create-client.component';
 import { ListClientComponent } from './pages/clients/list-client/list-client.component';
+import {ClientEffects} from "../store/effects/client.effects";
+import { DeleteClientComponent } from './pages/clients/delete-client/delete-client.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { ListClientComponent } from './pages/clients/list-client/list-client.com
     ForgetPasswordComponent,
     CreateClientComponent,
     ListClientComponent,
+    DeleteClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { ListClientComponent } from './pages/clients/list-client/list-client.com
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, ClientEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,

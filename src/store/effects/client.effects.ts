@@ -1,16 +1,6 @@
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {
-  addUser, addUserFail,
-  addUserSuccess,
-  deleteUser, deleteUserFail, deleteUserSuccess,
-  editUser, editUserFail, editUserSuccess,
-  getAllUser,
-  getUserFail,
-  getUserSuccess
-} from "../actions/user.actions";
-import {catchError, exhaustMap, map, of, tap} from "rxjs";
+import {catchError, exhaustMap, map, of} from "rxjs";
 import {Injectable} from "@angular/core";
-import {UserService} from "../../app/services/user.service";
 import {ClientService} from "../../app/services/client.service";
 import {
   addClient,
@@ -68,7 +58,7 @@ export class ClientEffects{
     this.actions$.pipe(
       ofType(deleteClient),
       exhaustMap((action) =>
-        this.clientService.deleteClient(action.payload).pipe(
+        this.clientService.delete(action.payload).pipe(
           map(client=> deleteClientSuccess({payload: client})),
           catchError((error) => of (deleteClientFail ({payload: error})))
         )

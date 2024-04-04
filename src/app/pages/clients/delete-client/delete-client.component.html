@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="dialog">
+        <h2 *ngIf="client">Delete Client</h2>
+    </div>
+    <div>
+        <p>Deseja eliminar este cliente?</p>
+    </div>
+    <div class="container">
+        <button type="submit" class="btn btn-danger botao " (click)="onDeleteUser()">Eliminar</button>
+        <button type="submit" class="btn btn-primary botao" (click)="cancel()">Cancelar</button>
+    </div>
+</div>
+

@@ -1,7 +1,10 @@
 .card{
-  width: 550px;
-  height: 500px;
+  display: flex;
   align-items: center;
-  margin-right: 25%;
-  margin-left: 20%;
+  padding-right: 10%;
+  //padding-left: 10%;
+  //margin-bottom: 20%;
+}
+.btn{
+  margin: 15px !important;
 }

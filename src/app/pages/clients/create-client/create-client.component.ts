@@ -1,10 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from "../../../services/user.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {select, Store} from "@ngrx/store";
-import {MatDialogRef} from "@angular/material/dialog";
-import {addUser, hideDialog} from "../../../../store/actions/user.actions";
+import { hideDialog} from "../../../../store/actions/user.actions";
 import {ClientService} from "../../../services/client.service";
 import {Client} from "../../../models/client";
 import {ClientState} from "../../../../store/reducers/client.reducers";
@@ -25,8 +23,9 @@ export class CreateClientComponent implements OnInit{
     private store: Store <ClientState>,
     ) {}
 
+   client !: Client;
+  clients! : Client []
   formClient!: FormGroup;
-  @Input() client !: Client;
   selectClientIsOpen$ = this.store.pipe(select (selectClientIsOpen));
   // private dialogRef!: MatDialogRef<boolean>;
   isOpen !: boolean;
