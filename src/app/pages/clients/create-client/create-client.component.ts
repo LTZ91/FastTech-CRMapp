@@ -8,6 +8,9 @@ import {Client} from "../../../models/client";
 import {ClientState} from "../../../../store/reducers/client.reducers";
 import {addClient, editClient} from "../../../../store/actions/client.actions";
 import {selectClientIsOpen} from "../../../../store/selectors/client.selectors";
+import {Country} from "../../../models/country";
+import {Language} from "../../../models/language";
+import {Person} from "../../../models/person";
 
 @Component({
   selector: 'app-create-client',
@@ -24,14 +27,17 @@ export class CreateClientComponent implements OnInit{
     ) {}
 
    client !: Client;
-  clients! : Client []
+  clients! : Client [];
+  country! : Country [];
+  language! : Language [];
+  person! : Person [];
   formClient!: FormGroup;
   selectClientIsOpen$ = this.store.pipe(select (selectClientIsOpen));
   // private dialogRef!: MatDialogRef<boolean>;
   isOpen !: boolean;
   ngOnInit(): void {
 
-
+    this.getCountries();
     if(this.client){
       this.formClient = this.formBuilder.group({
         id: new FormControl(this.client.id, Validators.required),
@@ -60,7 +66,13 @@ export class CreateClientComponent implements OnInit{
   }
 
 
-
+  getCountries(){
+    this.clientService.readAllCountries().subscribe(value => {
+      if(value){
+        this.country=value;
+      }
+    })
+  }
 
 
 

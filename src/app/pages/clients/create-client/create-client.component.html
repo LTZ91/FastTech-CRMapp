@@ -23,24 +23,24 @@
     <div class="col-md-4">
       <label for="inputPerson" class="form-label">Person</label>
       <select id="inputPerson" class="form-select" formControlName="personId">
-        <option  *ngFor="let client of clients" [value]="client.personId">
-          {{client.personId}}
+        <option  *ngFor="let persons of person" [value]="persons.id">
+          {{persons.designation}}
         </option>
       </select>
     </div>
     <div class="col-md-4">
       <label for="inputCountry" class="form-label">Country</label>
       <select id="inputCountry" class="form-select" formControlName="countryId">
-        <option *ngFor="let client of clients" [value]="client.id">
-          {{client.countryId}}
+        <option *ngFor="let countries of country" [value]="countries.id">
+          {{countries.designation}}
         </option>
       </select>
     </div>
     <div class="col-md-4">
       <label for="inputLanguage" class="form-label">Language</label>
       <select id="inputLanguage" class="form-select" formControlName="languageId">
-        <option *ngFor="let client of clients" [value]="client.id">
-          {{client.languageId}}
+        <option *ngFor="let languages of language" [value]="languages.id">
+          {{languages.designation}}
         </option>
       </select>
     </div>

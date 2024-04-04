@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
 import {Client} from "../models/client";
+import {Country} from "../models/country";
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +54,13 @@ export class ClientService {
 
     return this.httpClient.delete<Client>(`${API_URL}/Costumers/${client.id}`, option)
   }
-
+  readAllCountries(){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+    return this.httpClient.get<Country[]>(`${API_URL}/Countries`, option)
+  }
 
 
   showMessageFail(msg: string): void {
