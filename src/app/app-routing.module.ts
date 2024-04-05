@@ -9,6 +9,10 @@ import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.c
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 import {CreateClientComponent} from "./pages/clients/create-client/create-client.component";
 import {ListClientComponent} from "./pages/clients/list-client/list-client.component";
+import {DeleteClientComponent} from "./pages/clients/delete-client/delete-client.component";
+import {CreateHourComponent} from "./pages/hour/create-hour/create-hour.component";
+import {DeleteHourComponent} from "./pages/hour/delete-hour/delete-hour.component";
+import {ListHourComponent} from "./pages/hour/list-hour/list-hour.component";
 
 export const routes: Routes = [
   {
@@ -44,8 +48,24 @@ export const routes: Routes = [
     CreateClientComponent
   },
   {
+    path:'delete-client', component:
+    DeleteClientComponent
+  },
+  {
     path:'list-client', component:
     ListClientComponent
+  },
+  {
+    path:'create-hour', component:
+    CreateHourComponent
+  },
+  {
+    path:'delete-hour', component:
+    DeleteHourComponent
+  },
+  {
+    path:'list-hour', component:
+    ListHourComponent
   },
 
 ]

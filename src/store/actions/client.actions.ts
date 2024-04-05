@@ -18,5 +18,5 @@ export const deleteClient = createAction('[CLIENT] Delete Client', props<{payloa
 export const deleteClientSuccess = createAction('[CLIENT] Delete Client Success', props<{payload: Client}>())
 export const deleteClientFail = createAction('[CLIENT] Delete Client Fail', props<{payload: any}>())
 
-export const showDialog = createAction('[USER], Show Dialog')
-export const hideDialog = createAction('[USER], Hide Dialog')
+export const showDialog = createAction('[CLIENT], Show Dialog')
+export const hideDialog = createAction('[CLIENT], Hide Dialog')
