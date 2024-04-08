@@ -54,13 +54,7 @@ export class ClientService {
 
     return this.httpClient.delete<Client>(`${API_URL}/Costumers/${client.id}`, option)
   }
-  readAllCountries(){
-    const option = {headers: new HttpHeaders({
-        'Authorization':`Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
-      })}
-    return this.httpClient.get<Country[]>(`${API_URL}/Countries`, option)
-  }
+
 
 
   showMessageFail(msg: string): void {

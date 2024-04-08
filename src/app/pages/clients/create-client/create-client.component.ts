@@ -11,6 +11,9 @@ import {selectClientIsOpen} from "../../../../store/selectors/client.selectors";
 import {Country} from "../../../models/country";
 import {Language} from "../../../models/language";
 import {Person} from "../../../models/person";
+import {CountryService} from "../../../services/country.service";
+import {PersonService} from "../../../services/person.service";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-create-client',
@@ -21,6 +24,9 @@ export class CreateClientComponent implements OnInit{
 
   constructor(
     private clientService: ClientService,
+    private countryService: CountryService,
+    private personService: PersonService,
+    private languageService: LanguageService,
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <ClientState>,
@@ -38,6 +44,8 @@ export class CreateClientComponent implements OnInit{
   ngOnInit(): void {
 
     this.getCountries();
+    this.getLanguage();
+    this.getPerson();
     if(this.client){
       this.formClient = this.formBuilder.group({
         id: new FormControl(this.client.id, Validators.required),
@@ -67,9 +75,25 @@ export class CreateClientComponent implements OnInit{
 
 
   getCountries(){
-    this.clientService.readAllCountries().subscribe(value => {
+    this.countryService.readAllCountries().subscribe(value => {
       if(value){
         this.country=value;
+      }
+    })
+  }
+
+  getLanguage(){
+    this.languageService.readAllLanguages().subscribe(value => {
+      if(value){
+        this.language=value;
+      }
+    })
+  }
+
+  getPerson(){
+    this.personService.readAllPersons().subscribe(value => {
+      if(value){
+        this.person=value;
       }
     })
   }

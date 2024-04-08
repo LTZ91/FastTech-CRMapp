@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Client} from "../models/client";
 import {API_URL} from "../../environments/environment";
-import {Country} from "../models/country";
 import {Hour} from "../models/hour";
 
 @Injectable({
