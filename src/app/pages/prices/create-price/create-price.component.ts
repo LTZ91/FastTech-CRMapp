@@ -39,7 +39,6 @@ export class CreatePriceComponent {
       this.formPrice = this.formBuilder.group({
         id: new FormControl(this.price.id, Validators.required),
         value: new FormControl(this.price.value, Validators.required),
-        // hour: new FormControl(this.price.hour, Validators.required),
         hourId: new FormControl(this.price.hourId, Validators.required),
 
       });
