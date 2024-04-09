@@ -1,0 +1,31 @@
+<div class="card" style="width: 400px; height: 300px">
+  <div>
+    <h2 *ngIf="price">Update Price</h2>
+    <h2 *ngIf="!price">Add Price</h2>
+  </div>
+  <form class="row g-3 "  [formGroup]="formPrice">
+    <div class="col-md-12">
+      <label for="inputValue" class="form-label">Value</label>
+      <input type="text" style="width: 30%" class="form-control" id="inputValue" formControlName="value">
+    </div>
+    <div class="col-md-4">
+      <label for="inputHour" class="form-label">Hour</label>
+      <select id="inputHour" class="form-select" formControlName="hourId">
+        <option  *ngFor="let hours of hour" [value]="hours.id">
+          {{hours.hours}}
+        </option>
+      </select>
+    </div>
+    <!--    <div class="col-12">-->
+    <!--      <button type="submit" class="btn btn-primary" (click)="createUser()">Create</button>-->
+    <!--    </div>-->
+    <div class="col-12">
+      <button type="submit"  [disabled]="formPrice.invalid" class="btn btn-primary botao" (click)="createPrice()">
+        <span *ngIf="!price">create</span>
+        <span *ngIf="price">update</span>
+      </button>
+      <!--    <button type="submit" class="btn btn-primary" (click)="editUser()">Salvar</button>-->
+      <button  type="submit" class="btn btn-danger botao" (click)="cancel()">cancel</button>
+    </div>
+  </form>
+</div>

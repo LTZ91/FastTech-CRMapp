@@ -3,9 +3,8 @@ import {UserService} from "../../../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {IUserState} from "../../../../store/reducers/user.reducers";
-import {IUser} from "../../../models/user";
-import {addUser, deleteUser, hideDialog} from "../../../../store/actions/user.actions";
+
+import { hideDialog} from "../../../../store/actions/user.actions";
 import {ClientService} from "../../../services/client.service";
 import {ClientState} from "../../../../store/reducers/client.reducers";
 import {Client} from "../../../models/client";

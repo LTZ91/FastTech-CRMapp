@@ -54,19 +54,19 @@ export const clientReducers = createReducer(
     return{...state, payload, isSaved: false, isOpen: false}
   }),
   on(editClient, (state, {payload}) =>{
-    return{...state, user: payload, isOpen: true}
+    return{...state, client: payload, isOpen: true}
   }),
   on(editClientSuccess, (state, {payload}) =>{
-    return{...state, user: payload, isUpdated: true, isOpen: false}
+    return{...state, client: payload, isUpdated: true, isOpen: false}
   }),
   on(editClientFail, (state, {payload}) =>{
     return{...state, payload, isUpdated: false, isOpen: false}
   }),
   on(deleteClient, (state, {payload}) =>{
-    return{...state, user: payload, isOpen: true}
+    return{...state, client: payload, isOpen: true}
   }),
   on(deleteClientSuccess, (state, {payload}) =>{
-    return{...state, user: payload, isDelete: true, isOpen: false }
+    return{...state, client: payload, isDelete: true, isOpen: false }
   }),
   on(deleteClientFail, (state, {payload}) =>{
     return{...state,  payload, isDelete: false}

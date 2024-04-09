@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
-import {Client} from "../models/client";
+import {Price} from "../models/price";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
+export class PriceService {
 
   constructor(private httpClient:HttpClient,
               private snackBar: MatSnackBar) { }
 
-  createClient(client: Client){
+  createPrice(price: Price){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Client>(`${API_URL}/Customers`, client, option)
+    return this.httpClient.post<Price>(`${API_URL}/Prices`, price, option)
   }
 
   readAll(){
@@ -25,33 +25,33 @@ export class ClientService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Client[]>(`${API_URL}/Customers`, option)
+    return this.httpClient.get<Price[]>(`${API_URL}/Prices`, option)
   }
-  edit(client: Client){
+  edit(price: Price){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Client>(`${API_URL}/Customers/${client.id}`,client, option)
+    return this.httpClient.put<Price>(`${API_URL}/Prices/${price.id}`,price, option)
   }
 
 
 
-  getClientById(id: number){
-    const option = {headers: new HttpHeaders({
-        'Authorization':`Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
-      })}
-
-    return this.httpClient.get<Client>(`${API_URL}/Customers/:id`, option);
-  }
-  delete(client: Client){
+  getPriceById(id: number){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Client>(`${API_URL}/Customers/${client.id}`, option)
+    return this.httpClient.get<Price>(`${API_URL}/Prices/:id`, option);
+  }
+  delete(price: Price){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.delete<Price>(`${API_URL}/Prices/${price.id}`, option)
   }
 
 
@@ -72,5 +72,4 @@ export class ClientService {
       panelClass: ["msg-success"] ,
     });
   }
-
 }

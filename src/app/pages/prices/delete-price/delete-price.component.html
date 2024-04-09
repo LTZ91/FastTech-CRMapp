@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="dialog">
+    <h2 *ngIf="price">Eliminar Preço</h2>
+  </div>
+  <div>
+    <p>Deseja eliminar este preço?</p>
+  </div>
+  <div class="container">
+    <button type="submit" class="btn btn-danger botao " (click)="onDeletePrice()">Eliminar</button>
+    <button type="submit" class="btn btn-primary botao" (click)="cancel()">Cancelar</button>
+  </div>
+</div>
+

@@ -1,12 +1,12 @@
-<div class="card" style="height: 200px; width: 300px">
+<div class="card">
   <div class="card-title">
     <h2 *ngIf="hour">Update Hour</h2>
     <h2 *ngIf="!hour">Add Hour</h2>
   </div>
-  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formHour">
+  <form class="row g-3" style="margin-left: 15%"  [formGroup]="formHour">
     <div class="col-md-6">
       <label for="inputReference" class="form-label">Hour</label>
-      <input  type="number" style="width: 100%" class="form-control" id="inputReference" formControlName="hours">
+      <input  type="number" class="form-control" id="inputReference" formControlName="hours">
     </div>
     <div>
       <button type="submit"  [disabled]="formHour.invalid" class="btn btn-primary " (click)="onCreate()">

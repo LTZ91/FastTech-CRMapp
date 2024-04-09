@@ -30,6 +30,10 @@ import { CreateHourComponent } from './pages/hour/create-hour/create-hour.compon
 import { ListHourComponent } from './pages/hour/list-hour/list-hour.component';
 import { DeleteHourComponent } from './pages/hour/delete-hour/delete-hour.component';
 import {HourEffects} from "../store/effects/hour.effects";
+import { CreatePriceComponent } from './pages/prices/create-price/create-price.component';
+import { ListPriceComponent } from './pages/prices/list-price/list-price.component';
+import { DeletePriceComponent } from './pages/prices/delete-price/delete-price.component';
+import {PriceEffects} from "../store/effects/price.effects";
 
 @NgModule({
   declarations: [
@@ -48,6 +52,9 @@ import {HourEffects} from "../store/effects/hour.effects";
     CreateHourComponent,
     ListHourComponent,
     DeleteHourComponent,
+    CreatePriceComponent,
+    ListPriceComponent,
+    DeletePriceComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,7 @@ import {HourEffects} from "../store/effects/hour.effects";
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects]),
+    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,

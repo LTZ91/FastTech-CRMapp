@@ -23,7 +23,6 @@ export class UserEffects{
       ofType(getAllUser),
       exhaustMap(() =>
         this.userService.readAll().pipe(
-            // tap(response => console.log('Response from userService.readAll:', response)),
           map((response) => getUserSuccess({payload: response}),
             catchError((error) => of (getUserFail ({payload: error})))
           )
@@ -60,7 +59,7 @@ export class UserEffects{
       ofType(deleteUser),
       exhaustMap((action) =>
         this.userService.deleteUser(action.payload).pipe(
-          map(client=> deleteUserSuccess({payload: client})),
+          map(user=> deleteUserSuccess({payload: user})),
           catchError((error) => of (deleteUserFail ({payload: error})))
         )
       )

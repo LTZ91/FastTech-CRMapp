@@ -88,12 +88,7 @@ export class ListHourComponent implements OnInit{
 
 
 
-  onEdit(hour: Hour){
-    this.onSelectedHour.emit(hour)
-    this.dialogRef = this.dialog.open(CreateHourComponent);
-    this.dialogRef.componentInstance.hour = hour
 
-  }
   onDelete(hour: Hour){
     this.onSelectedHour .emit(hour)
     this.dialogRef = this.dialog.open(DeleteHourComponent);
