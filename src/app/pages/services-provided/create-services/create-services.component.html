@@ -1,0 +1,43 @@
+<div class="card" style="height: 400px; width: 500px">
+  <div class="card-title">
+    <h2 *ngIf="service">Update Service</h2>
+    <h2 *ngIf="!service">Add Service</h2>
+  </div>
+  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formService">
+    <div class="col-md-6">
+      <label for="inputDescription" class="form-label">Description</label>
+      <input  type="text" style="width: 100%" class="form-control" id="inputDescription" formControlName="description">
+    </div>
+<!--    <div class="col-md-4">-->
+<!--      <label for="inputHour" class="form-label">Hours</label>-->
+<!--      <select id="inputHour" class="form-select" formControlName="hourId">-->
+<!--        <option  *ngFor="let hours of price" [value]="hours.id">-->
+<!--          {{hours.hour}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+    <div class="col-md-4">
+      <label for="inputPrice" class="form-label">Price</label>
+      <select id="inputPrice" class="form-select" formControlName="priceId">
+        <option *ngFor="let prices of price" [value]="prices.id">
+          {{prices.value}}
+        </option>
+      </select>
+    </div>
+    <div formArrayName="conditions" class="col-md-6">
+      <div *ngFor="let conditions of conditionsGroup.controls; let i=index">
+        <div [class.form-array-item-1]="i === 0" [class.form-array-item-2]="i === 1">
+          <label  class="form-label">Conditions</label>
+          <input type="text" class="form-control" placeholder="123-45-678"  formControlName="{{i}}">
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <button type="submit"  [disabled]="formService.invalid" class="btn btn-primary " (click)="onCreate()">
+        <span *ngIf="!service" >create</span>
+        <span *ngIf="service" >update</span>
+      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
+    </div>
+  </form>
+</div>

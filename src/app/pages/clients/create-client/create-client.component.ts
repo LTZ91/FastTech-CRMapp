@@ -107,7 +107,7 @@ export class CreateClientComponent implements OnInit{
       this.clientService.showMessageSuccess('Editado com Sucesso')
     } else {
       this.store.dispatch(addClient({payload: this.formClient.value}));
-      this.clientService.showMessageSuccess('Usuário Criado com Sucesso')
+      this.clientService.showMessageSuccess('Cliente Criado com Sucesso')
     }
     // this.modalRef.close("true")
 

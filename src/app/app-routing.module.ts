@@ -16,6 +16,9 @@ import {ListHourComponent} from "./pages/hour/list-hour/list-hour.component";
 import {ListPriceComponent} from "./pages/prices/list-price/list-price.component";
 import {CreatePriceComponent} from "./pages/prices/create-price/create-price.component";
 import {DeletePriceComponent} from "./pages/prices/delete-price/delete-price.component";
+import {CreateServicesComponent} from "./pages/services-provided/create-services/create-services.component";
+import {ListServicesComponent} from "./pages/services-provided/list-services/list-services.component";
+import {DeleteServicesComponent} from "./pages/services-provided/delete-services/delete-services.component";
 
 export const routes: Routes = [
   {
@@ -81,6 +84,18 @@ export const routes: Routes = [
   {
     path:'delete-price', component:
     DeletePriceComponent
+  },
+  {
+    path:'create-services', component:
+    CreateServicesComponent
+  },
+  {
+    path:'list-services', component:
+    ListServicesComponent
+  },
+  {
+    path:'delete-services', component:
+    DeleteServicesComponent
   },
 
 ]

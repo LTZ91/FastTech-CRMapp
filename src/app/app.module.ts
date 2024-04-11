@@ -34,6 +34,10 @@ import { CreatePriceComponent } from './pages/prices/create-price/create-price.c
 import { ListPriceComponent } from './pages/prices/list-price/list-price.component';
 import { DeletePriceComponent } from './pages/prices/delete-price/delete-price.component';
 import {PriceEffects} from "../store/effects/price.effects";
+import { CreateServicesComponent } from './pages/services-provided/create-services/create-services.component';
+import { ListServicesComponent } from './pages/services-provided/list-services/list-services.component';
+import { DeleteServicesComponent } from './pages/services-provided/delete-services/delete-services.component';
+import {ServicesProvidedEffects} from "../store/effects/services-provided.effects";
 
 @NgModule({
   declarations: [
@@ -55,6 +59,9 @@ import {PriceEffects} from "../store/effects/price.effects";
     CreatePriceComponent,
     ListPriceComponent,
     DeletePriceComponent,
+    CreateServicesComponent,
+    ListServicesComponent,
+    DeleteServicesComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,7 @@ import {PriceEffects} from "../store/effects/price.effects";
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects]),
+    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects, ServicesProvidedEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,
