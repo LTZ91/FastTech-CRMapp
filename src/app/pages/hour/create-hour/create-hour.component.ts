@@ -6,12 +6,13 @@ import {Client} from "../../../models/client";
 import {Country} from "../../../models/country";
 import {Language} from "../../../models/language";
 import {Person} from "../../../models/person";
-import {hideDialog} from "../../../../store/actions/user.actions";
+import {hideDialog} from "../../../../store/actions/hour.actions";
 import {HourService} from "../../../services/hour.service";
 import {HourState} from "../../../../store/reducers/hour.reducers";
 import {selectHourIsOpen} from "../../../../store/selectors/hour.selectors";
 import {Hour} from "../../../models/hour";
 import {addHour, editHour} from "../../../../store/actions/hour.actions";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-hour',
@@ -24,6 +25,7 @@ export class CreateHourComponent implements OnInit{
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <HourState>,
+    private modalRef: MatDialogRef<any>
   ) {}
 
   hour !: Hour;
@@ -59,7 +61,7 @@ export class CreateHourComponent implements OnInit{
       this.store.dispatch(addHour({payload: this.formHour.value}));
       this.hourService.showMessageSuccess('Horário Adicionado com Sucesso')
     }
-    // this.modalRef.close("true")
+    this.modalRef.close("true")
 
   }
   cancel() {

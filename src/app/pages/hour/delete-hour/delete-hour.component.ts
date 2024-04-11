@@ -2,12 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {addClient, deleteClient} from "../../../../store/actions/client.actions";
-import {hideDialog} from "../../../../store/actions/user.actions";
+import {hideDialog} from "../../../../store/actions/hour.actions";
 import {HourService} from "../../../services/hour.service";
 import {HourState} from "../../../../store/reducers/hour.reducers";
 import {Hour} from "../../../models/hour";
-import {deleteHour} from "../../../../store/actions/hour.actions";
+import {addHour, deleteHour} from "../../../../store/actions/hour.actions";
 
 @Component({
   selector: 'app-delete-hour',
@@ -37,7 +36,7 @@ export class DeleteHourComponent implements OnInit{
       this.hourService.showMessageSuccess('Apagado com Sucesso')
     }
     else {
-      this.store.dispatch(addClient({payload: this.hour}))
+      this.store.dispatch(addHour({payload: this.hour}))
       this.hourService.showMessageFail('Hora adicionada com Sucesso')
     }
 
@@ -45,7 +44,7 @@ export class DeleteHourComponent implements OnInit{
 
   cancel() {
     this.store.dispatch(hideDialog())
-    this.router.navigate(['/list-client']);
+    this.router.navigate(['/list-hour']);
   }
 
 }

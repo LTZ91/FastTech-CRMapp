@@ -16,15 +16,11 @@
         </option>
       </select>
     </div>
-    <!--    <div class="col-12">-->
-    <!--      <button type="submit" class="btn btn-primary" (click)="createUser()">Create</button>-->
-    <!--    </div>-->
     <div class="col-12">
       <button type="submit"  [disabled]="formPrice.invalid" class="btn btn-primary botao" (click)="createPrice()">
         <span *ngIf="!price">create</span>
         <span *ngIf="price">update</span>
       </button>
-      <!--    <button type="submit" class="btn btn-primary" (click)="editUser()">Salvar</button>-->
       <button  type="submit" class="btn btn-danger botao" (click)="cancel()">cancel</button>
     </div>
   </form>

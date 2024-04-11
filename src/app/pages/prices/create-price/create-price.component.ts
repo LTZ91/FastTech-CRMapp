@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {select, Store} from "@ngrx/store";
 import {MatDialogRef} from "@angular/material/dialog";
-import { hideDialog} from "../../../../store/actions/user.actions";
+import { hideDialog} from "../../../../store/actions/price.actions";
 import {PriceService} from "../../../services/price.service";
 import {PriceState} from "../../../../store/reducers/price.reducers";
 import {Price} from "../../../models/price";

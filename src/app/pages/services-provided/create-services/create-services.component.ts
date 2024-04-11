@@ -1,26 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {ClientService} from "../../../services/client.service";
-import {CountryService} from "../../../services/country.service";
-import {PersonService} from "../../../services/person.service";
-import {LanguageService} from "../../../services/language.service";
 import {Router} from "@angular/router";
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {select, Store} from "@ngrx/store";
-import {ClientState} from "../../../../store/reducers/client.reducers";
-import {Client} from "../../../models/client";
-import {Country} from "../../../models/country";
-import {Language} from "../../../models/language";
-import {Person} from "../../../models/person";
-import {selectClientIsOpen} from "../../../../store/selectors/client.selectors";
-import {addClient, editClient} from "../../../../store/actions/client.actions";
-import {hideDialog} from "../../../../store/actions/user.actions";
+import {hideDialog} from "../../../../store/actions/services-provided.actions";
 import {ServicesProvidedService} from "../../../services/services-provided.service";
 import {PriceService} from "../../../services/price.service";
-import {HourService} from "../../../services/hour.service";
 import {ServiceState} from "../../../../store/reducers/services-provided.reducers";
 import {ServicesProvided} from "../../../models/services-provided";
 import {Price} from "../../../models/price";
-import {Hour} from "../../../models/hour";
 import {selectServiceIsOpen} from "../../../../store/selectors/services-provided.selectors";
 import {addService, editService} from "../../../../store/actions/services-provided.actions";
 

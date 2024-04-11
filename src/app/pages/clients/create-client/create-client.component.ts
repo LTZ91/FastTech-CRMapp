@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {select, Store} from "@ngrx/store";
-import { hideDialog} from "../../../../store/actions/user.actions";
+import { hideDialog} from "../../../../store/actions/client.actions";
 import {ClientService} from "../../../services/client.service";
 import {Client} from "../../../models/client";
 import {ClientState} from "../../../../store/reducers/client.reducers";

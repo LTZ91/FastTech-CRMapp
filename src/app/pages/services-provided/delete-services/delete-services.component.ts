@@ -48,6 +48,6 @@ export class DeleteServicesComponent implements OnInit{
 
   cancel() {
     this.store.dispatch(hideDialog())
-    this.router.navigate(['/list-service']);
+    this.router.navigate(['/list-services']);
   }
 }
