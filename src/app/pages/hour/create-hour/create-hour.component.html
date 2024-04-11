@@ -10,8 +10,8 @@
     </div>
     <div>
       <button type="submit"  [disabled]="formHour.invalid" class="btn btn-primary " (click)="onCreate()">
-        <span *ngIf="!hour" >Add</span>
-        <span *ngIf="hour" >Update</span>
+        <span *ngIf="!hour" >add</span>
+        <span *ngIf="hour" >update</span>
       </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
     </div>
   </form>

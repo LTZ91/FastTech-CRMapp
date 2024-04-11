@@ -6,7 +6,6 @@ export const CREATE_SERVICES = 'service'
 export const serviceState = createFeatureSelector<ServiceState>(CREATE_SERVICES);
 export const selectAllServices  = createSelector(
   serviceState,
-  // state => state.userListAll
   listAll
 )
 

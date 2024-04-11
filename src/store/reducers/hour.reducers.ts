@@ -1,5 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {hideDialog, showDialog} from "../actions/client.actions";
+import {hideDialog, showDialog} from "../actions/hour.actions";
 import {Hour} from "../../app/models/hour";
 import {
   addHour,

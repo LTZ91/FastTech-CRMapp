@@ -6,7 +6,7 @@ export const CREATE_CLIENT = 'client'
 export const clientState = createFeatureSelector<ClientState>(CREATE_CLIENT);
 export const selectAllClients  = createSelector(
   clientState,
-  // state => state.userListAll
+  // state => state.
   listAll
 )
 

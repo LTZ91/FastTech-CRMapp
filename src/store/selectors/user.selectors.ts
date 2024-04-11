@@ -5,7 +5,6 @@ export const CREATE_USER = 'user'
 export const userState = createFeatureSelector<IUserState>(CREATE_USER);
 export const selectAllUsers  = createSelector(
   userState,
-  // state => state.userListAll
     listAll
 )
 

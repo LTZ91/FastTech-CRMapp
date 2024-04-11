@@ -46,8 +46,8 @@
     </div>
     <div>
       <button type="submit"  [disabled]="formClient.invalid" class="btn btn-primary " (click)="onCreate()">
-        <span *ngIf="!client" >Criar</span>
-        <span *ngIf="client" >Actualizar</span>
+        <span *ngIf="!client" >add</span>
+        <span *ngIf="client" >update</span>
       </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
     </div>
   </form>
