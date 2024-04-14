@@ -16,7 +16,7 @@
         </option>
       </select>
     </div>
-    <div formArrayName="conditions" class="col-md-6">
+    <div formArrayName="conditions" class="col-md-12">
       <div *ngFor="let conditions of conditionsGroup.controls; let i=index">
         <div [class.form-array-item-1]="i === 0" [class.form-array-item-2]="i === 1">
           <label  class="form-label">Conditions</label>

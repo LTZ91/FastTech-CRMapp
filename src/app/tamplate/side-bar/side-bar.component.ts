@@ -20,6 +20,7 @@ export class SideBarComponent implements OnInit{
   private dialogRef!: MatDialogRef<any>;
 
   ngOnInit(): void {
+
   }
   onLogout() {
     console.log('teste')
@@ -28,5 +29,6 @@ export class SideBarComponent implements OnInit{
     localStorage.removeItem('email')
     this.router.navigate(['/login'])
   }
+
 
 }

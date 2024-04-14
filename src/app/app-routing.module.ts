@@ -19,6 +19,9 @@ import {DeletePriceComponent} from "./pages/prices/delete-price/delete-price.com
 import {CreateServicesComponent} from "./pages/services-provided/create-services/create-services.component";
 import {ListServicesComponent} from "./pages/services-provided/list-services/list-services.component";
 import {DeleteServicesComponent} from "./pages/services-provided/delete-services/delete-services.component";
+import {ListContractStatusComponent} from "./pages/contract-status/list-contract-status/list-contract-status.component";
+import {CreateContractComponent} from "./pages/contract/create-contract/create-contract.component";
+import {ListContractsComponent} from "./pages/contract/list-contracts/list-contracts.component";
 
 export const routes: Routes = [
   {
@@ -96,6 +99,18 @@ export const routes: Routes = [
   {
     path:'delete-services', component:
     DeleteServicesComponent
+  },
+  {
+    path:'list-contract-status', component:
+    ListContractStatusComponent
+  },
+  {
+    path:'create-contract', component:
+    CreateContractComponent
+  },
+  {
+    path:'list-contract', component:
+    ListContractsComponent
   },
 
 ]

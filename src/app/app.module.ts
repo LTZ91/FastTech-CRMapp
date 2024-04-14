@@ -38,6 +38,12 @@ import { CreateServicesComponent } from './pages/services-provided/create-servic
 import { ListServicesComponent } from './pages/services-provided/list-services/list-services.component';
 import { DeleteServicesComponent } from './pages/services-provided/delete-services/delete-services.component';
 import {ServicesProvidedEffects} from "../store/effects/services-provided.effects";
+import { CreateContractComponent } from './pages/contract/create-contract/create-contract.component';
+import { ListContractsComponent } from './pages/contract/list-contracts/list-contracts.component';
+import { DeleteContractComponent } from './pages/contract/delete-contract/delete-contract.component';
+import { CreateContractStatusComponent } from './pages/contract-status/create-contract-status/create-contract-status.component';
+import { ListContractStatusComponent } from './pages/contract-status/list-contract-status/list-contract-status.component';
+import {ContractStatusEffects} from "../store/effects/contract-status.effects";
 
 @NgModule({
   declarations: [
@@ -62,6 +68,11 @@ import {ServicesProvidedEffects} from "../store/effects/services-provided.effect
     CreateServicesComponent,
     ListServicesComponent,
     DeleteServicesComponent,
+    CreateContractComponent,
+    ListContractsComponent,
+    DeleteContractComponent,
+    CreateContractStatusComponent,
+    ListContractStatusComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +80,8 @@ import {ServicesProvidedEffects} from "../store/effects/services-provided.effect
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects, ServicesProvidedEffects]),
+    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
+      ServicesProvidedEffects, ContractStatusEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,
