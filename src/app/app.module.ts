@@ -44,6 +44,16 @@ import { DeleteContractComponent } from './pages/contract/delete-contract/delete
 import { CreateContractStatusComponent } from './pages/contract-status/create-contract-status/create-contract-status.component';
 import { ListContractStatusComponent } from './pages/contract-status/list-contract-status/list-contract-status.component';
 import {ContractStatusEffects} from "../store/effects/contract-status.effects";
+import {ContractEffects} from "../store/effects/contract.effects";
+import {
+  MatCell,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow,
+  MatRow,
+  MatTable
+} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -81,13 +91,20 @@ import {ContractStatusEffects} from "../store/effects/contract-status.effects";
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
-      ServicesProvidedEffects, ContractStatusEffects]),
+      ServicesProvidedEffects, ContractStatusEffects, ContractEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,
     MatInput,
     NgbTooltip,
     MatIconButton,
+    MatHeaderCell,
+    MatColumnDef,
+    MatCell,
+    MatHeaderCellDef,
+    MatHeaderRow,
+    MatRow,
+    MatTable,
 
 
   ],

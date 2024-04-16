@@ -5,8 +5,5 @@ export interface ServicesProvided {
   price: number,
   hourId: number,
   hour: number,
-  // conditions: [
-  //   string
-  // ]
   conditions: string[]
 }

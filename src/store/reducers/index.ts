@@ -5,6 +5,7 @@ import {hourReducers, HourState} from "./hour.reducers";
 import {priceReducers, PriceState} from "./price.reducers";
 import {serviceReducers, ServiceState} from "./services-provided.reducers";
 import {contractStatusReducers, ContractStatusState} from "./contract-status.reducers";
+import {contractReducers, ContractState} from "./contract.reducers";
 
 export interface IAppState{
     user: IUserState
@@ -13,6 +14,7 @@ export interface IAppState{
     price: PriceState
     service: ServiceState
     contractStatus: ContractStatusState
+    contract: ContractState
 }
 
 export const reducers: ActionReducerMap<IAppState> = {
@@ -21,5 +23,6 @@ export const reducers: ActionReducerMap<IAppState> = {
     hour: hourReducers,
     price: priceReducers,
     service: serviceReducers,
-  contractStatus: contractStatusReducers
+    contractStatus: contractStatusReducers,
+    contract: contractReducers
 }

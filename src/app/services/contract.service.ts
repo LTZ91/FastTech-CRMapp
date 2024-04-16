@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Client} from "../models/client";
 import {API_URL} from "../../environments/environment";
+import {Contract} from "../models/contract";
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,12 @@ export class ContractService {
   constructor(private httpClient:HttpClient,
                private snackBar: MatSnackBar) { }
 
-  createClient(client: Client){
+  createContract(contract: Contract){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Client>(`${API_URL}/Customers`, client, option)
+    return this.httpClient.post<Contract>(`${API_URL}/Contracts`, contract, option)
   }
 
   readAll(){
@@ -25,33 +25,33 @@ export class ContractService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Client[]>(`${API_URL}/Customers`, option)
+    return this.httpClient.get<Contract[]>(`${API_URL}/Contracts`, option)
   }
-  edit(client: Client){
+  edit(contract: Contract){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Client>(`${API_URL}/Customers/${client.id}`,client, option)
+    return this.httpClient.put<Contract>(`${API_URL}/Contracts/${contract.id}`,contract, option)
   }
 
 
 
-  getClientById(id: number){
-    const option = {headers: new HttpHeaders({
-        'Authorization':`Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
-      })}
-
-    return this.httpClient.get<Client>(`${API_URL}/Customers/:id`, option);
-  }
-  delete(client: Client){
+  getContractById(id: number){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Client>(`${API_URL}/Customers/${client.id}`, option)
+    return this.httpClient.get<Contract>(`${API_URL}/Contracts/:id`, option);
+  }
+  delete(contract: Contract){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.delete<Contract>(`${API_URL}/Contracts/${contract.id}`, option)
   }
 
 

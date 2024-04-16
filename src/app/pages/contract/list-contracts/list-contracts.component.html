@@ -1,1 +1,75 @@
-<p>list-contracts works!</p>
+
+<div class="input-group rounded" >
+  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"
+         value="filter" placeholder="Search"
+  />
+  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+
+
+<!--<div class="d-flex justify-content-end align-items-center col-6">-->
+<!--  <div id="datatable_filter" class="dataTables_filter mt-2">-->
+<!--    <label>-->
+<!--      <input-->
+<!--        type="text"-->
+<!--        class="form-control form-control-sm border-2"-->
+<!--        aria-controls="datatable"-->
+<!--        [formControl]="filter"-->
+<!--        (keyup)="search($event)"-->
+<!--        value="filter"-->
+<!--      />-->
+<!--    </label>-->
+<!--    <span class="input-group-text border-0" id="search-addon">-->
+<!--      <i class="fas fa-search"></i></span>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<table class="table" >
+  <thead class="thead-light">
+  <tr>
+    <th scope="row">ID</th>
+    <th scope="row">Client</th>
+    <th scope="row">Service</th>
+    <th scope="row">Price</th>
+    <th scope="row">Hours</th>
+    <th scope="row">Start Date</th>
+    <th scope="row">End Date</th>
+    <th scope="row">Status</th>
+    <th scope="row">Terms</th>
+    <th scope="row">Conditions</th>
+    <th scope="row">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contracts of contract ">
+    <td>{{contracts.id}}</td>
+    <td>{{contracts.customer}}</td>
+    <td>{{contracts.service}}</td>
+    <td>{{contracts.price}}</td>
+    <td>{{contracts.hours}}</td>
+    <td>{{contracts.startDate}}</td>
+    <td>{{contracts.endDate}}</td>
+    <td>{{contracts.contractStatus}}</td>
+    <td>{{contracts.terms}}</td>
+    <td>{{contracts.conditions}}</td>
+    <th><span  type="button" class="material-icons edit"
+               (click)="onEdit(contracts)">
+      edit
+    </span>
+      <span type="button" class="material-icons delete" (click)="onDelete(contracts)">
+        delete
+      </span></th>
+  </tr>
+  </tbody>
+</table>
+
+
+
+<div>
+  <button mat-mini-fab class="add"><span class="material-symbols-outlined" (click)="onSubmit()">add</span></button>
+</div>
+
+

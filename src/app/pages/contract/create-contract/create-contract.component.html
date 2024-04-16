@@ -1,1 +1,64 @@
-<p>create-contract works!</p>
+<div class="card" style="height: 600px; width: 500px">
+  <div class="card-title">
+    <h2 *ngIf="contract">Update Contract</h2>
+    <h2 *ngIf="!contract">Add Contract</h2>
+  </div>
+  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formContract">
+    <div class="col-md-4">
+      <label for="inputClient" class="form-label">Client</label>
+      <select id="inputClient" class="form-select" formControlName="customerId">
+        <option *ngFor="let clients of client" [value]="clients.id">
+          {{clients.commercialName}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="inputService" class="form-label">Service</label>
+      <select id="inputService" class="form-select" formControlName="serviceId">
+        <option *ngFor="let services of service" [value]="services.id">
+          {{services.conditions}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputStatus" class="form-label">Status</label>
+      <select id="inputStatus" class="form-select" formControlName="statusId">
+        <option *ngFor="let statuses of status" [value]="statuses.id">
+          {{statuses.description}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputStartDate" class="form-label">Start Date</label>
+      <input  type="datetime-local" style="width: 100%" class="form-control" id="inputStartDate" formControlName="startDate">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEndDate" class="form-label">End Date</label>
+      <input  type="datetime-local" style="width: 100%" class="form-control" id="inputEndDate" formControlName="endDate">
+    </div>
+    <div formArrayName="conditions" class="col-md-6">
+      <div *ngFor="let conditions of conditionsGroup.controls; let i=index">
+        <div [class.form-array-item-1]="i === 0" [class.form-array-item-2]="i === 1">
+          <label  class="form-label">Conditions</label>
+          <input type="text" class="form-control" placeholder="conditions..."  formControlName="{{i}}">
+        </div>
+      </div>
+
+    </div>
+    <div formArrayName="terms" class="col-md-6">
+      <div *ngFor="let terms of termsGroup.controls; let i=index">
+        <div [class.form-array-item-1]="i === 0" [class.form-array-item-2]="i === 1">
+          <label  class="form-label">Terms</label>
+          <input type="text" class="form-control" placeholder="terms..."  formControlName="{{i}}">
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <button type="submit"  [disabled]="formContract.invalid" class="btn btn-primary " (click)="onCreate()">
+        <span *ngIf="!contract" >add</span>
+        <span *ngIf="contract" >update</span>
+      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,4 +1,5 @@
 export interface Contract {
+  id: number,
   customerId: number,
   customer: string,
   serviceId: number,

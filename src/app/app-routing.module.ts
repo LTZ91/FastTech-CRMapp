@@ -22,6 +22,7 @@ import {DeleteServicesComponent} from "./pages/services-provided/delete-services
 import {ListContractStatusComponent} from "./pages/contract-status/list-contract-status/list-contract-status.component";
 import {CreateContractComponent} from "./pages/contract/create-contract/create-contract.component";
 import {ListContractsComponent} from "./pages/contract/list-contracts/list-contracts.component";
+import {DeleteContractComponent} from "./pages/contract/delete-contract/delete-contract.component";
 
 export const routes: Routes = [
   {
@@ -111,6 +112,10 @@ export const routes: Routes = [
   {
     path:'list-contract', component:
     ListContractsComponent
+  },
+  {
+    path:'delete-contract', component:
+    DeleteContractComponent
   },
 
 ]
