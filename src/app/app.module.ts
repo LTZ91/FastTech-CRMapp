@@ -41,8 +41,6 @@ import {ServicesProvidedEffects} from "../store/effects/services-provided.effect
 import { CreateContractComponent } from './pages/contract/create-contract/create-contract.component';
 import { ListContractsComponent } from './pages/contract/list-contracts/list-contracts.component';
 import { DeleteContractComponent } from './pages/contract/delete-contract/delete-contract.component';
-import { CreateContractStatusComponent } from './pages/contract-status/create-contract-status/create-contract-status.component';
-import { ListContractStatusComponent } from './pages/contract-status/list-contract-status/list-contract-status.component';
 import {ContractStatusEffects} from "../store/effects/contract-status.effects";
 import {ContractEffects} from "../store/effects/contract.effects";
 import {
@@ -54,6 +52,10 @@ import {
   MatRow,
   MatTable
 } from "@angular/material/table";
+import {TechnicianEffects} from "../store/effects/technician.effects";
+import { CreateTechnicianComponent } from './pages/technician/create-technician/create-technician.component';
+import { ListTechnicianComponent } from './pages/technician/list-technician/list-technician.component';
+import { DeleteTechnicianComponent } from './pages/technician/delete-technician/delete-technician.component';
 
 @NgModule({
   declarations: [
@@ -81,8 +83,9 @@ import {
     CreateContractComponent,
     ListContractsComponent,
     DeleteContractComponent,
-    CreateContractStatusComponent,
-    ListContractStatusComponent,
+    CreateTechnicianComponent,
+    ListTechnicianComponent,
+    DeleteTechnicianComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,7 @@ import {
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
-      ServicesProvidedEffects, ContractStatusEffects, ContractEffects]),
+      ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,

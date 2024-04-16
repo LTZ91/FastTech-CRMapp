@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ServicesProvidedService} from "../../../services/services-provided.service";
 import {PriceService} from "../../../services/price.service";
 import {Router} from "@angular/router";
@@ -24,7 +24,7 @@ import {ClientService} from "../../../services/client.service";
   templateUrl: './create-contract.component.html',
   styleUrl: './create-contract.component.scss'
 })
-export class CreateContractComponent {
+export class CreateContractComponent implements OnInit{
   constructor(
     private contractService: ContractService,
     private serviceService: ServicesProvidedService,

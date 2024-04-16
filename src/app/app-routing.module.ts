@@ -19,10 +19,12 @@ import {DeletePriceComponent} from "./pages/prices/delete-price/delete-price.com
 import {CreateServicesComponent} from "./pages/services-provided/create-services/create-services.component";
 import {ListServicesComponent} from "./pages/services-provided/list-services/list-services.component";
 import {DeleteServicesComponent} from "./pages/services-provided/delete-services/delete-services.component";
-import {ListContractStatusComponent} from "./pages/contract-status/list-contract-status/list-contract-status.component";
 import {CreateContractComponent} from "./pages/contract/create-contract/create-contract.component";
 import {ListContractsComponent} from "./pages/contract/list-contracts/list-contracts.component";
 import {DeleteContractComponent} from "./pages/contract/delete-contract/delete-contract.component";
+import {ListTechnicianComponent} from "./pages/technician/list-technician/list-technician.component";
+import {CreateTechnicianComponent} from "./pages/technician/create-technician/create-technician.component";
+import {DeleteTechnicianComponent} from "./pages/technician/delete-technician/delete-technician.component";
 
 export const routes: Routes = [
   {
@@ -102,10 +104,6 @@ export const routes: Routes = [
     DeleteServicesComponent
   },
   {
-    path:'list-contract-status', component:
-    ListContractStatusComponent
-  },
-  {
     path:'create-contract', component:
     CreateContractComponent
   },
@@ -116,6 +114,18 @@ export const routes: Routes = [
   {
     path:'delete-contract', component:
     DeleteContractComponent
+  },
+  {
+    path:'list-technician', component:
+    ListTechnicianComponent
+  },
+  {
+    path:'create-technician', component:
+    CreateTechnicianComponent
+  },
+  {
+    path:'delete-technician', component:
+    DeleteTechnicianComponent
   },
 
 ]

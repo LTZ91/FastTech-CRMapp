@@ -1,0 +1,35 @@
+<div class="card" style="height: 400px; width: 500px">
+  <div class="card-title">
+    <h2 *ngIf="technician">Update Technician</h2>
+    <h2 *ngIf="!technician">Add Technician</h2>
+  </div>
+  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formTechnician">
+    <div class="col-md-6">
+      <label for="inputIdentificationNumber" class="form-label">Identification Number</label>
+      <input  type="text" style="width: 100%" class="form-control" id="inputIdentificationNumber" formControlName="identificationNumber">
+    </div>
+    <div class="col-md-6">
+      <label for="inputTaxNumber" class="form-label">NUIT</label>
+      <input  type="text" style="width: 100%" class="form-control" id="inputTaxNumber" formControlName="taxNumber">
+    </div>
+    <div class="col-md-4">
+      <label for="inputHiringDate" class="form-label">Hiring Date</label>
+      <input  type="date" style="width: 100%" class="form-control" id="inputHiringDate" formControlName="hiringDate">
+    </div>
+    <div class="col-md-4">
+      <label for="inputPosition" class="form-label">Position</label>
+      <select id="inputPosition" class="form-select" formControlName="positionId">
+        <option *ngFor="let positions of position" [value]="positions.id">
+          {{positions.description}}
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit"  [disabled]="formTechnician.invalid" class="btn btn-primary " (click)="onCreate()">
+        <span *ngIf="!technician" >add</span>
+        <span *ngIf="technician" >update</span>
+      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
+    </div>
+  </form>
+</div>
