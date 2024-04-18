@@ -18,7 +18,7 @@ export class UserService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<IUser>(`${API_URL}/User`, user, option)
+    return this.httpClient.post<IUser>(`${API_URL}/Users`, user, option)
   }
 
   readAll(){
@@ -26,14 +26,14 @@ export class UserService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<IUser[]>(`${API_URL}/User`, option)
+    return this.httpClient.get<IUser[]>(`${API_URL}/Users`, option)
   }
   edit(user: IUser){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<IUser>(`${API_URL}/User/${user.id}`,user, option)
+    return this.httpClient.put<IUser>(`${API_URL}/Users/${user.id}`,user, option)
   }
 
 
@@ -52,7 +52,7 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<IUser>(`${API_URL}/User/${user.id}`, option)
+    return this.httpClient.delete<IUser>(`${API_URL}/Users/${user.id}`, option)
   }
 
   resetPassword(reset: ResetPassword){
@@ -61,7 +61,16 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<ResetPassword>(`${API_URL}/User/resetPassword`, reset, option)
+    return this.httpClient.put<ResetPassword>(`${API_URL}/Users/resetPassword`, reset, option)
+  }
+
+  forgetPassword(email: string){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.put<IUser>(`${API_URL}/Users/${email}/resetPassword`, option)
   }
 
 

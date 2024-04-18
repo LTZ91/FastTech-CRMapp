@@ -53,8 +53,10 @@
     <td>{{contracts.startDate}}</td>
     <td>{{contracts.endDate}}</td>
     <td>{{contracts.contractStatus}}</td>
-    <td>{{contracts.terms}}</td>
-    <td>{{contracts.conditions}}</td>
+    <td>{{contracts.terms[0]}}</td>
+    <td>{{contracts.terms[1]}}</td>
+    <td>{{contracts.conditions[0]}}</td>
+    <td>{{contracts.conditions[1]}}</td>
     <th><span  type="button" class="material-icons edit"
                (click)="onEdit(contracts)">
       edit

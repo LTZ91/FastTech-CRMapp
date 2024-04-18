@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from "../../services/login.service";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {hideDialog} from "../../../store/actions/user.actions";
-import {MatDialogRef} from "@angular/material/dialog";
+import { FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserService} from "../../services/user.service";
+
 
 @Component({
   selector: 'app-forget-password',
@@ -12,25 +10,36 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class ForgetPasswordComponent implements OnInit{
 
-  constructor(private loginService: LoginService,
-              private formBuilder: FormBuilder,
-              private router: Router,
-              private modalRef: MatDialogRef<any>)
-  { }
-  formEmail!:FormGroup;
+  constructor(private userService: UserService,
+
+  ) {
+  }
+  forgetPasswordForm!: FormGroup;
 
   ngOnInit(): void {
-    this.formEmail = this.formBuilder.group({
-      email: new FormControl(``,Validators.required),
+
+    this.forgetPasswordForm = new FormGroup({
+      email: new FormControl('lethiciatercia@gmail.com', Validators.required),
+    });
+  }
+
+
+  onSend() {
+    console.log(this.forgetPasswordForm.value)
+    this.userService.forgetPassword(this.forgetPasswordForm.value).subscribe({
+      next: data => {
+        if (data) {
+          this.userService.showMessageSuccess(`Password recovery Successfully`);
+        }
+      },
+      error: err=>{
+        this.userService.showMessageFail(`Invalid`)
+      }
     })
   }
 
   cancel() {
-    this.modalRef.close("true")
-
-  }
-
-  onSubmit() {
+    this.forgetPasswordForm.reset()
 
   }
 }
