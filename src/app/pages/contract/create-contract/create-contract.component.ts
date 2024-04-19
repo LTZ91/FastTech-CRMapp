@@ -61,10 +61,9 @@ export class CreateContractComponent implements OnInit{
         startDate: new FormControl(this.contract.startDate, Validators.required),
         endDate: new FormControl(this.contract.endDate, Validators.required),
         statusId: new FormControl(this.contract.statusId, Validators.required),
-        terms:  new FormArray([new FormControl(this.contract.terms[0], Validators.required),
-          new FormControl(this.contract.terms[1], Validators.required)]),
-        conditions:  new FormArray([new FormControl(this.contract.conditions[0], Validators.required),
-          new FormControl(this.contract.conditions[1], Validators.required)]),
+        terms:  new FormArray([new FormControl(this.contract.terms[5], Validators.required)]),
+        conditions:  new FormArray([new FormControl(this.contract.conditions[5], Validators.required)]),
+
       });
     }else {
       this.formContract = this.formBuilder.group({
@@ -73,10 +72,9 @@ export class CreateContractComponent implements OnInit{
         startDate: new FormControl(``, Validators.required),
         endDate: new FormControl(``, Validators.required),
         statusId: new FormControl(``, Validators.required),
-        terms:  new FormArray([new FormControl(``, Validators.required),
-          new FormControl(``, Validators.required)]),
-        conditions: new FormArray([new FormControl(``, Validators.required),
-          new FormControl(``, Validators.required)]),
+        terms:  new FormArray([new FormControl(``, Validators.required)]),
+        conditions:  new FormArray([new FormControl(``, Validators.required)]),
+
       });
     }
 

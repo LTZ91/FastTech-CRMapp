@@ -25,6 +25,9 @@ import {DeleteContractComponent} from "./pages/contract/delete-contract/delete-c
 import {ListTechnicianComponent} from "./pages/technician/list-technician/list-technician.component";
 import {CreateTechnicianComponent} from "./pages/technician/create-technician/create-technician.component";
 import {DeleteTechnicianComponent} from "./pages/technician/delete-technician/delete-technician.component";
+import {
+  CreateUserTechnicianComponent
+} from "./pages/technician/create-user-technician/create-user-technician.component";
 
 export const routes: Routes = [
   {
@@ -126,6 +129,10 @@ export const routes: Routes = [
   {
     path:'delete-technician', component:
     DeleteTechnicianComponent
+  },
+  {
+    path:'create-user-technician', component:
+    CreateUserTechnicianComponent
   },
 
 ]

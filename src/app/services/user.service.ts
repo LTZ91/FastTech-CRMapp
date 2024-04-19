@@ -64,13 +64,22 @@ export class UserService {
     return this.httpClient.put<ResetPassword>(`${API_URL}/Users/resetPassword`, reset, option)
   }
 
-  forgetPassword(email: string){
+  forgetPassword(email: IUser){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<IUser>(`${API_URL}/Users/${email}/resetPassword`, option)
+    return this.httpClient.put<IUser>(`${API_URL}/Users/${email.email}/resetPassword`,email, option)
+  }
+
+  userTechnician(user: IUser){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.put<IUser>(`${API_URL}/Users/${user.id}/technician`,user, option)
   }
 
 

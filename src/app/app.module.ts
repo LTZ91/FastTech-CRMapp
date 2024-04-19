@@ -56,6 +56,7 @@ import {TechnicianEffects} from "../store/effects/technician.effects";
 import { CreateTechnicianComponent } from './pages/technician/create-technician/create-technician.component';
 import { ListTechnicianComponent } from './pages/technician/list-technician/list-technician.component';
 import { DeleteTechnicianComponent } from './pages/technician/delete-technician/delete-technician.component';
+import { CreateUserTechnicianComponent } from './pages/technician/create-user-technician/create-user-technician.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { DeleteTechnicianComponent } from './pages/technician/delete-technician/
     CreateTechnicianComponent,
     ListTechnicianComponent,
     DeleteTechnicianComponent,
+    CreateUserTechnicianComponent,
   ],
   imports: [
     BrowserModule,

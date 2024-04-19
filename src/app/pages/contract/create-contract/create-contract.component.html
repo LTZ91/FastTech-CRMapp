@@ -16,7 +16,7 @@
       <label for="inputService" class="form-label">Service</label>
       <select id="inputService" class="form-select" formControlName="serviceId">
         <option *ngFor="let services of service" [value]="services.id">
-          {{services.conditions}}
+          {{services.description}}
         </option>
       </select>
     </div>
@@ -38,18 +38,18 @@
     </div>
     <div formArrayName="conditions" class="col-md-6">
       <div *ngFor="let conditions of conditionsGroup.controls; let i=index">
-        <div [class.form-array-item-1]="i === 0" [class.form-array-item-2]="i === 1">
+        <div>
           <label  class="form-label">Conditions</label>
-          <input type="text" class="form-control" placeholder="conditions..."  formControlName="{{i}}">
+          <textarea type="text" class="form-control" placeholder="conditions..."  formControlName="{{i}}"></textarea>
         </div>
       </div>
 
     </div>
     <div formArrayName="terms" class="col-md-6">
       <div *ngFor="let terms of termsGroup.controls; let i=index">
-        <div [class.form-array-item-1]="i === 0" [class.form-array-item-2]="i === 1">
+        <div>
           <label  class="form-label">Terms</label>
-          <input type="text" class="form-control" placeholder="terms..."  formControlName="{{i}}">
+          <textarea type="text" class="form-control" placeholder="terms..."  formControlName="{{i}}"></textarea>
         </div>
       </div>
 

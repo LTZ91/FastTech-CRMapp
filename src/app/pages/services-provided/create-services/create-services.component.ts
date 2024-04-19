@@ -41,16 +41,16 @@ export class CreateServicesComponent implements  OnInit{
         description: new FormControl(this.service.description, Validators.required),
         priceId: new FormControl(this.service.price, Validators.required),
         // hourId: new FormControl(this.service.hour, Validators.required),
-        conditions:  new FormArray([new FormControl(this.service.conditions[0], Validators.required),
-          new FormControl(this.service.conditions[1], Validators.required)]),
+        conditions:  new FormArray([new FormControl(this.service.conditions[5], Validators.required)]),
+
       });
     }else {
       this.formService = this.formBuilder.group({
         description: new FormControl(``, Validators.required),
         priceId: new FormControl(``, Validators.required),
         // hourId: new FormControl(``, Validators.required),
-        conditions: new FormArray([new FormControl(``, Validators.required),
-          new FormControl(``, Validators.required)]),
+        conditions:  new FormArray([new FormControl(``, Validators.required)]),
+
       });
     }
 
