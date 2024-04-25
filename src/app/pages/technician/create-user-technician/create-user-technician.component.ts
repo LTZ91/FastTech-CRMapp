@@ -48,7 +48,7 @@ export class CreateUserTechnicianComponent implements OnInit{
     this.userService.userTechnician(this.formTechnician.value).subscribe({
       next: data => {
         if (data) {
-          this.userService.showMessageSuccess(`Password recovery Successfully`);
+          this.userService.showMessageSuccess(`done`);
         }
       },
       error: err=>{
@@ -58,6 +58,6 @@ export class CreateUserTechnicianComponent implements OnInit{
   }
 
   cancel() {
-
+    this.formTechnician.reset()
   }
 }

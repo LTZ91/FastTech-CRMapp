@@ -53,6 +53,7 @@ export class CreateTechnicianComponent implements OnInit{
       this.formTechnician = this.formBuilder.group({
         id: new FormControl(this.technician.id, Validators.required),
         identificationNumber: new FormControl(this.technician.identificationNumber, Validators.required),
+        fullName: new FormControl(this.technician.fullName, Validators.required),
         taxNumber: new FormControl(this.technician.taxNumber, Validators.required),
         hiringDate: new FormControl(this.technician.hiringDate, Validators.required),
         positionId: new FormControl(this.technician.positionId, Validators.required),
@@ -60,6 +61,7 @@ export class CreateTechnicianComponent implements OnInit{
     }else {
       this.formTechnician = this.formBuilder.group({
         identificationNumber: new FormControl(``, Validators.required),
+        fullName: new FormControl(``, Validators.required),
         taxNumber: new FormControl(``, Validators.required),
         hiringDate: new FormControl(``, Validators.required),
         positionId: new FormControl(``, Validators.required),

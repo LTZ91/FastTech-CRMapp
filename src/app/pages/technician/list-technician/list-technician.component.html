@@ -10,6 +10,7 @@
   <thead class="thead-light">
   <tr>
     <th scope="row">ID</th>
+    <th scope="row">Full Name</th>
     <th scope="row">Identification Number</th>
     <th scope="row">Tax Number </th>
     <th scope="row">Hiring Date</th>
@@ -20,6 +21,7 @@
   <tbody>
   <tr *ngFor="let technicians of technician ">
     <td>{{technicians.id}}</td>
+    <td>{{technicians.fullName}}</td>
     <td>{{technicians.identificationNumber}}</td>
     <td>{{technicians.taxNumber}}</td>
     <td>{{technicians.hiringDate}}</td>

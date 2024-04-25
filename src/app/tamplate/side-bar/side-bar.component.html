@@ -6,7 +6,7 @@
     </div>
     <ul class="sidebar-nav">
       <li>
-        <a href="/home" class="d-flex align-items-center "><span class="material-icons" routerLink="/home" >home</span>Home</a>
+        <a href="/home" class="d-flex align-items-center"><span class="material-icons" routerLink="/home" >home</span>Home</a>
       </li>
       <li>
         <a class="d-flex align-items-center" routerLink="/list-user" ><span class="material-symbols-outlined">group</span>Users</a>
@@ -14,9 +14,9 @@
       <li>
         <a class="d-flex align-items-center" routerLink="/list-client" ><span class="material-symbols-outlined">groups</span>Clients</a>
       </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/change-password"><span class="material-icons">lock_open</span>Change Password</a>
-      </li>
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/change-password"><span class="material-icons">lock_open</span>Change Password</a>-->
+<!--      </li>-->
       <li>
         <a class="d-flex align-items-center" routerLink="/list-hour"><span class="material-symbols-outlined">schedule</span>Hours</a>
       </li>
@@ -27,24 +27,15 @@
         <a class="d-flex align-items-center" routerLink="/list-services"><span class="material-symbols-outlined">business_center</span>Services</a>
       </li>
       <li>
-        <a class="d-flex align-items-center" routerLink="/list-contract"><span class="material-symbols-outlined">contract</span>Contract List</a>
+        <a class="d-flex align-items-center" routerLink="/list-contract"><span class="material-symbols-outlined">contract</span>Contracts</a>
       </li>
       <li>
-        <a class="d-flex align-items-center" routerLink="/list-technician"><span class="material-symbols-outlined">patient_list</span>List Technician</a>
+        <a class="d-flex align-items-center" routerLink="/list-technician"><span class="material-symbols-outlined">patient_list</span>Technicians</a>
       </li>
-<!--      <li>-->
-<!--        <a class="d-flex align-items-center" routerLink="/create-user-technician"><span class="material-symbols-outlined">patient_list</span>User Technician</a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <button class="dropdown-btn">Dropdown-->
-<!--          <i class="fa fa-caret-down"></i>-->
-<!--        </button>-->
-<!--        <div class="dropdown-container">-->
-<!--          <a href="#">Link 1</a>-->
-<!--          <a href="#">Link 2</a>-->
-<!--          <a href="#">Link 3</a>-->
-<!--        </div>-->
-<!--      </li>-->
+      <li>
+        <a class="d-flex align-items-center" routerLink="/create-user-technician"><span class="material-symbols-outlined">patient_list</span>User Technician</a>
+      </li>
+      <li>
     </ul>
      </aside>
 
@@ -55,13 +46,41 @@
           <a href="" class="navbar-brand" id="sidebar-toggle"><span class="material-icons">menu</span></a>
         </div>
         <div class="d-flex">
-          <div>
-            <button mat-mini-fab class="logout" (click)="onLogout()"><span class="material-icons" >logout</span></button>
+          <div class="btn-group">
+            <span class="material-symbols-outlined" style="color: white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">account_circle</span>
+
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+              <div class=" dropdown-header noti-title">
+                <h5 class="text-overflow m-0">Welcome!</h5>
+              </div>
+              <a href="" class="dropdown-item">
+                <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">account_box</span>
+                <span>My profile</span>
+              </a>
+<!--              <a href="" class="dropdown-item">-->
+<!--                <i class="ni ni-settings-gear-65"></i>-->
+<!--                <span>Settings</span>-->
+<!--              </a>-->
+<!--              <a href="" class="dropdown-item">-->
+<!--                <i class="ni ni-calendar-grid-58"></i>-->
+<!--                <span>Activity</span>-->
+<!--              </a>-->
+              <a routerLink="/change-password" class="dropdown-item">
+               <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">lock_reset</span>
+                <span>Change Password</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="" class="dropdown-item" (click)="onLogout()">
+                <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">logout</span>
+                <span>Logout</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   </div>
+
 
   <section id="content-wrapper">
     <div class="row">
@@ -71,3 +90,4 @@
     </div>
   </section>
 </div>
+

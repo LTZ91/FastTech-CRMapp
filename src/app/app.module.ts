@@ -57,6 +57,9 @@ import { CreateTechnicianComponent } from './pages/technician/create-technician/
 import { ListTechnicianComponent } from './pages/technician/list-technician/list-technician.component';
 import { DeleteTechnicianComponent } from './pages/technician/delete-technician/delete-technician.component';
 import { CreateUserTechnicianComponent } from './pages/technician/create-user-technician/create-user-technician.component';
+import { CreateInterventionComponent } from './pages/intervention/create-intervention/create-intervention.component';
+import { ListInterventionComponent } from './pages/intervention/list-intervention/list-intervention.component';
+import { DeleteInterventionComponent } from './pages/intervention/delete-intervention/delete-intervention.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +91,9 @@ import { CreateUserTechnicianComponent } from './pages/technician/create-user-te
     ListTechnicianComponent,
     DeleteTechnicianComponent,
     CreateUserTechnicianComponent,
+    CreateInterventionComponent,
+    ListInterventionComponent,
+    DeleteInterventionComponent,
   ],
   imports: [
     BrowserModule,

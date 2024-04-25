@@ -3,7 +3,7 @@
     <h2>Add Technician</h2>
   </div>
   <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formTechnician">
-    <div class="col-md-12">
+    <div class="col-md-12" style="width: 80%">
       <label for="inputUser" class="form-label">User</label>
       <select id="inputUser" class="form-select" formControlName="id">
         <option *ngFor="let users of user" [value]="users.id">
@@ -11,19 +11,20 @@
         </option>
       </select>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12" style="width: 80%">
       <label for="inputTechnician" class="form-label">Technician</label>
-      <select id="inputTechnician" class="form-select" formControlName="id">
+      <select id="inputTechnician" class="form-select" formControlName="technicianId">
         <option *ngFor="let technicians of technician" [value]="technicians.id">
           {{technicians.identificationNumber}}
         </option>
       </select>
     </div>
     <div>
-      <button type="submit"  [disabled]="formTechnician.invalid" class="btn btn-primary " (click)="onCreate()">
+      <button type="submit" style="margin: 10%"  class="btn btn-primary" (click)="onCreate()">
         <span>add</span>
       </button>
       <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
     </div>
   </form>
 </div>
+

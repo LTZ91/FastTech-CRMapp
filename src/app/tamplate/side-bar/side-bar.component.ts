@@ -12,6 +12,7 @@ import {showDialog} from "../../../store/actions/user.actions";
   styleUrl: './side-bar.component.scss'
 })
 export class SideBarComponent implements OnInit{
+  public focus: any;
 
   constructor(private router: Router,
               public dialog: MatDialog,
@@ -31,4 +32,13 @@ export class SideBarComponent implements OnInit{
   }
 
 
+
+
+
+
+
+
+  onChangePassword() {
+
+  }
 }

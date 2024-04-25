@@ -4,6 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {IUser} from "../models/user";
 import {API_URL} from "../../environments/environment";
 import {ResetPassword} from "../models/reset-password";
+import {Technician} from "../models/technician";
 
 @Injectable({
   providedIn: 'root'

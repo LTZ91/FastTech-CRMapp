@@ -5,6 +5,10 @@
   </div>
   <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formTechnician">
     <div class="col-md-6">
+      <label for="inputFullName" class="form-label">Full Name</label>
+      <input  type="text" style="width: 100%" class="form-control" id="inputFullName" formControlName="fullName">
+    </div>
+    <div class="col-md-6">
       <label for="inputIdentificationNumber" class="form-label">Identification Number</label>
       <input  type="text" style="width: 100%" class="form-control" id="inputIdentificationNumber" formControlName="identificationNumber">
     </div>
