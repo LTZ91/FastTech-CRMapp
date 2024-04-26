@@ -1,0 +1,46 @@
+<div class="input-group rounded" >
+  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"
+         value="filter" placeholder="Search"
+  />
+  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+<table class="table" >
+  <thead class="thead-light">
+  <tr>
+    <th scope="row">ID</th>
+    <th scope="row">Full Name</th>
+    <th scope="row">Position</th>
+    <th scope="row">Client</th>
+    <th scope="row">Phone Number</th>
+    <th scope="row">Email</th>
+    <th scope="row">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let clientContacts of clientContact ">
+    <td>{{clientContacts.id}}</td>
+    <td>{{clientContacts.fullName}}</td>
+    <td>{{clientContacts.position}}</td>
+    <td>{{clientContacts.customerId}}</td>
+    <td>{{clientContacts.phoneNumber}}</td>
+    <td>{{clientContacts.email}}</td>
+    <th><span  type="button" class="material-icons edit"
+               (click)="onEdit(clientContacts)">
+      edit
+    </span>
+      <span type="button" class="material-icons delete" (click)="onDelete(clientContacts)">
+        delete
+      </span></th>
+  </tr>
+  </tbody>
+</table>
+
+
+
+<div>
+  <button mat-mini-fab class="add"><span class="material-symbols-outlined" (click)="onSubmit()">add</span></button>
+</div>
+
+

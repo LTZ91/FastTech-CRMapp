@@ -28,6 +28,13 @@ import {DeleteTechnicianComponent} from "./pages/technician/delete-technician/de
 import {
   CreateUserTechnicianComponent
 } from "./pages/technician/create-user-technician/create-user-technician.component";
+import {
+  CreateClientContactComponent
+} from "./pages/client-contact/create-client-contact/create-client-contact.component";
+import {
+  DeleteClientContactComponent
+} from "./pages/client-contact/delete-client-contact/delete-client-contact.component";
+import {ListContactComponent} from "./pages/client-contact/list-contact/list-contact.component";
 
 export const routes: Routes = [
   {
@@ -133,6 +140,18 @@ export const routes: Routes = [
   {
     path:'create-user-technician', component:
     CreateUserTechnicianComponent
+  },
+  {
+    path:'create-client-contact', component:
+    CreateClientContactComponent
+  },
+  {
+    path:'delete-client-contact', component:
+    DeleteClientContactComponent
+  },
+  {
+    path:'list-contact', component:
+    ListContactComponent
   },
 
 ]

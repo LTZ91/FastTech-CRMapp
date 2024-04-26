@@ -1,0 +1,38 @@
+<div class="card" style="height: 400px; width: 500px">
+  <div class="card-title">
+    <h2 *ngIf="clientContact">Update Client Contact</h2>
+    <h2 *ngIf="!clientContact">New Client Contact</h2>
+  </div>
+  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formClientContact">
+    <div class="col-md-6">
+      <label for="inputFullName" class="form-label">Full Name</label>
+      <input  type="text" style="width: 100%" class="form-control" id="inputFullName" formControlName="fullName">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPosition" class="form-label">Position</label>
+      <input type="text" style="width: 100%" class="form-control" id="inputPosition" formControlName="positionId">
+    </div>
+    <div class="col-md-4">
+      <label for="inputClient" class="form-label">Client</label>
+      <select id="inputClient" class="form-select" formControlName="customerId">
+        <option  *ngFor="let clients of client" [value]="clients.id">
+          {{clients.commercialName}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPhoneNumber" class="form-label">Phone Number</label>
+      <input type="text" style="width: 100%" class="form-control" id="inputPhoneNumber" formControlName="phoneNumber">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="text" style="width: 100%" class="form-control" id="inputEmail" formControlName="email">
+    </div>
+    <div>
+      <button type="submit"  [disabled]="formClientContact.invalid" class="btn btn-primary " (click)="onCreate()">
+        <span *ngIf="!clientContact" >add</span>
+        <span *ngIf="clientContact" >update</span>
+      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
+    </div>
+  </form>
+</div>

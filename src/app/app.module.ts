@@ -60,6 +60,10 @@ import { CreateUserTechnicianComponent } from './pages/technician/create-user-te
 import { CreateInterventionComponent } from './pages/intervention/create-intervention/create-intervention.component';
 import { ListInterventionComponent } from './pages/intervention/list-intervention/list-intervention.component';
 import { DeleteInterventionComponent } from './pages/intervention/delete-intervention/delete-intervention.component';
+import { CreateClientContactComponent } from './pages/client-contact/create-client-contact/create-client-contact.component';
+import { DeleteClientContactComponent } from './pages/client-contact/delete-client-contact/delete-client-contact.component';
+import { ListContactComponent } from './pages/client-contact/list-contact/list-contact.component';
+import {ClientContactEffects} from "../store/effects/client-contact.effects";
 
 @NgModule({
   declarations: [
@@ -94,6 +98,9 @@ import { DeleteInterventionComponent } from './pages/intervention/delete-interve
     CreateInterventionComponent,
     ListInterventionComponent,
     DeleteInterventionComponent,
+    CreateClientContactComponent,
+    DeleteClientContactComponent,
+    ListContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +109,7 @@ import { DeleteInterventionComponent } from './pages/intervention/delete-interve
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
-      ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects]),
+      ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects, ClientContactEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,
