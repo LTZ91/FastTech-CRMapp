@@ -64,6 +64,7 @@ import { CreateClientContactComponent } from './pages/client-contact/create-clie
 import { DeleteClientContactComponent } from './pages/client-contact/delete-client-contact/delete-client-contact.component';
 import { ListContactComponent } from './pages/client-contact/list-contact/list-contact.component';
 import {ClientContactEffects} from "../store/effects/client-contact.effects";
+import {InterventionRequestEffects} from "../store/effects/intervention-request.effects";
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import {ClientContactEffects} from "../store/effects/client-contact.effects";
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
-      ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects, ClientContactEffects]),
+      ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects,
+      ClientContactEffects, InterventionRequestEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,

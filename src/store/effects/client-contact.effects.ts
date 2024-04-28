@@ -25,7 +25,6 @@ export class ClientContactEffects{
       ofType(getAllClientsContacts),
       exhaustMap(() =>
         this.clientContactService.readAll().pipe(
-          // tap(response => console.log('Response from userService.readAll:', response)),
           map((response) => getClientsContactsSuccess({payload: response}),
             catchError((error) => of (getClientsContactsFail ({payload: error})))
           )

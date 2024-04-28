@@ -8,6 +8,7 @@ import {contractStatusReducers, ContractStatusState} from "./contract-status.red
 import {contractReducers, ContractState} from "./contract.reducers";
 import {technicianReducers, TechnicianState} from "./technician.reducers";
 import {clientContactReducers, ClientContactState} from "./client-contact.reducers";
+import {interventionRequestReducers, InterventionRequestState} from "./intervention-request.reducers";
 
 export interface IAppState{
     user: IUserState
@@ -19,6 +20,7 @@ export interface IAppState{
     contract: ContractState
     technician: TechnicianState
     clientContact: ClientContactState
+    interventionRequest: InterventionRequestState
 }
 
 export const reducers: ActionReducerMap<IAppState> = {
@@ -31,4 +33,5 @@ export const reducers: ActionReducerMap<IAppState> = {
     contract: contractReducers,
     technician: technicianReducers,
     clientContact: clientContactReducers,
+    interventionRequest: interventionRequestReducers
 }

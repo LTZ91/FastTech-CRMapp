@@ -1,4 +1,4 @@
 export interface InterventionMode {
-  id: 1,
+  id: number,
   mode: string
 }

@@ -58,7 +58,8 @@
       <button type="submit"  [disabled]="formContract.invalid" class="btn btn-primary " (click)="onCreate()">
         <span *ngIf="!contract" >add</span>
         <span *ngIf="contract" >update</span>
-      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
+      </button>
+      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
     </div>
   </form>
 </div>
