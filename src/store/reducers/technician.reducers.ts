@@ -1,18 +1,15 @@
 import {createReducer, on} from "@ngrx/store";
-import {Client} from "../../app/models/client";
-import {
-  addClient,
-  addClientFail,
-  addClientSuccess, deleteClient, deleteClientFail, deleteClientSuccess, editClient, editClientFail, editClientSuccess,
-  getAllClients,
-  getClientFail,
-  getClientSuccess
-} from "../actions/client.actions";
-import {hideDialog, showDialog} from "../actions/client.actions";
+import {hideDialog, showDialog} from "../actions/technician.actions";
 import {Technician} from "../../app/models/technician";
 import {
-  addTechnician, addTechnicianFail,
-  addTechnicianSuccess, deleteTechnician, deleteTechniciansFail, deleteTechnicianSuccess, editTechnicianFail,
+  addTechnician,
+  addTechnicianFail,
+  addTechnicianSuccess,
+  deleteTechnician,
+  deleteTechniciansFail,
+  deleteTechnicianSuccess,
+  editTechnician,
+  editTechnicianFail, editTechnicianSuccess,
   getAllTechnicians,
   getTechnicianFail,
   getTechnicianSuccess
@@ -61,11 +58,11 @@ export const technicianReducers = createReducer(
   on(addTechnicianFail, (state, {payload}) => {
     return{...state, payload, isSaved: false, isOpen: false}
   }),
-  on(editClient, (state, {payload}) =>{
-    return{...state, client: payload, isOpen: true}
+  on(editTechnician, (state, {payload}) =>{
+    return{...state, technician: payload, isOpen: true}
   }),
-  on(editClientSuccess, (state, {payload}) =>{
-    return{...state, client: payload, isUpdated: true, isOpen: false}
+  on(editTechnicianSuccess, (state, {payload}) =>{
+    return{...state, technician: payload, isUpdated: true, isOpen: false}
   }),
   on(editTechnicianFail, (state, {payload}) =>{
     return{...state, payload, isUpdated: false, isOpen: false}

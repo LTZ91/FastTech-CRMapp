@@ -1,8 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TechnicianService} from "../../../services/technician.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {hideDialog} from "../../../../store/actions/client-contact.actions";
+import {TechnicianState} from "../../../../store/reducers/technician.reducers";
+import {Technician} from "../../../models/technician";
+import {addTechnician, deleteTechnician, hideDialog} from "../../../../store/actions/technician.actions";
 import {ClientContactService} from "../../../services/client-contact.service";
 import {ClientContactState} from "../../../../store/reducers/client-contact.reducers";
 import {ClientContact} from "../../../models/client-contact";
@@ -28,7 +31,7 @@ export class DeleteClientContactComponent implements OnInit{
   }
 
 
-  onDeleteContact(){
+  onDelete(){
 
     if(this.clientContact){
       this.store.dispatch(deleteClientContact({payload: this.clientContact}))
@@ -37,14 +40,13 @@ export class DeleteClientContactComponent implements OnInit{
     }
     else {
       this.store.dispatch(addClientContact({payload: this.clientContact}))
-      this.clientContactService.showMessageFail('Cliente Criado com Sucesso')
+      this.clientContactService.showMessageFail('Contact do Cliente Criado com Sucesso')
     }
 
   }
 
   cancel() {
     this.store.dispatch(hideDialog())
-    this.router.navigate(['/list-contach']);
+    this.router.navigate(['/list-client-contact']);
   }
-
 }

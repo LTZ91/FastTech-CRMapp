@@ -1,14 +1,20 @@
 import {createReducer, on} from "@ngrx/store";
-import {Client} from "../../app/models/client";
+import {hideDialog, showDialog} from "../actions/contract.actions";
+import {Contract} from "../../app/models/contract";
 import {
-  addClient,
-  addClientFail,
-  addClientSuccess, deleteClient, deleteClientFail, deleteClientSuccess, editClient, editClientFail, editClientSuccess,
-  getAllClients,
-  getClientFail,
-  getClientSuccess
-} from "../actions/client.actions";
-import {hideDialog, showDialog} from "../actions/client.actions";
+  addContract,
+  addContractFail,
+  addContractSuccess,
+  deleteContract,
+  deleteContractFail,
+  deleteContractSuccess,
+  editContract,
+  editContractFail,
+  editContractSuccess,
+  getAllContracts,
+  getContractFail,
+  getContractSuccess
+} from "../actions/contract.actions";
 import {InterventionRequest} from "../../app/models/intervention-request";
 import {
   addInterventionRequest,
@@ -20,9 +26,9 @@ import {
   editInterventionRequest,
   editInterventionRequestFail,
   editInterventionRequestSuccess,
-  getAllInterventionRequest,
-  getInterventionRequestFail,
-  getInterventionRequestSuccess
+  getAllInterventionsRequest,
+  getInterventionsRequestFail,
+  getInterventionsRequestSuccess
 } from "../actions/intervention-request.actions";
 
 
@@ -50,13 +56,13 @@ const initialState: InterventionRequestState = {
 
 export const interventionRequestReducers = createReducer(
   initialState,
-  on(getAllInterventionRequest, (state)=>{
+  on(getAllInterventionsRequest, (state)=>{
     return{...state, interventionRequestListAll: null, interventionsRequests: null}
   }),
-  on(getInterventionRequestSuccess, (state, {payload}) => {
+  on(getInterventionsRequestSuccess, (state, {payload}) => {
     return{...state, interventionRequestListAll:payload, interventionsRequests: payload}
   }),
-  on(getInterventionRequestFail, (state, {payload}) => {
+  on(getInterventionsRequestFail, (state, {payload}) => {
     return{...state, payload}
   }),
   on(addInterventionRequest, (state)=>{

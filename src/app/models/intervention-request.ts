@@ -1,7 +1,9 @@
 export interface InterventionRequest {
-  id: string,
+  id: number,
   customerContactId: number,
+  customerContact: string,
   technicianId: number,
+  technician: string,
   dateRequest: string,
   interventionReason: string[]
 }

@@ -12,9 +12,9 @@ import {
   editInterventionRequest,
   editInterventionRequestFail,
   editInterventionRequestSuccess,
-  getAllInterventionRequest,
-  getInterventionRequestFail,
-  getInterventionRequestSuccess
+  getAllInterventionsRequest,
+  getInterventionsRequestFail,
+  getInterventionsRequestSuccess
 } from "../actions/intervention-request.actions";
 
 @Injectable()
@@ -23,24 +23,25 @@ export class InterventionRequestEffects{
 
 
   }
-  getAllInterventionsRequests$ = createEffect(() =>
+  getAllInterventionsRequest$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(getAllInterventionRequest),
+      ofType(getAllInterventionsRequest),
       exhaustMap(() =>
         this.interventionRequestService.readAll().pipe(
-          map((response) => getInterventionRequestSuccess({payload: response}),
-            catchError((error) => of (getInterventionRequestFail ({payload: error})))
+          // tap(response => console.log('Response from userService.readAll:', response)),
+          map((response) => getInterventionsRequestSuccess({payload: response}),
+            catchError((error) => of (getInterventionsRequestFail ({payload: error})))
           )
         )
       )
     ))
 
-  addInterventionRequest = createEffect(() =>
+  addInterventionsRequest = createEffect(() =>
     this.actions$.pipe(
       ofType(addInterventionRequest),
       exhaustMap((action) =>
         this.interventionRequestService.createInterventionRequest(action.payload).pipe(
-          map(intRequest=> addInterventionRequestSuccess({payload: intRequest})),
+          map(request=> addInterventionRequestSuccess({payload: request})),
           catchError((error) => of (addInterventionRequestFail ({payload: error})))
         )
       )
@@ -52,7 +53,7 @@ export class InterventionRequestEffects{
       ofType(editInterventionRequest),
       exhaustMap((action) =>
         this.interventionRequestService.edit(action.payload).pipe(
-          map(intRequest=> editInterventionRequestSuccess({payload: intRequest})),
+          map(request=> editInterventionRequestSuccess({payload: request})),
           catchError((error) => of (editInterventionRequestFail ({payload: error})))
         )
       )
@@ -64,7 +65,7 @@ export class InterventionRequestEffects{
       ofType(deleteInterventionRequest),
       exhaustMap((action) =>
         this.interventionRequestService.delete(action.payload).pipe(
-          map(intRequest=> deleteInterventionRequestSuccess({payload: intRequest})),
+          map(request=> deleteInterventionRequestSuccess({payload: request})),
           catchError((error) => of (deleteInterventionRequestFail ({payload: error})))
         )
       )

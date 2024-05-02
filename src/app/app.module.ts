@@ -60,11 +60,14 @@ import { CreateUserTechnicianComponent } from './pages/technician/create-user-te
 import { CreateInterventionComponent } from './pages/intervention/create-intervention/create-intervention.component';
 import { ListInterventionComponent } from './pages/intervention/list-intervention/list-intervention.component';
 import { DeleteInterventionComponent } from './pages/intervention/delete-intervention/delete-intervention.component';
+import {InterventionReportEffects} from "../store/effects/intervention-report.effects";
+import { CreateInterventionReportComponent } from './pages/intervention-report/create-intervention-report/create-intervention-report.component';
+import { DeleteInterventionReportComponent } from './pages/intervention-report/delete-intervention-report/delete-intervention-report.component';
+import { ListInterventionReportComponent } from './pages/intervention-report/list-intervention-report/list-intervention-report.component';
 import { CreateClientContactComponent } from './pages/client-contact/create-client-contact/create-client-contact.component';
+import { ListClientContactComponent } from './pages/client-contact/list-client-contact/list-client-contact.component';
 import { DeleteClientContactComponent } from './pages/client-contact/delete-client-contact/delete-client-contact.component';
-import { ListContactComponent } from './pages/client-contact/list-contact/list-contact.component';
 import {ClientContactEffects} from "../store/effects/client-contact.effects";
-import {InterventionRequestEffects} from "../store/effects/intervention-request.effects";
 
 @NgModule({
   declarations: [
@@ -99,9 +102,12 @@ import {InterventionRequestEffects} from "../store/effects/intervention-request.
     CreateInterventionComponent,
     ListInterventionComponent,
     DeleteInterventionComponent,
+    CreateInterventionReportComponent,
+    DeleteInterventionReportComponent,
+    ListInterventionReportComponent,
     CreateClientContactComponent,
+    ListClientContactComponent,
     DeleteClientContactComponent,
-    ListContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +117,7 @@ import {InterventionRequestEffects} from "../store/effects/intervention-request.
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
       ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects,
-      ClientContactEffects, InterventionRequestEffects]),
+       InterventionReportEffects, ClientContactEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,

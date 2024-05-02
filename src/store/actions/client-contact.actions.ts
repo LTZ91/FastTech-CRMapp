@@ -1,14 +1,14 @@
 import {createAction, props} from "@ngrx/store";
 import {ClientContact} from "../../app/models/client-contact";
 
-export const getAllClientsContacts = createAction('[CLIENT_CONTACT] Get all Clients Contacts')
+export const getAllClientsContacts = createAction('[CLIENT_CONTACT] Get all Client Contacts')
 export const getClientsContactsSuccess = createAction('[CLIENT_CONTACT] Get all Clients Contacts Success', props<{payload: ClientContact[]}>())
 export const getClientsContactsFail = createAction('[CLIENT_CONTACT] Get all Clients Contacts Fail', props<{payload: any}>())
 
 
 export const addClientContact = createAction('[CLIENT_CONTACT] Add Client Contact', props<{payload: ClientContact}>())
 export const addClientContactSuccess = createAction('[CLIENT_CONTACT] Add Client Contact Success', props<{payload: ClientContact}>() )
-export const addClientContactFail = createAction('[CLIENT_CONTACT] Add Client Contact  Fail', props<{payload: any}>())
+export const addClientContactFail = createAction('[CLIENT_CONTACT] Add Client Contact Fail', props<{payload: any}>())
 
 export const editClientContact = createAction('[CLIENT_CONTACT] Edit Client Contact ', props<{payload: ClientContact}>())
 export const editClientContactSuccess = createAction('[CLIENT_CONTACT] Edit Client Contact Success', props<{payload:ClientContact}>())

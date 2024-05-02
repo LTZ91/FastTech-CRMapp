@@ -29,12 +29,21 @@ import {
   CreateUserTechnicianComponent
 } from "./pages/technician/create-user-technician/create-user-technician.component";
 import {
+  ListInterventionReportComponent
+} from "./pages/intervention-report/list-intervention-report/list-intervention-report.component";
+import {
+  CreateInterventionReportComponent
+} from "./pages/intervention-report/create-intervention-report/create-intervention-report.component";
+import {
+  DeleteInterventionReportComponent
+} from "./pages/intervention-report/delete-intervention-report/delete-intervention-report.component";
+import {ListClientContactComponent} from "./pages/client-contact/list-client-contact/list-client-contact.component";
+import {
   CreateClientContactComponent
 } from "./pages/client-contact/create-client-contact/create-client-contact.component";
 import {
   DeleteClientContactComponent
 } from "./pages/client-contact/delete-client-contact/delete-client-contact.component";
-import {ListContactComponent} from "./pages/client-contact/list-contact/list-contact.component";
 
 export const routes: Routes = [
   {
@@ -138,8 +147,8 @@ export const routes: Routes = [
     DeleteTechnicianComponent
   },
   {
-    path:'create-user-technician', component:
-    CreateUserTechnicianComponent
+    path:'list-client-contact', component:
+    ListClientContactComponent
   },
   {
     path:'create-client-contact', component:
@@ -150,8 +159,20 @@ export const routes: Routes = [
     DeleteClientContactComponent
   },
   {
-    path:'list-contact', component:
-    ListContactComponent
+    path:'create-user-technician', component:
+    CreateUserTechnicianComponent
+  },
+  {
+    path:'list-intervention-report', component:
+    ListInterventionReportComponent
+  },
+  {
+    path:'create-intervention-report', component:
+    CreateInterventionReportComponent
+  },
+  {
+    path:'delete-intervention-report', component:
+    DeleteInterventionReportComponent
   },
 
 ]

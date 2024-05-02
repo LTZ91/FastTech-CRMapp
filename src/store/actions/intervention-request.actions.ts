@@ -1,9 +1,9 @@
 import {createAction, props} from "@ngrx/store";
 import {InterventionRequest} from "../../app/models/intervention-request";
 
-export const getAllInterventionRequest = createAction('[INTERVENTION_REQUEST] Get all Intervention Request')
-export const getInterventionRequestSuccess = createAction('[INTERVENTION_REQUEST] Get all Intervention Request Success', props<{payload: InterventionRequest[]}>())
-export const getInterventionRequestFail = createAction('[INTERVENTION_REQUEST] Get all Intervention Request Fail', props<{payload: any}>())
+export const getAllInterventionsRequest = createAction('[INTERVENTION_REQUEST] Get all Interventions Request')
+export const getInterventionsRequestSuccess = createAction('[INTERVENTION_REQUEST] Get all Interventions Request Success', props<{payload: InterventionRequest[]}>())
+export const getInterventionsRequestFail = createAction('[INTERVENTION_REQUEST] Get all Interventions Request Fail', props<{payload: any}>())
 
 
 export const addInterventionRequest = createAction('[INTERVENTION_REQUEST] Add Intervention Request', props<{payload: InterventionRequest}>())

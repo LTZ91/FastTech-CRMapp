@@ -1,7 +1,7 @@
 
 
 export interface InterventionReport {
-
+  id: number,
   interventionModeId: number,
   interventionMode: string,
   customerContactId: number,

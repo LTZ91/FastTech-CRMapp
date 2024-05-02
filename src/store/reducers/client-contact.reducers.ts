@@ -1,17 +1,19 @@
 import {createReducer, on} from "@ngrx/store";
-import {hideDialog, showDialog} from "../actions/client-contact.actions";
-import {ClientContact} from "../../app/models/client-contact";
 import {
   addClientContact,
   addClientContactFail,
-  addClientContactSuccess, deleteClientContact, deleteClientContactFail, deleteClientContactSuccess,
+  addClientContactSuccess, deleteClientContact, deleteClientContactSuccess,
   editClientContact,
   editClientContactFail,
   editClientContactSuccess,
   getAllClientsContacts,
   getClientsContactsFail,
-  getClientsContactsSuccess
+  getClientsContactsSuccess,
+  hideDialog,
+  showDialog
 } from "../actions/client-contact.actions";
+import {ClientContact} from "../../app/models/client-contact";
+
 
 
 
@@ -23,7 +25,7 @@ export interface ClientContactState{
   isDelete: boolean,
   isOpen: boolean,
   isSaved: boolean,
-  clientsContacts: ClientContact[] | null
+  clientContacts: ClientContact[] | null
 }
 
 const initialState: ClientContactState = {
@@ -33,16 +35,16 @@ const initialState: ClientContactState = {
   isDelete: false,
   isOpen: false,
   isSaved: false,
-  clientsContacts: null
+  clientContacts: null
 }
 
 export const clientContactReducers = createReducer(
   initialState,
   on(getAllClientsContacts, (state)=>{
-    return{...state, clientContactListAll: null, clientsContacts: null}
+    return{...state, clientContactListAll: null, clientContacts: null}
   }),
   on(getClientsContactsSuccess, (state, {payload}) => {
-    return{...state, clientContactListAll:payload, clientsContacts: payload}
+    return{...state, clientContactListAll:payload, clientContacts: payload}
   }),
   on(getClientsContactsFail, (state, {payload}) => {
     return{...state, payload}
@@ -71,7 +73,7 @@ export const clientContactReducers = createReducer(
   on(deleteClientContactSuccess, (state, {payload}) =>{
     return{...state, clientContact: payload, isDelete: true, isOpen: false }
   }),
-  on(deleteClientContactFail, (state, {payload}) =>{
+  on(deleteClientContact, (state, {payload}) =>{
     return{...state,  payload, isDelete: false}
   }),
   on(showDialog, (state) =>{
@@ -82,7 +84,7 @@ export const clientContactReducers = createReducer(
   })
 )
 
-export const listAll = (state : ClientContactState) => state.clientsContacts;
+export const listAll = (state : ClientContactState) => state.clientContacts;
 export const clientContactIsUpdate = (state: ClientContactState) => state.isUpdated;
 export const clientContactIsDelete = (state: ClientContactState) => state.isDelete;
 

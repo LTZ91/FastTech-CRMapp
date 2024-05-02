@@ -10,19 +10,19 @@ import {ClientContactState} from "../../../../store/reducers/client-contact.redu
 import {ClientContact} from "../../../models/client-contact";
 import {
   selectAllClientContactDelete,
-  selectAllClientsContact, selectClientContactIsOpen, selectClientContactIsSaved,
-  selectClientContactsUpdate
+  selectAllClientsContacts, selectClientContactIsOpen, selectClientContactIsSaved,
+  selectClientContactUpdate
 } from "../../../../store/selectors/client-contact.selectors";
 import {getAllClientsContacts} from "../../../../store/actions/client-contact.actions";
 import {CreateClientContactComponent} from "../create-client-contact/create-client-contact.component";
 import {DeleteClientContactComponent} from "../delete-client-contact/delete-client-contact.component";
 
 @Component({
-  selector: 'app-list-contact',
-  templateUrl: './list-contact.component.html',
-  styleUrl: './list-contact.component.scss'
+  selector: 'app-list-client-contact',
+  templateUrl: './list-client-contact.component.html',
+  styleUrl: './list-client-contact.component.scss'
 })
-export class ListContactComponent implements OnInit{
+export class ListClientContactComponent  implements OnInit{
   constructor( private clientContactService: ClientContactService, private router: Router,
                public dialog: MatDialog,
                private store: Store<ClientContactState>) { }
@@ -32,11 +32,11 @@ export class ListContactComponent implements OnInit{
   clientContact!: ClientContact[] | null;
 
   @Output() onSelectedClientContact = new EventEmitter<ClientContact>();
-  selectAllClientsContacts$ = this.store.pipe(select (selectAllClientsContact));
-  selectClientContactUpdate$ = this.store.pipe(select(selectClientContactsUpdate));
-  selectClientContactDelete$ = this.store.pipe(select (selectAllClientContactDelete));
-  selectClientContactIsOpen$ = this.store.pipe(select (selectClientContactIsOpen));
-  selectClientContactIsSaved$ = this.store.pipe(select (selectClientContactIsSaved));
+  selectAllClientContacts$ = this.store.pipe(select (selectAllClientsContacts));
+  // selectClientContactUpdate$ = this.store.pipe(select(selectClientContactUpdate));
+  // selectClientContactDelete$ = this.store.pipe(select (selectAllClientContactDelete));
+  // selectClientContactIsOpen$ = this.store.pipe(select (selectClientContactIsOpen));
+  // selectClientContactIsSaved$ = this.store.pipe(select (selectClientContactIsSaved));
   private dialogRef!: MatDialogRef<any>;
 
   filter = new FormControl('', { nonNullable: true });
@@ -44,42 +44,43 @@ export class ListContactComponent implements OnInit{
   clientContact$!: Observable<ClientContact[] | null>;
 
   ngOnInit(): void {
-    this.selectAllClientsContacts$.subscribe(data =>{
+    this.selectAllClientContacts$.subscribe(data =>{
       if(data){
         this.clientContact = data;
       }
     })
     this.store.dispatch(getAllClientsContacts());
 
-    this.selectClientContactUpdate$.subscribe(data =>{
-      if(data) {
-        this.store.dispatch(getAllClientsContacts())
-      }
-    })
-
-    this.selectClientContactDelete$.subscribe(data =>{
-      if(data) {
-        this.store.dispatch(getAllClientsContacts())
-      }
-    })
-
-    this.selectClientContactIsOpen$.subscribe(data =>{
-      if(!data && this.dialogRef){
-        this.dialogRef.close(data)
-      }
-    })
-    this.selectClientContactIsSaved$.subscribe(data => {
-      if(data){
-        this.store.dispatch(getAllClientsContacts())
-      }
-    })
+    // this.selectClientContactUpdate$.subscribe(data =>{
+    //   if(data) {
+    //     this.store.dispatch(getAllClientsContacts())
+    //   }
+    // })
+    //
+    // this.selectClientContactDelete$.subscribe(data =>{
+    //   if(data) {
+    //     this.store.dispatch(getAllClientsContacts())
+    //   }
+    // })
+    //
+    // this.selectClientContactIsOpen$.subscribe(data =>{
+    //   if(!data && this.dialogRef){
+    //     this.dialogRef.close(data)
+    //   }
+    // })
+    // this.selectClientContactIsSaved$.subscribe(data => {
+    //   if(data){
+    //     this.store.dispatch(getAllClientsContacts())
+    //   }
+    // })
 
   }
 
   getAll(){
     this.clientContactService.readAll().subscribe(value => {
       if (value){
-        this.clientContact= value;
+        console.log(value);
+        // this.clientContactList= value;
       }
     })
   }

@@ -1,39 +1,114 @@
-<div class="card" style="height: 400px; width: 500px">
-  <div class="card-title">
-    <h2 *ngIf="clientContact">Update Client Contact</h2>
-    <h2 *ngIf="!clientContact">New Client Contact</h2>
+<section class="gradient-custom" style="height: 300px">
+  <div>
+    <div class="row justify-content-center align-items-center " style="border-radius: 15px;  height: 500px">
+      <div class="col-12 col-lg-9 col-xl-7" >
+        <div class="card shadow-2-strong card-registration"  style="border-radius: 15px; width: 700px; height: 500px">
+          <div class="card-body p-4 p-md-5" style=" width: 100%;">
+            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 30px; width: 80px; margin-top: -10px; margin-right: 30px">
+
+            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" style="margin-right: 10%" *ngIf="!clientContact">Client Contact</h2>
+            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" *ngIf="clientContact">Client Contact</h2>
+            <form [formGroup]="formClientContact">
+
+              <div class="row" >
+                <div class="col-md-6 mb-4">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="firstName" class="form-control form-control-lg" formControlName="fullName" />
+                    <label class="form-label" for="firstName">Full Name</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="lastName" class="form-control form-control-lg" formControlName="email" />
+                    <label class="form-label" for="lastName">Email</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div data-mdb-input-init class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="birthdayDate" formControlName="position" />
+                    <label for="birthdayDate" class="form-label">Position</label>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" formControlName="phoneNumber" />
+                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                  </div>
+
+                </div>
+<!--                <div class="col-md-6 mb-4">-->
+
+<!--&lt;!&ndash;                  <h6 class="mb-2 pb-1">Gender: </h6>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <div class="form-check form-check-inline">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"&ndash;&gt;-->
+<!--&lt;!&ndash;                           value="option1" checked />&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label class="form-check-label" for="femaleGender">Female</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                  <div class="form-check form-check-inline">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"&ndash;&gt;-->
+<!--&lt;!&ndash;                           value="option2" />&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label class="form-check-label" for="maleGender">Male</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+
+<!--                  <div class="form-check form-check-inline">-->
+<!--                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"-->
+<!--                           value="option3" />-->
+<!--                    <label class="form-check-label" for="otherGender">Other</label>-->
+<!--                  </div>-->
+
+<!--                </div>-->
+              </div>
+
+              <div class="row">
+<!--                <div class="col-md-6 mb-4 pb-2">-->
+
+<!--                  <div data-mdb-input-init class="form-outline">-->
+<!--                    <input type="email" id="emailAddress" class="form-control form-control-lg" />-->
+<!--                    <label class="form-label" for="emailAddress">Email</label>-->
+<!--                  </div>-->
+
+<!--                </div>-->
+
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+
+                  <select class="select form-control-lg" formControlName="customerId">
+                    <option  *ngFor="let clients of client" [value]="clients.id">
+                      {{clients.fiscalName}}
+                    </option>
+                  </select>
+                  <label class="form-label select-label">Client</label>
+
+                </div>
+              </div>
+
+              <div class="mt-4 pt-2">
+                <button class="btn btn-primary" type="submit" (click)="onCreate()">
+                  <span *ngIf="!clientContact">add</span>
+                  <span *ngIf="clientContact">update</span>
+                </button>
+                <button  class="btn btn-danger"  type="submit"  (click)="cancel()">cancel</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formClientContact">
-    <div class="col-md-6">
-      <label for="inputFullName" class="form-label">Full Name</label>
-      <input  type="text" style="width: 100%" class="form-control" id="inputFullName" formControlName="fullName">
-    </div>
-    <div class="col-md-6">
-      <label for="inputPosition" class="form-label">Position</label>
-      <input type="text" style="width: 100%" class="form-control" id="inputPosition" formControlName="positionId">
-    </div>
-    <div class="col-md-4">
-      <label for="inputClient" class="form-label">Client</label>
-      <select id="inputClient" class="form-select" formControlName="customerId">
-        <option  *ngFor="let clients of client" [value]="clients.id">
-          {{clients.commercialName}}
-        </option>
-      </select>
-    </div>
-    <div class="col-md-6">
-      <label for="inputPhoneNumber" class="form-label">Phone Number</label>
-      <input type="text" style="width: 100%" class="form-control" id="inputPhoneNumber" formControlName="phoneNumber">
-    </div>
-    <div class="col-md-6">
-      <label for="inputEmail" class="form-label">Email</label>
-      <input type="text" style="width: 100%" class="form-control" id="inputEmail" formControlName="email">
-    </div>
-    <div>
-      <button type="submit"  [disabled]="formClientContact.invalid" class="btn btn-primary " (click)="onCreate()">
-        <span *ngIf="!clientContact" >add</span>
-        <span *ngIf="clientContact" >update</span>
-      </button>
-      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
-    </div>
-  </form>
-</div>
+</section>

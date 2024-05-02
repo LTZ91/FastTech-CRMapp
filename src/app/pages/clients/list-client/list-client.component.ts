@@ -4,7 +4,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {select, Store} from "@ngrx/store";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
-import { showDialog} from "../../../../store/actions/user.actions";
+import { showDialog} from "../../../../store/actions/client.actions";
 import {ClientService} from "../../../services/client.service";
 import {ClientState} from "../../../../store/reducers/client.reducers";
 import {Client} from "../../../models/client";
@@ -16,6 +16,7 @@ import {
 import {getAllClients} from "../../../../store/actions/client.actions";
 import {CreateClientComponent} from "../create-client/create-client.component";
 import {DeleteClientComponent} from "../delete-client/delete-client.component";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-list-client',
@@ -45,6 +46,7 @@ export class ListClientComponent implements OnInit{
   client$!: Observable<Client[] | null>;
 
   ngOnInit(): void {
+   
     this.selectAllClients$.subscribe(data =>{
       if(data){
         this.client = data;

@@ -2,18 +2,17 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 import { listAll} from "../reducers/client-contact.reducers";
 import {clientContactIsDelete, clientContactIsUpdate, ClientContactState} from "../reducers/client-contact.reducers";
 
-export const CREATE_CLIENT_CONTACT = 'client-contact'
-export const clientContactState = createFeatureSelector<ClientContactState>(CREATE_CLIENT_CONTACT);
-export const selectAllClientsContact  = createSelector(
-  clientContactState,
-  listAll
+export const CLIENT_CONTACT_STATE_NAME = 'client_contact'
+export const clientContactState = createFeatureSelector<ClientContactState>(CLIENT_CONTACT_STATE_NAME);
+export const selectAllClientsContacts  = createSelector(
+  clientContactState,state => state.clientContacts
 )
 
-export const selectClientContactsUpdate = createSelector(
+export const selectClientContactUpdate = createSelector(
   clientContactState,
   clientContactIsUpdate
 )
-export const selectAllClientContactUpdate = createSelector(
+export const selectAllClientsContactsUpdate = createSelector(
   clientContactState,
   state => state.isUpdated
 )

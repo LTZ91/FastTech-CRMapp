@@ -3,18 +3,8 @@ import {ClientService} from "../../../services/client.service";
 import {Router} from "@angular/router";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {select, Store} from "@ngrx/store";
-import {ClientState} from "../../../../store/reducers/client.reducers";
-import {Client} from "../../../models/client";
-import {
-  selectAllClientDelete,
-  selectAllClients, selectClientIsOpen, selectClientIsSaved,
-  selectClientsUpdate
-} from "../../../../store/selectors/client.selectors";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
-import {getAllClients} from "../../../../store/actions/client.actions";
-import {CreateClientComponent} from "../../clients/create-client/create-client.component";
-import {DeleteClientComponent} from "../../clients/delete-client/delete-client.component";
 import {showDialog} from "../../../../store/actions/user.actions";
 import {TechnicianService} from "../../../services/technician.service";
 import {TechnicianState} from "../../../../store/reducers/technician.reducers";

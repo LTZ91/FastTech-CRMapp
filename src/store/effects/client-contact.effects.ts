@@ -1,11 +1,13 @@
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {catchError, exhaustMap, map, of} from "rxjs";
+import {catchError, exhaustMap, map, of, tap} from "rxjs";
 import {Injectable} from "@angular/core";
 import {ClientContactService} from "../../app/services/client-contact.service";
 import {
   addClientContact,
   addClientContactFail,
-  addClientContactSuccess, deleteClientContact, deleteClientContactFail, deleteClientContactSuccess,
+  addClientContactSuccess,
+  deleteClientContact, deleteClientContactFail,
+  deleteClientContactSuccess,
   editClientContact,
   editClientContactFail,
   editClientContactSuccess,
@@ -14,23 +16,30 @@ import {
   getClientsContactsSuccess
 } from "../actions/client-contact.actions";
 
+
 @Injectable()
 export class ClientContactEffects{
   constructor(private clientContactService: ClientContactService, private actions$: Actions) {
 
 
   }
-  getAllClientsContacts$ = createEffect(() =>
+  getAllClientContacts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getAllClientsContacts),
       exhaustMap(() =>
         this.clientContactService.readAll().pipe(
-          map((response) => getClientsContactsSuccess({payload: response}),
-            catchError((error) => of (getClientsContactsFail ({payload: error})))
-          )
+          map((response) => {
+            console.log('Response from server:', response);
+            return getClientsContactsSuccess({payload: response});
+          }),
+          catchError((error) => {
+            console.error('Error while fetching client contacts:', error);
+            return of(getClientsContactsFail({payload: error}));
+          })
         )
       )
-    ))
+    )
+  );
 
   addClientContact = createEffect(() =>
     this.actions$.pipe(
