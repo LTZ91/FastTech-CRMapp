@@ -1,0 +1,41 @@
+import {createFeatureSelector, createSelector} from "@ngrx/store";
+import {
+  interventionRequestIsDelete,
+  interventionRequestIsUpdate,
+  listAll
+} from "../reducers/intervention-request.reducers";
+import {InterventionRequestState} from "../reducers/intervention-request.reducers";
+
+export const INTERVENTION_REQUEST_STATE_NAME = 'intervention-request'
+export const interventionRequestState = createFeatureSelector<InterventionRequestState>(INTERVENTION_REQUEST_STATE_NAME);
+export const selectAllInterventionsRequest  = createSelector(
+  interventionRequestState,
+  listAll
+)
+
+export const selectInterventionsRequestUpdate = createSelector(
+  interventionRequestState,
+  interventionRequestIsUpdate
+)
+export const selectAllInterventionRequestStateUpdate = createSelector(
+  interventionRequestState,
+  state => state.isUpdated
+)
+
+export  const selectInterventionRequestStateDelete = createSelector(
+  interventionRequestState,
+  interventionRequestIsDelete
+)
+export  const selectAllInterventionRequestStateDelete = createSelector(
+  interventionRequestState,
+  state => state.isDelete
+)
+export const selectInterventionRequestIsOpen = createSelector(
+  interventionRequestState,
+  state => state.isOpen
+)
+
+export const selectInterventionRequestIsSaved = createSelector(
+  interventionRequestState,
+  state => state.isSaved
+)

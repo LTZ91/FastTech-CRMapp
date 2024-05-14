@@ -5,7 +5,8 @@ import {clientContactIsDelete, clientContactIsUpdate, ClientContactState} from "
 export const CLIENT_CONTACT_STATE_NAME = 'client_contact'
 export const clientContactState = createFeatureSelector<ClientContactState>(CLIENT_CONTACT_STATE_NAME);
 export const selectAllClientsContacts  = createSelector(
-  clientContactState,state => state.clientContacts
+  clientContactState,
+  listAll
 )
 
 export const selectClientContactUpdate = createSelector(

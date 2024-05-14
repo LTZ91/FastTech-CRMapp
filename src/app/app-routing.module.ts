@@ -44,6 +44,15 @@ import {
 import {
   DeleteClientContactComponent
 } from "./pages/client-contact/delete-client-contact/delete-client-contact.component";
+import {
+  ListInterventionRequestComponent
+} from "./pages/intervention-request/list-intervention-request/list-intervention-request.component";
+import {
+  CreateInterventionRequestComponent
+} from "./pages/intervention-request/create-intervention-request/create-intervention-request.component";
+import {
+  DeleteInterventionRequestComponent
+} from "./pages/intervention-request/delete-intervention-request/delete-intervention-request.component";
 
 export const routes: Routes = [
   {
@@ -173,6 +182,18 @@ export const routes: Routes = [
   {
     path:'delete-intervention-report', component:
     DeleteInterventionReportComponent
+  },
+  {
+    path:'list-intervention-request', component:
+    ListInterventionRequestComponent
+  },
+  {
+    path:'create-intervention-request', component:
+    CreateInterventionRequestComponent
+  },
+  {
+    path:'delete-intervention-request', component:
+    DeleteInterventionRequestComponent
   },
 
 ]

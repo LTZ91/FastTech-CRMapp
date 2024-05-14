@@ -33,10 +33,10 @@ export class ListClientContactComponent  implements OnInit{
 
   @Output() onSelectedClientContact = new EventEmitter<ClientContact>();
   selectAllClientContacts$ = this.store.pipe(select (selectAllClientsContacts));
-  // selectClientContactUpdate$ = this.store.pipe(select(selectClientContactUpdate));
-  // selectClientContactDelete$ = this.store.pipe(select (selectAllClientContactDelete));
-  // selectClientContactIsOpen$ = this.store.pipe(select (selectClientContactIsOpen));
-  // selectClientContactIsSaved$ = this.store.pipe(select (selectClientContactIsSaved));
+  selectClientContactUpdate$ = this.store.pipe(select(selectClientContactUpdate));
+  selectClientContactDelete$ = this.store.pipe(select (selectAllClientContactDelete));
+  selectClientContactIsOpen$ = this.store.pipe(select (selectClientContactIsOpen));
+  selectClientContactIsSaved$ = this.store.pipe(select (selectClientContactIsSaved));
   private dialogRef!: MatDialogRef<any>;
 
   filter = new FormControl('', { nonNullable: true });
@@ -51,28 +51,28 @@ export class ListClientContactComponent  implements OnInit{
     })
     this.store.dispatch(getAllClientsContacts());
 
-    // this.selectClientContactUpdate$.subscribe(data =>{
-    //   if(data) {
-    //     this.store.dispatch(getAllClientsContacts())
-    //   }
-    // })
-    //
-    // this.selectClientContactDelete$.subscribe(data =>{
-    //   if(data) {
-    //     this.store.dispatch(getAllClientsContacts())
-    //   }
-    // })
-    //
-    // this.selectClientContactIsOpen$.subscribe(data =>{
-    //   if(!data && this.dialogRef){
-    //     this.dialogRef.close(data)
-    //   }
-    // })
-    // this.selectClientContactIsSaved$.subscribe(data => {
-    //   if(data){
-    //     this.store.dispatch(getAllClientsContacts())
-    //   }
-    // })
+    this.selectClientContactUpdate$.subscribe(data =>{
+      if(data) {
+        this.store.dispatch(getAllClientsContacts())
+      }
+    })
+
+    this.selectClientContactDelete$.subscribe(data =>{
+      if(data) {
+        this.store.dispatch(getAllClientsContacts())
+      }
+    })
+
+    this.selectClientContactIsOpen$.subscribe(data =>{
+      if(!data && this.dialogRef){
+        this.dialogRef.close(data)
+      }
+    })
+    this.selectClientContactIsSaved$.subscribe(data => {
+      if(data){
+        this.store.dispatch(getAllClientsContacts())
+      }
+    })
 
   }
 

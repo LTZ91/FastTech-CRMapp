@@ -57,9 +57,6 @@ import { CreateTechnicianComponent } from './pages/technician/create-technician/
 import { ListTechnicianComponent } from './pages/technician/list-technician/list-technician.component';
 import { DeleteTechnicianComponent } from './pages/technician/delete-technician/delete-technician.component';
 import { CreateUserTechnicianComponent } from './pages/technician/create-user-technician/create-user-technician.component';
-import { CreateInterventionComponent } from './pages/intervention/create-intervention/create-intervention.component';
-import { ListInterventionComponent } from './pages/intervention/list-intervention/list-intervention.component';
-import { DeleteInterventionComponent } from './pages/intervention/delete-intervention/delete-intervention.component';
 import {InterventionReportEffects} from "../store/effects/intervention-report.effects";
 import { CreateInterventionReportComponent } from './pages/intervention-report/create-intervention-report/create-intervention-report.component';
 import { DeleteInterventionReportComponent } from './pages/intervention-report/delete-intervention-report/delete-intervention-report.component';
@@ -68,6 +65,11 @@ import { CreateClientContactComponent } from './pages/client-contact/create-clie
 import { ListClientContactComponent } from './pages/client-contact/list-client-contact/list-client-contact.component';
 import { DeleteClientContactComponent } from './pages/client-contact/delete-client-contact/delete-client-contact.component';
 import {ClientContactEffects} from "../store/effects/client-contact.effects";
+import {InterventionRequestEffects} from "../store/effects/intervention-request.effects";
+import { CreateInterventionRequestComponent } from './pages/intervention-request/create-intervention-request/create-intervention-request.component';
+import { DeleteInterventionRequestComponent } from './pages/intervention-request/delete-intervention-request/delete-intervention-request.component';
+import { ListInterventionRequestComponent } from './pages/intervention-request/list-intervention-request/list-intervention-request.component';
+import { RolePermissionListComponent } from './pages/admin/role-permission/component/role-permission-list/role-permission-list.component';
 
 @NgModule({
   declarations: [
@@ -99,15 +101,16 @@ import {ClientContactEffects} from "../store/effects/client-contact.effects";
     ListTechnicianComponent,
     DeleteTechnicianComponent,
     CreateUserTechnicianComponent,
-    CreateInterventionComponent,
-    ListInterventionComponent,
-    DeleteInterventionComponent,
     CreateInterventionReportComponent,
     DeleteInterventionReportComponent,
     ListInterventionReportComponent,
     CreateClientContactComponent,
     ListClientContactComponent,
     DeleteClientContactComponent,
+    CreateInterventionRequestComponent,
+    DeleteInterventionRequestComponent,
+    ListInterventionRequestComponent,
+    RolePermissionListComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,7 +120,7 @@ import {ClientContactEffects} from "../store/effects/client-contact.effects";
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
       ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects,
-       InterventionReportEffects, ClientContactEffects]),
+       InterventionReportEffects, ClientContactEffects, InterventionRequestEffects]),
     MatButton,
     MatMiniFabButton,
     MatFormField,
