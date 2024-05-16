@@ -44,6 +44,7 @@ export class ListClientContactComponent  implements OnInit{
   clientContact$!: Observable<ClientContact[] | null>;
 
   ngOnInit(): void {
+    this.getAll();
     this.selectAllClientContacts$.subscribe(data =>{
       if(data){
         this.clientContact = data;
@@ -80,7 +81,7 @@ export class ListClientContactComponent  implements OnInit{
     this.clientContactService.readAll().subscribe(value => {
       if (value){
         console.log(value);
-        // this.clientContactList= value;
+        this.clientContactList= value;
       }
     })
   }

@@ -5,6 +5,9 @@ export const getAllInterventionsRequest = createAction('[INTERVENTION_REQUEST] G
 export const getInterventionsRequestSuccess = createAction('[INTERVENTION_REQUEST] Get all Interventions Request Success', props<{payload: InterventionRequest[]}>())
 export const getInterventionsRequestFail = createAction('[INTERVENTION_REQUEST] Get all Interventions Request Fail', props<{payload: any}>())
 
+export const getInterventionRequestById = createAction('[INTERVENTION_REQUEST] GET Interventions Request BY ID', props<{ payload: number }>());
+export const getInterventionRequestByIdFail = createAction('[INTERVENTION_REQUEST] GET Interventions Request BY ID FAIL', props<{ payload: any }>());
+export const getInterventionRequestByIdSuccess = createAction('[INTERVENTION_REQUEST] GET Interventions Request BY ID SUCCESS', props<{ payload: InterventionRequest }>());
 
 export const addInterventionRequest = createAction('[INTERVENTION_REQUEST] Add Intervention Request', props<{payload: InterventionRequest}>())
 export const addInterventionRequestSuccess = createAction('[INTERVENTION_REQUEST] Add Intervention Request Success', props<{payload: InterventionRequest}>() )

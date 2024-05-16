@@ -55,13 +55,13 @@ export class RolePermissionService {
 
     return this.httpClient.get<Role>(`${API_URL}/Roles/${id}/users`, option);
   }
-  delete(roleId: number){
+  delete(id: RolePermission){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<RolePermission>(`${API_URL}/RolePermissions/${roleId}/Roles`, option)
+    return this.httpClient.delete<RolePermission>(`${API_URL}/RolePermissions/${id.roleId}/Roles`, option)
   }
 
 

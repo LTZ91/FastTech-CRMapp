@@ -2,7 +2,7 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {InterventionReportState, listAll} from "../reducers/intervention-report.reducers";
 import {interventionReportIsDelete, interventionReportIsUpdate} from "../reducers/intervention-report.reducers";
 
-export const INTERVENTION_REPORT_STATE_NAME = 'intervention-report'
+export const INTERVENTION_REPORT_STATE_NAME = 'interventionReport'
 export const interventionReportState = createFeatureSelector<InterventionReportState>(INTERVENTION_REPORT_STATE_NAME);
 export const selectAllInterventionReport  = createSelector(
   interventionReportState,

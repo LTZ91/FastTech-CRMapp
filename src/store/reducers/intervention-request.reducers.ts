@@ -1,20 +1,10 @@
 import {createReducer, on} from "@ngrx/store";
-import {hideDialog, showDialog} from "../actions/contract.actions";
-import {Contract} from "../../app/models/contract";
 import {
-  addContract,
-  addContractFail,
-  addContractSuccess,
-  deleteContract,
-  deleteContractFail,
-  deleteContractSuccess,
-  editContract,
-  editContractFail,
-  editContractSuccess,
-  getAllContracts,
-  getContractFail,
-  getContractSuccess
-} from "../actions/contract.actions";
+  getInterventionRequestById, getInterventionRequestByIdFail,
+  getInterventionRequestByIdSuccess,
+  hideDialog,
+  showDialog
+} from "../actions/intervention-request.actions";
 import {InterventionRequest} from "../../app/models/intervention-request";
 import {
   addInterventionRequest,
@@ -33,10 +23,12 @@ import {
 
 
 
+
 export interface InterventionRequestState{
 
   interventionRequestListAll : InterventionRequest [] |null,
   interventionRequest: InterventionRequest | null,
+  selectedInterventionRequest: InterventionRequest | null,
   isUpdated: boolean,
   isDelete: boolean,
   isOpen: boolean,
@@ -47,6 +39,7 @@ export interface InterventionRequestState{
 const initialState: InterventionRequestState = {
   interventionRequestListAll: null,
   interventionRequest: null,
+  selectedInterventionRequest:  null,
   isUpdated: false,
   isDelete: false,
   isOpen: false,
@@ -64,6 +57,15 @@ export const interventionRequestReducers = createReducer(
   }),
   on(getInterventionsRequestFail, (state, {payload}) => {
     return{...state, payload}
+  }),
+  on(getInterventionRequestById, (state) => {
+    return { ...state, selectedInterventionRequest: null };
+  }),
+  on(getInterventionRequestByIdSuccess, (state, { payload }) => {
+    return { ...state, selectedInterventionRequest: payload };
+  }),
+  on(getInterventionRequestByIdFail, (state, { payload }) => {
+    return { ...state, error: payload };
   }),
   on(addInterventionRequest, (state)=>{
     return{...state, interventionRequest: null, isSaved: false, isOpen: true}

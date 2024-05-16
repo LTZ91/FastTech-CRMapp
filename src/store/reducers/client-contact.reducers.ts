@@ -25,7 +25,7 @@ export interface ClientContactState{
   isDelete: boolean,
   isOpen: boolean,
   isSaved: boolean,
-  clientContacts: ClientContact[] | null
+  clientContacts: ClientContact[]| null
 }
 
 const initialState: ClientContactState = {

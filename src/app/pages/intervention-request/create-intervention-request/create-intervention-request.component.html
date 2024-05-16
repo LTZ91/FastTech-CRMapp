@@ -24,7 +24,7 @@
                 <div class="col-md-6 mb-4">
 
                   <div data-mdb-input-init class="form-outline">
-                    <select class="select form-control-lg" formControlName="customerContactId">
+                    <select class="select form-control-lg" formControlName="technicianId">
                       <option  *ngFor="let technicians of technician" [value]="technicians.id">
                         {{technicians.fullName}}
                       </option>
@@ -39,7 +39,7 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                   <div data-mdb-input-init class="form-outline datepicker w-100">
-                    <input type="date" class="form-control form-control-lg" id="dateRequest" formControlName="dateRequest" />
+                    <input type="datetime-local" class="form-control form-control-lg" id="dateRequest" formControlName="dateRequest" />
                     <label for="dateRequest" class="form-label">Date Request</label>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ import {
 } from "../reducers/intervention-request.reducers";
 import {InterventionRequestState} from "../reducers/intervention-request.reducers";
 
-export const INTERVENTION_REQUEST_STATE_NAME = 'intervention-request'
+export const INTERVENTION_REQUEST_STATE_NAME = 'interventionRequest'
 export const interventionRequestState = createFeatureSelector<InterventionRequestState>(INTERVENTION_REQUEST_STATE_NAME);
 export const selectAllInterventionsRequest  = createSelector(
   interventionRequestState,
@@ -17,16 +17,16 @@ export const selectInterventionsRequestUpdate = createSelector(
   interventionRequestState,
   interventionRequestIsUpdate
 )
-export const selectAllInterventionRequestStateUpdate = createSelector(
+export const selectAllInterventionRequestUpdate = createSelector(
   interventionRequestState,
   state => state.isUpdated
 )
 
-export  const selectInterventionRequestStateDelete = createSelector(
+export  const selectInterventionRequestDelete = createSelector(
   interventionRequestState,
   interventionRequestIsDelete
 )
-export  const selectAllInterventionRequestStateDelete = createSelector(
+export  const selectAllInterventionRequestDelete = createSelector(
   interventionRequestState,
   state => state.isDelete
 )

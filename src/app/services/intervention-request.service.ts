@@ -17,7 +17,8 @@ export class InterventionRequestService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<InterventionRequest>(`${API_URL}/Interventions`, intRequest, option)
+    console.log(intRequest)
+    return this.httpClient.post<InterventionRequest>(`${API_URL}/Interventions/request`, intRequest, option)
   }
 
   readAll(){
@@ -25,7 +26,7 @@ export class InterventionRequestService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionRequest[]>(`${API_URL}/Interventions`, option)
+    return this.httpClient.get<InterventionRequest[]>(`${API_URL}/Interventions/request`, option)
   }
   edit(intRequest: InterventionRequest){
     const option = {headers: new HttpHeaders({
@@ -43,7 +44,16 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/Interventions/:id`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/Interventions/${id}`, option);
+  }
+
+  getInterventionRequestByStatus(status: InterventionRequest){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/Interventions/${status.status}`, option);
   }
   delete(intRequest: InterventionRequest){
     const option = {headers: new HttpHeaders({

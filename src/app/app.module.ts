@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {isDevMode, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -70,6 +70,8 @@ import { CreateInterventionRequestComponent } from './pages/intervention-request
 import { DeleteInterventionRequestComponent } from './pages/intervention-request/delete-intervention-request/delete-intervention-request.component';
 import { ListInterventionRequestComponent } from './pages/intervention-request/list-intervention-request/list-intervention-request.component';
 import { RolePermissionListComponent } from './pages/admin/role-permission/component/role-permission-list/role-permission-list.component';
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {effects} from "../store/effects";
 
 @NgModule({
   declarations: [
@@ -118,9 +120,8 @@ import { RolePermissionListComponent } from './pages/admin/role-permission/compo
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects, ClientEffects, HourEffects, PriceEffects,
-      ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects,
-       InterventionReportEffects, ClientContactEffects, InterventionRequestEffects]),
+    EffectsModule.forRoot(effects),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     MatButton,
     MatMiniFabButton,
     MatFormField,

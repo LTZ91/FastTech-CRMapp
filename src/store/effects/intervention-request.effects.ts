@@ -13,9 +13,13 @@ import {
   editInterventionRequestFail,
   editInterventionRequestSuccess,
   getAllInterventionsRequest,
+  getInterventionRequestById,
+  getInterventionRequestByIdFail,
+  getInterventionRequestByIdSuccess,
   getInterventionsRequestFail,
   getInterventionsRequestSuccess
 } from "../actions/intervention-request.actions";
+
 
 @Injectable()
 export class InterventionRequestEffects{
@@ -36,6 +40,17 @@ export class InterventionRequestEffects{
       )
     ))
 
+  getInterventionRequestById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getInterventionRequestById),
+      exhaustMap((action) =>
+        this.interventionRequestService.getInterventionRequestById(action.payload).pipe(
+          map((response) => getInterventionRequestByIdSuccess({ payload: response })),
+          catchError((error) => of(getInterventionRequestByIdFail({ payload: error })))
+        )
+      )
+    )
+  );
   addInterventionsRequest = createEffect(() =>
     this.actions$.pipe(
       ofType(addInterventionRequest),
