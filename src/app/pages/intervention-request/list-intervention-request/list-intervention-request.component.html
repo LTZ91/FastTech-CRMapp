@@ -42,8 +42,8 @@
   <tbody>
   <tr *ngFor="let request of interventionRequest ">
     <td>{{request.id}}</td>
-    <td>{{request.customerContactId}}</td>
-    <td>{{request.technicianId}}</td>
+    <td>{{request.customerContact}}</td>
+    <td>{{request.technician}}</td>
     <td>{{request.dateRequest}}</td>
     <td>{{request.interventionReason}}</td>
     <td>{{request.statusId}}</td>
@@ -60,8 +60,6 @@
 
 
 
-<div>
-  <button mat-mini-fab class="add"><span class="material-symbols-outlined" (click)="onSubmit()">add</span></button>
-</div>
+
 
 

@@ -1,33 +1,48 @@
 import {createReducer, on} from "@ngrx/store";
-import {hideDialog, showDialog} from "../actions/intervention-report.actions";
-import {InterventionReport} from "../../app/models/intervention-report";
+import {
+  closeInterventionReport,
+  closeInterventionReportFail,
+  closeInterventionReportSuccess,
+  getInterventionReportById,
+  getInterventionReportByIdFail,
+  getInterventionReportByIdSuccess,
+  hideDialog,
+  showDialog
+} from "../actions/intervention-report.actions";
 import {
   addInterventionReport,
   addInterventionReportFail,
   addInterventionReportSuccess, deleteInterventionReport, deleteInterventionReportFail, deleteInterventionReportSuccess,
-  editInterventionReport, editInterventionReportFail,
-  editInterventionReportSuccess,
   getAllInterventionReport,
   getInterventionReportFail,
   getInterventionReportSuccess
 } from "../actions/intervention-report.actions";
+import {InterventionsReport} from "../../app/models/interventions-report";
+import {
+  getInterventionRequestById,
+  getInterventionRequestByIdFail,
+  getInterventionRequestByIdSuccess
+} from "../actions/intervention-request.actions";
+import {InterventionRequest} from "../../app/models/intervention-request";
 
 
 
 export interface InterventionReportState{
 
-  interventionReportListAll : InterventionReport [] |null,
-  interventionReport: InterventionReport | null,
+  interventionReportListAll : InterventionsReport [] |null,
+  interventionReport: InterventionsReport | null,
+  selectedInterventionReport: InterventionsReport | null,
   isUpdated: boolean,
   isDelete: boolean,
   isOpen: boolean,
   isSaved: boolean,
-  interventionsReports: InterventionReport[] | null
+  interventionsReports: InterventionsReport[] | null
 }
 
 const initialState: InterventionReportState = {
   interventionReportListAll: null,
   interventionReport: null,
+  selectedInterventionReport: null,
   isUpdated: false,
   isDelete: false,
   isOpen: false,
@@ -46,6 +61,15 @@ export const interventionReportReducers = createReducer(
   on(getInterventionReportFail, (state, {payload}) => {
     return{...state, payload}
   }),
+  on(getInterventionReportById, (state) => {
+    return { ...state, selectedInterventionReport: null };
+  }),
+  on(getInterventionReportByIdSuccess, (state, { payload }) => {
+    return { ...state, selectedInterventionReport: payload };
+  }),
+  on(getInterventionReportByIdFail, (state, { payload }) => {
+    return { ...state, error: payload };
+  }),
   on(addInterventionReport, (state)=>{
     return{...state, interventionReport: null, isSaved: false, isOpen: true}
   }),
@@ -55,13 +79,13 @@ export const interventionReportReducers = createReducer(
   on(addInterventionReportFail, (state, {payload}) => {
     return{...state, payload, isSaved: false, isOpen: false}
   }),
-  on(editInterventionReport, (state, {payload}) =>{
+  on(closeInterventionReport, (state, {payload}) =>{
     return{...state, interventionReport: payload, isOpen: true}
   }),
-  on(editInterventionReportSuccess, (state, {payload}) =>{
+  on(closeInterventionReportSuccess, (state, {payload}) =>{
     return{...state, interventionReport: payload, isUpdated: true, isOpen: false}
   }),
-  on(editInterventionReportFail, (state, {payload}) =>{
+  on(closeInterventionReportFail, (state, {payload}) =>{
     return{...state, payload, isUpdated: false, isOpen: false}
   }),
   on(deleteInterventionReport, (state, {payload}) =>{

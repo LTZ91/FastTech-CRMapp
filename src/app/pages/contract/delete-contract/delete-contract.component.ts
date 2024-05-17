@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ClientService} from "../../../services/client.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -14,7 +14,7 @@ import {addContract, deleteContract} from "../../../../store/actions/contract.ac
   templateUrl: './delete-contract.component.html',
   styleUrl: './delete-contract.component.scss'
 })
-export class DeleteContractComponent {
+export class DeleteContractComponent implements OnInit{
   constructor(private contractService: ContractService,
               public dialog: MatDialog,
               private router: Router,

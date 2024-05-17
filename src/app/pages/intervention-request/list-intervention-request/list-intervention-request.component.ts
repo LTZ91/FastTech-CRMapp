@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {select, Store} from "@ngrx/store";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
-import { showDialog} from "../../../../store/actions/intervention-request.actions";
+import {getAllInterventionsRequest, showDialog} from "../../../../store/actions/intervention-request.actions";
 import {InterventionRequestService} from "../../../services/intervention-request.service";
 import {InterventionRequestState} from "../../../../store/reducers/intervention-request.reducers";
 import {InterventionRequest} from "../../../models/intervention-request";
@@ -13,16 +13,15 @@ import {
   selectAllInterventionsRequest, selectInterventionRequestIsOpen, selectInterventionRequestIsSaved,
   selectInterventionsRequestUpdate
 } from "../../../../store/selectors/intervention-request.selectors";
-import {getAllInterventionsRequest} from "../../../../store/actions/intervention-request.actions";
 import {CreateInterventionRequestComponent} from "../create-intervention-request/create-intervention-request.component";
 import {DeleteInterventionRequestComponent} from "../delete-intervention-request/delete-intervention-request.component";
-
 @Component({
   selector: 'app-list-intervention-request',
   templateUrl: './list-intervention-request.component.html',
   styleUrl: './list-intervention-request.component.scss'
 })
 export class ListInterventionRequestComponent implements OnInit{
+
   constructor( private interventionRequestService: InterventionRequestService, private router: Router,
                public dialog: MatDialog,
                private store: Store<InterventionRequestState>) { }
@@ -128,4 +127,5 @@ export class ListInterventionRequestComponent implements OnInit{
     this.dialogRef = this.dialog.open(CreateInterventionRequestComponent);
     this.store.dispatch(showDialog())
   }
+
 }

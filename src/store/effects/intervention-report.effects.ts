@@ -5,9 +5,11 @@ import {InterventionReportService} from "../../app/services/intervention-report.
 import {
   addInterventionReport,
   addInterventionReportFail,
-  addInterventionReportSuccess, deleteInterventionReport, deleteInterventionReportFail, deleteInterventionReportSuccess,
-  editInterventionReport, editInterventionReportFail,
-  editInterventionReportSuccess,
+  addInterventionReportSuccess,
+  closeInterventionReport, closeInterventionReportFail, closeInterventionReportSuccess,
+  deleteInterventionReport,
+  deleteInterventionReportFail,
+  deleteInterventionReportSuccess,
   getAllInterventionReport,
   getInterventionReportFail,
   getInterventionReportSuccess
@@ -43,13 +45,13 @@ export class InterventionReportEffects{
     )
   )
 
-  editInterventionReport = createEffect(() =>
+  closeInterventionReport = createEffect(() =>
     this.actions$.pipe(
-      ofType(editInterventionReport),
+      ofType(closeInterventionReport),
       exhaustMap((action) =>
         this.interventionReportService.edit(action.payload).pipe(
-          map(intReport=> editInterventionReportSuccess({payload: intReport})),
-          catchError((error) => of (editInterventionReportFail ({payload: error})))
+          map(intReport=> closeInterventionReportSuccess({payload: intReport})),
+          catchError((error) => of (closeInterventionReportFail ({payload: error})))
         )
       )
     )

@@ -7,7 +7,7 @@
             <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 30px; width: 80px; margin-top: -10px; margin-right: 30px">
 
             <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" style="margin-right: 10%" *ngIf="!interventionRequest">Open Ticket</h2>
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" *ngIf="interventionRequest">Open Ticket</h2>
+            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" *ngIf="interventionRequest">Update Ticket</h2>
             <form [formGroup]="formInterventionRequest">
 
               <div class="row" >
@@ -46,9 +46,13 @@
 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                  <div data-mdb-input-init class="form-outline datepicker w-100">
-                    <input type="text" class="form-control form-control-lg" id="interventionReason" formControlName="interventionReason" />
-                    <label for="interventionReason" class="form-label">Intervention Reason</label>
+                  <div formArrayName="interventionReason" class="col-md-6">
+                    <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i=index">
+                      <div>
+                        <label  class="form-label">Intervention Reason</label>
+                        <textarea type="text" class="form-control" placeholder="interventionReason..."  formControlName="{{i}}"></textarea>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,3 +74,4 @@
     </div>
   </div>
 </section>
+

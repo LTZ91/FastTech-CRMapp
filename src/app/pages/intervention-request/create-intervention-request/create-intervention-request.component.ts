@@ -55,7 +55,7 @@ export class CreateInterventionRequestComponent implements OnInit{
         customerContactId: new FormControl(``, Validators.required),
         technicianId: new FormControl(``, Validators.required),
         dateRequest: new FormControl(``, Validators.required),
-        interventionReason: new FormControl(``, Validators.required),
+        interventionReason:  new FormArray([new FormControl(``, Validators.required)]),
       });
     }
 

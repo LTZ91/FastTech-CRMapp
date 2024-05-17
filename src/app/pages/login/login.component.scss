@@ -1,33 +1,56 @@
-.gradient-custom {
-  /* fallback for old browsers */
-  //background: #7b68ee;
-  //
-  ///* Chrome 10-25, Safari 5.1-6 */
-  //background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(113, 112, 112));
-  //
-  ///* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  //background: linear-gradient(to right, rgb(113, 113, 168), rgb(17, 5, 87))
-  background-color: hsl(0, 6%, 84%)
+//.gradient-custom {
+//  /* fallback for old browsers */
+//  //background: #7b68ee;
+//  //
+//  ///* Chrome 10-25, Safari 5.1-6 */
+//  //background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(113, 112, 112));
+//  //
+//  ///* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//  //background: linear-gradient(to right, rgb(113, 113, 168), rgb(17, 5, 87))
+//  background-color: hsl(0, 6%, 84%)
+//}
+//
+//.cartao{
+//  width: 400px;
+//  height: 500px;
+//
+//}
+//.texto{
+//  width: 400px;
+//  height: 150px;
+//  color: #e88420;
+//}
+//.card{
+//
+//  width: 400px;
+//  height: 500px;
+//  background-color: black;
+//}
+//.text{
+//  color: #e88420;
+//}
+//
+//
+//
+//
+@media (max-width: 768px) {
+  .card {
+    margin-top: 20px;
+  }
+
+  .img {
+    height: auto;
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
-.cartao{
-  width: 400px;
-  height: 500px;
+@media (max-width: 576px) {
+  .form-control-lg {
+    font-size: 1rem;
+  }
 
+  .btn-lg {
+    font-size: 1rem;
+  }
 }
-.texto{
-  width: 400px;
-  height: 150px;
-  color: #e88420;
-}
-.card{
-
-  width: 400px;
-  height: 500px;
-  background-color: black;
-}
-.text{
-  color: #e88420;
-}
-
-

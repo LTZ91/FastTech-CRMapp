@@ -19,3 +19,5 @@ export interface InterventionReport {
   activitiesPerformed: string[],
   pendingActivities: string[]
 }
+
+
