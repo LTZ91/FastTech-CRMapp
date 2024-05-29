@@ -17,7 +17,7 @@ export class InterventionModeService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionMode[]>(`${API_URL}/InterventionMode`, option)
+    return this.httpClient.get<InterventionMode[]>(`${API_URL}/InterventionModes`, option)
   }
 
   getInterventionModeById(id: number){
@@ -26,6 +26,6 @@ export class InterventionModeService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionMode>(`${API_URL}/InterventionMode/${id}`, option);
+    return this.httpClient.get<InterventionMode>(`${API_URL}/InterventionModes/${id}`, option);
   }
 }

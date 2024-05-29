@@ -17,26 +17,20 @@ import {
   getInterventionReportFail,
   getInterventionReportSuccess
 } from "../actions/intervention-report.actions";
-import {InterventionsReport} from "../../app/models/interventions-report";
-import {
-  getInterventionRequestById,
-  getInterventionRequestByIdFail,
-  getInterventionRequestByIdSuccess
-} from "../actions/intervention-request.actions";
-import {InterventionRequest} from "../../app/models/intervention-request";
+import {InterventionReport} from "../../app/models/intervention-report";
 
 
 
 export interface InterventionReportState{
 
-  interventionReportListAll : InterventionsReport [] |null,
-  interventionReport: InterventionsReport | null,
-  selectedInterventionReport: InterventionsReport | null,
+  interventionReportListAll : InterventionReport [] |null,
+  interventionReport: InterventionReport | null,
+  selectedInterventionReport: InterventionReport | null,
   isUpdated: boolean,
   isDelete: boolean,
   isOpen: boolean,
   isSaved: boolean,
-  interventionsReports: InterventionsReport[] | null
+  interventionsReports: InterventionReport[] | null
 }
 
 const initialState: InterventionReportState = {

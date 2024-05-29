@@ -1,101 +1,147 @@
-<div id="wrapper">
+<!--<div id="wrapper">-->
 
-  <aside id="sidebar-wrapper">
-    <div class="sidebar-brand">
-      <img src="../../../assets/fasttech.png" alt="logo" class="logo" style="height: 120px; width: 130px; margin-top: -30px; margin-right: 30px">
-    </div>
-    <ul class="sidebar-nav">
-      <li>
-        <a href="/home" class="d-flex align-items-center"><span class="material-icons" routerLink="/home" >home</span>Home</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-user" ><span class="material-symbols-outlined">group</span>Users</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-client" ><span class="material-symbols-outlined">groups</span>Clients</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-client-contact"><span class="material-icons">lock_open</span>Client Contact</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-hour"><span class="material-symbols-outlined">schedule</span>Hours</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-price"><span class="material-symbols-outlined">attach_money</span>Prices</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-services"><span class="material-symbols-outlined">business_center</span>Services</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-contract"><span class="material-symbols-outlined">contract</span>Contracts</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-technician"><span class="material-symbols-outlined">patient_list</span>Technicians</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/create-user-technician"><span class="material-symbols-outlined">patient_list</span>User Technician</a>
-      </li>
+<!--  <aside id="sidebar-wrapper">-->
+<!--    <div class="sidebar-brand">-->
+<!--      <img src="../../../assets/fasttech.png" alt="logo" class="logo" style="height: 120px; width: 130px; margin-top: -30px; margin-right: 30px">-->
+<!--    </div>-->
+<!--    <ul class="sidebar-nav">-->
 <!--      <li>-->
-<!--        <a class="d-flex align-items-center" routerLink="/create-client-contact"><span class="material-symbols-outlined">confirmation_number</span>Intervention Request</a>-->
+<!--        <a href="/home" class="d-flex align-items-center"><span class="material-icons" routerLink="/home" >home</span>Home</a>-->
 <!--      </li>-->
-      <li>
-        <a class="d-flex align-items-center" routerLink="/list-intervention-request"><span class="material-symbols-outlined">confirmation_number</span>Intervention Request</a>
-      </li>
-      <li>
-        <a class="d-flex align-items-center" routerLink="/create-intervention-request"><span class="material-symbols-outlined">confirmation_number</span>Intervention Request</a>
-      </li>
-    </ul>
-     </aside>
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-user" ><span class="material-symbols-outlined">group</span>Users</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-client" ><span class="material-symbols-outlined">groups</span>Clients</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/list-client-contact"><span class="material-icons">lock_open</span>Client Contact</a>-->
+<!--      </li>-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-hour"><span class="material-symbols-outlined">schedule</span>Hours</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-price"><span class="material-symbols-outlined">attach_money</span>Prices</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-services"><span class="material-symbols-outlined">business_center</span>Services</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-contract"><span class="material-symbols-outlined">contract</span>Contracts</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/list-technician"><span class="material-symbols-outlined">patient_list</span>Technicians</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/create-user-technician"><span class="material-symbols-outlined">patient_list</span>User Technician</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      <li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="d-flex align-items-center" routerLink="/create-client-contact"><span class="material-symbols-outlined">confirmation_number</span>Intervention Request</a>&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/list-intervention-request"><span class="material-symbols-outlined">confirmation_number</span>Intervention Request</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/create-intervention-request"><span class="material-symbols-outlined">confirmation_number</span>Intervention Request</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a class="d-flex align-items-center" routerLink="/list-intervention-report"><span class="material-symbols-outlined">confirmation_number</span>Intervention Report</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--     </aside>-->
 
-  <div id="navbar-wrapper">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="" class="navbar-brand" id="sidebar-toggle"><span class="material-icons">menu</span></a>
-        </div>
-        <div class="d-flex">
-          <div class="btn-group">
-            <span class="material-symbols-outlined" style="color: white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">account_circle</span>
+<!--  <div id="navbar-wrapper">-->
+<!--    <nav class="navbar navbar-inverse">-->
+<!--      <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--          <a href="" class="navbar-brand" id="sidebar-toggle"><span class="material-icons">menu</span></a>-->
+<!--        </div>-->
+<!--        <div class="d-flex">-->
+<!--          <div class="btn-group">-->
+<!--            <span class="material-symbols-outlined" style="color: white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">account_circle</span>-->
 
-            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-              <div class=" dropdown-header noti-title">
-                <h5 class="text-overflow m-0">Welcome!</h5>
-              </div>
-              <a href="" class="dropdown-item">
-                <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">account_box</span>
-                <span>My profile</span>
-              </a>
+<!--            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">-->
+<!--              <div class=" dropdown-header noti-title">-->
+<!--                <h5 class="text-overflow m-0">Welcome!</h5>-->
+<!--              </div>-->
 <!--              <a href="" class="dropdown-item">-->
-<!--                <i class="ni ni-settings-gear-65"></i>-->
-<!--                <span>Settings</span>-->
+<!--                <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">account_box</span>-->
+<!--                <span>My profile</span>-->
 <!--              </a>-->
-<!--              <a href="" class="dropdown-item">-->
-<!--                <i class="ni ni-calendar-grid-58"></i>-->
-<!--                <span>Activity</span>-->
+<!--&lt;!&ndash;              <a href="" class="dropdown-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <i class="ni ni-settings-gear-65"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                <span>Settings</span>&ndash;&gt;-->
+<!--&lt;!&ndash;              </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              <a href="" class="dropdown-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                <i class="ni ni-calendar-grid-58"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                <span>Activity</span>&ndash;&gt;-->
+<!--&lt;!&ndash;              </a>&ndash;&gt;-->
+<!--              <a routerLink="/change-password" class="dropdown-item">-->
+<!--               <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">lock_reset</span>-->
+<!--                <span>Change Password</span>-->
 <!--              </a>-->
-              <a routerLink="/change-password" class="dropdown-item">
-               <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">lock_reset</span>
-                <span>Change Password</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="" class="dropdown-item" (click)="onLogout()">
-                <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">logout</span>
-                <span>Logout</span>
-              </a>
-            </div>
+<!--              <div class="dropdown-divider"></div>-->
+<!--              <a href="" class="dropdown-item" (click)="onLogout()">-->
+<!--                <span class="material-symbols-outlined" style="margin-right: 10px; height: 5px">logout</span>-->
+<!--                <span>Logout</span>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </nav>-->
+<!--  </div>-->
+
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">CRM-FastTech</h1>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing"></span>
+          <mat-icon mat-list-icon>home</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item href="/list-user">Users</a>
+<!--          <a mat-list-item href="...">Submenu 2</a>-->
+          <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent" >
+            <span class="full-width" *ngIf="isExpanded || isShowing">Contracts</span>
+            <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+          </mat-list-item>
+          <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+            <a mat-list-item href="/list-contract">View Contracts</a>
+            <mat-list-item>SubSubmenu Item 2</mat-list-item>
+          </div>
+          <mat-list-item (click)="showSubSubMenu2 = !showSubSubMenu2" class="parent">
+            <span class="full-width" *ngIf="isExpanded || isShowing">Tickets</span>
+            <mat-icon class="menu-button" [ngClass]="{'rotated': showSubSubMenu2}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+          </mat-list-item>
+          <div class="submenu" [ngClass]="{'expanded': showSubSubMenu2}" *ngIf="isShowing || isExpanded">
+            <a mat-list-item href="/list-intervention-request">View Tickets</a>
+            <a mat-list-item href="/list-intervention-report">View Reports</a>
           </div>
         </div>
-      </div>
-    </nav>
-  </div>
+      </mat-nav-list>
+      <mat-nav-list>
+      </mat-nav-list>
+    </mat-sidenav>
 
-
-  <section id="content-wrapper">
-    <div class="row">
-      <div class="col-lg-12">
-        <router-outlet></router-outlet>
-      </div>
+    <div class="example-sidenav-content">
+      <router-outlet></router-outlet>
     </div>
-  </section>
-</div>
+
+<!--    <section id="content-wrapper">-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-12">-->
+<!--          <router-outlet></router-outlet>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+  </mat-sidenav-container>
+
+
+<!--</div>-->
 

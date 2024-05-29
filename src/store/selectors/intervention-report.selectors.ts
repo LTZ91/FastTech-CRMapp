@@ -31,7 +31,7 @@ export const selectInterventionReportIsOpen = createSelector(
   state => state.isOpen
 )
 
-export const selectInterventionReportStateIsSaved = createSelector(
+export const selectInterventionReportIsSaved = createSelector(
   interventionReportState,
   state => state.isSaved
 )

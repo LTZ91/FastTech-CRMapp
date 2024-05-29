@@ -1,1 +1,66 @@
-<p>list-intervention-report works!</p>
+
+<div class="input-group rounded" >
+  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"
+         value="filter" placeholder="Search"
+  />
+  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+
+
+<table class="table" >
+  <thead class="thead-light">
+  <tr>
+    <th scope="row">ID</th>
+    <th scope="row">Intervention Mode</th>
+    <th scope="row">Customer Name</th>
+    <th scope="row">Technician</th>
+    <th scope="row">Date</th>
+    <th scope="row">Start Time</th>
+    <th scope="row">End Time</th>
+    <th scope="row">Break Time</th>
+    <th scope="row">Duration</th>
+    <th scope="row">Discount</th>
+    <th scope="row">Discount Reason</th>
+    <th scope="row">Intervention Reason</th>
+    <th scope="row">Activities Performed</th>
+    <th scope="row">Pending Activities</th>
+    <th scope="row">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let report of interventionReport ">
+    <td>{{report.id}}</td>
+    <td>{{report.interventionMode}}</td>
+    <td>{{report.customerContact}}</td>
+    <td>{{report.technician}}</td>
+    <td>{{report.date}}</td>
+    <td>{{report.startTime}}</td>
+    <td>{{report.endTime}}</td>
+    <td>{{report.breakTime}}</td>
+    <td>{{report.totalDuration}}</td>
+    <td>{{report.discount}}</td>
+    <td>{{report.discountReason}}</td>
+    <td>{{report.interventionReason}}</td>
+    <td>{{report.activitiesPerformed}}</td>
+    <td>{{report.pendingActivities}}</td>
+    <th><span  type="button" class="material-icons edit"
+               (click)="onEdit(report)">
+      edit
+    </span>
+      <span type="button" class="material-icons delete" (click)="onDelete(report)">
+        delete
+      </span></th>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+  <button mat-mini-fab class="add" routerLink="/create-intervention-report"><span class="material-symbols-outlined" >add</span></button>
+</div>
+
+
+
+
+

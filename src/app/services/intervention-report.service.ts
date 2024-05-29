@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
 import {InterventionReport} from "../models/intervention-report";
-import {InterventionsReport} from "../models/interventions-report";
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +12,12 @@ export class InterventionReportService {
   constructor(private httpClient:HttpClient,
               private snackBar: MatSnackBar) { }
 
-  createInterventionReport(intReport: InterventionsReport){
+  createInterventionReport(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<InterventionsReport>(`${API_URL}/Interventions`, intReport, option)
+    return this.httpClient.post<InterventionReport>(`${API_URL}/Interventions`, intReport, option)
   }
 
   readAll(){
@@ -26,14 +25,14 @@ export class InterventionReportService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionsReport[]>(`${API_URL}/Interventions`, option)
+    return this.httpClient.get<InterventionReport[]>(`${API_URL}/Interventions`, option)
   }
-  edit(intReport: InterventionsReport){
+  edit(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<InterventionsReport>(`${API_URL}/Interventions/${intReport.id}`,intReport, option)
+    return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${intReport.id}`,intReport, option)
   }
 
 
@@ -44,23 +43,23 @@ export class InterventionReportService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionsReport>(`${API_URL}/Interventions/:id`, option);
+    return this.httpClient.get<InterventionReport>(`${API_URL}/Interventions/:id`, option);
   }
-  delete(intReport: InterventionsReport){
+  delete(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<InterventionsReport>(`${API_URL}/Interventions/${intReport.id}`, option)
+    return this.httpClient.delete<InterventionReport>(`${API_URL}/Interventions/${intReport.id}`, option)
   }
-  close(intReport: InterventionsReport){
+  close(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<InterventionsReport>(`${API_URL}/Interventions/${intReport.id}/close`, option)
+    return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${intReport.id}/close`, option)
   }
 
 

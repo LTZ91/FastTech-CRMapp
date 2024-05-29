@@ -1,77 +1,177 @@
-<section class="gradient-custom" style="height: 300px">
-  <div>
-    <div class="row justify-content-center align-items-center " style="border-radius: 15px;  height: 500px">
-      <div class="col-12 col-lg-9 col-xl-7" >
-        <div class="card shadow-2-strong card-registration"  style="border-radius: 15px; width: 700px; height: 500px">
-          <div class="card-body p-4 p-md-5" style=" width: 100%;">
-            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 30px; width: 80px; margin-top: -10px; margin-right: 30px">
-
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" style="margin-right: 10%" *ngIf="!interventionRequest">Open Ticket</h2>
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" *ngIf="interventionRequest">Update Ticket</h2>
-            <form [formGroup]="formInterventionRequest">
-
-              <div class="row" >
-                <div class="col-md-6 mb-4">
-
-                  <select class="select form-control-lg" formControlName="customerContactId">
-                    <option  *ngFor="let clients of clientContact" [value]="clients.id">
-                      {{clients.fullName}}
-                    </option>
-                  </select>
-                  <label class="form-label select-label">Client</label>
-                </div>
-
-                <div class="col-md-6 mb-4">
-
-                  <div data-mdb-input-init class="form-outline">
-                    <select class="select form-control-lg" formControlName="technicianId">
-                      <option  *ngFor="let technicians of technician" [value]="technicians.id">
-                        {{technicians.fullName}}
-                      </option>
-                    </select>
-                    <label class="form-label select-label" >Technician</label>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div data-mdb-input-init class="form-outline datepicker w-100">
-                    <input type="datetime-local" class="form-control form-control-lg" id="dateRequest" formControlName="dateRequest" />
-                    <label for="dateRequest" class="form-label">Date Request</label>
-                  </div>
-                </div>
-
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div formArrayName="interventionReason" class="col-md-6">
-                    <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i=index">
-                      <div>
-                        <label  class="form-label">Intervention Reason</label>
-                        <textarea type="text" class="form-control" placeholder="interventionReason..."  formControlName="{{i}}"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="mt-4 pt-2">
-                <button class="btn btn-primary" type="submit" (click)="onCreate()">
-                  <span *ngIf="!interventionRequest">add</span>
-                  <span *ngIf="interventionRequest">update</span>
-                </button>
-                <button  class="btn btn-danger"  type="submit"  (click)="cancel()">cancel</button>
-              </div>
-
-            </form>
+<section class="gradient-custom vh-100 vw-100 d-flex align-items-center justify-content-center">
+  <div class="container-fluid h-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-8 col-xl-6">
+        <div class="d-flex flex-column h-100 justify-content-center">
+          <div class="d-flex justify-content-end mb-4">
+            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 50px; width: auto;">
           </div>
+          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="!interventionReport">Open Intervention Report</h2>
+          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="interventionReport">Close Ticket</h2>
+          <form [formGroup]="formInterventionReport" class="d-flex flex-column">
+            <div class="row">
+              <div class="col-12 col-md-6 mb-4">
+                <label class="form-label select-label">Intervention Request</label>
+                <select class="select form-control" formControlName="interventionRequestId">
+                  <option *ngFor="let interventions of interventionRequest" [value]="interventions.id">
+                    {{interventions.interventionReason}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <label class="form-label">Intervention Mode</label>
+                <select class="select form-control" formControlName="interventionModeId">
+                  <option *ngFor="let interventions of interventionMode" [value]="interventions.id">
+                    {{interventions.mode}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <div class="form-outline w-100">
+                  <label for="startTime" class="form-label">Start Time</label>
+                  <input type="datetime-local" class="form-control" id="startTime" formControlName="startTime" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <div class="form-outline w-100">
+                  <label for="endTime" class="form-label">End Time</label>
+                  <input type="datetime-local" class="form-control" id="endTime" formControlName="endTime" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <div class="form-outline w-100">
+                  <label for="breakTime" class="form-label">Break Time</label>
+                  <input type="number" class="form-control" id="breakTime" formControlName="breakTime" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <div class="form-outline w-100">
+                  <label for="discount" class="form-label">Discount</label>
+                  <input type="number" class="form-control" id="discount" formControlName="discount" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <div class="form-outline w-100">
+                  <label for="discountReason" class="form-label">Discount Reason</label>
+                  <input type="text" class="form-control" id="discountReason" formControlName="discountReason" />
+                </div>
+              </div>
+              <div class="col-12 mb-4">
+                <label class="form-label">Activities Performed</label>
+                <div formArrayName="activitiesPerformed">
+                  <div *ngFor="let activitiesPerformed of activitiesPerformedGroup.controls; let i = index">
+                    <textarea type="text" class="form-control mb-2" placeholder="Activities performed..." formControlName="{{i}}"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-4">
+                <label class="form-label">Pending Activities</label>
+                <div formArrayName="pendingActivities">
+                  <div *ngFor="let pendingActivities of pendingActivitiesGroup.controls; let i = index">
+                    <textarea type="text" class="form-control mb-2" placeholder="Pending activities..." formControlName="{{i}}"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-2 text-center">
+              <button class="btn btn-primary me-2" type="submit" (click)="onCreate()">
+                <span *ngIf="!interventionReport">Add</span>
+                <span *ngIf="interventionReport">Update</span>
+              </button>
+              <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!--<section class="gradient-custom vh-100 vw-100 d-flex align-items-center justify-content-center">-->
+<!--  <div class="container-fluid h-100 d-flex align-items-center justify-content-center">-->
+<!--    <div class="row w-100 justify-content-center align-items-center h-100">-->
+<!--      <div class="col-12 col-lg-8 col-xl-6">-->
+<!--        <div class="d-flex flex-column h-100 justify-content-center">-->
+<!--          <div class="d-flex justify-content-end mb-4">-->
+<!--            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 50px; width: auto;">-->
+<!--          </div>-->
+<!--          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="!interventionReport">Open Intervention Report</h2>-->
+<!--          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="interventionReport">Close Ticket</h2>-->
+<!--          <form [formGroup]="formInterventionReport" class="d-flex flex-column">-->
+<!--            <div class="row">-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Intervention Reaquest</mat-label>-->
+<!--                  <mat-select formControlName="interventionRequestId">-->
+<!--                    <mat-option *ngFor="let interventions of interventionRequest" [value]="interventions.id">-->
+<!--                      {{interventions.interventionReason}}-->
+<!--                    </mat-option>-->
+<!--                  </mat-select>-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Intervention Mode</mat-label>-->
+<!--                  <mat-select formControlName="interventionModeId">-->
+<!--                    <mat-option *ngFor="let interventions of interventionMode" [value]="interventions.id">-->
+<!--                      {{interventions.mode}}-->
+<!--                    </mat-option>-->
+<!--                  </mat-select>-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Start Time</mat-label>-->
+<!--                  <input matInput type="text" formControlName="startTime">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>End Time</mat-label>-->
+<!--                  <input matInput type="text" formControlName="endTime">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Break Time</mat-label>-->
+<!--                  <input matInput type="number" formControlName="breakTime">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Discount</mat-label>-->
+<!--                  <input matInput type="number" formControlName="discount">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Discount Reason</mat-label>-->
+<!--                  <input matInput type="text" formControlName="discountReason">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Activities Performed</mat-label>-->
+<!--                  <textarea matInput formControlName="activitiesPerformed" placeholder="Activities performed..."></textarea>-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="col-12 mb-4">-->
+<!--                <mat-form-field class="w-100">-->
+<!--                  <mat-label>Pending Activities</mat-label>-->
+<!--                  <textarea matInput formControlName="pendingActivities" placeholder="Pending activities..."></textarea>-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="mt-4 pt-2 text-center">-->
+<!--              <button mat-raised-button color="primary" type="submit" (click)="onCreate()">-->
+<!--                <span *ngIf="!interventionReport">Add</span>-->
+<!--                <span *ngIf="interventionReport">Update</span>-->
+<!--              </button>-->
+<!--              <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancel</button>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->

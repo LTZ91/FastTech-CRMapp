@@ -1,10 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ClientService} from "../../../services/client.service";
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {select, Store} from "@ngrx/store";
-import {Client} from "../../../models/client";
-import {hideDialog} from "../../../../store/actions/client-contact.actions";
+import {hideDialog} from "../../../../store/actions/intervention-request.actions";
 import {InterventionRequestService} from "../../../services/intervention-request.service";
 import {TechnicianService} from "../../../services/technician.service";
 import {InterventionRequestState} from "../../../../store/reducers/intervention-request.reducers";
@@ -21,6 +19,7 @@ import {ClientContactService} from "../../../services/client-contact.service";
   styleUrl: './create-intervention-request.component.scss'
 })
 export class CreateInterventionRequestComponent implements OnInit{
+  @Input() secondFormGroup: FormGroup;
   constructor(
     private interventionRequestService: InterventionRequestService,
     private technicianService: TechnicianService,
@@ -28,7 +27,11 @@ export class CreateInterventionRequestComponent implements OnInit{
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <InterventionRequestState>,
-  ) {}
+  ) {
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: [''],
+    });
+  }
 
   interventionRequest !: InterventionRequest;
   interventionsRequests! : InterventionRequest [];

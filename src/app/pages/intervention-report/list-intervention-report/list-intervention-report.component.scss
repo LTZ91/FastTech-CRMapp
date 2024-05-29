@@ -1,0 +1,32 @@
+.delete {
+  color: #d91e1e;
+  margin-right: 10px;
+}
+
+.edit{
+  color: mediumslateblue;
+
+}
+
+.table{
+  width: 100%;
+  max-height: 100px;
+  overflow: auto;
+}
+//.add-icon {
+//  position: fixed;
+//  bottom: 60px;
+//  left: 20px;
+//  cursor: pointer;
+//  background-color: #000000; /* Cor de fundo do ícone de adição */
+//  color: #e88420; /* Cor do ícone */
+//  border-radius: 50%; /* Bordas arredondadas para um visual de botão */
+//  padding: 10px;
+//  font-size: 24px; /* Tamanho do ícone */
+//  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para efeito de elevação */
+//}
+.add{
+  background-color: #e88420;
+  border: none;
+  color: white;
+}
