@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./pages/login/login.component";
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeComponent } from './pages/home/home.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SideBarComponent } from './tamplate/side-bar/side-bar.component';
@@ -159,6 +159,7 @@ import {MatListItem, MatNavList} from "@angular/material/list";
     MatListItem,
     NgbHighlight,
     NgbPagination,
+    FormsModule,
 
 
   ],

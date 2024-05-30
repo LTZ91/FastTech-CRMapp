@@ -549,7 +549,7 @@
 .example-sidenav-content {
   //display: initial;
   padding: 30px;
-  height: 100%;
+  //height: 100%;
   align-items: center;
   justify-content: center;
 }
@@ -572,7 +572,7 @@
   transform: rotate(180deg);
 }
 .submenu {
-  overflow-y: hidden;
+  //overflow-y: hidden;
   transition: transform 300ms ease;
   transform: scaleY(0);
   transform-origin: top;
