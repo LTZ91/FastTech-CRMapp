@@ -60,6 +60,6 @@ export class SideBarComponent implements OnInit{
 
 
   onChangePassword() {
-
+       this.router.navigate(['/change-password'])
   }
 }

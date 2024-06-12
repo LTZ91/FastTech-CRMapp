@@ -20,6 +20,14 @@
         </option>
       </select>
     </div>
+    <div class="col-md-4">
+      <label for="inputContractType" class="form-label">Contract Type</label>
+      <select id="inputContractType" class="form-select" formControlName="contractTypeId">
+        <option *ngFor="let contractTypes of contractType" [value]="contractTypes.id">
+          {{contractTypes.description}}
+        </option>
+      </select>
+    </div>
     <div class="col-md-6">
       <label for="inputStatus" class="form-label">Status</label>
       <select id="inputStatus" class="form-select" formControlName="statusId">

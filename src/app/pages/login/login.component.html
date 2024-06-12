@@ -3,24 +3,24 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
-        <img src="../../../assets/fasttech.png" alt="Bootstrap" class="img-fluid" style="max-height: 500px; max-width: 100%;">
+        <img src="../../../assets/logoFasttech1.png" alt="Bootstrap" class="img-fluid" style="max-height: 500px; max-width: 100%;">
       </div>
 
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card" style="border-radius: 1rem; background-color: #717070">
+        <div class="card" style="border-radius: 1rem; background: linear-gradient(to right, #000000, #000000)">
           <div class="card-body p-5 text-center" *ngIf="formLogin">
             <form [formGroup]="formLogin" class="w-100">
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <h2 class="fw-bold mb-2 text-uppercase" style="color: #e88420">Login</h2>
               <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
               <div class="form-outline form-white mb-4">
                 <input type="email" id="emailX" class="form-control form-control-lg" formControlName="email" />
-                <label class="form-label" for="emailX">Email</label>
+                <label class="form-label" for="emailX" style="color: #938e8e">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input type="password" id="typePasswordX" class="form-control form-control-lg" formControlName="password" />
-                <label class="form-label" for="typePasswordX">Password</label>
+                <label class="form-label" for="typePasswordX" style="color: #938e8e">Password</label>
               </div>
 
               <button class="btn btn-outline-light btn-lg px-5" type="button" style="color: #e88420" (click)="onSubmit()">Login</button>

@@ -99,12 +99,27 @@ export class CreateInterventionReportComponent implements OnInit{
     if (this.interventionReport) {
       this.store.dispatch(closeInterventionReport({payload: this.formInterventionReport.value}));
       this.store.dispatch(hideDialog());
-      this.interventionReportService.showMessageSuccess('Ticket Fechado com Sucesso')
+      this.interventionReportService.showMessageSuccess('Report Fechado com Sucesso')
     } else {
       this.store.dispatch(addInterventionReport({payload: this.formInterventionReport.value}));
       this.interventionReportService.showMessageSuccess('Relatório de Intervenção criado  com Sucesso')
     }
     // this.modalRef.close("true")
+
+  }
+
+  onSend() {
+    console.log(this.formInterventionReport.value)
+    this.interventionReportService.sendInterventionReport(this.formInterventionReport.value).subscribe({
+      next: data => {
+        if (data) {
+          this.interventionReportService.showMessageSuccess(`Intervention Report send Successfully`);
+        }
+      },
+      error: err=>{
+        this.interventionReportService.showMessageFail(`Invalid`)
+      }
+    })
 
   }
 

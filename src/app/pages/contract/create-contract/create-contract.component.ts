@@ -18,6 +18,8 @@ import {addContract, editContract} from "../../../../store/actions/contract.acti
 import {ContractStatus} from "../../../models/contract-status";
 import {ContractStatusService} from "../../../services/contract-status.service";
 import {ClientService} from "../../../services/client.service";
+import {ContractType} from "../../../models/contract-type";
+import {ContractTypeService} from "../../../services/contract-type.service";
 
 @Component({
   selector: 'app-create-contract',
@@ -27,6 +29,7 @@ import {ClientService} from "../../../services/client.service";
 export class CreateContractComponent implements OnInit{
   constructor(
     private contractService: ContractService,
+    private contractTypeService: ContractTypeService,
     private serviceService: ServicesProvidedService,
     private priceService: PriceService,
     private clientService: ClientService,
@@ -38,6 +41,7 @@ export class CreateContractComponent implements OnInit{
   ) {}
 
   contract !: Contract;
+  contractType !: ContractType[];
   contracts! : Contract [];
   price! : Price [];
   hour! : Hour[];
@@ -51,6 +55,7 @@ export class CreateContractComponent implements OnInit{
   ngOnInit(): void {
 
     this.getStatus();
+    this.getContractType();
     this.getClient();
     this.getService();
     if(this.contract){
@@ -58,6 +63,7 @@ export class CreateContractComponent implements OnInit{
         id: new FormControl(this.contract.id, Validators.required),
         customerId: new FormControl(this.contract.customerId, Validators.required),
         serviceId: new FormControl(this.contract.serviceId, Validators.required),
+        contractTypeId: new FormControl(this.contract.contractTypeId, Validators.required),
         startDate: new FormControl(this.contract.startDate, Validators.required),
         endDate: new FormControl(this.contract.endDate, Validators.required),
         statusId: new FormControl(this.contract.statusId, Validators.required),
@@ -69,6 +75,7 @@ export class CreateContractComponent implements OnInit{
       this.formContract = this.formBuilder.group({
         customerId: new FormControl(``, Validators.required),
         serviceId: new FormControl(``, Validators.required),
+        contractTypeId: new FormControl(``, Validators.required),
         startDate: new FormControl(``, Validators.required),
         endDate: new FormControl(``, Validators.required),
         statusId: new FormControl(``, Validators.required),
@@ -81,7 +88,13 @@ export class CreateContractComponent implements OnInit{
 
   }
 
-
+  getContractType(){
+    this.contractTypeService.readAll().subscribe(value => {
+      if(value){
+        this.contractType=value;
+      }
+    })
+  }
 
 
   getStatus(){

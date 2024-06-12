@@ -30,85 +30,40 @@ export class ListUserComponent implements OnInit, OnChanges{
 
   @Input()
   userList!: IUser[];
-  user!: IUser[] | null;
 
-  @Output() onSelectedUser = new EventEmitter<IUser>();
-  selectAllUsers$ = this.store.pipe(select (selectAllUsers));
-  selectUsersUpdate$ = this.store.pipe(select(selectUsersUpdate));
-  selectUsersDelete$ = this.store.pipe(select (selectAllUsersDelete));
-  selectUsersIsOpen$ = this.store.pipe(select (selectUserIsOpen));
-  selectUserIsSaved$ = this.store.pipe(select (selectUserIsSaved));
-  private dialogRef!: MatDialogRef<any>;
+  @Input() user!: IUser[] | null;
+  @Output() onRemove: EventEmitter<number> = new EventEmitter<number>();
+  @Output() onShowForm: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onSelectUser: EventEmitter<IUser | null> = new EventEmitter<IUser | null>();
+
 
   filter = new FormControl('', { nonNullable: true });
+
+  page = 1;
+  pageSize = 15;
+
   dataFilter!: IUser[] | null;
   user$!: Observable<IUser[] | null>;
 
-  ngOnInit(): void {
-    //this.getAll();
-    this.selectAllUsers$.subscribe(data =>{
-      if(data){
-        // console.log(data);
-        this.user = data;
-      }
-    })
-    this.store.dispatch(getAllUser());
-
-    this.selectUsersUpdate$.subscribe(data =>{
-      if(data) {
-        this.store.dispatch(getAllUser())
-      }
-    })
-
-    this.selectUsersDelete$.subscribe(data =>{
-      if(data) {
-        this.store.dispatch(getAllUser())
-      }
-    })
-
-    this.selectUsersIsOpen$.subscribe(data =>{
-      if(!data && this.dialogRef){
-        this.dialogRef.close(data)
-      }
-    })
-    this.selectUserIsSaved$.subscribe(data => {
-      if(data){
-        this.store.dispatch(getAllUser())
-      }
-    })
-
+  entriesChange($event: any) {
+    this.pageSize = $event.target.value;
   }
 
-  getAll(){
-    this.userService.readAll().subscribe(value => {
-      if (value){
-        this.userList = value;
-      }
-    })
+  onDelete() {
+    this.onRemove.emit()
   }
 
-
-
-  onEdit(user: IUser){
-    this.onSelectedUser.emit(user)
-    this.dialogRef = this.dialog.open(CreateUserComponent);
-    this.dialogRef.componentInstance.user = user
-
+  onEdit(user: IUser) {
+    this.onSelectUser.emit(user);
   }
-  onDelete(user: IUser){
-    this.onSelectedUser.emit(user)
-    this.dialogRef = this.dialog.open(DeleteUserComponent);
-    this.dialogRef.componentInstance.user= user
 
-    this.store.dispatch(showDialog())
-  }
   search(args: any) {
     const text = this.filterText.trim()
     if (text === '') {
       this.dataFilter = this.user
     }else{
-      this.dataFilter= this.user!.filter(users =>
-        users.userName.toLowerCase().includes(text.toLowerCase())
+      this.dataFilter= this.user!.filter(user =>
+        user.userName.toLowerCase().includes(text.toLowerCase())
       );
     }
     return this.dataFilter;
@@ -121,16 +76,18 @@ export class ListUserComponent implements OnInit, OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     if (this.user){
       this.dataFilter = this.user
-      this.user$ = this.filter.valueChanges.pipe(
+      this.user$= this.filter.valueChanges.pipe(
         startWith(''),
         map((text) => this.search(text)),
       );
     }
   }
-  onSubmit() {
-    this.dialogRef = this.dialog.open(CreateUserComponent);
-    this.store.dispatch(showDialog())
+
+  addButtonHandler() {
+    this.onShowForm.emit(true)
   }
 
+  ngOnInit(): void {
+  }
 
 }

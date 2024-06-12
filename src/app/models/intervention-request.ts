@@ -4,6 +4,8 @@ export interface InterventionRequest {
   customerContact: string,
   technicianId: number,
   technician: string,
+  contractTypeId: number,
+  contractType: string,
   dateRequest: string,
   interventionReason: string[],
   status: string,

@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-title">
+    <h2>Send Intervention Report</h2>
+  </div>
+  <form [formGroup]="formInterventionReport">
+    <div class="mb-3">
+      <label class="form-label select-label">Intervention Request</label>
+      <select class="select form-control" formControlName="interventionReason">
+        <option *ngFor="let interventions of interventionReport" [value]="interventions.id">
+          {{interventions.interventionReason}}
+        </option>
+      </select>
+    </div>
+  </form>
+  <div>
+    <button class="btn btn-primary" style="margin-right: 15px"  type="submit" (click)="onSend()">send</button>
+    <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
+  </div>
+</div>
+

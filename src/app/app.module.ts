@@ -74,6 +74,8 @@ import {MatSidenav, MatSidenavContainer} from "@angular/material/sidenav";
 import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
+import { SendInterventionReportComponent } from './pages/intervention-report/send-intervention-report/send-intervention-report.component';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -115,6 +117,7 @@ import {MatListItem, MatNavList} from "@angular/material/list";
     DeleteInterventionRequestComponent,
     ListInterventionRequestComponent,
     RolePermissionListComponent,
+    SendInterventionReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -160,6 +163,9 @@ import {MatListItem, MatNavList} from "@angular/material/list";
     NgbHighlight,
     NgbPagination,
     FormsModule,
+    MatMenu,
+    MatMenuTrigger,
+    MatMenuItem,
 
 
   ],

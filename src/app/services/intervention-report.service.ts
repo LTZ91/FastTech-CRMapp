@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
 import {InterventionReport} from "../models/intervention-report";
+import {InterventionReportPdf} from "../models/intervention-report-pdf";
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +61,22 @@ export class InterventionReportService {
       })}
 
     return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${intReport.id}/close`, option)
+  }
+  cancel(id: number){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${id}/cancel`, option)
+  }
+
+  sendInterventionReport(id: number){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+    return this.httpClient.get<InterventionReportPdf>(`${API_URL}/Interventions/${id}/report`, option)
   }
 
 

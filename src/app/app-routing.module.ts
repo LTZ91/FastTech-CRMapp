@@ -53,6 +53,9 @@ import {
 import {
   DeleteInterventionRequestComponent
 } from "./pages/intervention-request/delete-intervention-request/delete-intervention-request.component";
+import {
+  SendInterventionReportComponent
+} from "./pages/intervention-report/send-intervention-report/send-intervention-report.component";
 
 export const routes: Routes = [
   {
@@ -182,6 +185,10 @@ export const routes: Routes = [
   {
     path:'delete-intervention-report', component:
     DeleteInterventionReportComponent
+  },
+  {
+    path:'send-intervention-report', component:
+    SendInterventionReportComponent
   },
   {
     path:'list-intervention-request', component:

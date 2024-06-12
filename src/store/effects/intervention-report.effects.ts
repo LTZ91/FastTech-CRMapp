@@ -5,15 +5,21 @@ import {InterventionReportService} from "../../app/services/intervention-report.
 import {
   addInterventionReport,
   addInterventionReportFail,
-  addInterventionReportSuccess,
-  closeInterventionReport, closeInterventionReportFail, closeInterventionReportSuccess,
+  addInterventionReportSuccess, cancelInterventionReport, cancelInterventionReportFail, cancelInterventionReportSuccess,
+  closeInterventionReport,
+  closeInterventionReportFail,
+  closeInterventionReportSuccess,
   deleteInterventionReport,
   deleteInterventionReportFail,
   deleteInterventionReportSuccess,
   getAllInterventionReport,
   getInterventionReportFail,
+  getInterventionReportMailById,
+  getInterventionReportMailByIdFail,
+  getInterventionReportMailByIdSuccess,
   getInterventionReportSuccess
 } from "../actions/intervention-report.actions";
+
 
 @Injectable()
 export class InterventionReportEffects{
@@ -33,6 +39,17 @@ export class InterventionReportEffects{
       )
     ))
 
+  getInterventionReportMailById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getInterventionReportMailById),
+      exhaustMap((action) =>
+        this.interventionReportService.sendInterventionReport(action.payload).pipe(
+          map((response) => getInterventionReportMailByIdSuccess({ payload: response })),
+          catchError((error) => of(getInterventionReportMailByIdFail({ payload: error })))
+        )
+      )
+    )
+  );
   addInterventionReport = createEffect(() =>
     this.actions$.pipe(
       ofType(addInterventionReport),
@@ -57,6 +74,17 @@ export class InterventionReportEffects{
     )
   )
 
+  cancelInterventionReport = createEffect(() =>
+    this.actions$.pipe(
+      ofType(cancelInterventionReport),
+      exhaustMap((action) =>
+        this.interventionReportService.cancel(action.payload).pipe(
+          map(intReport=> cancelInterventionReportSuccess({payload: intReport})),
+          catchError((error) => of (cancelInterventionReportFail ({payload: error})))
+        )
+      )
+    )
+  )
   deleteInterventionReport = createEffect(() =>
     this.actions$.pipe(
       ofType(deleteInterventionReport),

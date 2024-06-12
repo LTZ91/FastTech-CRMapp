@@ -46,6 +46,7 @@ export class ListInterventionReportComponent implements OnInit{
   dataFilter!: InterventionReport[] | null;
   interventionReport$!: Observable<InterventionReport[] | null>;
 
+
   ngOnInit(): void {
     this.selectAllInterventionReport$.subscribe(data =>{
       if(data){
@@ -130,5 +131,16 @@ export class ListInterventionReportComponent implements OnInit{
   onSubmit() {
     this.dialogRef = this.dialog.open(CreateInterventionReportComponent);
     this.store.dispatch(showDialog())
+  }
+
+  onSend(id: number) {
+    this.interventionReportService.sendInterventionReport(id).subscribe(
+      response => {
+        console.log('Report sent successfully', response);
+      },
+      error => {
+        console.error('Error sending report', error);
+      }
+    );
   }
 }

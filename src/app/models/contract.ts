@@ -4,6 +4,8 @@ export interface Contract {
   customer: string,
   serviceId: number,
   service: string,
+  contractTypeId: number,
+  contractType: string,
   price: number,
   hours: number,
   startDate: string,

@@ -541,10 +541,11 @@
 //  //color: #8898aa;
 //}
 
+
+//////////////novo////////////////
 .example-container {
   height: 550px;
   border: 1px solid rgb(30, 31, 34);
-  background-color: white;
 }
 .example-sidenav-content {
   //display: initial;
@@ -552,6 +553,7 @@
   //height: 100%;
   align-items: center;
   justify-content: center;
+  text-decoration-color: black;
 }
 
 
@@ -583,3 +585,8 @@
 }
 
 
+.gradient-background {
+  background: linear-gradient(to right, #f3850b, #e7c9ae); /* Exemplo de gradiente de cores */
+   /* Ajuste conforme necessário */
+
+}

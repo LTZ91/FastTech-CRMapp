@@ -1,74 +1,54 @@
-<section class="gradient-custom" style="height: 300px">
-  <div>
-    <div class="row justify-content-center align-items-center " style="border-radius: 15px;  height: 500px">
-      <div class="col-12 col-lg-9 col-xl-7" >
-        <div class="card shadow-2-strong card-registration"  style="border-radius: 15px; width: 700px; height: 500px">
-          <div class="card-body p-4 p-md-5" style=" width: 100%;">
-            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 30px; width: 80px; margin-top: -10px; margin-right: 30px">
-
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" style="margin-right: 10%" *ngIf="!interventionRequest">Open Ticket</h2>
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" *ngIf="interventionRequest">Update Ticket</h2>
-            <form [formGroup]="formInterventionRequest">
-
-              <div class="row" >
-                <div class="col-md-6 mb-4">
-
-                  <select class="select form-control-lg" formControlName="customerContactId">
-                    <option  *ngFor="let clients of clientContact" [value]="clients.id">
-                      {{clients.fullName}}
-                    </option>
-                  </select>
-                  <label class="form-label select-label">Client</label>
-                </div>
-
-                <div class="col-md-6 mb-4">
-
-                  <div data-mdb-input-init class="form-outline">
-                    <select class="select form-control-lg" formControlName="technicianId">
-                      <option  *ngFor="let technicians of technician" [value]="technicians.id">
-                        {{technicians.fullName}}
-                      </option>
-                    </select>
-                    <label class="form-label select-label" >Technician</label>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div data-mdb-input-init class="form-outline datepicker w-100">
-                    <input type="datetime-local" class="form-control form-control-lg" id="dateRequest" formControlName="dateRequest" />
-                    <label for="dateRequest" class="form-label">Date Request</label>
-                  </div>
-                </div>
-
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div formArrayName="interventionReason" class="col-md-6">
-                    <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i=index">
-                      <div>
-                        <label  class="form-label">Intervention Reason</label>
-                        <textarea type="text" class="form-control" placeholder="interventionReason..."  formControlName="{{i}}"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="mt-4 pt-2">
-                <button class="btn btn-primary" type="submit" (click)="onCreate()">
-                  <span *ngIf="!interventionRequest">add</span>
-                  <span *ngIf="interventionRequest">update</span>
-                </button>
-                <button  class="btn btn-danger"  type="submit"  (click)="cancel()">cancel</button>
-              </div>
-
-            </form>
+<section class="gradient-custom  d-flex align-items-center justify-content-center">
+  <div class="container-fluid  d-flex align-items-center justify-content-center">
+    <div class="row  justify-content-center align-items-center ">
+      <div class="col-12 col-lg-8 col-xl-6">
+        <div class="d-flex flex-column h-100 justify-content-center">
+          <div class="d-flex justify-content-end mb-4">
+            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 50px; width: auto; padding-left: 20px">
           </div>
+          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="!interventionRequest">Ticket</h2>
+          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="interventionRequest">Close Ticket</h2>
+          <form [formGroup]="formInterventionRequest" class="d-flex flex-column">
+            <div class="row">
+              <div class="col-12 col-md-6 mb-4">
+                <label class="form-label select-label">Customer Contact</label>
+                <select class="select form-control" formControlName="customerContactId">
+                  <option *ngFor="let customer of clientContact" [value]="customer.id">
+                    {{customer.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <label class="form-label">Technician</label>
+                <select class="select form-control" formControlName="technicianId">
+                  <option *ngFor="let technicians of technician" [value]="technicians.id">
+                    {{technicians.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6 mb-4">
+                <div class="form-outline w-100">
+                  <label for="startTime" class="form-label">Date request</label>
+                  <input type="datetime-local" class="form-control" id="startTime" formControlName="dateRequest" />
+                </div>
+              </div>
+              <div class="col-12 mb-4">
+                <label class="form-label">Intervention Reason</label>
+                <div formArrayName="interventionReason">
+                  <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
+                    <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-2 text-center">
+              <button class="btn btn-primary me-2" type="submit" (click)="onCreate()">
+                <span *ngIf="!interventionRequest">Add</span>
+                <span *ngIf="interventionRequest">Update</span>
+              </button>
+              <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
