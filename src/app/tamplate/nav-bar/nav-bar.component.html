@@ -1,0 +1,10 @@
+<mat-toolbar class="baground" color="primary" style="height: 50px">
+  <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left: 95%">
+    <i class="fa-solid fa-user" style="color: #031c3a;"></i>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>

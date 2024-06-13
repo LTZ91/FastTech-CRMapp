@@ -543,50 +543,78 @@
 
 
 //////////////novo////////////////
-.example-container {
-  height: 550px;
-  border: 1px solid rgb(30, 31, 34);
-}
-.example-sidenav-content {
-  //display: initial;
-  padding: 30px;
-  //height: 100%;
-  align-items: center;
-  justify-content: center;
-  text-decoration-color: black;
-}
+//.example-container {
+//  height: 550px;
+//  border: 1px solid rgb(30, 31, 34);
+//}
+//.example-sidenav-content {
+//  //display: initial;
+//  padding: 30px;
+//  //height: 100%;
+//  align-items: center;
+//  justify-content: center;
+//  text-decoration-color: black;
+//}
+//
+//
+//.example-sidenav {
+//  user-select: none;
+//}
+//.full-width {
+//  width: 100%;
+//}
+//.rotated {
+//  transform: rotate(180deg);
+//}
+//.menu-button {
+//  transition: 300ms ease-in-out;
+//  transform: rotate(0deg);
+//}
+//.menu-button.rotated {
+//  transform: rotate(180deg);
+//}
+//.submenu {
+//  //overflow-y: hidden;
+//  transition: transform 300ms ease;
+//  transform: scaleY(0);
+//  transform-origin: top;
+//  padding-left: 30px;
+//}
+//.submenu.expanded {
+//  transform: scaleY(1);
+//}
+//
+//
+//.gradient-background {
+//  background: linear-gradient(to right, #f3850b, #e7c9ae); /* Exemplo de gradiente de cores */
+//   /* Ajuste conforme necessário */
+//
+//}
 
 
-.example-sidenav {
-  user-select: none;
-}
-.full-width {
-  width: 100%;
-}
-.rotated {
-  transform: rotate(180deg);
-}
-.menu-button {
-  transition: 300ms ease-in-out;
-  transform: rotate(0deg);
-}
-.menu-button.rotated {
-  transform: rotate(180deg);
-}
-.submenu {
-  //overflow-y: hidden;
-  transition: transform 300ms ease;
-  transform: scaleY(0);
-  transform-origin: top;
-  padding-left: 30px;
-}
-.submenu.expanded {
-  transform: scaleY(1);
-}
 
 
-.gradient-background {
-  background: linear-gradient(to right, #f3850b, #e7c9ae); /* Exemplo de gradiente de cores */
-   /* Ajuste conforme necessário */
+.baground{
+  background: rgb(250, 247, 159);
+  background: linear-gradient(257deg, rgb(250, 247, 159) 10%, rgb(206, 231, 230) 70%);
+}
 
+.iconn{
+  color: #dc1919;
+}
+
+.navbar-vertical .navbar-brand-img, .navbar-vertical .navbar-brand > img {
+  max-height: 3rem !important;
+}
+.sidenav .navbar-brand, .sidenav .navbar-heading {
+  padding: 1rem !important;
+}
+
+.nav-link:hover{
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+.ng-scrollbar {
+  height: 100vh !important; /* Ajusta a altura da ng-scrollbar para 100% do contêiner pai */
 }

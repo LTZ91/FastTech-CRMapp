@@ -1,4 +1,20 @@
 <app-login *ngIf="!loginService.isAuthenticated()" ></app-login>
-<app-side-bar *ngIf="loginService.isAuthenticated()"></app-side-bar>
-<!--<router-outlet></router-outlet>-->
 
+<router-outlet></router-outlet>
+
+<app-nav-bar></app-nav-bar>
+<!-- Sidenav -->
+<div class="" (window:resize)="isMobile($event)" >
+  <app-side-bar *ngIf="loginService.isAuthenticated()"
+                [ngClass]="{ 'sidenav fixed-left': isMobileResolution === false }">
+  </app-side-bar>
+  <div class="main-content" >
+    <!-- Top navbar -->
+<!--    <app-navbar *ngIf="auth.isAuthenticated()"></app-navbar>-->
+    <!-- Pages -->
+    <div class="ttscrollbar-inner">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

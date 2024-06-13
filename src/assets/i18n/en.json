@@ -1,0 +1,117 @@
+{
+  "LOGIN_COMPONENT": {
+    "TITLE": "Log in your account!",
+    "SUB_TITLE": "We are NAVAL",
+    "EMAIL_LABEL": "Username",
+    "PASSWORD_LABEL": "Password",
+    "RESET_PASSWORD": "Forgot password?",
+    "SIGN_IN_BUTTON": "login",
+    "REQUIRED": {
+      "EMAIL_LABEL": "Email or Username is required",
+      "PASSWORD_LABEL": "Password  is required"
+    },
+    "FORGOT_PASSWORD_SUCCESS": "Your administrator has been notified, please wait"
+  },
+  "APP_COMPONENT": {
+  },
+  "HOME_COMPONENT": {
+    "TITLE": "Home"
+  },
+  "SIDE_BAR": {
+    "DASHBOARD": "Home",
+    "TESTE": "TESTE"
+  },
+  "DELETE_COMPONENT": {
+    "YES": "Yes",
+    "NO": "No"
+  },
+  "CHANGE_PASSWORD": {
+    "TITLE": "Change Password",
+    "LABEL_NEW_PASSWORD": "New Password",
+    "LABEL_CONFIRM_CONFIRM": "Confirm Password",
+    "CHANGE": "Change",
+    "CANCEL": "Cancel",
+    "REQUIRED": {
+      "LABEL_NEW_PASSWORD": "New Password is required",
+      "LABEL_CONFIRM_CONFIRM": "Confirm Password is required"
+    },
+    "SAFETY_TIPS":"Safety Tips:",
+    "CONTAIN_EIGHT_CHARACTERS":"1. It must contain 8 characters including uppercase, lowercase letters and numbers;",
+    "LEAST_ONE_ESPECIAL_CHARACTER":"2. Must have at least one special character (Ex: !@#$%&*)."
+  },
+  "NAV_BAR": {
+    "USER": {
+      "WELCOME": "Welcome",
+      "CHANGE_PASSWORD": "Change Password",
+      "LOGOUT": "Logout"
+    }
+  },
+  "UPLOAD": {
+    "UPLOAD_TITLE": "Upload Seed Data",
+    "NAME": "Name",
+    "PROGRESS": "Queue progress",
+    "UPLOAD": "Upload",
+    "REMOVE": "Remove",
+    "CANCEL": "Cancel",
+    "FAIL_MESSAGE": "Failed to Register Categories",
+    "SUCCESS_MESSAGE": "Categories Added Successfully"
+  },
+  "DASHBOARD": {
+    "HEADER": {
+      "DEFAULT": "Default",
+      "DASHBOARDS": "Home"
+    },
+    "TRUCK": "Trucks",
+    "SCHEDULED_FOR_TODAY": "Scheduled for today",
+    "TRAIN": "Train",
+    "FORECAST_FOR_THIS_WEEK": "Forecast for this week",
+    "TOTAL_LOAD": "Total Load",
+    "RECEIVED": "Received in tones",
+    "WEEKLY": "Weekly",
+    "MONTH": "Loads expected for this month",
+    "TOTAL_LOAD_RECEIVED": "Total load received",
+    "LOAD_QUANTITY": "Load Quantity",
+    "UNLOADED_BY_TRUCKS_PER_DAY": "Unloaded by trucks per day",
+    "WHO_ARE_IN_PORT": "Who are in port",
+    "UNLOADED_BY_TRAIN_PER_DAY": "Unloaded by train per day",
+    "REQUEST_VOLUME_VS_WHAT_WAS_OFFLOAD": "Request volume versus what was offload",
+    "AVERAGE_TIME":"Average time",
+    "WAGON_OFFLOADED":"Wagon offloaded",
+    "TRUCK_OFFLOADED":"Truck offloaded",
+    "TOTAL_IN_24YEARS":"Total in 24hrs",
+    "TEMPERATURE_VS_STORAGE_AREA":"Temperature Reading versus storage area"
+  },
+  "ADD_STOCK_TRANSFER": {
+    "TITLE": "Perform Stock Transfer",
+    "LABEL": {
+      "CLIENT": "Client",
+      "PARCEL_NUMBER": "Parcel Number",
+      "UNIT_OF_MESUARE": "Unit of Measure",
+      "SOURCE_STORAGE_AREA": "Source Storage Area",
+      "TARGET_STORAGE_AREA": "Target Storage Area",
+      "QUANTITY": "Quantity",
+      "REASON": "Reason"
+    },
+    "ADD": "Perform Stock Transfer",
+    "CANCEL": "Cancel"
+  },
+  "ADD_STOCK_ADJUSTMENT": {
+    "TITLE": "Perform Stock Adjustment",
+    "LABEL": {
+      "CLIENT": "Client",
+      "PARCEL_NUMBER": "Parcel Number",
+      "UNIT_OF_MESUARE": "Unit of Measure",
+      "STORAGE_AREA": "Storage Area",
+      "QUANTITY_RECEIVED": "Quantity Received",
+      "QUANTITY_ON_HAND_BEFORE_ADJUSTMENT": "Quantity on Hand Before Adjustment",
+      "QUANTITY_TO_ADJUST": "Quantity to be Adjusted",
+      "QUANTITY_ON_HAND_AFTER_ADJUSTMENT": "Quantity on Hand After Adjustment",
+      "REASON": "Reason"
+    },
+    "ADD": "Perform Stock Adjustment",
+    "CANCEL": "Cancel"
+  },
+  "ETA": "ETA",
+  "ETC": "ETC",
+  "EXPECTED_SHIPPING_DATE": "Expected Shipping Date"
+}

@@ -1,0 +1,151 @@
+{
+  "LOGIN_COMPONENT": {
+    "TITLE": "Entre na sua conta!",
+    "SUB_TITLE": "Nós somos a NAVAL",
+    "EMAIL_LABEL": "Username",
+    "PASSWORD_LABEL": "Senha",
+    "RESET_PASSWORD": "Esqueceu sua senha?",
+    "SIGN_IN_BUTTON": "Entrar",
+    "REQUIRED": {
+      "EMAIL_LABEL": "Email ou Username é obrigatorio",
+      "PASSWORD_LABEL": "Password é obrigatorio"
+    },
+    "FORGOT_PASSWORD_SUCCESS": "O seu administrador foi notificado, por favor aguarde"
+  },
+  "APP_COMPONENT": {
+  },
+  "HOME_COMPONENT": {
+    "TITLE": "Página inicial"
+  },
+  "SIDE_BAR": {
+    "DASHBOARD": "Pagina Inicial",
+    "ADMINISTRATION": "Administração",
+    "USERS_MANAGEMENT": "Gestão do Usuario",
+    "ROLES_MANAGEMENT": "Gestão de Funções",
+    "PERMISSION_MANAGEMENT": "Gestão de Permissões",
+    "EMPLOYEE_MANAGEMENT": "Gestão do Funcionario",
+    "SETUP": "Configurações",
+    "CATEGORY": "Categoria",
+    "ROAD_NOTICE": "Notificações Rodoviarias",
+    "SERVICE_REQUISITION": "Requisicao de Servicos",
+    "CARGO_RECEIVE": "Recepcao de carga",
+    "ROAD_RECEIVE": "Cargas Rodoviarias",
+    "RAIL_RECEIVE": "Cargas Ferroviarias",
+    "RAIL_NOTICE": "Notificacoes Ferroviarias",
+    "VIE_ALL_NOTICES": "Ver Todos Avisos",
+    "AGENT": "Agente",
+    "CARGO_OWNER": "Proprietario da Carga",
+    "CARGO_GRADE": "Grau de Carga",
+    "SERVICE_REQUISITION_STATUS": "Estado da Requisicão",
+    "ROAD_NOTICE_STATUS": "Status do Notificacão Rodoviaria",
+    "STORAGE_AREA": "Área de armazenamento",
+    "LOADING_SITE": "Site de Carregamento",
+    "EQUIPMENT_ALLOCATION": "Alocacao de Equipamento",
+    "STOCK": "Estoque",
+    "STOCK_ADJUSTMENT": "Ajuste de Estoque",
+    "STOCK_TRANSFER": "Transferencia de Estoque",
+    "TRANSPORTER": "Transportador",
+    "UNIT_OF_MEASURE_TYPE": "Tipos de Unidade de Medida",
+    "UNIT_OF_MEASURE": "Unidade de Medida",
+    "CARGO": "Carga",
+    "STORAGE_AREA_TYPE": "Tipo de Área de Armazenamento",
+    "TEMPERATURE_READING": "Leitura de Temperatura",
+    "DECLINE_REASON_TYPE": "Tipo de Recusa",
+    "ZONE_TYPE": "Tipo de Zona",
+    "PORT": "Porto",
+    "DECLINE_REASON": "Motivo de Recusa",
+    "EQUIPMENT_TYPE": "Tipo de Equipamento",
+    "EQUIPMENT_STATUS": "Estado do Equipamento",
+    "EQUIPMENT": "Equipamento"
+  },
+  "DELETE_COMPONENT": {
+    "YES": "Sim",
+    "NO": "Não"
+  },
+  "CHANGE_PASSWORD": {
+    "TITLE": "Alterar a senha",
+    "LABEL_NEW_PASSWORD": "Nova senha",
+    "LABEL_CONFIRM_CONFIRM": "Confirmar a senha",
+    "CHANGE": "Mudar",
+    "CANCEL": "Cancelar",
+    "REQUIRED": {
+      "LABEL_NEW_PASSWORD": "Nova senha é obrigatorio",
+      "LABEL_CONFIRM_CONFIRM": "A Confirmacao da senha é obrigatorio"
+    },
+    "SAFETY_TIPS":"Dicas de segurança:",
+    "CONTAIN_EIGHT_CHARACTERS":"1. Deve conter 8 caracteres entre letras maiúsculas, minúsculas e números;",
+    "LEAST_ONE_ESPECIAL_CHARACTER":"2. Deve ter pelo menos um caracter especial (Ex: !@#$%&*)."
+  },
+  "NAV_BAR": {
+    "USER": {
+      "WELCOME": "Bem Vindo",
+      "CHANGE_PASSWORD": "Alterar a senha",
+      "LOGOUT": "Sair"
+    }
+  },
+  "UPLOAD": {
+    "UPLOAD_TITLE": "Carregar categorias",
+    "NAME": "Nome",
+    "PROGRESS": "Progresso da fila",
+    "UPLOAD": "Carregar",
+    "REMOVE": "Remover",
+    "CANCEL": "Cancelar",
+    "FAIL_MESSAGE": "Falha ao registrar categorias",
+    "SUCCESS_MESSAGE": "Categorias adicionadas com sucesso"
+  },
+  "DASHBOARD": {
+    "HEADER": {
+      "DEFAULT": "Default",
+      "DASHBOARDS": "Página Inicial"
+    },
+    "TRUCK": "Camiões",
+    "SCHEDULED_FOR_TODAY": "Agendado para hoje",
+    "TRAIN": "Comboios",
+    "FORECAST_FOR_THIS_WEEK": "Previsto nesta semana",
+    "TOTAL_LOAD": "Carga Total",
+    "RECEIVED": "Recebido em toneladas",
+    "WEEKLY": "Semanalmente",
+    "MONTH": "Cargas esperadas para este mês",
+    "TOTAL_LOAD_RECEIVED": "Carga total recebida",
+    "LOAD_QUANTITY": "Quantidade de cargas",
+    "UNLOADED_BY_TRUCKS_PER_DAY": "Descarregados por camiões por dia",
+    "WHO_ARE_IN_PORT": "Que estão no porto",
+    "UNLOADED_BY_TRAIN_PER_DAY": "Descarregado do comboio por dia",
+    "REQUEST_VOLUME_VS_WHAT_WAS_OFFLOAD": "Volume de solicitações versus o que foi descarregado",
+    "AVERAGE_TIME":"Tempo médio",
+    "WAGON_OFFLOADED":"Vagões descarregado",
+    "TRUCK_OFFLOADED":"Camiões descarregado",
+    "TOTAL_IN_24YEARS":"Total em 24HRS",
+    "TEMPERATURE_VS_STORAGE_AREA":"Temperatura Lida versus Area de Armazenamento"
+  },
+  "ADD_STOCK_TRANSFER": {
+    "TITLE": "Realizar transferência de estoque",
+    "LABEL": {
+      "CLIENT": "Cliente",
+      "PARCEL_NUMBER": "Número do pacote",
+      "UNIT_OF_MESUARE": "Unidade de medida",
+      "SOURCE_STORAGE_AREA": "Área de armazenamento de origem",
+      "TARGET_STORAGE_AREA": "Target Storage Area",
+      "QUANTITY": "Quantidade",
+      "REASON": "Razão"
+    },
+    "ADD": "Realizar transferência de estoque",
+    "CANCEL": "Cancelar"
+  },
+  "ADD_STOCK_ADJUSTMENT": {
+    "TITLE": "Realizar ajuste de estoque",
+    "LABEL": {
+      "CLIENT": "Cliente",
+      "PARCEL_NUMBER": "Número do pacote",
+      "UNIT_OF_MESUARE": "Unidade de medida",
+      "STORAGE_AREA": "Área de armazenamento",
+      "QUANTITY": "Quantidade",
+      "REASON": "Razão"
+    },
+    "ADD": "Realizar ajuste de estoque",
+    "CANCEL": "Cancelar"
+  },
+  "ETA": "ETA",
+  "ETC": "ETC",
+  "EXPECTED_SHIPPING_DATE": "Data de envio esperada"
+}

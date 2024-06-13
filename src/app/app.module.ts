@@ -1,4 +1,4 @@
-import {isDevMode, NgModule} from '@angular/core';
+import {isDevMode, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,6 +76,11 @@ import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import { SendInterventionReportComponent } from './pages/intervention-report/send-intervention-report/send-intervention-report.component';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {CollapseModule} from "ngx-bootstrap/collapse";
+import {NgScrollbarModule} from "ngx-scrollbar";
+import {NgxPermissionsModule} from "ngx-permissions";
+import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
+
 
 @NgModule({
   declarations: [
@@ -118,6 +123,7 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
     ListInterventionRequestComponent,
     RolePermissionListComponent,
     SendInterventionReportComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -162,16 +168,20 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
     MatListItem,
     NgbHighlight,
     NgbPagination,
+    NgScrollbarModule,
     FormsModule,
     MatMenu,
     MatMenuTrigger,
     MatMenuItem,
+    CollapseModule,
+    NgxPermissionsModule,
 
 
   ],
   providers: [
     provideAnimationsAsync()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

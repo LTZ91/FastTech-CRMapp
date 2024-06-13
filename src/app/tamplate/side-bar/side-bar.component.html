@@ -94,75 +94,225 @@
 
 
 <!--ANTIGO-->
-  <mat-toolbar color="primary" class="example-toolbar gradient-background" style="height: 50px">
-    <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">CRM-FastTech</h1>
-    <div style="padding-left: 1000px">
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item><i class="bi bi-person-square"></i>Profile</button>
-        <button mat-menu-item (click)="onChangePassword()"><i class="bi bi-lock"></i>Change password</button>
-        <button mat-menu-item (click)="onLogout()"><i class="bi bi-box-arrow-right"></i>
-         Logout </button>
-      </mat-menu>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" >
-        <mat-icon>account_circle</mat-icon>
-      </button>
-    </div>
+<!--NOVO-->
+<!--  <mat-toolbar color="primary" class="example-toolbar gradient-background" style="height: 50px">-->
+<!--    <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>-->
+<!--    <h1 class="example-app-name">CRM-FastTech</h1>-->
+<!--    <div style="padding-left: 1000px">-->
+<!--      <mat-menu #menu="matMenu">-->
+<!--        <button mat-menu-item><i class="bi bi-person-square"></i>Profile</button>-->
+<!--        <button mat-menu-item (click)="onChangePassword()"><i class="bi bi-lock"></i>Change password</button>-->
+<!--        <button mat-menu-item (click)="onLogout()"><i class="bi bi-box-arrow-right"></i>-->
+<!--         Logout </button>-->
+<!--      </mat-menu>-->
+
+<!--      <button mat-icon-button [matMenuTriggerFor]="menu" >-->
+<!--        <mat-icon>account_circle</mat-icon>-->
+<!--      </button>-->
+<!--    </div>-->
 
 
-  </mat-toolbar>
-  <mat-sidenav-container class="example-container " autosize>
-    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-      <mat-nav-list>
-        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
-          <span class="full-width" *ngIf="isExpanded || isShowing"></span>
-          <mat-icon mat-list-icon>home</mat-icon>
-          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
-        </mat-list-item>
-        <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-          <a mat-list-item href="/list-client-contact">Client Contact</a>
-<!--          <a mat-list-item href="...">Submenu 2</a>-->
-          <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent" >
-            <span class="full-width" *ngIf="isExpanded || isShowing">Tickets</span>
-            <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
-          </mat-list-item>
-          <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
-            <a mat-list-item href="/list-intervention-request">View Tickets</a>
-            <a mat-list-item href="/list-intervention-report">View Reports</a>
-          </div>
-<!--          <mat-list-item (click)="showSubSubMenu2 = !showSubSubMenu2" class="parent">-->
+<!--  </mat-toolbar>-->
+<!--  <mat-sidenav-container class="example-container " autosize>-->
+<!--    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">-->
+<!--      <mat-nav-list>-->
+<!--        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">-->
+<!--          <span class="full-width" *ngIf="isExpanded || isShowing"></span>-->
+<!--          <mat-icon mat-list-icon>home</mat-icon>-->
+<!--          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
+<!--        </mat-list-item>-->
+<!--        <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">-->
+<!--          <a mat-list-item href="/list-client-contact">Client Contact</a>-->
+<!--&lt;!&ndash;          <a mat-list-item href="...">Submenu 2</a>&ndash;&gt;-->
+<!--          <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent" >-->
 <!--            <span class="full-width" *ngIf="isExpanded || isShowing">Tickets</span>-->
-<!--            <mat-icon class="menu-button" [ngClass]="{'rotated': showSubSubMenu2}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
+<!--            <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
 <!--          </mat-list-item>-->
-<!--          <div class="submenu" [ngClass]="{'expanded': showSubSubMenu2}" *ngIf="isShowing || isExpanded">-->
+<!--          <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">-->
 <!--            <a mat-list-item href="/list-intervention-request">View Tickets</a>-->
 <!--            <a mat-list-item href="/list-intervention-report">View Reports</a>-->
-<!--            <a mat-list-item href="/send-intervention-report">Send Reports</a>-->
 <!--          </div>-->
-        </div>
-      </mat-nav-list>
-      <mat-nav-list>
-      </mat-nav-list>
-    </mat-sidenav>
-
-    <div class="example-sidenav-content">
-      <router-outlet></router-outlet>
-    </div>
-
-<!--    <section id="content-wrapper">-->
-<!--      <div class="row">-->
-<!--        <div class="col-lg-12">-->
-<!--          <router-outlet></router-outlet>-->
+<!--&lt;!&ndash;          <mat-list-item (click)="showSubSubMenu2 = !showSubSubMenu2" class="parent">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span class="full-width" *ngIf="isExpanded || isShowing">Tickets</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <mat-icon class="menu-button" [ngClass]="{'rotated': showSubSubMenu2}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;          </mat-list-item>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="submenu" [ngClass]="{'expanded': showSubSubMenu2}" *ngIf="isShowing || isExpanded">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a mat-list-item href="/list-intervention-request">View Tickets</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a mat-list-item href="/list-intervention-report">View Reports</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a mat-list-item href="/send-intervention-report">Send Reports</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
 <!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
-  </mat-sidenav-container>
+<!--      </mat-nav-list>-->
+<!--      <mat-nav-list>-->
+<!--      </mat-nav-list>-->
+<!--    </mat-sidenav>-->
 
+<!--    <div class="example-sidenav-content">-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
 
-
-
-
+<!--&lt;!&ndash;    <section id="content-wrapper">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-lg-12">&ndash;&gt;-->
+<!--&lt;!&ndash;          <router-outlet></router-outlet>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </section>&ndash;&gt;-->
+<!--  </mat-sidenav-container>-->
 
 <!--</div>-->
 
+<nav
+  class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light baground"
+  id="sidenav-main"
+  (mouseover)="onMouseEnterSidenav()"
+  (mouseout)="onMouseLeaveSidenav()"
+>
+  <ng-scrollbar>
+    <div class="scrollbar-inner">
+      <div class="sidenav-header d-flex mx-auto mt-auto">
+        <a class="navbar-brand align-items-center justify-content-center"
+           [routerLink]="['/home']">
+          <img
+            src="assets/logoFasttech1.png"
+            class="navbar-brand-img"
+            alt="logo"
+          />
+        </a>
+        <div class="ml-auto">
+          <!-- Sidenav toggler -->
+          <div
+            class="sidenav-toggler d-none d-xl-block"
+            data-action="sidenav-unpin"
+            data-target="#sidenav-main"
+            (click)="minimizeSidebar()"
+          >
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line"></i>
+              <i class="sidenav-toggler-line"></i>
+              <i class="sidenav-toggler-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-inner">
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Collapse header -->
+          <ul class="navbar-nav">
+            <li *ngFor="let menuitem of menuItems" class="nav-item">
+              <!--If is a single link-->
+              <div class=""
+                   *ngIf="menuitem.type === 'link'"
+              >
+                <a
+                  routerLinkActive="active"
+                  [routerLink]="[menuitem.path]"
+
+                  class="nav-link"
+                  type="button"
+                >
+                  <i class="{{ menuitem.icontype }}"></i>
+                  <span class="nav-link-text">{{ menuitem.title}}</span>
+                </a>
+              </div>
+              <!--If it have a submenu-->
+              <div class=""
+                   *ngIf="menuitem.type === 'sub'"
+              >
+                <a
+                  data-toggle="collapse"
+                  routerLinkActive="active"
+                  (click)="menuitem.isCollapsed = !menuitem.isCollapsed"
+                  [attr.aria-expanded]="!menuitem.isCollapsed"
+                  [attr.aria-controls]="menuitem.collapse"
+                  *ngxPermissionsOnly="menuitem.permissions"
+                  class="nav-link"
+                  type="button"
+                >
+                  <i class="{{ menuitem.icontype }}"
+                  ></i>
+                  <span class="nav-link-text">{{ menuitem.title}}</span>
+                </a>
+
+              </div>
+
+              <!--Display the submenu items-->
+              <div
+                id="{{ menuitem.collapse }}"
+                class="collapse"
+                *ngIf="menuitem.type === 'sub'"
+                [collapse]="menuitem.isCollapsed"
+                [isAnimated]="true"
+              >
+                <ul class="nav nav-sm flex-column">
+                  <li
+                    *ngFor="let childitems of menuitem.children"
+                    class="nav-item"
+                  >
+                    <!--If is a single link-->
+                    <div class=""
+                         *ngIf="childitems.type === 'link'"
+
+                    >
+                      <a
+                        routerLinkActive="active"
+                        [routerLink]="[childitems.path]"
+                        class="nav-link"
+                        *ngxPermissionsOnly="childitems.permissions"
+
+                        type="button"
+                      >
+                        {{ childitems.title  }}
+                      </a>
+                    </div>
+                    <!--If it have a submenu-->
+                    <a
+                      data-toggle="collapse"
+                      routerLinkActive="active"
+                      (click)="childitems.isCollapsed = !childitems.isCollapsed"
+                      [attr.aria-expanded]="!childitems.isCollapsed"
+                      [attr.aria-controls]="childitems.collapse"
+                      *ngIf="childitems.type === 'sub'"
+                      class="nav-link"
+                      type="button"
+                    >
+                      {{ childitems.title }}
+                    </a>
+                    <!--Display the submenu items-->
+                    <div
+                      id="{{ childitems.collapse }}"
+                      class="collapse"
+                      *ngIf="childitems.type === 'sub'"
+                      [collapse]="childitems.isCollapsed"
+                      [isAnimated]="true"
+                    >
+                      <ul class="nav">
+                        <li
+                          *ngFor="let childitem of childitems.children"
+                          class="nav-item"
+                        >
+                          <a
+                            routerLinkActive="active"
+                            [routerLink]="[childitem.path]"
+                            class="nav-link"
+                            *ngIf="childitem.type === 'link'"
+                            type="button"
+                          >
+                            {{ childitem.title}}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+
+</nav>
