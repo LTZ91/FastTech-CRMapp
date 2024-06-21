@@ -81,7 +81,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/list-contract",
     title: "Contratos",
-    type: "sub",
+    type: "link",
     icontype: "fa-solid fa-file-lines text-default",
     isCollapsed: true,
     // permissions: ['P_DASHBOARD_MODULE', 'ADM']

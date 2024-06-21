@@ -80,6 +80,8 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {NgxPermissionsModule} from "ngx-permissions";
 import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ClientDetailsComponent } from './pages/clients/client-details/client-details.component';
 
 
 @NgModule({
@@ -124,6 +126,8 @@ import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
     RolePermissionListComponent,
     SendInterventionReportComponent,
     NavBarComponent,
+    ProfileComponent,
+    ClientDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,66 @@
 <mat-toolbar class="baground" color="primary" style="height: 50px">
-  <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left: 95%">
-    <i class="fa-solid fa-user" style="color: #031c3a;"></i>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Profile</button>
-    <button mat-menu-item>Settings</button>
-    <button mat-menu-item>Logout</button>
-  </mat-menu>
+  <!-- Example single danger button -->
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
+      Início
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" routerLink="/home">Home</a></li>
+      <li><a class="dropdown-item" routerLink="/profile">Meu perfil</a></li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+      Intervenções
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" href="#">Listar</a></li>
+      <li><a class="dropdown-item" href="#">Procurar</a></li>
+      <li><a class="dropdown-item" href="#">Analisar</a></li>
+      <li><a class="dropdown-item" href="#">Procurar Facturas</a></li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-bs-toggle="dropdown" aria-expanded="false">
+      Resumos
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" href="#">Operadores</a></li>
+      <li><a class="dropdown-item" href="#">Despesas</a></li>
+      <li><a class="dropdown-item" href="#">Tempos registados</a></li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink4" data-bs-toggle="dropdown" aria-expanded="false">
+      Tabelas
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" routerLink="/list-client">Clientes</a></li>
+      <li><a class="dropdown-item" href="#">Concluidos</a></li>
+      <li><a class="dropdown-item" href="#">Pendentes</a></li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="false">
+      Sair
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
+      <li><a class="dropdown-item" (click)="onChangePass()">Trocar a password</a></li>
+<!--      <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+    </ul>
+  </div>
+<!--  <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left: 50%">-->
+<!--    <i class="fa-solid fa-user" style="color: #031c3a;"></i>-->
+<!--  </button>-->
+<!--  <mat-menu #menu="matMenu">-->
+<!--    <button mat-menu-item><i class="fa-solid fa-id-card" style="padding-right: 10px"></i>Perfil</button>-->
+<!--    <button mat-menu-item (click)="onChangePass()"><i class="fa-solid fa-lock" style="padding-right: 10px"></i>Mudar Password</button>-->
+<!--    <button mat-menu-item (click)="onLogout()"><i class="fa-solid fa-arrow-right-from-bracket" style="padding-right: 10px"></i>Logout</button>-->
+<!--  </mat-menu>-->
 </mat-toolbar>
