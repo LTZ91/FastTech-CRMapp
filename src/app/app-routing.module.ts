@@ -141,7 +141,7 @@ export const routes: Routes = [
     CreateContractComponent
   },
   {
-    path:'list-contract', component:
+    path:'list-contracts', component:
     ListContractsComponent
   },
   {

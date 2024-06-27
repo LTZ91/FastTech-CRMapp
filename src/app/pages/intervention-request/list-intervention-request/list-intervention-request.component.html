@@ -27,42 +27,42 @@
 <!--</div>-->
 
 
-<table class="table" >
-  <thead class="thead-light">
-  <tr>
-    <th scope="row">ID</th>
-    <th scope="row">Customer Contact</th>
-    <th scope="row">Technician</th>
-    <th scope="row">Date Request</th>
-    <th scope="row">Intervention Reason</th>
-    <th scope="row">Status</th>
-    <th scope="row">Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let request of interventionRequest ">
-    <td>{{request.id}}</td>
-    <td>{{request.customerContact}}</td>
-    <td>{{request.technician}}</td>
-    <td>{{request.dateRequest}}</td>
-    <td>{{request.interventionReason}}</td>
-    <td>{{request.statusId}}</td>
-    <th><span  type="button" class="material-icons edit"
-               (click)="onEdit(request)">
-      edit
-    </span>
-      <span type="button" class="material-icons delete" (click)="onDelete(request)">
-        delete
-      </span></th>
-  </tr>
-  </tbody>
-</table>
-
-<div>
-  <button mat-mini-fab class="add" routerLink="/create-intervention-request"><span class="material-symbols-outlined" >add</span></button>
+<div class="table-container py-5 h-100">
+  <div><h4>Tarefas Recebidas</h4></div>
+  <table class="table table-striped">
+    <thead >
+    <tr>
+      <th scope="row">INT</th>
+      <th scope="row">De</th>
+      <th scope="row">Cliente</th>
+      <th scope="row">Tarefa</th>
+      <th scope="row">Enviada</th>
+      <th scope="row">Tipo</th>
+      <th scope="row">Data fim</th>
+      <th scope="row">Estado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let request of interventionRequest ">
+      <td>{{request.id}}</td>
+      <td>{{request.customerContact}}</td>
+      <td>{{request.customer}}</td>
+      <td>{{request.interventionReason}}</td>
+      <td>{{request.dateRequest}}</td>
+      <td>Até</td>
+      <td>30/06</td>
+      <td>{{request.status}}</td>
+<!--      <th><span  type="button" class="material-icons edit"-->
+<!--                 (click)="onEdit(request)">-->
+<!--      edit-->
+<!--    </span>-->
+<!--        <span type="button" class="material-icons delete" (click)="onDelete(request)">-->
+<!--        delete-->
+<!--      </span></th>-->
+    </tr>
+    </tbody>
+  </table>
 </div>
-
-
 
 
 
