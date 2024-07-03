@@ -27,20 +27,22 @@
 <!--</div>-->
 
 
-<table class="table" >
-  <thead class="thead-light">
+<div class="table-container py-5 h-100">
+  <div><h4>Contractos</h4></div>
+  <table class="table" >
+    <thead class="table table-striped">
   <tr>
     <th scope="row">ID</th>
     <th scope="row">Client</th>
     <th scope="row">Service</th>
     <th scope="row">Contract Type</th>
-    <th scope="row">Price</th>
+<!--    <th scope="row">Price</th>-->
     <th scope="row">Hours</th>
-    <th scope="row">Start Date</th>
-    <th scope="row">End Date</th>
+<!--    <th scope="row">Start Date</th>-->
+<!--    <th scope="row">End Date</th>-->
     <th scope="row">Status</th>
-    <th scope="row">Terms</th>
-    <th scope="row">Conditions</th>
+<!--    <th scope="row">Terms</th>-->
+<!--    <th scope="row">Conditions</th>-->
     <th scope="row">Actions</th>
   </tr>
   </thead>
@@ -50,13 +52,13 @@
     <td>{{contracts.customer}}</td>
     <td>{{contracts.service}}</td>
     <td>{{contracts.contractType}}</td>
-    <td>{{contracts.price}}</td>
+<!--    <td>{{contracts.price}}</td>-->
     <td>{{contracts.hours}}</td>
-    <td>{{contracts.startDate}}</td>
-    <td>{{contracts.endDate}}</td>
+<!--    <td>{{contracts.startDate}}</td>-->
+<!--    <td>{{contracts.endDate}}</td>-->
     <td>{{contracts.contractStatus}}</td>
-    <td>{{contracts.terms[0]}}</td>
-    <td>{{contracts.conditions[0]}}</td>
+<!--    <td>{{contracts.terms[0]}}</td>-->
+<!--    <td>{{contracts.conditions[0]}}</td>-->
     <th><span  type="button" class="material-icons edit"
                (click)="onEdit(contracts)">
       edit
@@ -75,3 +77,4 @@
 </div>
 
 
+</div>

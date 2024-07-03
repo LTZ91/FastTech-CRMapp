@@ -5,7 +5,7 @@ export interface Client{
   commercialName: string,
   taxNumber: string,
   personId: number,
-    person: string;
+    person: string,
   countryId: number,
     country: string,
   languageId: number,

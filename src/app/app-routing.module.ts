@@ -58,6 +58,9 @@ import {
 } from "./pages/intervention-report/send-intervention-report/send-intervention-report.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {ClientDetailsComponent} from "./pages/clients/client-details/client-details.component";
+import {
+  InterventionRequestDetailComponent
+} from "./pages/intervention-request/intervention-request-detail/intervention-request-detail.component";
 
 export const routes: Routes = [
   {
@@ -203,6 +206,10 @@ export const routes: Routes = [
   {
     path:'delete-intervention-request', component:
     DeleteInterventionRequestComponent
+  },
+  {
+    path:'intervention-request-detail', component:
+    InterventionRequestDetailComponent
   },
   {
     path:'profile', component:
