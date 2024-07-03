@@ -1,6 +1,5 @@
 export interface InterventionRequest {
   id: number,
-  customer: string,
   customerContactId: number,
   customerContact: string,
   technicianId: number,

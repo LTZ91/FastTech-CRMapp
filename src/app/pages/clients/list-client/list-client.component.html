@@ -16,10 +16,10 @@
     <th scope="row">Reference</th>
     <th scope="row">Fiscal Name</th>
     <th scope="row">Commercial Name</th>
-<!--    <th scope="row">NUIT</th>-->
-<!--    <th scope="row">Person</th>-->
+    <th scope="row">NUIT</th>
+    <th scope="row">Person</th>
     <th scope="row">Country</th>
-<!--    <th scope="row">Language</th>-->
+    <th scope="row">Language</th>
     <th scope="row">Actions</th>
   </tr>
   </thead>
@@ -27,12 +27,12 @@
   <tr *ngFor="let clients of client ">
     <td>{{clients.id}}</td>
     <td>{{clients.reference}}</td>
-    <td routerLink="/client-details">{{clients.fiscalName}}</td>
+    <td>{{clients.fiscalName}}</td>
     <td>{{clients.commercialName}}</td>
-<!--    <td>{{clients.taxNumber}}</td>-->
-<!--    <td>{{clients.person}}</td>-->
+    <td>{{clients.taxNumber}}</td>
+    <td>{{clients.person}}</td>
     <td>{{clients.country}}</td>
-<!--    <td>{{clients.language}}</td>-->
+    <td>{{clients.language}}</td>
     <th><span  type="button" class="material-icons edit"
                (click)="onEdit(clients)">
       edit
