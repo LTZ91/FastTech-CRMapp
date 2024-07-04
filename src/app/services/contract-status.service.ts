@@ -18,6 +18,6 @@ export class ContractStatusService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<ContractStatus[]>(`${API_URL}/ContractStatus`, option)
+    return this.httpClient.get<ContractStatus[]>(`${API_URL}/api/ContractStatus`, option)
   }
 }

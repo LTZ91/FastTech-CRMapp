@@ -20,6 +20,6 @@ export class PositionService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Position[]>(`${API_URL}/Positions`, option)
+    return this.httpClient.get<Position[]>(`${API_URL}/api/Positions`, option)
   }
 }

@@ -1,12 +1,12 @@
-<mat-toolbar class="baground" color="primary" style="height: 50px">
+<mat-toolbar class="background" color="primary" style="height: 50px">
   <!-- Example single danger button -->
-  <div class="dropdown">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
+  <div class="dropdown" >
+    <a class="btn btn-secondary dropdown-toggle"  href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
       Início
     </a>
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <li><a class="dropdown-item" routerLink="/home">Home</a></li>
+      <li><a class="dropdown-item" routerLink="/list-intervention-request">Home</a></li>
       <li><a class="dropdown-item" routerLink="/profile">Meu perfil</a></li>
     </ul>
   </div>
@@ -40,8 +40,10 @@
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <li><a class="dropdown-item" routerLink="/list-client">Clientes</a></li>
-      <li><a class="dropdown-item" href="#">Concluidos</a></li>
-      <li><a class="dropdown-item" href="#">Pendentes</a></li>
+      <li><a class="dropdown-item" routerLink="/list-contracts">Contratos</a></li>
+      <li><a class="dropdown-item" routerLink="/list-technician">Técnicos</a></li>
+      <li><a class="dropdown-item" routerLink="/list-services">Serviços</a></li>
+      <li><a class="dropdown-item" routerLink="/list-user">Utilizadores</a></li>
     </ul>
   </div>
   <div class="dropdown">

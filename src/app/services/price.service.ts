@@ -17,7 +17,7 @@ export class PriceService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Price>(`${API_URL}/Prices`, price, option)
+    return this.httpClient.post<Price>(`${API_URL}/api/Prices`, price, option)
   }
 
   readAll(){
@@ -25,14 +25,14 @@ export class PriceService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Price[]>(`${API_URL}/Prices`, option)
+    return this.httpClient.get<Price[]>(`${API_URL}/api/Prices`, option)
   }
   edit(price: Price){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Price>(`${API_URL}/Prices/${price.id}`,price, option)
+    return this.httpClient.put<Price>(`${API_URL}/api/Prices/${price.id}`,price, option)
   }
 
 
@@ -43,7 +43,7 @@ export class PriceService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Price>(`${API_URL}/Prices/:id`, option);
+    return this.httpClient.get<Price>(`${API_URL}/api/Prices/:id`, option);
   }
   delete(price: Price){
     const option = {headers: new HttpHeaders({
@@ -51,7 +51,7 @@ export class PriceService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Price>(`${API_URL}/Prices/${price.id}`, option)
+    return this.httpClient.delete<Price>(`${API_URL}/api/Prices/${price.id}`, option)
   }
 
 

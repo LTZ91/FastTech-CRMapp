@@ -17,7 +17,7 @@ export class HourService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Hour>(`${API_URL}/Hours`, hour, option)
+    return this.httpClient.post<Hour>(`${API_URL}/api/Hours`, hour, option)
   }
 
   readAll(){
@@ -25,14 +25,14 @@ export class HourService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Hour[]>(`${API_URL}/Hours`, option)
+    return this.httpClient.get<Hour[]>(`${API_URL}/api/Hours`, option)
   }
   edit(hour: Hour){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Hour>(`${API_URL}/Hours/${hour.id}`,hour, option)
+    return this.httpClient.put<Hour>(`${API_URL}/api/Hours/${hour.id}`,hour, option)
   }
 
 
@@ -43,7 +43,7 @@ export class HourService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Hour>(`${API_URL}/Hours/${id}`, option);
+    return this.httpClient.get<Hour>(`${API_URL}/api/Hours/${id}`, option);
   }
   delete(hour: Hour){
     const option = {headers: new HttpHeaders({
@@ -51,7 +51,7 @@ export class HourService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Hour>(`${API_URL}/Hours/${hour.id}`, option)
+    return this.httpClient.delete<Hour>(`${API_URL}/api/Hours/${hour.id}`, option)
   }
 
 

@@ -26,27 +26,32 @@
 <!--  </div>-->
 <!--</div>-->
 
-
-<table class="table" >
-  <thead class="thead-light">
+<div class="table-container py-2 h-100">
+<div><h4>Tarefas Recebidas</h4></div>
+<table class="table table-striped"  style="font-size: 5px;  ">
+  <thead>
   <tr>
-    <th scope="row">ID</th>
-    <th scope="row">Customer Contact</th>
-    <th scope="row">Technician</th>
-    <th scope="row">Date Request</th>
-    <th scope="row">Intervention Reason</th>
-    <th scope="row">Status</th>
-    <th scope="row">Actions</th>
+    <th scope="row">INT</th>
+    <th scope="row">De</th>
+    <th scope="row">Cliente</th>
+    <th scope="row">Tarefa</th>
+    <th scope="row">Enviada</th>
+    <th scope="row">Tipo</th>
+    <th scope="row">Data fim</th>
+    <th scope="row">Estado</th>
+    <th scope="row">Acções</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let request of interventionRequest ">
     <td>{{request.id}}</td>
-    <td>{{request.customerContact}}</td>
     <td>{{request.technician}}</td>
+    <td>{{request.customer}}</td>
+    <td><a href="/request-details">{{request.interventionReason}}</a></td>
     <td>{{request.dateRequest}}</td>
-    <td>{{request.interventionReason}}</td>
-    <td>{{request.statusId}}</td>
+    <td>Até</td>
+    <td>2024-07-20</td>
+    <td>{{request.status}}</td>
     <th><span  type="button" class="material-icons edit"
                (click)="onEdit(request)">
       edit
@@ -62,7 +67,7 @@
   <button mat-mini-fab class="add" routerLink="/create-intervention-request"><span class="material-symbols-outlined" >add</span></button>
 </div>
 
-
+</div>
 
 
 

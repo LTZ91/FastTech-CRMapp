@@ -15,7 +15,7 @@ export class LoginService {
 
   login(user: IUser){
     console.log(user)
-    return this.httpclient.post<ILoginResponse>(`${API_URL}/Account`, user)
+    return this.httpclient.post<ILoginResponse>(`${API_URL}/api/Account`, user)
 
   }
   isAuthenticated():boolean{

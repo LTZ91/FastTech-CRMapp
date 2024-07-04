@@ -17,7 +17,7 @@ export class ClientContactService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<ClientContact>(`${API_URL}/CustomerContacts`, contact, option)
+    return this.httpClient.post<ClientContact>(`${API_URL}/api/CustomerContacts`, contact, option)
   }
 
   readAll(){
@@ -25,14 +25,14 @@ export class ClientContactService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<ClientContact[]>(`${API_URL}/CustomerContacts`, option)
+    return this.httpClient.get<ClientContact[]>(`${API_URL}/api/CustomerContacts`, option)
   }
   edit(contact: ClientContact){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<ClientContact>(`${API_URL}/CustomerContacts/${contact.id}`,contact, option)
+    return this.httpClient.put<ClientContact>(`${API_URL}/api/CustomerContacts/${contact.id}`,contact, option)
   }
 
 
@@ -43,7 +43,7 @@ export class ClientContactService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<ClientContact>(`${API_URL}/CustomerContacts/:id`, option);
+    return this.httpClient.get<ClientContact>(`${API_URL}/api/CustomerContacts/:id`, option);
   }
   delete(contact: ClientContact){
     const option = {headers: new HttpHeaders({
@@ -51,7 +51,7 @@ export class ClientContactService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<ClientContact>(`${API_URL}/CustomerContacts/${contact.id}`, option)
+    return this.httpClient.delete<ClientContact>(`${API_URL}/api/CustomerContacts/${contact.id}`, option)
   }
 
 

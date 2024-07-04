@@ -18,7 +18,7 @@ export class TechnicianService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Technician>(`${API_URL}/Technicians`, technician, option)
+    return this.httpClient.post<Technician>(`${API_URL}/api/Technicians`, technician, option)
   }
 
   readAll(){
@@ -26,14 +26,14 @@ export class TechnicianService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Technician[]>(`${API_URL}/Technicians`, option)
+    return this.httpClient.get<Technician[]>(`${API_URL}/api/Technicians`, option)
   }
   edit(technician: Technician){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Technician>(`${API_URL}/Technicians/${technician.id}`,technician, option)
+    return this.httpClient.put<Technician>(`${API_URL}/api/Technicians/${technician.id}`,technician, option)
   }
 
 
@@ -44,7 +44,7 @@ export class TechnicianService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Technician>(`${API_URL}/Technicians/:id`, option);
+    return this.httpClient.get<Technician>(`${API_URL}/api/Technicians/:id`, option);
   }
   delete(technician: Technician){
     const option = {headers: new HttpHeaders({
@@ -52,7 +52,7 @@ export class TechnicianService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Technician>(`${API_URL}/Technicians/${technician.id}`, option)
+    return this.httpClient.delete<Technician>(`${API_URL}/api/Technicians/${technician.id}`, option)
   }
 
 

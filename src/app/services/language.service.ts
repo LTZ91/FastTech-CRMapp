@@ -18,6 +18,6 @@ export class LanguageService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Language[]>(`${API_URL}/Languages`, option)
+    return this.httpClient.get<Language[]>(`${API_URL}/api/Languages`, option)
   }
 }

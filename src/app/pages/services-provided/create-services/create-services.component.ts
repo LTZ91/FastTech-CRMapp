@@ -77,7 +77,7 @@ export class CreateServicesComponent implements  OnInit{
       this.serviceService.showMessageSuccess('Editado com Sucesso')
     } else {
       this.store.dispatch(addService({payload: this.formService.value}));
-      this.serviceService.showMessageSuccess('Cliente Criado com Sucesso')
+      this.serviceService.showMessageSuccess('Serviço Criado com Sucesso')
     }
     // this.modalRef.close("true")
 

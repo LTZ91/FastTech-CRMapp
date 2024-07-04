@@ -17,7 +17,7 @@ export class ContractService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Contract>(`${API_URL}/Contracts`, contract, option)
+    return this.httpClient.post<Contract>(`${API_URL}/api/Contracts`, contract, option)
   }
 
   readAll(){
@@ -25,14 +25,14 @@ export class ContractService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Contract[]>(`${API_URL}/Contracts`, option)
+    return this.httpClient.get<Contract[]>(`${API_URL}/api/Contracts`, option)
   }
   edit(contract: Contract){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Contract>(`${API_URL}/Contracts/${contract.id}`,contract, option)
+    return this.httpClient.put<Contract>(`${API_URL}/api/Contracts/${contract.id}`,contract, option)
   }
 
 
@@ -43,7 +43,7 @@ export class ContractService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Contract>(`${API_URL}/Contracts/:id`, option);
+    return this.httpClient.get<Contract>(`${API_URL}/api/Contracts/:id`, option);
   }
   delete(contract: Contract){
     const option = {headers: new HttpHeaders({
@@ -51,7 +51,7 @@ export class ContractService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Contract>(`${API_URL}/Contracts/${contract.id}`, option)
+    return this.httpClient.delete<Contract>(`${API_URL}/api/Contracts/${contract.id}`, option)
   }
 
 

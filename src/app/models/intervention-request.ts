@@ -1,5 +1,6 @@
 export interface InterventionRequest {
   id: number,
+  customer: string,
   customerContactId: number,
   customerContact: string,
   technicianId: number,
@@ -8,6 +9,7 @@ export interface InterventionRequest {
   contractType: string,
   dateRequest: string,
   interventionReason: string[],
+  cancellationReason: string,
   status: string,
   statusId: number,
 }

@@ -19,7 +19,7 @@ export class UserService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<IUser>(`${API_URL}/Users`, user, option)
+    return this.httpClient.post<IUser>(`${API_URL}/api/Users`, user, option)
   }
 
   readAll(){
@@ -27,14 +27,14 @@ export class UserService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<IUser[]>(`${API_URL}/Users`, option)
+    return this.httpClient.get<IUser[]>(`${API_URL}/api/Users`, option)
   }
   edit(user: IUser){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<IUser>(`${API_URL}/Users/${user.id}`,user, option)
+    return this.httpClient.put<IUser>(`${API_URL}/api/Users/${user.id}`,user, option)
   }
 
 
@@ -45,7 +45,7 @@ export class UserService {
         'Content-Type': 'application/json'
     })}
 
-    return this.httpClient.get<IUser>(`${API_URL}/User/:id`, option);
+    return this.httpClient.get<IUser>(`${API_URL}/api/User/:id`, option);
   }
   deleteUser(user: IUser){
     const option = {headers: new HttpHeaders({
@@ -53,7 +53,7 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<IUser>(`${API_URL}/Users/${user.id}`, option)
+    return this.httpClient.delete<IUser>(`${API_URL}/api/Users/${user.id}`, option)
   }
 
   resetPassword(reset: ResetPassword){
@@ -62,7 +62,7 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<ResetPassword>(`${API_URL}/Users/resetPassword`, reset, option)
+    return this.httpClient.put<ResetPassword>(`${API_URL}/api/Users/resetPassword`, reset, option)
   }
 
   forgetPassword(email: IUser){
@@ -71,7 +71,7 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<IUser>(`${API_URL}/Users/${email.email}/resetPassword`,email, option)
+    return this.httpClient.put<IUser>(`${API_URL}/api/Users/${email.email}/resetPassword`,email, option)
   }
 
   userTechnician(user: IUser){
@@ -80,7 +80,7 @@ export class UserService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<IUser>(`${API_URL}/Users/${user.id}/technician`,user, option)
+    return this.httpClient.put<IUser>(`${API_URL}/api/Users/${user.id}/technician`,user, option)
   }
 
 

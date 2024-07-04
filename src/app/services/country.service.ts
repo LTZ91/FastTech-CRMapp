@@ -17,6 +17,6 @@ export class CountryService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Country[]>(`${API_URL}/Countries`, option)
+    return this.httpClient.get<Country[]>(`${API_URL}/api/Countries`, option)
   }
 }

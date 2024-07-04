@@ -17,7 +17,7 @@ export class InterventionStatusService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionStatus[]>(`${API_URL}/InterventionStatus`, option)
+    return this.httpClient.get<InterventionStatus[]>(`${API_URL}/api/InterventionStatus`, option)
   }
 
   getInterventionStatusById(id: number){
@@ -26,6 +26,6 @@ export class InterventionStatusService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionStatus>(`${API_URL}/InterventionStatus/${id}`, option);
+    return this.httpClient.get<InterventionStatus>(`${API_URL}/api/InterventionStatus/${id}`, option);
   }
 }

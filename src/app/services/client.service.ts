@@ -17,7 +17,7 @@ export class ClientService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Client>(`${API_URL}/Customers`, client, option)
+    return this.httpClient.post<Client>(`${API_URL}/api/Customers`, client, option)
   }
 
   readAll(){
@@ -25,14 +25,14 @@ export class ClientService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Client[]>(`${API_URL}/Customers`, option)
+    return this.httpClient.get<Client[]>(`${API_URL}/api/Customers`, option)
   }
   edit(client: Client){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Client>(`${API_URL}/Customers/${client.id}`,client, option)
+    return this.httpClient.put<Client>(`${API_URL}/api/Customers/${client.id}`,client, option)
   }
 
 
@@ -43,7 +43,7 @@ export class ClientService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Client>(`${API_URL}/Customers/:id`, option);
+    return this.httpClient.get<Client>(`${API_URL}/api/Customers/:id`, option);
   }
   delete(client: Client){
     const option = {headers: new HttpHeaders({
@@ -51,7 +51,7 @@ export class ClientService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Client>(`${API_URL}/Customers/${client.id}`, option)
+    return this.httpClient.delete<Client>(`${API_URL}/api/Customers/${client.id}`, option)
   }
 
 

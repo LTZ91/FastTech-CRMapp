@@ -17,7 +17,7 @@ export class ServicesProvidedService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<ServicesProvided>(`${API_URL}/Services`, services, option)
+    return this.httpClient.post<ServicesProvided>(`${API_URL}/api/Services`, services, option)
   }
 
   readAll(){
@@ -25,14 +25,14 @@ export class ServicesProvidedService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<ServicesProvided[]>(`${API_URL}/Services`, option)
+    return this.httpClient.get<ServicesProvided[]>(`${API_URL}/api/Services`, option)
   }
   edit(services: ServicesProvided){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<ServicesProvided>(`${API_URL}/Services/${services.id}`,services, option)
+    return this.httpClient.put<ServicesProvided>(`${API_URL}/api/Services/${services.id}`,services, option)
   }
 
 
@@ -43,7 +43,7 @@ export class ServicesProvidedService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<ServicesProvided>(`${API_URL}/Services/:id`, option);
+    return this.httpClient.get<ServicesProvided>(`${API_URL}/api/Services/:id`, option);
   }
   delete(services: ServicesProvided){
     const option = {headers: new HttpHeaders({
@@ -51,7 +51,7 @@ export class ServicesProvidedService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<ServicesProvided>(`${API_URL}/Services/${services.id}`, option)
+    return this.httpClient.delete<ServicesProvided>(`${API_URL}/api/Services/${services.id}`, option)
   }
 
 

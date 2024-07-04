@@ -18,6 +18,6 @@ export class PersonService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Person[]>(`${API_URL}/Persons`, option)
+    return this.httpClient.get<Person[]>(`${API_URL}/api/Persons`, option)
   }
 }

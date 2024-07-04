@@ -18,7 +18,7 @@ export class RoleService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<Role>(`${API_URL}/Roles`, role, option)
+    return this.httpClient.post<Role>(`${API_URL}/api/Roles`, role, option)
   }
 
   readAll(){
@@ -26,14 +26,14 @@ export class RoleService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<Role[]>(`${API_URL}/Roles`, option)
+    return this.httpClient.get<Role[]>(`${API_URL}/api/Roles`, option)
   }
   edit(role: Role){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<Role>(`${API_URL}/Roles/${role.id}`,role, option)
+    return this.httpClient.put<Role>(`${API_URL}/api/Roles/${role.id}`,role, option)
   }
 
 
@@ -44,7 +44,7 @@ export class RoleService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Role>(`${API_URL}/Roles/${id}`, option);
+    return this.httpClient.get<Role>(`${API_URL}/api/Roles/${id}`, option);
   }
 
   getRoleByIdUser(id: number){
@@ -53,7 +53,7 @@ export class RoleService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Role>(`${API_URL}/Roles/${id}/users`, option);
+    return this.httpClient.get<Role>(`${API_URL}/api/Roles/${id}/users`, option);
   }
   delete(role: Role){
     const option = {headers: new HttpHeaders({
@@ -61,7 +61,7 @@ export class RoleService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Role>(`${API_URL}/Roles/${role.id}`, option)
+    return this.httpClient.delete<Role>(`${API_URL}/api/Roles/${role.id}`, option)
   }
   deleteAll(){
     const option = {headers: new HttpHeaders({
@@ -69,7 +69,7 @@ export class RoleService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<Role>(`${API_URL}/Roles/removeAll`, option)
+    return this.httpClient.delete<Role>(`${API_URL}/api/Roles/removeAll`, option)
   }
 
 

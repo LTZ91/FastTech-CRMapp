@@ -26,40 +26,42 @@
 <!--  </div>-->
 <!--</div>-->
 
-
-<table class="table" >
-  <thead class="thead-light">
-  <tr>
-    <th scope="row">ID</th>
-    <th scope="row">Description</th>
-    <th scope="row">Price</th>
-    <th scope="row">Hours</th>
-    <th scope="row">Conditions</th>
-    <th scope="row">Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let services of service ">
-    <td>{{services.id}}</td>
-    <td>{{services.description}}</td>
-    <td>{{services.price}}</td>
-    <td>{{services.hour}}</td>
-    <td>{{services.conditions}}</td>
-    <th><span  type="button" class="material-icons edit"
-               (click)="onEdit(services)">
+<div class="table-container py-2 h-100">
+  <div><h4>Tarefas Recebidas</h4></div>
+  <table class="table table-striped"  style="font-size: 5px;  ">
+    <thead>
+    <tr>
+      <th scope="row">ID</th>
+      <th scope="row">Descrição</th>
+      <th scope="row">Preço</th>
+      <th scope="row">Hora</th>
+      <th scope="row">Condições</th>
+      <th scope="row">Acções</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let services of service ">
+      <td>{{services.id}}</td>
+      <td>{{services.description}}</td>
+      <td>{{services.price}}</td>
+      <td>{{services.hour}}</td>
+      <td>{{services.conditions}}</td>
+      <th><span  type="button" class="material-icons edit"
+                 (click)="onEdit(services)">
       edit
     </span>
-      <span type="button" class="material-icons delete" (click)="onDelete(services)">
+        <span type="button" class="material-icons delete" (click)="onDelete(services)">
         delete
       </span></th>
-  </tr>
-  </tbody>
-</table>
+    </tr>
+    </tbody>
+  </table>
 
+  <div>
+    <button mat-mini-fab class="add" routerLink="/create-services"><span class="material-symbols-outlined" >add</span></button>
+  </div>
 
-
-<div>
-  <button mat-mini-fab class="add"><span class="material-symbols-outlined" (click)="onSubmit()">add</span></button>
 </div>
+
 
 

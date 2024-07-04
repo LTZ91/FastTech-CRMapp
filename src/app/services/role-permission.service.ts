@@ -18,7 +18,7 @@ export class RolePermissionService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<RolePermission>(`${API_URL}/RolePermissions`, rolePermission, option)
+    return this.httpClient.post<RolePermission>(`${API_URL}/api/RolePermissions`, rolePermission, option)
   }
 
   readAll(){
@@ -26,14 +26,14 @@ export class RolePermissionService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<RolePermission[]>(`${API_URL}/RolePermissions`, option)
+    return this.httpClient.get<RolePermission[]>(`${API_URL}/api/RolePermissions`, option)
   }
   edit(rolePermission: RolePermission){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<RolePermission>(`${API_URL}/RolePermissions/${rolePermission.id}`,rolePermission, option)
+    return this.httpClient.put<RolePermission>(`${API_URL}/api/RolePermissions/${rolePermission.id}`,rolePermission, option)
   }
 
 
@@ -44,7 +44,7 @@ export class RolePermissionService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<RolePermission>(`${API_URL}/RolePermissions/${id}`, option);
+    return this.httpClient.get<RolePermission>(`${API_URL}/api/RolePermissions/${id}`, option);
   }
 
   getRolePermissionByIdUser(id: number){
@@ -53,7 +53,7 @@ export class RolePermissionService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<Role>(`${API_URL}/Roles/${id}/users`, option);
+    return this.httpClient.get<Role>(`${API_URL}/api/Roles/${id}/users`, option);
   }
   delete(id: RolePermission){
     const option = {headers: new HttpHeaders({
@@ -61,7 +61,7 @@ export class RolePermissionService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<RolePermission>(`${API_URL}/RolePermissions/${id.roleId}/Roles`, option)
+    return this.httpClient.delete<RolePermission>(`${API_URL}/api/RolePermissions/${id.roleId}/Roles`, option)
   }
 
 

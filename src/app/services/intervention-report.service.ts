@@ -18,7 +18,7 @@ export class InterventionReportService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.post<InterventionReport>(`${API_URL}/Interventions`, intReport, option)
+    return this.httpClient.post<InterventionReport>(`${API_URL}/api/Interventions`, intReport, option)
   }
 
   readAll(){
@@ -26,14 +26,14 @@ export class InterventionReportService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionReport[]>(`${API_URL}/Interventions`, option)
+    return this.httpClient.get<InterventionReport[]>(`${API_URL}/api/Interventions`, option)
   }
   edit(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${intReport.id}`,intReport, option)
+    return this.httpClient.put<InterventionReport>(`${API_URL}/api/Interventions/${intReport.id}`,intReport, option)
   }
 
 
@@ -44,7 +44,7 @@ export class InterventionReportService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionReport>(`${API_URL}/Interventions/:id`, option);
+    return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/:id`, option);
   }
   delete(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
@@ -52,7 +52,7 @@ export class InterventionReportService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<InterventionReport>(`${API_URL}/Interventions/${intReport.id}`, option)
+    return this.httpClient.delete<InterventionReport>(`${API_URL}/api/Interventions/${intReport.id}`, option)
   }
   close(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({
@@ -60,7 +60,7 @@ export class InterventionReportService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${intReport.id}/close`, option)
+    return this.httpClient.put<InterventionReport>(`${API_URL}/api/Interventions/${intReport.id}/close`, option)
   }
   cancel(id: number){
     const option = {headers: new HttpHeaders({
@@ -68,7 +68,7 @@ export class InterventionReportService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.put<InterventionReport>(`${API_URL}/Interventions/${id}/cancel`, option)
+    return this.httpClient.put<InterventionReport>(`${API_URL}/api/Interventions/${id}/cancel`, option)
   }
 
   sendInterventionReport(id: number){
@@ -76,7 +76,7 @@ export class InterventionReportService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionReportPdf>(`${API_URL}/Interventions/${id}/report`, option)
+    return this.httpClient.get<InterventionReportPdf>(`${API_URL}/api/Interventions/${id}/report`, option)
   }
 
 

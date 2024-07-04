@@ -17,6 +17,6 @@ export class ContractTypeService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<ContractType[]>(`${API_URL}/ContractTypes`, option)
+    return this.httpClient.get<ContractType[]>(`${API_URL}/api/ContractTypes`, option)
   }
 }
