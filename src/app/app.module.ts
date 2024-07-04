@@ -82,7 +82,6 @@ import {NgxPermissionsModule} from "ngx-permissions";
 import { NavBarComponent } from './tamplate/nav-bar/nav-bar.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ClientDetailsComponent } from './pages/clients/client-details/client-details.component';
-import { RequestDetailsComponent } from './pages/intervention-request/request-details/request-details.component';
 
 
 @NgModule({
@@ -129,7 +128,6 @@ import { RequestDetailsComponent } from './pages/intervention-request/request-de
     NavBarComponent,
     ProfileComponent,
     ClientDetailsComponent,
-    RequestDetailsComponent,
   ],
   imports: [
     BrowserModule,
