@@ -26,7 +26,16 @@
 //  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para efeito de elevação */
 //}
 .add{
-  background-color: #e88420;
-  border: none;
-  color: white;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgb(250, 247, 159);
+  background: linear-gradient(257deg, rgb(250, 247, 159) 10%, rgb(206, 231, 230) 70%);
+}
+.table th, .table td {
+  padding: 4px;
+}
+th, td {
+  font-size: 10px;
+  padding: 4px;
 }

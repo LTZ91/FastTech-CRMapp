@@ -12,4 +12,6 @@ export interface InterventionRequest {
   cancellationReason: string,
   status: string,
   statusId: number,
+  interventionClassificationId: number,
+  interventionClassification: string,
 }

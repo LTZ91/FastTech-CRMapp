@@ -3,11 +3,15 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
 import {InterventionRequest} from "../models/intervention-request";
+import {catchError, EMPTY, map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterventionRequestService {
+
+  baseUrl ="http://localhost:5053/api";
+
 
   constructor(private httpClient:HttpClient,
               private snackBar: MatSnackBar) { }
@@ -44,7 +48,20 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${id}`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${id}/request`, option);
+  }
+
+  getById(id: number): Observable<InterventionRequest> {
+    const url = `${this.baseUrl}/${id}/request`;
+    return this.httpClient.get<InterventionRequest>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  errorHandler(e: any): Observable<any> {
+    this.showMessageFail("Ocorreu um erro!");
+    return EMPTY;
   }
 
   getInterventionRequestByStatus(status: InterventionRequest){

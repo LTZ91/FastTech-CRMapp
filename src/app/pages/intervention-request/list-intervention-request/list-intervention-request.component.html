@@ -35,10 +35,10 @@
     <th scope="row">De</th>
     <th scope="row">Cliente</th>
     <th scope="row">Tarefa</th>
-    <th scope="row">Enviada</th>
+<!--    <th scope="row">Enviada</th>-->
     <th scope="row">Tipo</th>
     <th scope="row">Data fim</th>
-    <th scope="row">Estado</th>
+<!--    <th scope="row">Estado</th>-->
     <th scope="row">Acções</th>
   </tr>
   </thead>
@@ -47,11 +47,11 @@
     <td>{{request.id}}</td>
     <td>{{request.technician}}</td>
     <td>{{request.customer}}</td>
-    <td><a href="/request-details">{{request.interventionReason}}</a></td>
-    <td>{{request.dateRequest}}</td>
+    <td><a href="/request-details/{{request.id}}"><span type="button" (click)="requestDetails(request)">{{request.interventionReason}}</span></a></td>
+<!--    <td>{{request.dateRequest}}</td>-->
     <td>Até</td>
     <td>2024-07-20</td>
-    <td>{{request.status}}</td>
+<!--    <td>{{request.status}}</td>-->
     <th><span  type="button" class="material-icons edit"
                (click)="onEdit(request)">
       edit

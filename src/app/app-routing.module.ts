@@ -59,6 +59,8 @@ import {
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {ClientDetailsComponent} from "./pages/clients/client-details/client-details.component";
 import {RequestDetailsComponent} from "./pages/intervention-request/request-details/request-details.component";
+import {TechnicianDetailsComponent} from "./pages/technician/technician-details/technician-details.component";
+import {ContractDetailsComponent} from "./pages/contract/contract-details/contract-details.component";
 
 export const routes: Routes = [
   {
@@ -146,12 +148,20 @@ export const routes: Routes = [
     ListContractsComponent
   },
   {
+    path:'contract-details', component:
+    ContractDetailsComponent
+  },
+  {
     path:'delete-contract', component:
     DeleteContractComponent
   },
   {
     path:'list-technician', component:
     ListTechnicianComponent
+  },
+  {
+    path:'technician-details', component:
+    TechnicianDetailsComponent
   },
   {
     path:'create-technician', component:
@@ -206,7 +216,7 @@ export const routes: Routes = [
     DeleteInterventionRequestComponent
   },
   {
-    path:'request-details', component:
+    path:'request-details/:id', component:
     RequestDetailsComponent
   },
   {

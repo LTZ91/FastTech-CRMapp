@@ -22,7 +22,8 @@ import {DeleteInterventionRequestComponent} from "../delete-intervention-request
 })
 export class ListInterventionRequestComponent implements OnInit{
 
-  constructor( private interventionRequestService: InterventionRequestService, private router: Router,
+  constructor( private interventionRequestService: InterventionRequestService,
+               private router: Router,
                public dialog: MatDialog,
                private store: Store<InterventionRequestState>) { }
 
@@ -128,4 +129,8 @@ export class ListInterventionRequestComponent implements OnInit{
     this.store.dispatch(showDialog())
   }
 
+  requestDetails(request: InterventionRequest) {
+    console.log(request)
+    this.router.navigateByUrl(`/request-details/${request.id}`)
+  }
 }
