@@ -9,26 +9,23 @@
 </div>
 
 
-<table class="table" >
-  <thead class="thead-light">
-  <tr>
-    <th scope="row">ID</th>
-    <th scope="row">Intervention Mode</th>
-    <th scope="row">Customer Name</th>
-    <th scope="row">Technician</th>
-    <th scope="row">Date</th>
-<!--    <th scope="row">Start Time</th>-->
-<!--    <th scope="row">End Time</th>-->
-<!--    <th scope="row">Break Time</th>-->
-    <th scope="row">Duration</th>
-<!--    <th scope="row">Discount</th>-->
-<!--    <th scope="row">Discount Reason</th>-->
-    <th scope="row">Intervention Reason</th>
-    <th scope="row">Activities Performed</th>
-    <th scope="row">Pending Activities</th>
-    <th scope="row">Actions</th>
-  </tr>
-  </thead>
+<div class="table-container py-2 h-100">
+  <div><h4>Relatórios de Intervençao</h4></div>
+  <table class="table table-striped"  style="font-size: 5px;">
+    <thead>
+    <tr>
+      <th scope="row">ID</th>
+      <th scope="row">Modo de Intervençao</th>
+      <th scope="row">Contacto</th>
+      <th scope="row">Técnico</th>
+      <th scope="row">Data</th>
+      <th scope="row">Duracao</th>
+      <th scope="row">Motivo da Intervençao</th>
+      <th scope="row">Actividades Realizadas</th>
+      <th scope="row">Actividades Pendentes</th>
+<!--      <th scope="row">Acçoes</th>-->
+    </tr>
+    </thead>
   <tbody>
   <tr *ngFor="let report of interventionReport">
     <td>{{report.id}}</td>
@@ -45,19 +42,19 @@
     <td>{{report.interventionReason}}</td>
     <td>{{report.activitiesPerformed}}</td>
     <td>{{report.pendingActivities}}</td>
-    <th>
-<!--      <span class="material-symbols-outlined" type="button" (click)="onEdit(report)">close</span>-->
-      <span type="button" class="material-icons delete"  (click)="onDelete(report)">
-        close
-      </span>
-      <span type="button" class="material-symbols-outlined" style="padding-right: 80px" (click)="onSend(report.id)">
-       send
-      </span>
-    </th>
+<!--    <th>-->
+<!--&lt;!&ndash;      <span class="material-symbols-outlined" type="button" (click)="onEdit(report)">close</span>&ndash;&gt;-->
+<!--      <span type="button" class="material-icons delete"  (click)="onDelete(report)">-->
+<!--        close-->
+<!--      </span>-->
+<!--      <span type="button" class="material-symbols-outlined" style="padding-right: 80px" (click)="onSend(report.id)">-->
+<!--       send-->
+<!--      </span>-->
+<!--    </th>-->
   </tr>
   </tbody>
 </table>
-
+</div>
 <div>
   <button mat-mini-fab class="add" routerLink="/create-intervention-report"><span class="material-symbols-outlined" >add</span></button>
 </div>

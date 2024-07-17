@@ -1,0 +1,11 @@
+.table th, .table td {
+  padding: 4px;
+}
+th, td {
+  font-size: 10px;
+  padding: 4px;
+}
+
+.table, .table th, .table td {
+  border: none !important;
+}

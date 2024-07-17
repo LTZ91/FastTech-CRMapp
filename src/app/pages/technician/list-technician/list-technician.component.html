@@ -27,15 +27,15 @@
 <!--</div>-->
 
 <div class="table-container py-2 h-100">
-  <div><h4>Tarefas Recebidas</h4></div>
+  <div><h4>Técnicos</h4></div>
   <table class="table table-striped"  style="font-size: 5px;  ">
     <thead>
     <tr>
       <th scope="row">ID</th>
       <th scope="row">Nome Completo</th>
       <th scope="row">BI</th>
-      <th scope="row">NUIT</th>
-      <th scope="row">Data de Admissão</th>
+<!--      <th scope="row">NUIT</th>-->
+<!--      <th scope="row">Data de Admissão</th>-->
       <th scope="row">Posição</th>
       <th scope="row">Acções</th>
     </tr>
@@ -43,10 +43,10 @@
     <tbody>
     <tr *ngFor="let technicians of technician ">
       <td>{{technicians.id}}</td>
-      <td>{{technicians.fullName}}</td>
-      <td>{{technicians.identificationNumber}}</td>
+      <td><a href="/technician-details">{{technicians.fullName}}</a></td>
+<!--      <td>{{technicians.identificationNumber}}</td>-->
       <td>{{technicians.taxNumber}}</td>
-      <td>{{technicians.hiringDate}}</td>
+<!--      <td>{{technicians.hiringDate}}</td>-->
       <td>{{technicians.position}}</td>
       <th><span  type="button" class="material-icons edit"
                  (click)="onEdit(technicians)">
