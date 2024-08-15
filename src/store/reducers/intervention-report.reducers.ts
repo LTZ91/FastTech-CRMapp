@@ -1,13 +1,17 @@
 import {createReducer, on} from "@ngrx/store";
 import {
   cancelInterventionReport,
-  cancelInterventionReportFail, cancelInterventionReportSuccess,
+  cancelInterventionReportFail,
+  cancelInterventionReportSuccess,
   closeInterventionReport,
   closeInterventionReportFail,
   closeInterventionReportSuccess,
   getInterventionReportById,
   getInterventionReportByIdFail,
   getInterventionReportByIdSuccess,
+  getInterventionReportByIntRequestId,
+  getInterventionReportByIntRequestIdFail,
+  getInterventionReportByIntRequestIdSuccess,
   getInterventionReportMailById,
   getInterventionReportMailByIdFail,
   getInterventionReportMailByIdSuccess,
@@ -34,6 +38,7 @@ export interface InterventionReportState{
   interventionReportCancel: InterventionReport | null,
   selectedInterventionReport: InterventionReport | null,
   selectedInterventionReportMail: InterventionReportPdf | null,
+  selectedInterventionReportByIntReqID: InterventionReport | null,
   isUpdated: boolean,
   isDelete: boolean,
   isClosed: boolean,
@@ -49,6 +54,7 @@ const initialState: InterventionReportState = {
   interventionReportCancel: null,
   selectedInterventionReport: null,
   selectedInterventionReportMail: null,
+  selectedInterventionReportByIntReqID: null,
   isUpdated: false,
   isDelete: false,
   isClosed: false,
@@ -87,6 +93,16 @@ export const interventionReportReducers = createReducer(
     return { ...state, selectedInterventionReportMail: payload };
   }),
   on(getInterventionReportMailByIdFail, (state, { payload }) => {
+    return { ...state, error: payload };
+  }),
+
+  on(getInterventionReportByIntRequestId, (state) => {
+    return { ...state, selectedInterventionReportByIntReqID: null };
+  }),
+  on(getInterventionReportByIntRequestIdSuccess, (state, { payload }) => {
+    return { ...state, selectedInterventionReportByIntReqID: payload };
+  }),
+  on(getInterventionReportByIntRequestIdFail, (state, { payload }) => {
     return { ...state, error: payload };
   }),
 

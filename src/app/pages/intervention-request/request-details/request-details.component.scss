@@ -1,11 +1,78 @@
-.table th, .table td {
-  padding: 4px;
-}
-th, td {
-  font-size: 10px;
-  padding: 4px;
+//.table th, .table td {
+//  padding: 4px;
+//}
+//th, td {
+//  font-size: 10px;
+//  padding: 4px;
+//}
+//
+//.table, .table th, .table td {
+//  border: none !important;
+//}
+
+.container {
+  background-color: #ffffff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.table, .table th, .table td {
-  border: none !important;
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(250, 247, 159);
+  background: linear-gradient(257deg, rgb(250, 247, 159) 10%, rgb(206, 231, 230) 70%);
+  padding: 10px;
+}
+
+.header .left, .header .right {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .company-name a {
+  color: #009688;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ffffff;
+}
+
+.details .left-details, .details .right-details {
+  width: 58%;
+}
+
+.footer {
+  margin-top: 10px;
+}
+
+.time-details {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 10px;
+  border-top: 1px solid #ffffff;
+}
+
+.comments {
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  margin-top: 10px;
+}
+
+.comments .obs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.time-details img {
+  height: 20px;
+  width: 20px;
 }

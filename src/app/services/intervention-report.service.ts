@@ -4,6 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
 import {InterventionReport} from "../models/intervention-report";
 import {InterventionReportPdf} from "../models/intervention-report-pdf";
+import {InterventionRequest} from "../models/intervention-request";
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,15 @@ export class InterventionReportService {
       })}
 
     return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/:id`, option);
+  }
+
+  getInterventionReportByIntRequestId(request: InterventionRequest){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/${request.id}/request`, option);
   }
   delete(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({

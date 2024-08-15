@@ -4,6 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {API_URL} from "../../environments/environment";
 import {InterventionRequest} from "../models/intervention-request";
 import {catchError, EMPTY, map, Observable} from "rxjs";
+import {InterventionReport} from "../models/intervention-report";
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class InterventionRequestService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/${intRequest.id}`,intRequest, option)
+    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/request/${intRequest.id}`,intRequest, option)
   }
 
 
@@ -48,7 +49,7 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${id}/request`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}`, option);
   }
 
   getById(id: number): Observable<InterventionRequest> {
@@ -70,15 +71,24 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${status.status}`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${status.status}/status`, option);
   }
+  getInterventionReportByIntRequestId(request: InterventionRequest){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/${request.id}/request`, option);
+  }
+
   delete(intRequest: InterventionRequest){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<InterventionRequest>(`${API_URL}/api/Interventions/${intRequest.id}`, option)
+    return this.httpClient.delete<InterventionRequest>(`${API_URL}/api/Interventions/request/${intRequest.id}`, option)
   }
 
 

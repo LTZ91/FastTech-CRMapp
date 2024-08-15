@@ -5,7 +5,10 @@ import {InterventionReportService} from "../../app/services/intervention-report.
 import {
   addInterventionReport,
   addInterventionReportFail,
-  addInterventionReportSuccess, cancelInterventionReport, cancelInterventionReportFail, cancelInterventionReportSuccess,
+  addInterventionReportSuccess,
+  cancelInterventionReport,
+  cancelInterventionReportFail,
+  cancelInterventionReportSuccess,
   closeInterventionReport,
   closeInterventionReportFail,
   closeInterventionReportSuccess,
@@ -13,6 +16,9 @@ import {
   deleteInterventionReportFail,
   deleteInterventionReportSuccess,
   getAllInterventionReport,
+  getInterventionReportByIntRequestId,
+  getInterventionReportByIntRequestIdFail,
+  getInterventionReportByIntRequestIdSuccess,
   getInterventionReportFail,
   getInterventionReportMailById,
   getInterventionReportMailByIdFail,
@@ -46,6 +52,18 @@ export class InterventionReportEffects{
         this.interventionReportService.sendInterventionReport(action.payload).pipe(
           map((response) => getInterventionReportMailByIdSuccess({ payload: response })),
           catchError((error) => of(getInterventionReportMailByIdFail({ payload: error })))
+        )
+      )
+    )
+  )
+
+  getInterventionReportByIntRequestId$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getInterventionReportByIntRequestId),
+      exhaustMap((action) =>
+        this.interventionReportService.getInterventionReportByIntRequestId(action.payload).pipe(
+          map((response) => getInterventionReportByIntRequestIdSuccess({ payload: response })),
+          catchError((error) => of(getInterventionReportByIntRequestIdFail({ payload: error })))
         )
       )
     )

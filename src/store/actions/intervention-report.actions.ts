@@ -1,6 +1,7 @@
 import {createAction, props} from "@ngrx/store";
 import {InterventionReport} from "../../app/models/intervention-report";
 import {InterventionReportPdf} from "../../app/models/intervention-report-pdf";
+import {InterventionRequest} from "../../app/models/intervention-request";
 
 export const getAllInterventionReport = createAction('[INTERVENTION_REPORT] Get all Intervention Report')
 export const getInterventionReportSuccess = createAction('[INTERVENTION_REPORT] Get all Intervention Report Success', props<{payload: InterventionReport[]}>())
@@ -9,6 +10,14 @@ export const getInterventionReportFail = createAction('[INTERVENTION_REPORT] Get
 export const getInterventionReportById = createAction('[INTERVENTION_REPORT] GET Interventions Report BY ID', props<{ payload: number }>());
 export const getInterventionReportByIdFail = createAction('[INTERVENTION_REPORT] GET Interventions Report BY ID FAIL', props<{ payload: any }>());
 export const getInterventionReportByIdSuccess = createAction('[INTERVENTION_REPORT] GET Interventions Report BY ID SUCCESS', props<{ payload: InterventionReport }>());
+
+export const getInterventionReportByIntRequestId = createAction(
+  '[INTERVENTION_REPORT] GET Interventions Report BY  IntRequestID', props<{ payload: InterventionRequest }>());
+export const getInterventionReportByIntRequestIdFail = createAction(
+  '[INTERVENTION_REPORT] GET Interventions Report BY IntRequestID FAIL', props<{ payload: any }>());
+export const getInterventionReportByIntRequestIdSuccess = createAction(
+  '[INTERVENTION_REPORT] GET Interventions Report BY IntRequestID SUCCESS', props<{ payload: InterventionReport  }>());
+
 
 export const getInterventionReportMailById = createAction('[INTERVENTION_REPORT] GET Interventions Report Mail BY ID', props<{ payload: number }>());
 export const getInterventionReportMailByIdFail = createAction('[INTERVENTION_REPORT] GET Interventions Report Mail BY ID FAIL', props<{ payload: any }>());

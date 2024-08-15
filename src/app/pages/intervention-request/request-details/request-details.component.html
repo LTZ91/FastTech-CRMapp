@@ -1,62 +1,107 @@
-<h3><strong style="margin-left: 1%">Detalhes da Intervençao</strong> </h3>
-<div *ngIf="request" class="card col-md-6 py-0" style="height: 300px" >
-    <div class=" py-3"  style="margin-left: 1%;">
-      <strong>INT</strong>: {{request.id}}<br>
-      <strong>Cliente</strong>: {{request.customer}}<br>
-      <strong>Classificacao</strong>: Resolução de problema <br>
-      <strong>Factura</strong>: <br>
-      <strong>Data</strong>: {{request.dateRequest}}<br>
-      <strong>Solicitante</strong>: {{request.customerContact}}<br>
-      <strong>Técnico</strong>: {{request.technician}}<br>
-      <strong>Motivo</strong>: {{request.interventionReason}}<br>
-      <strong>Tipo de Contracto</strong>: {{request.contractType}}<br>
-<!--      <strong>Motivo do Cancelamento</strong>: {{request.cancellationReason}}<br>-->
-      <strong>Estado da Intervenção</strong>: {{request.status}}<br>
+<div class="container" *ngIf="request">
+  <div class="header">
+    <div >
+      <span style="margin-right: 10px">INT {{request.id}}</span>
+      <span class="company-name"><a href="#">{{request.customer}}</a></span>
     </div>
-</div>
-
-
-<div class="card" style="height: 100px">
-  <form class="row g-3" style="margin-left: 1%; height: 200px">
-    <div class="col-md-6">
-      <label for="inputReference" class="form-label"><strong>Observações</strong> </label>
-      <textarea type="text" style="width: 100%" class="form-control" id="inputReference" formControlName="reference">
-      </textarea>
+    <div class="right">
+      <span>{{request.dateRequest}}</span>
     </div>
-  </form>
+  </div>
 
+  <div class="details">
+    <div class="left-details">
+      <p><strong>Classificação:</strong> {{request.interventionClassification}}</p>
+      <p><strong>Solicitante:</strong> {{request.customerContact}}</p>
+    </div>
+    <div class="right-details">
+      <p><strong>Técnico:</strong> {{request.technician}}</p>
+      <p><strong>Estado:</strong> {{request.status}}</p>
+<!--      <a href="#">Criar Relatório</a>-->
+      <p>
+        <a href="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
+          Criar Relatório
+        </a>
+      </p>
+      <div class="collapse" id="collapseForm" style="margin-left: 50px">
+        <div class="card card-body" >
+          <form class="row">
+            <div class="col-12 col-md-6 mb-4">
+              <label for="tempoInicial" class="form-label">Tempo Inicial</label>
+              <input type="time" class="form-control" id="tempoInicial" name="tempoInicial">
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+              <label for="tempoFinal" class="form-label">Tempo Final</label>
+              <input type="time" class="form-control" id="tempoFinal" name="tempoFinal">
+            </div>
+            <div class="mb-3">
+              <label for="modoIntervencao" class="form-label">Modo de Intervenção</label>
+              <input type="text" class="form-control" id="modoIntervencao" name="modoIntervencao">
+            </div>
+            <div class="mb-3">
+              <label for="descricao" class="form-label">Descrição</label>
+              <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="intervalo" class="form-label">Intervalo</label>
+              <input type="text" class="form-control" id="intervalo" name="intervalo">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="time-details">
+      <!--      <span>Previsto 00:00</span>-->
+      <!--      <span>Abertos 00:00</span>-->
+      <!--      <span>Fechados 00:00</span>-->
+      <!--      <span>A creditar 00:00</span>-->
+      <span>Total 00:00</span>
+      <span>Por Faturar</span>
+      <img src="assets/pdf.png" alt="PDF">
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="comments" *ngIf="request">
+      <p><strong>Motivo da Intervenção:</strong>{{request.interventionReason}}</p>
+      <div class="obs">
+        <div class="col-6 mb-4">
+          <label class="form-label">Observações:</label>
+            <div>
+              <textarea type="text" class="form-control mb-2" placeholder="Obs..."></textarea>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div><h4>Relatórios de Intervenção</h4></div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Data de Início</th>
+        <th scope="col">Data de Fim</th>
+        <th scope="col">Técnico</th>
+        <th scope="col">Modo de Intervenção</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Observações</th>
+        <th scope="col">Data de Criação</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rpt of interventionReport">
+        <td>{{rpt.startTime}}</td>
+        <td>{{rpt.endTime}}</td>
+        <td>{{rpt.technician}}</td>
+        <td>{{rpt.interventionMode}}</td>
+        <td>{{rpt.activitiesPerformed}}</td>
+        <td></td>
+        <td>{{rpt.date}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<div class="card table-container py-2 h-100">
-  <table class="table table-striped"  style="font-size: 5px;  ">
-    <thead>
-    <tr>
-      <th scope="row">INT</th>
-      <th scope="row">De</th>
-      <th scope="row">Tarefa</th>
-      <th scope="row">Estado</th>
-      <th scope="row">Acções</th>
-    </tr>
-    </thead>
-    <tbody>
-<!--    <tr *ngFor="let request of interventionRequest ">-->
-<!--      <td>{{request.id}}</td>-->
-<!--      <td>{{request.technician}}</td>-->
-<!--      <td>{{request.customer}}</td>-->
-<!--      <td><a href="/request-details/{{request.id}}"><span type="button" (click)="requestDetails(request)">{{request.interventionReason}}</span></a></td>-->
-<!--      <td>{{request.dateRequest}}</td>-->
-<!--      <td>Até</td>-->
-<!--      <td>2024-07-20</td>-->
-<!--      <td>{{request.status}}</td>-->
-<!--      <th><span  type="button" class="material-icons edit"-->
-<!--                 (click)="onEdit(request)">-->
-<!--      edit-->
-<!--    </span>-->
-<!--        <span type="button" class="material-icons delete" (click)="onDelete(request)">-->
-<!--        delete-->
-<!--      </span></th>-->
-<!--    </tr>-->
-    </tbody>
-  </table>
-</div>
-
