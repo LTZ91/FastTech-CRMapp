@@ -37,7 +37,7 @@ export class InterventionRequestService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/${intRequest.id}`,intRequest, option)
+    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/request/${intRequest.id}`,intRequest, option)
   }
 
 
@@ -48,7 +48,7 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${id}/request`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}`, option);
   }
 
   getById(id: number): Observable<InterventionRequest> {
@@ -70,7 +70,7 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${status.status}`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${status.status}/status`, option);
   }
   delete(intRequest: InterventionRequest){
     const option = {headers: new HttpHeaders({
@@ -78,7 +78,7 @@ export class InterventionRequestService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.delete<InterventionRequest>(`${API_URL}/api/Interventions/${intRequest.id}`, option)
+    return this.httpClient.delete<InterventionRequest>(`${API_URL}/api/Interventions/request/${intRequest.id}`, option)
   }
 
 

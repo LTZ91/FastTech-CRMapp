@@ -26,7 +26,7 @@ export class RequestDetailsComponent {
           this.request = data;
           console.log(data);
         }
-      });
+      })
     } else {
       console.error('ID is null');
     }
