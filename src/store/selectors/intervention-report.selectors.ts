@@ -1,5 +1,9 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {InterventionReportState, listAll} from "../reducers/intervention-report.reducers";
+import {
+  interventionReportByInterventionRequestId,
+  InterventionReportState,
+  listAll
+} from "../reducers/intervention-report.reducers";
 import {interventionReportIsDelete, interventionReportIsUpdate} from "../reducers/intervention-report.reducers";
 
 export const INTERVENTION_REPORT_STATE_NAME = 'interventionReport'
@@ -7,6 +11,11 @@ export const interventionReportState = createFeatureSelector<InterventionReportS
 export const selectAllInterventionReport  = createSelector(
   interventionReportState,
   listAll
+)
+
+export const selectIntReportByIntRequestId = createSelector(
+  interventionReportState,
+  interventionReportByInterventionRequestId
 )
 
 export const selectInterventionReportIsUpdate = createSelector(

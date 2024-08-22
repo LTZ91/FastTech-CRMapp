@@ -9,8 +9,7 @@ import {
   getInterventionReportById,
   getInterventionReportByIdFail,
   getInterventionReportByIdSuccess,
-  getInterventionReportByIntRequestId,
-  getInterventionReportByIntRequestIdFail,
+  getInterventionReportByIntRequestId, getInterventionReportByIntRequestIdFail,
   getInterventionReportByIntRequestIdSuccess,
   getInterventionReportMailById,
   getInterventionReportMailByIdFail,
@@ -28,6 +27,7 @@ import {
 } from "../actions/intervention-report.actions";
 import {InterventionReport} from "../../app/models/intervention-report";
 import {InterventionReportPdf} from "../../app/models/intervention-report-pdf";
+import {state} from "@angular/animations";
 
 
 
@@ -162,6 +162,8 @@ export const interventionReportReducers = createReducer(
 
 export const listAll = (state : InterventionReportState) => state.interventionsReports;
 export const interventionReportIsUpdate = (state: InterventionReportState) => state.isUpdated;
+
+export const interventionReportByInterventionRequestId =(state: InterventionReportState) => state.selectedInterventionReportByIntReqID;
 export const interventionReportIsClosed= (state: InterventionReportState) => state.isClosed;
 export const interventionReportIsCancel= (state: InterventionReportState) => state.isCancel;
 export const interventionReportIsDelete = (state: InterventionReportState) => state.isDelete;

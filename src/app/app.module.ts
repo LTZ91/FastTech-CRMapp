@@ -85,6 +85,7 @@ import { ClientDetailsComponent } from './pages/clients/client-details/client-de
 import {RequestDetailsComponent} from "./pages/intervention-request/request-details/request-details.component";
 import { ContractDetailsComponent } from './pages/contract/contract-details/contract-details.component';
 import { TechnicianDetailsComponent } from './pages/technician/technician-details/technician-details.component';
+import {MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -185,6 +186,8 @@ import { TechnicianDetailsComponent } from './pages/technician/technician-detail
     MatMenuItem,
     CollapseModule,
     NgxPermissionsModule,
+    MatDialogTitle,
+    MatDialogContent,
 
 
   ],

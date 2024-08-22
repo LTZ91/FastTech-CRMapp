@@ -1,5 +1,5 @@
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {catchError, exhaustMap, map, of} from "rxjs";
+import {catchError, exhaustMap, map, mergeMap, of} from "rxjs";
 import {Injectable} from "@angular/core";
 import {InterventionReportService} from "../../app/services/intervention-report.service";
 import {
@@ -25,6 +25,7 @@ import {
   getInterventionReportMailByIdSuccess,
   getInterventionReportSuccess
 } from "../actions/intervention-report.actions";
+import {InterventionReport} from "../../app/models/intervention-report";
 
 
 @Injectable()
@@ -57,17 +58,21 @@ export class InterventionReportEffects{
     )
   )
 
-  getInterventionReportByIntRequestId$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(getInterventionReportByIntRequestId),
-      exhaustMap((action) =>
-        this.interventionReportService.getInterventionReportByIntRequestId(action.payload).pipe(
-          map((response) => getInterventionReportByIntRequestIdSuccess({ payload: response })),
-          catchError((error) => of(getInterventionReportByIntRequestIdFail({ payload: error })))
-        )
-      )
-    )
-  );
+  // getInterventionReportByIntRequestId$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(getInterventionReportByIntRequestId),
+  //     exhaustMap((action) =>
+  //       this.interventionReportService.getInterventionReportByIntRequestId(action.).pipe(
+  //         map((response) => getInterventionReportByIntRequestIdSuccess({ payload: response })),
+  //         catchError((error) => of(getInterventionReportByIntRequestIdFail({ payload: error })))
+  //       )
+  //     )
+  //   )
+  // );
+
+
+
+
   addInterventionReport = createEffect(() =>
     this.actions$.pipe(
       ofType(addInterventionReport),

@@ -76,3 +76,11 @@
   height: 20px;
   width: 20px;
 }
+.table-container table th,
+.table-container table td {
+  width: 100px; /* Ajuste conforme necessário */
+  padding: 4px; /* Reduzir preenchimento */
+  padding: 5px; /* Reduzir preenchimento interno */
+  margin: 0; /* Remover margens */
+
+}

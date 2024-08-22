@@ -12,11 +12,12 @@ export const getInterventionReportByIdFail = createAction('[INTERVENTION_REPORT]
 export const getInterventionReportByIdSuccess = createAction('[INTERVENTION_REPORT] GET Interventions Report BY ID SUCCESS', props<{ payload: InterventionReport }>());
 
 export const getInterventionReportByIntRequestId = createAction(
-  '[INTERVENTION_REPORT] GET Interventions Report BY  IntRequestID', props<{ payload: InterventionRequest }>());
+  '[INTERVENTION_REPORT] GET Interventions Report BY  IntRequestID', props<{ payload: InterventionReport }>());
 export const getInterventionReportByIntRequestIdFail = createAction(
   '[INTERVENTION_REPORT] GET Interventions Report BY IntRequestID FAIL', props<{ payload: any }>());
 export const getInterventionReportByIntRequestIdSuccess = createAction(
   '[INTERVENTION_REPORT] GET Interventions Report BY IntRequestID SUCCESS', props<{ payload: InterventionReport  }>());
+
 
 
 export const getInterventionReportMailById = createAction('[INTERVENTION_REPORT] GET Interventions Report Mail BY ID', props<{ payload: number }>());

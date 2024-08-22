@@ -26,7 +26,8 @@ import {DeleteInterventionReportComponent} from "../delete-intervention-report/d
   styleUrl: './list-intervention-report.component.scss'
 })
 export class ListInterventionReportComponent implements OnInit{
-  constructor( private interventionReportService: InterventionReportService, private router: Router,
+  constructor( private interventionReportService: InterventionReportService,
+               private router: Router,
                public dialog: MatDialog,
                private store: Store<InterventionReportState>) { }
 
@@ -143,4 +144,23 @@ export class ListInterventionReportComponent implements OnInit{
       }
     );
   }
+
+
+  openInterventionModal() {
+
+    this.dialog.open(CreateInterventionReportComponent);
+    // const dialogRef = this.dialog.open(CreateInterventionReportComponent, {
+    //   backdropClass: 'custom-backdrop-class',
+    //   hasBackdrop: true,
+    // });
+    // // const dialogRef = this.dialog.open(CreateInterventionReportComponent);
+    //
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (result) {
+    //     console.log('Form data:', result);
+    //   }
+    // });
+  }
+
+
 }

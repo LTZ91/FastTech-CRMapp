@@ -11,12 +11,12 @@
 
   <div class="details">
     <div class="left-details">
-      <p><strong>Classificação:</strong> {{request.interventionClassification}}</p>
-      <p><strong>Solicitante:</strong> {{request.customerContact}}</p>
+      <h4><strong>Classificação:</strong> {{request.interventionClassification}}</h4>
+      <h4><strong>Solicitante:</strong> {{request.customerContact}}</h4>
     </div>
     <div class="right-details">
-      <p><strong>Técnico:</strong> {{request.technician}}</p>
-      <p><strong>Estado:</strong> {{request.status}}</p>
+      <h4><strong>Técnico:</strong> {{request.technician}}</h4>
+      <h4><strong>Estado:</strong> {{request.status}}</h4>
 <!--      <a href="#">Criar Relatório</a>-->
       <p>
         <a href="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
@@ -24,8 +24,12 @@
         </a>
       </p>
       <div class="collapse" id="collapseForm" style="margin-left: 50px">
-        <div class="card card-body" >
+        <div class="card card-body">
           <form class="row">
+<!--            <div class="mb-3">-->
+<!--              <label for="tempoInicial" class="form-label">Motivo da Intervenção</label>-->
+<!--              <input type="text" class="form-control" id="interventionRequestId" name="tempoInicial" >-->
+<!--            </div>-->
             <div class="col-12 col-md-6 mb-4">
               <label for="tempoInicial" class="form-label">Tempo Inicial</label>
               <input type="time" class="form-control" id="tempoInicial" name="tempoInicial">
@@ -42,22 +46,22 @@
               <label for="descricao" class="form-label">Descrição</label>
               <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
             </div>
-            <div class="mb-3">
+            <div class="col-12 col-md-6 mb-4">
               <label for="intervalo" class="form-label">Intervalo</label>
-              <input type="text" class="form-control" id="intervalo" name="intervalo">
+              <input type="time" class="form-control" id="intervalo" name="intervalo">
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary">Criar</button>
           </form>
         </div>
       </div>
     </div>
 
-    <div class="time-details">
+    <div class="time-details" >
       <!--      <span>Previsto 00:00</span>-->
       <!--      <span>Abertos 00:00</span>-->
       <!--      <span>Fechados 00:00</span>-->
       <!--      <span>A creditar 00:00</span>-->
-      <span>Total 00:00</span>
+      <span><strong>Total</strong> 00:00</span>
       <span>Por Faturar</span>
       <img src="assets/pdf.png" alt="PDF">
     </div>
@@ -65,13 +69,14 @@
 
   <div class="footer">
     <div class="comments" *ngIf="request">
-      <p><strong>Motivo da Intervenção:</strong>{{request.interventionReason}}</p>
+      <h4><strong>Motivo da Intervenção:</strong>{{request.interventionReason}}</h4>
       <div class="obs">
         <div class="col-6 mb-4">
           <label class="form-label">Observações:</label>
             <div>
               <textarea type="text" class="form-control mb-2" placeholder="Obs..."></textarea>
             </div>
+          <button type="submit" class="btn btn-primary">Submeter</button>
         </div>
       </div>
     </div>
@@ -85,21 +90,23 @@
         <th scope="col">Data de Início</th>
         <th scope="col">Data de Fim</th>
         <th scope="col">Técnico</th>
-        <th scope="col">Modo de Intervenção</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Observações</th>
+        <th scope="col">TT/TF</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Descricao</th>
+        <th scope="col">Observacoes</th>
         <th scope="col">Data de Criação</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let rpt of interventionReport">
-        <td>{{rpt.startTime}}</td>
-        <td>{{rpt.endTime}}</td>
-        <td>{{rpt.technician}}</td>
-        <td>{{rpt.interventionMode}}</td>
-        <td>{{rpt.activitiesPerformed}}</td>
+      <tr *ngFor="let report of interventionReport">
+        <td>{{report.startTime}}</td>
+        <td>{{report.endTime}}</td>
+        <td>{{report.technician}}</td>
         <td></td>
-        <td>{{rpt.date}}</td>
+        <td>{{report.interventionMode}}</td>
+        <td>{{report.activitiesPerformed}}</td>
+        <td></td>
+        <td>{{report.date}}</td>
       </tr>
       </tbody>
     </table>

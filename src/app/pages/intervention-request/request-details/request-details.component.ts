@@ -19,10 +19,16 @@ import {
   selectAllInterventionReportDelete,
   selectInterventionReportIsOpen,
   selectInterventionReportIsSaved,
-  selectInterventionReportIsUpdate
+  selectInterventionReportIsUpdate, selectIntReportByIntRequestId
 } from "../../../../store/selectors/intervention-report.selectors";
-import {getAllInterventionReport} from "../../../../store/actions/intervention-report.actions";
+import {
+  getAllInterventionReport,
+  getInterventionReportByIntRequestId
+} from "../../../../store/actions/intervention-report.actions";
 import {Observable} from "rxjs";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {InterventionMode} from "../../../models/intervention-mode";
+import {InterventionModeService} from "../../../services/intervention-mode.service";
 
 @Component({
   selector: 'app-request-details',
@@ -34,27 +40,39 @@ export class RequestDetailsComponent {
 
   request!: InterventionRequest;
   report!: InterventionReport;
+  formInterventionReport!: FormGroup;
+  interventionMode! : InterventionMode[];
+  interventionRequest! : InterventionRequest[];
+
 
   constructor(private interventionRequestService: InterventionRequestService,
               private interventionReportService: InterventionReportService,
+              private interventionModeService: InterventionModeService,
+
               private router: Router,
               private store: Store<InterventionReportState>,
-              private route: ActivatedRoute) {}
+              private formBuilder: FormBuilder,
+              private route: ActivatedRoute) {
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: [''],
+    });
+  }
 
   @Input()
   interventionReportList!: InterventionReport[];
   interventionReport!: InterventionReport[] | null;
+  firstFormGroup: FormGroup;
 
   @Output() onSelectedInterventionRequest = new EventEmitter<InterventionReport>();
   selectAllInterventionReport$ = this.store.pipe(select (selectAllInterventionReport));
-  selectInterventionReportUpdate$ = this.store.pipe(select(selectInterventionReportIsUpdate));
+  selectIntReportByIntRequestId$ = this.store.pipe(select(selectIntReportByIntRequestId));
   selectInterventionReportDelete$ = this.store.pipe(select (selectAllInterventionReportDelete));
   selectInterventionReportIsOpen$ = this.store.pipe(select (selectInterventionReportIsOpen));
   selectInterventionReportIsSaved$ = this.store.pipe(select (selectInterventionReportIsSaved));
   private dialogRef!: MatDialogRef<any>;
 
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
     const id = idParam ? +idParam : null;
 
@@ -69,26 +87,7 @@ export class RequestDetailsComponent {
       console.error('ID is null');
     }
 
-
-    const idParamID = this.route.snapshot.paramMap.get('id');
-    const idRep = idParamID ? +idParamID : null;
-    if (idRep !== null) {
-      this.interventionReportService.getInterventionReportByIntRequestId(this.request).subscribe(data => {
-        if (data) {
-          this.report = data;
-          console.log(data);
-        }
-      });
-    } else {
-      console.error('ID is null');
-    }
-
-    this.selectAllInterventionReport$.subscribe(data =>{
-      if(data){
-        this.interventionReport = data;
-      }
-    })
-    this.store.dispatch(getAllInterventionReport());
+  this.interventionReportService.getInterventionReportByIntRequestId(this.request)
 
 
   }

@@ -130,7 +130,7 @@ export class CreateInterventionReportComponent implements OnInit{
   get activitiesPerformedGroup() {
     return this.formInterventionReport.get('activitiesPerformed') as FormArray
   }
-  cancel() {
+  clean() {
     this.formInterventionReport.reset();
   }
 
