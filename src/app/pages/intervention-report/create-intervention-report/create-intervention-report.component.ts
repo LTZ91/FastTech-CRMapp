@@ -46,6 +46,7 @@ export class CreateInterventionReportComponent implements OnInit{
   isOpen !: boolean;
   ngOnInit(): void {
 
+
     this.getInterventionMode();
     this.getInterventionRequest();
     if(this.interventionReport){
@@ -101,6 +102,7 @@ export class CreateInterventionReportComponent implements OnInit{
       this.store.dispatch(hideDialog());
       this.interventionReportService.showMessageSuccess('Report Fechado com Sucesso')
     } else {
+      console.log(this.formInterventionReport.value);
       this.store.dispatch(addInterventionReport({payload: this.formInterventionReport.value}));
       this.interventionReportService.showMessageSuccess('Relatório de Intervenção criado  com Sucesso')
     }

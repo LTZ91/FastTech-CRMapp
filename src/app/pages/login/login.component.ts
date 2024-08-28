@@ -46,6 +46,6 @@ export class LoginComponent implements OnInit{
   }
 
   onReset() {
-    this.dialogRef= this.dialog.open(ForgetPasswordComponent);
+     this.dialog.open(ForgetPasswordComponent);
   }
 }

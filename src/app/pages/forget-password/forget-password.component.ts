@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
+import {hideDialog} from "../../../store/actions/user.actions";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -11,6 +13,7 @@ import {UserService} from "../../services/user.service";
 export class ForgetPasswordComponent implements OnInit{
 
   constructor(private userService: UserService,
+              public dialog: MatDialog
 
   ) {
   }
@@ -41,5 +44,10 @@ export class ForgetPasswordComponent implements OnInit{
   cancel() {
     this.forgetPasswordForm.reset()
 
+  }
+
+
+  onClose() {
+    this.dialog.closeAll();
   }
 }

@@ -18,42 +18,6 @@
       <h4><strong>Técnico:</strong> {{request.technician}}</h4>
       <h4><strong>Estado:</strong> {{request.status}}</h4>
 <!--      <a href="#">Criar Relatório</a>-->
-      <p>
-        <a href="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
-          Criar Relatório
-        </a>
-      </p>
-      <div class="collapse" id="collapseForm" style="margin-left: 50px">
-        <div class="card card-body">
-          <form class="row">
-<!--            <div class="mb-3">-->
-<!--              <label for="tempoInicial" class="form-label">Motivo da Intervenção</label>-->
-<!--              <input type="text" class="form-control" id="interventionRequestId" name="tempoInicial" >-->
-<!--            </div>-->
-            <div class="col-12 col-md-6 mb-4">
-              <label for="tempoInicial" class="form-label">Tempo Inicial</label>
-              <input type="time" class="form-control" id="tempoInicial" name="tempoInicial">
-            </div>
-            <div class="col-12 col-md-6 mb-4">
-              <label for="tempoFinal" class="form-label">Tempo Final</label>
-              <input type="time" class="form-control" id="tempoFinal" name="tempoFinal">
-            </div>
-            <div class="mb-3">
-              <label for="modoIntervencao" class="form-label">Modo de Intervenção</label>
-              <input type="text" class="form-control" id="modoIntervencao" name="modoIntervencao">
-            </div>
-            <div class="mb-3">
-              <label for="descricao" class="form-label">Descrição</label>
-              <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
-            </div>
-            <div class="col-12 col-md-6 mb-4">
-              <label for="intervalo" class="form-label">Intervalo</label>
-              <input type="time" class="form-control" id="intervalo" name="intervalo">
-            </div>
-            <button type="submit" class="btn btn-primary">Criar</button>
-          </form>
-        </div>
-      </div>
     </div>
 
     <div class="time-details" >
@@ -64,6 +28,43 @@
       <span><strong>Total</strong> 00:00</span>
       <span>Por Faturar</span>
       <img src="assets/pdf.png" alt="PDF">
+    </div>
+  </div>
+
+  <p>
+    <a href="" type="button" style="padding-left: 45%" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
+      Criar Relatório
+    </a>
+  </p>
+  <div class="collapse" id="collapseForm" style="margin-left: 350px; width: 500px">
+    <div class="card card-body">
+      <form class="row">
+        <!--            <div class="mb-3">-->
+        <!--              <label for="tempoInicial" class="form-label">Motivo da Intervenção</label>-->
+        <!--              <input type="text" class="form-control" id="interventionRequestId" name="tempoInicial" >-->
+        <!--            </div>-->
+        <div class="col-12 col-md-6 mb-4">
+          <label for="tempoInicial" class="form-label">Tempo Inicial</label>
+          <input type="time" class="form-control" id="tempoInicial" name="tempoInicial">
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <label for="tempoFinal" class="form-label">Tempo Final</label>
+          <input type="time" class="form-control" id="tempoFinal" name="tempoFinal">
+        </div>
+        <div class="mb-3">
+          <label for="modoIntervencao" class="form-label">Modo de Intervenção</label>
+          <input type="text" class="form-control" id="modoIntervencao" name="modoIntervencao">
+        </div>
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição</label>
+          <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <label for="intervalo" class="form-label">Intervalo</label>
+          <input type="time" class="form-control" id="intervalo" name="intervalo">
+        </div>
+        <button type="submit" class="btn btn-primary">Criar</button>
+      </form>
     </div>
   </div>
 
