@@ -52,13 +52,15 @@ export class InterventionRequestService {
     return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}`, option);
   }
 
-  getById(id: number): Observable<InterventionRequest> {
-    const url = `${this.baseUrl}/${id}/request`;
-    return this.httpClient.get<InterventionRequest>(url).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
+  allocateInterventionRequest(id: number){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}/technician`, option);
   }
+
 
   errorHandler(e: any): Observable<any> {
     this.showMessageFail("Ocorreu um erro!");

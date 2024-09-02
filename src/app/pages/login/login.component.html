@@ -1,74 +1,137 @@
 
-<mat-toolbar class="background" color="primary" style="height: 50px">
-  <div class="container" >
-        <a class="navbar-brand" href="#" style="padding-right: 70px">
-          <img
-            src="assets/logoFasttech1.png"
-            height="30"
-            alt="FastTech Logo"
-            loading="lazy"
-          />
-        </a>
-      </div>
-
-</mat-toolbar>
-
-<section class="vh-80 gradient-custom">
-  <div class=" card container py-5 h-100" style="width: 400px; height: 200px" *ngIf="formLogin">
-    <h2 style="margin: 10px">Login</h2>
-    <form [formGroup]="formLogin">
-      <!-- Email input -->
-      <div data-mdb-input-init class="form-outline mb-4">
-        <input type="email" id="form2Example1" class="form-control" formControlName="email" />
-        <label class="form-label" for="form2Example1">Endereço de e-mail</label>
-      </div>
-
-      <!-- Password input -->
-      <div data-mdb-input-init class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" formControlName="password"/>
-        <label class="form-label" for="form2Example2">Palavra-passe</label>
-      </div>
-
-      <!-- 2 column grid layout for inline styling -->
-      <div class="row mb-4">
-        <div class="col d-flex justify-content-center">
-          <!-- Checkbox -->
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-            <label class="form-check-label" for="form2Example31"> Remember me </label>
-          </div>
-        </div>
-
-        <div class="col">
-          <!-- Simple link -->
-          <a type="button" style="color: #e88420" (click)="onReset()">Esqueceu a palavra-passe?</a>
-        </div>
-      </div>
-
-      <!-- Submit button -->
-      <button  type="button"  class="btn  btn-block mb-4" (click)="onSubmit()">Entrar</button>
-
-      <!-- Register buttons -->
-<!--      <div class="text-center">-->
-<!--        <p>Not a member? <a href="#!">Register</a></p>-->
-<!--        <p>or sign up with:</p>-->
-<!--        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
-<!--          <i class="fab fa-facebook-f"></i>-->
-<!--        </button>-->
-
-<!--        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
-<!--          <i class="fab fa-google"></i>-->
-<!--        </button>-->
-
-<!--        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
-<!--          <i class="fab fa-twitter"></i>-->
-<!--        </button>-->
-
-<!--        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
-<!--          <i class="fab fa-github"></i>-->
-<!--        </button>-->
+<!--<mat-toolbar class="background" color="primary" style="height: 50px">-->
+<!--  <div class="container" >-->
+<!--        <a class="navbar-brand" href="#" style="padding-right: 70px">-->
+<!--          <img-->
+<!--            src="assets/logoFasttech1.png"-->
+<!--            height="30"-->
+<!--            alt="FastTech Logo"-->
+<!--            loading="lazy"-->
+<!--          />-->
+<!--        </a>-->
 <!--      </div>-->
-    </form>
-  </div>
 
-</section>
+<!--</mat-toolbar>-->
+
+<!--<section class="vh-80 gradient-custom">-->
+<!--  <div class=" card container py-5 h-100" style="width: 400px; height: 200px" *ngIf="formLogin">-->
+<!--    <h2 style="margin: 10px">Login</h2>-->
+<!--    <form [formGroup]="formLogin">-->
+<!--      &lt;!&ndash; Email input &ndash;&gt;-->
+<!--      <div data-mdb-input-init class="form-outline mb-4">-->
+<!--        <input type="email" id="form2Example1" class="form-control" formControlName="email" />-->
+<!--        <label class="form-label" for="form2Example1">Endereço de e-mail</label>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Password input &ndash;&gt;-->
+<!--      <div data-mdb-input-init class="form-outline mb-4">-->
+<!--        <input type="password" id="form2Example2" class="form-control" formControlName="password"/>-->
+<!--        <label class="form-label" for="form2Example2">Palavra-passe</label>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; 2 column grid layout for inline styling &ndash;&gt;-->
+<!--      <div class="row mb-4">-->
+<!--        <div class="col d-flex justify-content-center">-->
+<!--          &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--          <div class="form-check">-->
+<!--            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />-->
+<!--            <label class="form-check-label" for="form2Example31"> Remember me </label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="col">-->
+<!--          &lt;!&ndash; Simple link &ndash;&gt;-->
+<!--          <a type="button" style="color: #e88420" (click)="onReset()">Esqueceu a palavra-passe?</a>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Submit button &ndash;&gt;-->
+<!--      <button  type="button"  class="btn  btn-block mb-4" (click)="onSubmit()">Entrar</button>-->
+
+<!--      &lt;!&ndash; Register buttons &ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Not a member? <a href="#!">Register</a></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>or sign up with:</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">&ndash;&gt;-->
+<!--&lt;!&ndash;          <i class="fab fa-facebook-f"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">&ndash;&gt;-->
+<!--&lt;!&ndash;          <i class="fab fa-google"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">&ndash;&gt;-->
+<!--&lt;!&ndash;          <i class="fab fa-twitter"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">&ndash;&gt;-->
+<!--&lt;!&ndash;          <i class="fab fa-github"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </form>-->
+<!--  </div>-->
+
+<!--</section>-->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Sign in - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+    :root {
+      --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+  </style>
+</head>
+<body  class=" d-flex flex-column">
+<div class="page page-center">
+  <div class="container container-tight py-4">
+    <div class="card card-md">
+      <div class="card-body">
+
+        <div class="text-center mb-4">
+          <a href="." class="navbar-brand navbar-brand-autodark">
+            <img src="/assets/logoFasttech1.png" height="30" alt="FastTech-Logo" class="navbar-brand-image">
+          </a>
+        </div>
+
+        <form action="./" method="get" autocomplete="off" novalidate [formGroup]="formLogin">
+          <div class="mb-3">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-control" placeholder="abc@gmail.com" autocomplete="off" formControlName="email">
+          </div>
+          <div class="mb-2">
+
+            <label class="form-label">
+              Senha
+              <span class="form-label-description">
+                    <a routerLink="" (click)="onReset()">Esqueceu a senha ?</a>
+              </span>
+            </label>
+            <div class="input-group input-group-flat">
+              <input type="password" class="form-control"  placeholder="Your password"  autocomplete="off" formControlName="password">
+              <span class="input-group-text">
+                    <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                    </a>
+                  </span>
+            </div>
+
+          </div>
+
+          <div class="form-footer">
+            <a type="button" class="btn btn-primary w-100" style="color: #eeeeee" (click)="onSubmit()">Entrar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -43,9 +43,14 @@
               "node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.scss",
               "src/assets/scss/template.scss",
-              "src/assets/vendor/nucleo/css/nucleo.css"
+              "src/assets/vendor/nucleo/css/nucleo.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@tabler/core/dist/css/tabler.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/@tabler/core/dist/js/tabler.min.js"
+            ]
           },
           "configurations": {
             "production": {
