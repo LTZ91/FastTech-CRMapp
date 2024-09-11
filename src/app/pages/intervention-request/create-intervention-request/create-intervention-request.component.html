@@ -1,70 +1,161 @@
-<section class="gradient-custom  d-flex align-items-center justify-content-center">
-  <div class="container-fluid  d-flex align-items-center justify-content-center">
-    <div class="row  justify-content-center align-items-center ">
-      <div class="col-12 col-lg-8 col-xl-6">
-        <div class="d-flex flex-column h-100 justify-content-center">
-          <div class="d-flex justify-content-end mb-4">
-            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 50px; width: auto; padding-left: 20px">
+<!--<section class="gradient-custom  d-flex align-items-center justify-content-center">-->
+<!--  <div class="container-fluid  d-flex align-items-center justify-content-center">-->
+<!--    <div class="row  justify-content-center align-items-center ">-->
+<!--      <div class="col-12 col-lg-8 col-xl-6">-->
+<!--        <div class="d-flex flex-column h-100 justify-content-center">-->
+<!--          <div class="d-flex justify-content-end mb-4">-->
+<!--            <img src="../../../assets/logoFasttech1.png" alt="logo" class="logo" style="height: 50px; width: auto; padding-left: 20px">-->
+<!--          </div>-->
+<!--          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="!interventionRequest">Ticket</h2>-->
+<!--          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="interventionRequest">Close Ticket</h2>-->
+<!--          <form [formGroup]="formInterventionRequest" class="d-flex flex-column">-->
+<!--            <div class="row">-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <label class="form-label select-label">Customer Contact</label>-->
+<!--                <select class="select form-control" formControlName="customerContactId">-->
+<!--                  <option *ngFor="let customer of clientContact" [value]="customer.id">-->
+<!--                    {{customer.fullName}}-->
+<!--                  </option>-->
+<!--                </select>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <label class="form-label">Technician</label>-->
+<!--                <select class="select form-control" formControlName="technicianId">-->
+<!--                  <option *ngFor="let technicians of technician" [value]="technicians.id">-->
+<!--                    {{technicians.fullName}}-->
+<!--                  </option>-->
+<!--                </select>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-md-6 mb-4">-->
+<!--                <div class="form-outline w-100">-->
+<!--                  <label for="startTime" class="form-label">Date request</label>-->
+<!--                  <input type="datetime-local" class="form-control" id="startTime" formControlName="dateRequest" />-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12 mb-4">-->
+<!--                <label class="form-label">Intervention Reason</label>-->
+<!--                <div formArrayName="interventionReason">-->
+<!--                  <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">-->
+<!--                    <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="mt-4 pt-2 text-center">-->
+<!--              <button class="btn btn-primary me-2" type="submit" (click)="onCreate()">-->
+<!--                <span *ngIf="!interventionRequest">Add</span>-->
+<!--                <span *ngIf="interventionRequest">Update</span>-->
+<!--              </button>-->
+<!--              <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <mat-card class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;    <mat-card-header>&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-card-title>Actions Buttons</mat-card-title>&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-card-subtitle>Start</mat-card-subtitle>&ndash;&gt;-->
+<!--&lt;!&ndash;    </mat-card-header>&ndash;&gt;-->
+<!--&lt;!&ndash;    <mat-card-actions>&ndash;&gt;-->
+<!--&lt;!&ndash;      <button mat-button>LIKE</button>&ndash;&gt;-->
+<!--&lt;!&ndash;      <button mat-button>SHARE</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </mat-card-actions>&ndash;&gt;-->
+<!--&lt;!&ndash;  </mat-card>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<div class="card modal-blur " tabindex="-1" role="dialog" aria-hidden="true">
+  <div class=" modal-dialog modal-lg" role="document">
+    <div class="modal-content bg-white">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Criar Tarefa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body" [formGroup]="formInterventionRequest">
+<!--        <div class="form-selectgroup-boxes row mb-3">-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="form-selectgroup-item">-->
+<!--              <input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked>-->
+<!--              <span class="form-selectgroup-label d-flex align-items-center p-3">-->
+<!--                    <span class="me-3">-->
+<!--                      <span class="form-selectgroup-check"></span>-->
+<!--                    </span>-->
+<!--                    <span class="form-selectgroup-label-content">-->
+<!--                      <span class="form-selectgroup-title strong mb-1">Bolsa de Hora</span>-->
+<!--                      <span class="d-block text-secondary">Provide only basic data needed for the report</span>-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="form-selectgroup-item">-->
+<!--              <input type="radio" name="report-type" value="1" class="form-selectgroup-input">-->
+<!--              <span class="form-selectgroup-label d-flex align-items-center p-3">-->
+<!--                    <span class="me-3">-->
+<!--                      <span class="form-selectgroup-check"></span>-->
+<!--                    </span>-->
+<!--                    <span class="form-selectgroup-label-content">-->
+<!--                      <span class="form-selectgroup-title strong mb-1">Contrato</span>-->
+<!--                      <span class="d-block text-secondary">Insert charts and additional advanced analyses to be inserted in the report</span>-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--            </label>-->
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-lg-6">
+            <label class="form-label select-label">Customer Contact</label>
+            <select class="select form-control" formControlName="customerContactId">
+              <option *ngFor="let customer of clientContact" [value]="customer.id">
+                {{customer.fullName}}
+              </option>
+            </select>
           </div>
-          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="!interventionRequest">Ticket</h2>
-          <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" *ngIf="interventionRequest">Close Ticket</h2>
-          <form [formGroup]="formInterventionRequest" class="d-flex flex-column">
-            <div class="row">
-              <div class="col-12 col-md-6 mb-4">
-                <label class="form-label select-label">Customer Contact</label>
-                <select class="select form-control" formControlName="customerContactId">
-                  <option *ngFor="let customer of clientContact" [value]="customer.id">
-                    {{customer.fullName}}
-                  </option>
-                </select>
-              </div>
-              <div class="col-12 col-md-6 mb-4">
-                <label class="form-label">Technician</label>
-                <select class="select form-control" formControlName="technicianId">
-                  <option *ngFor="let technicians of technician" [value]="technicians.id">
-                    {{technicians.fullName}}
-                  </option>
-                </select>
-              </div>
-              <div class="col-12 col-md-6 mb-4">
-                <div class="form-outline w-100">
-                  <label for="startTime" class="form-label">Date request</label>
-                  <input type="datetime-local" class="form-control" id="startTime" formControlName="dateRequest" />
-                </div>
-              </div>
-              <div class="col-12 mb-4">
-                <label class="form-label">Intervention Reason</label>
-                <div formArrayName="interventionReason">
-                  <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
-                    <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>
-                  </div>
+
+          <div class="col-lg-6">
+            <div class="mb-3">
+              <label class="form-label">Motivo da intervenção</label>
+              <div formArrayName="interventionReason">
+                <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
+                  <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>
                 </div>
               </div>
             </div>
-            <div class="mt-4 pt-2 text-center">
-              <button class="btn btn-primary me-2" type="submit" (click)="onCreate()">
-                <span *ngIf="!interventionRequest">Add</span>
-                <span *ngIf="interventionRequest">Update</span>
-              </button>
-              <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
+          </div>
+          <div class="col-lg-6">
+            <div class="mb-3">
+              <label class="form-label">Data</label>
+              <input type="date" class="form-control" formControlName="dateRequest">
             </div>
-          </form>
+          </div>
+<!--          <div class="col-lg-12">-->
+<!--            <div>-->
+<!--              <label class="form-label">Descrição da Tarefa</label>-->
+<!--              <textarea class="form-control" rows="3"></textarea>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
+      </div>
+      <div class="modal-footer">
+        <a href="" (click)="cancel()" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </a>
+        <a href="" (click)="onCreate()" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+          Criar Tarefa
+        </a>
       </div>
     </div>
   </div>
-</section>
-
-<!--<div class="container">-->
-<!--  <mat-card class="card">-->
-<!--    <mat-card-header>-->
-<!--      <mat-card-title>Actions Buttons</mat-card-title>-->
-<!--      <mat-card-subtitle>Start</mat-card-subtitle>-->
-<!--    </mat-card-header>-->
-<!--    <mat-card-actions>-->
-<!--      <button mat-button>LIKE</button>-->
-<!--      <button mat-button>SHARE</button>-->
-<!--    </mat-card-actions>-->
-<!--  </mat-card>-->
-<!--</div>-->
-
+</div>

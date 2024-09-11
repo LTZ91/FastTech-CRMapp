@@ -149,17 +149,7 @@ export class ListInterventionReportComponent implements OnInit{
   openInterventionModal() {
 
     this.dialog.open(CreateInterventionReportComponent);
-    // const dialogRef = this.dialog.open(CreateInterventionReportComponent, {
-    //   backdropClass: 'custom-backdrop-class',
-    //   hasBackdrop: true,
-    // });
-    // // const dialogRef = this.dialog.open(CreateInterventionReportComponent);
-    //
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     console.log('Form data:', result);
-    //   }
-    // });
+
   }
 
 

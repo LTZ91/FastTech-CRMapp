@@ -9,9 +9,10 @@ import {TechnicianEffects} from "./technician.effects";
 import {InterventionReportEffects} from "./intervention-report.effects";
 import {ClientContactEffects} from "./client-contact.effects";
 import {InterventionRequestEffects} from "./intervention-request.effects";
+import {InterventionStatusEffects} from "./intervention-status.effects";
 
 export const effects = [
   UserEffects, ClientEffects, HourEffects, PriceEffects,
   ServicesProvidedEffects, ContractStatusEffects, ContractEffects, TechnicianEffects,
-  InterventionReportEffects, ClientContactEffects, InterventionRequestEffects
+  InterventionReportEffects, ClientContactEffects, InterventionRequestEffects, InterventionStatusEffects
 ]

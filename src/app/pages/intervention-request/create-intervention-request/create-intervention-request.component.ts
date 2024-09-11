@@ -49,20 +49,24 @@ export class CreateInterventionRequestComponent implements OnInit{
       this.formInterventionRequest = this.formBuilder.group({
         id: new FormControl(this.interventionRequest.id, Validators.required),
         customerContactId: new FormControl(this.interventionRequest.customerContactId, Validators.required),
-        technicianId: new FormControl(this.interventionRequest.technicianId, Validators.required),
+        // technicianId: new FormControl(this.interventionRequest.technicianId, Validators.required),
         dateRequest: new FormControl(this.interventionRequest.dateRequest, Validators.required),
         interventionReason: new FormArray([new FormControl(this.interventionRequest.interventionReason[5], Validators.required)]),
       });
     }else {
       this.formInterventionRequest = this.formBuilder.group({
         customerContactId: new FormControl(``, Validators.required),
-        technicianId: new FormControl(``, Validators.required),
+        // technicianId: new FormControl(``, Validators.required),
         dateRequest: new FormControl(``, Validators.required),
         interventionReason:  new FormArray([new FormControl(``, Validators.required)]),
       });
     }
 
 
+  }
+
+  get interventionReason() {
+    return this.formInterventionRequest.get('interventionReason') as FormArray
   }
 
   getClientContact(){

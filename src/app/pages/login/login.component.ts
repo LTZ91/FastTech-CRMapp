@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit{
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private modalService: NgbModal, public dialog: MatDialog
+    private modalService: NgbModal,
+    public dialog: MatDialog
   ){ }
   formLogin!:FormGroup;
   private dialogRef!: MatDialogRef<any>;

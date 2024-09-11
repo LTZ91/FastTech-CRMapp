@@ -129,4 +129,9 @@ export class ListUserComponent implements OnInit, OnChanges{
     this.dialogRef = this.dialog.open(CreateUserComponent);
     this.store.dispatch(showDialog())
   }
+
+  onCreateUser() {
+    this.dialog.open(CreateUserComponent);
+
+  }
 }

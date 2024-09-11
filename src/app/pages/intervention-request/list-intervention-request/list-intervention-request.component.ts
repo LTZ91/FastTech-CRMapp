@@ -15,6 +15,11 @@ import {
 } from "../../../../store/selectors/intervention-request.selectors";
 import {CreateInterventionRequestComponent} from "../create-intervention-request/create-intervention-request.component";
 import {DeleteInterventionRequestComponent} from "../delete-intervention-request/delete-intervention-request.component";
+import {InterventionStatusService} from "../../../services/intervention-status.service";
+import {InterventionStatus} from "../../../models/intervention-status";
+import {
+  CreateInterventionReportComponent
+} from "../../intervention-report/create-intervention-report/create-intervention-report.component";
 @Component({
   selector: 'app-list-intervention-request',
   templateUrl: './list-intervention-request.component.html',
@@ -23,6 +28,7 @@ import {DeleteInterventionRequestComponent} from "../delete-intervention-request
 export class ListInterventionRequestComponent implements OnInit{
 
   constructor( private interventionRequestService: InterventionRequestService,
+               private interventionStatusService: InterventionStatusService,
                private router: Router,
                public dialog: MatDialog,
                private store: Store<InterventionRequestState>) { }
@@ -30,6 +36,7 @@ export class ListInterventionRequestComponent implements OnInit{
   @Input()
   interventionRequestList!: InterventionRequest[];
   interventionRequest!: InterventionRequest[] | null;
+  status!: InterventionStatus[];
 
   @Output() onSelectedInterventionRequest = new EventEmitter<InterventionRequest>();
   selectAllInterventionRequest$ = this.store.pipe(select (selectAllInterventionsRequest));
@@ -133,4 +140,10 @@ export class ListInterventionRequestComponent implements OnInit{
     console.log(request)
     this.router.navigateByUrl(`/request-details/${request.id}`)
   }
+
+  onCreateInterventionRequest() {
+    this.dialog.open(CreateInterventionRequestComponent);
+  }
+
+
 }

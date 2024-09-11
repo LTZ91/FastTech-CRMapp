@@ -10,6 +10,7 @@ import {technicianReducers, TechnicianState} from "./technician.reducers";
 import {interventionReportReducers, InterventionReportState} from "./intervention-report.reducers";
 import {clientContactReducers, ClientContactState} from "./client-contact.reducers";
 import {interventionRequestReducers, InterventionRequestState} from "./intervention-request.reducers";
+import {interventionStatusReducers, InterventionStatusState} from "./intervention-status.reducers";
 
 export interface IAppState{
     user: IUserState
@@ -23,6 +24,7 @@ export interface IAppState{
     clientContact: ClientContactState
     interventionReport: InterventionReportState
     interventionRequest : InterventionRequestState
+    interventionStatus : InterventionStatusState
 }
 
 export const reducers: ActionReducerMap<IAppState> = {
@@ -36,5 +38,6 @@ export const reducers: ActionReducerMap<IAppState> = {
     technician: technicianReducers,
     clientContact: clientContactReducers,
     interventionReport: interventionReportReducers,
-    interventionRequest: interventionRequestReducers
+    interventionRequest: interventionRequestReducers,
+    interventionStatus: interventionStatusReducers
 }

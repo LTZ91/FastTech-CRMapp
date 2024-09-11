@@ -1,73 +1,283 @@
 
-<div class="input-group rounded" >
-  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"
-         value="filter" placeholder="Search"
-  />
-  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">
-    <i class="fas fa-search"></i>
-  </span>
-</div>
-
-
-<!--<div class="d-flex justify-content-end align-items-center col-6">-->
-<!--  <div id="datatable_filter" class="dataTables_filter mt-2">-->
-<!--    <label>-->
-<!--      <input-->
-<!--        type="text"-->
-<!--        class="form-control form-control-sm border-2"-->
-<!--        aria-controls="datatable"-->
-<!--        [formControl]="filter"-->
-<!--        (keyup)="search($event)"-->
-<!--        value="filter"-->
-<!--      />-->
-<!--    </label>-->
-<!--    <span class="input-group-text border-0" id="search-addon">-->
-<!--      <i class="fas fa-search"></i></span>-->
-<!--  </div>-->
+<!--<div class="input-group rounded" >-->
+<!--  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"-->
+<!--         value="filter" placeholder="Search"-->
+<!--  />-->
+<!--  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">-->
+<!--    <i class="fas fa-search"></i>-->
+<!--  </span>-->
 <!--</div>-->
 
-<div class="table-container py-2 h-100">
-<div><h4>Tarefas Recebidas</h4></div>
-<table class="table table-striped"  style="font-size: 5px;  ">
-  <thead>
-  <tr>
-    <th scope="row">INT</th>
-    <th scope="row">De</th>
-    <th scope="row">Cliente</th>
-    <th scope="row">Tarefa</th>
-<!--    <th scope="row">Enviada</th>-->
-    <th scope="row">Tipo</th>
-    <th scope="row">Data fim</th>
-<!--    <th scope="row">Estado</th>-->
-    <th scope="row">Acções</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let request of interventionRequest ">
-    <td>{{request.id}}</td>
-    <td>{{request.technician}}</td>
-    <td>{{request.customer}}</td>
-    <td><a href="/request-details/request/{{request.id}}"><span type="button" (click)="requestDetails(request)">{{request.interventionReason}}</span></a></td>
-<!--    <td>{{request.dateRequest}}</td>-->
-    <td>Até</td>
-    <td>2024-07-20</td>
-<!--    <td>{{request.status}}</td>-->
-    <th><span  type="button" class="material-icons edit"
-               (click)="onEdit(request)">
-      edit
-    </span>
-      <span type="button" class="material-icons delete" (click)="onDelete(request)">
-        delete
-      </span></th>
-  </tr>
-  </tbody>
-</table>
 
-<div>
-  <button mat-mini-fab class="add" routerLink="/create-intervention-request"><span class="material-symbols-outlined" >add</span></button>
+<!--&lt;!&ndash;<div class="d-flex justify-content-end align-items-center col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div id="datatable_filter" class="dataTables_filter mt-2">&ndash;&gt;-->
+<!--&lt;!&ndash;    <label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input&ndash;&gt;-->
+<!--&lt;!&ndash;        type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;        class="form-control form-control-sm border-2"&ndash;&gt;-->
+<!--&lt;!&ndash;        aria-controls="datatable"&ndash;&gt;-->
+<!--&lt;!&ndash;        [formControl]="filter"&ndash;&gt;-->
+<!--&lt;!&ndash;        (keyup)="search($event)"&ndash;&gt;-->
+<!--&lt;!&ndash;        value="filter"&ndash;&gt;-->
+<!--&lt;!&ndash;      />&ndash;&gt;-->
+<!--&lt;!&ndash;    </label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <span class="input-group-text border-0" id="search-addon">&ndash;&gt;-->
+<!--&lt;!&ndash;      <i class="fas fa-search"></i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--<div class="table-container py-2 h-100">-->
+<!--<div><h4>Tarefas Recebidas</h4></div>-->
+<!--<table class="table table-striped"  style="font-size: 5px;  ">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th scope="row">INT</th>-->
+<!--    <th scope="row">De</th>-->
+<!--    <th scope="row">Cliente</th>-->
+<!--    <th scope="row">Tarefa</th>-->
+<!--&lt;!&ndash;    <th scope="row">Enviada</th>&ndash;&gt;-->
+<!--    <th scope="row">Tipo</th>-->
+<!--    <th scope="row">Data fim</th>-->
+<!--&lt;!&ndash;    <th scope="row">Estado</th>&ndash;&gt;-->
+<!--    <th scope="row">Acções</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let request of interventionRequest ">-->
+<!--    <td>{{request.id}}</td>-->
+<!--    <td>{{request.technician}}</td>-->
+<!--    <td>{{request.customer}}</td>-->
+<!--    <td><a href="/request-details/request/{{request.id}}"><span type="button" (click)="requestDetails(request)">{{request.interventionReason}}</span></a></td>-->
+<!--&lt;!&ndash;    <td>{{request.dateRequest}}</td>&ndash;&gt;-->
+<!--    <td>Até</td>-->
+<!--    <td>2024-07-20</td>-->
+<!--&lt;!&ndash;    <td>{{request.status}}</td>&ndash;&gt;-->
+<!--    <th><span  type="button" class="material-icons edit"-->
+<!--               (click)="onEdit(request)">-->
+<!--      edit-->
+<!--    </span>-->
+<!--      <span type="button" class="material-icons delete" (click)="onDelete(request)">-->
+<!--        delete-->
+<!--      </span></th>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<div>-->
+<!--  <button mat-mini-fab class="add" routerLink="/create-intervention-request"><span class="material-symbols-outlined" >add</span></button>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<div class="page-wrapper">
+  <!-- Page header -->
+  <div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <!-- Page pre-title -->
+          <h2 class="page-title">
+            Tarefas
+          </h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-auto ms-auto d-print-none">
+          <div class="btn-list">
+            <button href="#" (click)="onCreateInterventionRequest()" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
+              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+              Criar Tarefa
+            </button>
+            <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
+              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page body -->
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="row row-deck row-cards">
+        <div class="col-12">
+
+          <div class="row row-cards">
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card card-sm">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                            <span class="bg-muted text-white avatar">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                              </svg>
+                            </span>
+                    </div>
+                    <div class="col">
+                      <div class="font-weight-medium">
+                        0
+                      </div>
+                      <div class="text-secondary">
+                        Total de Tarefas
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card card-sm">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                            <span class="bg-yellow text-white avatar">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-copy">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h3m9 -9v-5a2 2 0 0 0 -2 -2h-2" />
+                                <path d="M13 17v-1a1 1 0 0 1 1 -1h1m3 0h1a1 1 0 0 1 1 1v1m0 3v1a1 1 0 0 1 -1 1h-1m-3 0h-1a1 1 0 0 1 -1 -1v-1" />
+                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                              </svg>
+                            </span>
+                    </div>
+                    <div class="col">
+                      <div class="font-weight-medium">
+                        0
+                      </div>
+                      <div class="text-secondary">
+                        Tarefas Pendentes
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card card-sm">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                            <span class="bg-blue text-white avatar">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-list">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                <path d="M9 12l.01 0" />
+                                <path d="M13 12l2 0" />
+                                <path d="M9 16l.01 0" />
+                                <path d="M13 16l2 0" />
+                              </svg>
+                            </span>
+                    </div>
+                    <div class="col">
+                      <div class="font-weight-medium">
+                        0
+                      </div>
+                      <div class="text-secondary">
+                        Progresso
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <div class="card card-sm">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                            <span class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-check">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                <path d="M9 14l2 2l4 -4" />
+                              </svg>
+                            </span>
+                    </div>
+                    <div class="col">
+                      <div class="font-weight-medium">
+                        0
+                      </div>
+                      <div class="text-secondary">
+                        Tarefas Concluidas
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-body">
+              <div id="table-default" class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-name">Cliente</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Tarefa</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Tecnico</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Date Inicio</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-f">Date Fim</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-progress">Progresso</button></th>
+                    <th>Acções</th>
+                  </tr>
+                  </thead>
+                  <tbody class="table-tbody">
+
+                  <tr *ngFor="let request of interventionRequest ">
+                    <td class="sort-id">{{request.id}}</td>
+                    <td class="sort-name">{{request.customer}}</td>
+                    <td class="sort-task">{{request.interventionReason}}</td>
+                    <td class="sort-tech">{{request.technician}}</td>
+                    <td class="sort-date-i">{{request.dateRequest}}</td>
+                    <td class="sort-date-f">24/08/24</td>
+                    <td class="sort-progress" data-progress="">
+                      {{request.status}}<span class="badge bg-green text-green-fg"></span>
+                    </td>
+                    <td>
+                      <a (click)="onEdit(request)" type="button" href="" data-toggle="modal">Editar</a>
+                    </td>
+                    <td>
+                      <a (click)="onDelete(request)">Apagar</a>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer-transparent d-print-none">
+    <div class="container-xl">
+      <div class="row text-center align-items-center flex-row-reverse">
+        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+          <ul class="list-inline list-inline-dots mb-0">
+            <li class="list-inline-item">
+              Copyright &copy; 2024
+              <a href="." class="link-secondary">FastTech</a>.
+              All rights reserved.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
-
-</div>
-
-
-

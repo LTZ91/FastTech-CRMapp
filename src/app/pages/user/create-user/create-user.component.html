@@ -1,31 +1,67 @@
-<div class="card" style="width: 400px; height: 500px">
-  <div>
-    <h2 *ngIf="user">Update user</h2>
-    <h2 *ngIf="!user">New user</h2>
+<!--<div  style="width: 400px; height: 500px" class="card modal-blur " tabindex="-1" role="dialog" aria-hidden="true">-->
+<!--  <div>-->
+<!--    <h2 *ngIf="user">Editar utilizador</h2>-->
+<!--    <h2 *ngIf="!user">Novo utilizador</h2>-->
+<!--  </div>-->
+<!--  <form class="row g-3 "  [formGroup]="formUser">-->
+<!--      <div class="col-md-12">-->
+<!--        <label for="inputUserName" class="form-label">Nome do utilizador</label>-->
+<!--        <input type="text" class="form-control" id="inputUserName" formControlName="userName">-->
+<!--      </div>-->
+<!--      <div class="col-md-12">-->
+<!--        <label for="inputEmail4" class="form-label">Email</label>-->
+<!--        <input type="email" class="form-control" id="inputEmail4" placeholder="abc@gmail.com" formControlName="email">-->
+<!--      </div>-->
+<!--      <div class="col-md-12">-->
+<!--        <label for="inputPhoneNumber" class="form-label">Telefone</label>-->
+<!--        <input type="text" class="form-control" id="inputPhoneNumber" placeholder="+258" formControlName="phoneNumber">-->
+<!--      </div>-->
+<!--      <div class="col-md-12">-->
+<!--        <label for="inputFullName" class="form-label">Nome completo</label>-->
+<!--        <input type="text" class="form-control" id="inputFullName" formControlName="fullName">-->
+<!--      </div>-->
+<!--    <div class="col-12">-->
+<!--      <button type="submit"  [disabled]="formUser.invalid" class="btn btn-primary botao" (click)="editUser()">-->
+<!--        <span *ngIf="!user">criar</span>-->
+<!--        <span *ngIf="user">actualizar</span>-->
+<!--      </button>-->
+<!--      <button  type="submit" class="btn btn-danger botao" (click)="cancel()">cancelar</button>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+
+<div style="width: 400px; height: 400px">
+  <div class="modal-content">
+    <fieldset class="form-fieldset row g-3" [formGroup]="formUser" style="padding-bottom: 10%">
+      <div class="modal-header">
+        <h3 class="modal-title" *ngIf="user">Actualizar utilizador</h3>
+        <h3 class="modal-title" *ngIf="!user">Adicionar utilizador</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Nome do utilizador</label>
+        <input type="text" class="form-control" autocomplete="off" formControlName="userName"/>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Nome completo</label>
+        <input type="text" class="form-control" autocomplete="on" formControlName="fullName"/>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" autocomplete="off" formControlName="email"/>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" autocomplete="off" formControlName="phoneNumber"/>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-primary" [disabled]="formUser.invalid" (click)="editUser()">
+          <span *ngIf="!user">criar</span>
+          <span *ngIf="user">actualizar</span>
+        </button>
+        <button  type="submit" class="btn btn-danger" (click)="cancel()">cancelar</button>
+      </div>
+    </fieldset>
   </div>
-  <form class="row g-3 "  [formGroup]="formUser">
-      <div class="col-md-12">
-        <label for="inputUserName" class="form-label">User Name</label>
-        <input type="text" class="form-control" id="inputUserName" formControlName="userName">
-      </div>
-      <div class="col-md-12">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="abc@gmail.com" formControlName="email">
-      </div>
-      <div class="col-md-12">
-        <label for="inputPhoneNumber" class="form-label">Phone Number</label>
-        <input type="text" class="form-control" id="inputPhoneNumber" placeholder="+258" formControlName="phoneNumber">
-      </div>
-      <div class="col-md-12">
-        <label for="inputFullName" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="inputFullName" formControlName="fullName">
-      </div>
-    <div class="col-12">
-      <button type="submit"  [disabled]="formUser.invalid" class="btn btn-primary botao" (click)="editUser()">
-        <span *ngIf="!user">add</span>
-        <span *ngIf="user">update</span>
-      </button>
-      <button  type="submit" class="btn btn-danger botao" (click)="cancel()">cancel</button>
-    </div>
-  </form>
 </div>
+
