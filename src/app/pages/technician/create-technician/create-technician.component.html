@@ -1,39 +1,67 @@
-<div class="card" style="height: 400px; width: 500px">
-  <div class="card-title">
-    <h2 *ngIf="technician">Update Technician</h2>
-    <h2 *ngIf="!technician">Add Technician</h2>
+<div class="card" style="max-width: 400px; margin: auto; font-size: 0.9rem;">
+  <div class="card-header text-center">
+    <h4 class="card-title" *ngIf="technician">Actualizar Técnico</h4>
+    <h4 class="card-title" *ngIf="!technician">Novo Técnico</h4>
   </div>
-  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formTechnician">
-    <div class="col-md-6">
-      <label for="inputFullName" class="form-label">Full Name</label>
-      <input  type="text" style="width: 100%" class="form-control" id="inputFullName" formControlName="fullName">
-    </div>
-    <div class="col-md-6">
-      <label for="inputIdentificationNumber" class="form-label">Identification Number</label>
-      <input  type="text" style="width: 100%" class="form-control" id="inputIdentificationNumber" formControlName="identificationNumber">
-    </div>
-    <div class="col-md-6">
-      <label for="inputTaxNumber" class="form-label">NUIT</label>
-      <input  type="text" style="width: 100%" class="form-control" id="inputTaxNumber" formControlName="taxNumber">
-    </div>
-    <div class="col-md-4">
-      <label for="inputHiringDate" class="form-label">Hiring Date</label>
-      <input  type="datetime-local" style="width: 100%" class="form-control" id="inputHiringDate" formControlName="hiringDate">
-    </div>
-    <div class="col-md-4">
-      <label for="inputPosition" class="form-label">Position</label>
-      <select id="inputPosition" class="form-select" formControlName="positionId">
-        <option *ngFor="let positions of position" [value]="positions.id">
-          {{positions.description}}
-        </option>
-      </select>
-    </div>
 
-    <div>
-      <button type="submit"  [disabled]="formTechnician.invalid" class="btn btn-primary " (click)="onCreate()">
-        <span *ngIf="!technician" >add</span>
-        <span *ngIf="technician" >update</span>
-      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
-    </div>
-  </form>
+  <div class="card-body">
+    <form [formGroup]="formTechnician">
+      <!-- Full Name -->
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="form-label" for="inputFullName">Nome Completo</label>
+            <input type="text" class="form-control form-control-sm" id="inputFullName" formControlName="fullName">
+          </div>
+        </div>
+      </div>
+
+      <!-- Identification Number and NUIT -->
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label" for="inputIdentificationNumber">BI</label>
+            <input type="text" class="form-control form-control-sm" id="inputIdentificationNumber" formControlName="identificationNumber">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label" for="inputTaxNumber">NUIT</label>
+            <input type="text" class="form-control form-control-sm" id="inputTaxNumber" formControlName="taxNumber">
+          </div>
+        </div>
+      </div>
+
+      <!-- Hiring Date and Position -->
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label" for="inputHiringDate">Data de Admissão</label>
+            <input type="datetime-local" class="form-control form-control-sm" id="inputHiringDate" formControlName="hiringDate">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label" for="inputPosition">Posição</label>
+            <select id="inputPosition" class="form-select form-select-sm" formControlName="positionId">
+              <option *ngFor="let positions of position" [value]="positions.id">
+                {{positions.description}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="row mt-3">
+        <div class="col-md-12 text-center">
+          <button type="submit" class="btn btn-primary btn-sm me-2" [disabled]="formTechnician.invalid" (click)="onCreate()">
+            <span *ngIf="!technician">Criar</span>
+            <span *ngIf="technician">Actualizar</span>
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
