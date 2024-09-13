@@ -1,54 +1,115 @@
-<div class="card" style="height: 400px; width: 500px">
-  <div class="card-title">
-    <h2 *ngIf="client">Update Client</h2>
-    <h2 *ngIf="!client">New Client</h2>
+<!--<div class="card" style="height: 400px; width: 500px">-->
+<!--  <div class="card-title">-->
+<!--    <h2 *ngIf="client">Update Client</h2>-->
+<!--    <h2 *ngIf="!client">New Client</h2>-->
+<!--  </div>-->
+<!--  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formClient">-->
+<!--    <div class="col-md-6">-->
+<!--      <label for="inputReference" class="form-label">Reference</label>-->
+<!--      <input  type="text" style="width: 100%" class="form-control" id="inputReference" formControlName="reference">-->
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--      <label for="inputFiscalName" class="form-label">Fiscal Name</label>-->
+<!--      <input type="text" style="width: 100%" class="form-control" id="inputFiscalName" formControlName="fiscalName">-->
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--      <label for="inputCommercialName" class="form-label">Commercial Name</label>-->
+<!--      <input type="text" style="width: 100%" class="form-control" id="inputCommercialName" formControlName="commercialName">-->
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--      <label for="inputNuit" class="form-label">NUIT</label>-->
+<!--      <input type="text" style="width: 100%" class="form-control" id="inputNuit" formControlName="taxNumber">-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <label for="inputPerson" class="form-label">Person</label>-->
+<!--      <select id="inputPerson" class="form-select" formControlName="personId">-->
+<!--        <option  *ngFor="let persons of person" [value]="persons.id">-->
+<!--          {{persons.designation}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <label for="inputCountry" class="form-label">Country</label>-->
+<!--      <select id="inputCountry" class="form-select" formControlName="countryId">-->
+<!--        <option *ngFor="let countries of country" [value]="countries.id">-->
+<!--          {{countries.designation}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <label for="inputLanguage" class="form-label">Language</label>-->
+<!--      <select id="inputLanguage" class="form-select" formControlName="languageId">-->
+<!--        <option *ngFor="let languages of language" [value]="languages.id">-->
+<!--          {{languages.designation}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <button type="submit"  [disabled]="formClient.invalid" class="btn btn-primary " (click)="onCreate()">-->
+<!--        <span *ngIf="!client" >add</span>-->
+<!--        <span *ngIf="client" >update</span>-->
+<!--      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+
+<div class="card" style="max-width: 500px; margin-top: 0%; margin-bottom: 0%">
+  <div class="card-header">
+    <h4 class="card-title" *ngIf="client">Actualizar cliente</h4>
+    <h4 class="card-title" *ngIf="!client">Novo cliente</h4>
   </div>
-  <form class="row g-3" style="margin-left: 15%; height: 200px"  [formGroup]="formClient">
-    <div class="col-md-6">
-      <label for="inputReference" class="form-label">Reference</label>
-      <input  type="text" style="width: 100%" class="form-control" id="inputReference" formControlName="reference">
-    </div>
-    <div class="col-md-6">
-      <label for="inputFiscalName" class="form-label">Fiscal Name</label>
-      <input type="text" style="width: 100%" class="form-control" id="inputFiscalName" formControlName="fiscalName">
-    </div>
-    <div class="col-md-6">
-      <label for="inputCommercialName" class="form-label">Commercial Name</label>
-      <input type="text" style="width: 100%" class="form-control" id="inputCommercialName" formControlName="commercialName">
-    </div>
-    <div class="col-md-6">
-      <label for="inputNuit" class="form-label">NUIT</label>
-      <input type="text" style="width: 100%" class="form-control" id="inputNuit" formControlName="taxNumber">
-    </div>
-    <div class="col-md-4">
-      <label for="inputPerson" class="form-label">Person</label>
-      <select id="inputPerson" class="form-select" formControlName="personId">
-        <option  *ngFor="let persons of person" [value]="persons.id">
-          {{persons.designation}}
-        </option>
-      </select>
-    </div>
-    <div class="col-md-4">
-      <label for="inputCountry" class="form-label">Country</label>
-      <select id="inputCountry" class="form-select" formControlName="countryId">
-        <option *ngFor="let countries of country" [value]="countries.id">
-          {{countries.designation}}
-        </option>
-      </select>
-    </div>
-    <div class="col-md-4">
-      <label for="inputLanguage" class="form-label">Language</label>
-      <select id="inputLanguage" class="form-select" formControlName="languageId">
-        <option *ngFor="let languages of language" [value]="languages.id">
-          {{languages.designation}}
-        </option>
-      </select>
-    </div>
-    <div>
-      <button type="submit"  [disabled]="formClient.invalid" class="btn btn-primary " (click)="onCreate()">
-        <span *ngIf="!client" >add</span>
-        <span *ngIf="client" >update</span>
-      </button>      <button  type="submit" class="btn btn-danger" (click)="cancel()">cancel</button>
-    </div>
-  </form>
+
+  <div class="card-body" style="margin-left: 10%">
+    <form class="row g-2" [formGroup]="formClient">
+      <div class="col-md-6">
+        <label for="inputReference" class="form-label" style="font-size: 12px;">Referência</label>
+        <input type="text" class="form-control form-control-sm" id="inputReference" formControlName="reference">
+      </div>
+      <div class="col-md-6">
+        <label for="inputFiscalName" class="form-label" style="font-size: 12px;">Nome Fiscal</label>
+        <input type="text" class="form-control form-control-sm" id="inputFiscalName" formControlName="fiscalName">
+      </div>
+      <div class="col-md-6">
+        <label for="inputCommercialName" class="form-label" style="font-size: 12px;">Nome comercial</label>
+        <input type="text" class="form-control form-control-sm" id="inputCommercialName" formControlName="commercialName">
+      </div>
+      <div class="col-md-6">
+        <label for="inputNuit" class="form-label" style="font-size: 12px;">NUIT</label>
+        <input type="text" class="form-control form-control-sm" id="inputNuit" formControlName="taxNumber">
+      </div>
+      <div class="col-md-4">
+        <label for="inputPerson" class="form-label" style="font-size: 12px;">Pessoa</label>
+        <select id="inputPerson" class="form-select form-select-sm" formControlName="personId">
+          <option *ngFor="let persons of person" [value]="persons.id">
+            {{persons.designation}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="inputCountry" class="form-label" style="font-size: 12px;">País</label>
+        <select id="inputCountry" class="form-select form-select-sm" formControlName="countryId">
+          <option *ngFor="let countries of country" [value]="countries.id">
+            {{countries.designation}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="inputLanguage" class="form-label" style="font-size: 12px;">Língua</label>
+        <select id="inputLanguage" class="form-select form-select-sm" formControlName="languageId">
+          <option *ngFor="let languages of language" [value]="languages.id">
+            {{languages.designation}}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-primary btn-sm me-2" [disabled]="formClient.invalid" (click)="onCreate()">
+      <span *ngIf="!client">Add</span>
+      <span *ngIf="client">Update</span>
+    </button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">Cancel</button>
+  </div>
 </div>
+

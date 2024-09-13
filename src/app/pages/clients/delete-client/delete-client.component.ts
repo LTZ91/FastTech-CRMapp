@@ -31,7 +31,7 @@ export class DeleteClientComponent implements OnInit{
   }
 
 
-  onDeleteUser(){
+  onDeleteClient(){
 
     if(this.client){
       this.store.dispatch(deleteClient({payload: this.client}))

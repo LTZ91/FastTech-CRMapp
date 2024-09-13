@@ -1,73 +1,139 @@
 
-<div class="input-group rounded" >
-  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"
-         value="filter" placeholder="Search"
-  />
-  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">
-    <i class="fas fa-search"></i>
-  </span>
-</div>
-
-
-<!--<div class="d-flex justify-content-end align-items-center col-6">-->
-<!--  <div id="datatable_filter" class="dataTables_filter mt-2">-->
-<!--    <label>-->
-<!--      <input-->
-<!--        type="text"-->
-<!--        class="form-control form-control-sm border-2"-->
-<!--        aria-controls="datatable"-->
-<!--        [formControl]="filter"-->
-<!--        (keyup)="search($event)"-->
-<!--        value="filter"-->
-<!--      />-->
-<!--    </label>-->
-<!--    <span class="input-group-text border-0" id="search-addon">-->
-<!--      <i class="fas fa-search"></i></span>-->
-<!--  </div>-->
+<!--<div class="input-group rounded" >-->
+<!--  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"-->
+<!--         value="filter" placeholder="Search"-->
+<!--  />-->
+<!--  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">-->
+<!--    <i class="fas fa-search"></i>-->
+<!--  </span>-->
 <!--</div>-->
 
-<div class="table-container py-2 h-100">
-  <div><h4>Clientes</h4></div>
-  <table class="table table-striped"  style="font-size: 5px;  ">
-    <thead>
-    <tr>
-      <th scope="row">ID</th>
-      <th scope="row">Referencia</th>
-      <th scope="row">Nome Fiscal</th>
-      <th scope="row">Nome Comercial</th>
-      <th scope="row">NUIT</th>
-      <th scope="row">Pessoa</th>
-      <th scope="row">País</th>
-      <th scope="row">Língua</th>
-      <th scope="row">Acções</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let clients of client ">
-      <td>{{clients.id}}</td>
-      <td>{{clients.reference}}</td>
-      <td>{{clients.fiscalName}}</td>
-      <td><a href="/client-details">{{clients.commercialName}}</a></td>
-      <td>{{clients.taxNumber}}</td>
-      <td>{{clients.person}}</td>
-      <td>{{clients.country}}</td>
-      <td>{{clients.language}}</td>
-      <th><span  type="button" class="material-icons edit"
-                 (click)="onEdit(clients)">
-      edit
-    </span>
-        <span type="button" class="material-icons delete" (click)="onDelete(clients)">
-        delete
-      </span></th>
-    </tr>
-    </tbody>
-  </table>
 
-  <div>
-    <button mat-mini-fab class="add" routerLink="/create-client"><span class="material-symbols-outlined" >add</span></button>
+<!--&lt;!&ndash;<div class="d-flex justify-content-end align-items-center col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div id="datatable_filter" class="dataTables_filter mt-2">&ndash;&gt;-->
+<!--&lt;!&ndash;    <label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input&ndash;&gt;-->
+<!--&lt;!&ndash;        type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;        class="form-control form-control-sm border-2"&ndash;&gt;-->
+<!--&lt;!&ndash;        aria-controls="datatable"&ndash;&gt;-->
+<!--&lt;!&ndash;        [formControl]="filter"&ndash;&gt;-->
+<!--&lt;!&ndash;        (keyup)="search($event)"&ndash;&gt;-->
+<!--&lt;!&ndash;        value="filter"&ndash;&gt;-->
+<!--&lt;!&ndash;      />&ndash;&gt;-->
+<!--&lt;!&ndash;    </label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <span class="input-group-text border-0" id="search-addon">&ndash;&gt;-->
+<!--&lt;!&ndash;      <i class="fas fa-search"></i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--<div class="table-container py-2 h-100">-->
+<!--  <div><h4>Clientes</h4></div>-->
+<!--  <table class="table table-striped"  style="font-size: 5px;  ">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th scope="row">ID</th>-->
+<!--      <th scope="row">Referencia</th>-->
+<!--      <th scope="row">Nome Fiscal</th>-->
+<!--      <th scope="row">Nome Comercial</th>-->
+<!--      <th scope="row">NUIT</th>-->
+<!--      <th scope="row">Pessoa</th>-->
+<!--      <th scope="row">País</th>-->
+<!--      <th scope="row">Língua</th>-->
+<!--      <th scope="row">Acções</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let clients of client ">-->
+<!--      <td>{{clients.id}}</td>-->
+<!--      <td>{{clients.reference}}</td>-->
+<!--      <td>{{clients.fiscalName}}</td>-->
+<!--      <td><a href="/client-details">{{clients.commercialName}}</a></td>-->
+<!--      <td>{{clients.taxNumber}}</td>-->
+<!--      <td>{{clients.person}}</td>-->
+<!--      <td>{{clients.country}}</td>-->
+<!--      <td>{{clients.language}}</td>-->
+<!--      <th><span  type="button" class="material-icons edit"-->
+<!--                 (click)="onEdit(clients)">-->
+<!--      edit-->
+<!--    </span>-->
+<!--        <span type="button" class="material-icons delete" (click)="onDelete(clients)">-->
+<!--        delete-->
+<!--      </span></th>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+<!--  <div>-->
+<!--    <button mat-mini-fab class="add" routerLink="/create-client"><span class="material-symbols-outlined" >add</span></button>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+
+
+<div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        <!-- Page pre-title -->
+        <h2 class="page-title">
+          Clientes
+        </h2>
+      </div>
+      <!-- Page title actions -->
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+          <button href="#" (click)="onSubmit()" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
+            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+            Novo Cliente
+          </button>
+          <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
+            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12" >
+
+  <div class="card" style="margin-top: 18px">
+    <div class="card-body">
+      <div id="table-default" class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+            <th style="width:240px;"><button class="table-sort" data-sort="sort-name">ID</button></th>
+            <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Referencia</button></th>
+            <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Nome da empresa</button></th>
+            <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">País</button></th>
+            <th>Acções</th>
+          </tr>
+          </thead>
+          <tbody class="table-tbody">
+
+          <tr *ngFor="let clients of client ">
+            <td class="sort-id">{{clients.id}}</td>
+            <td class="sort-reference">{{clients.reference}}</td>
+            <td class="sort-commercialName">{{clients.commercialName}}</td>
+            <td class="sort-country">{{clients.country}}</td>
+
+            <td>
+              <a (click)="onEdit(clients)" type="button" href="" data-toggle="modal">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit" ><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+              </a>
+              <a (click)="onDelete(clients)">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash" style="margin-left: 5%"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
 </div>
-
-
-

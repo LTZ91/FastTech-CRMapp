@@ -1,13 +1,15 @@
-<div class="card">
-    <div class="dialog">
-        <h2 *ngIf="client">Delete Client</h2>
-    </div>
-    <div>
-        <p>Do you want to delete this client?</p>
-    </div>
-    <div class="container">
-        <button type="submit" class="btn btn-danger botao " (click)="onDeleteUser()">delete</button>
-        <button type="submit" class="btn btn-primary botao" (click)="cancel()">cancel</button>
-    </div>
+<div class="card" style="max-width: 600px; margin: auto;">
+  <div class="card-header text-center">
+    <h3 class="card-title text-center" *ngIf="client">Excluír Cliente</h3>
+  </div>
+
+  <div class="card-body text-center">
+    <h4>Pretende excluír este Cliente?</h4>
+  </div>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-outline-danger me-3"  (click)="onDeleteClient()">Apagar</button>
+    <button type="button" class="btn btn-outline-primary" (click)="cancel()">Cancelar</button>
+  </div>
 </div>
 
