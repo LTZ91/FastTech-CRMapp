@@ -1,67 +1,111 @@
-<div class="card" style="max-width: 400px; margin: auto; font-size: 0.9rem;">
-  <div class="card-header text-center">
-    <h4 class="card-title" *ngIf="technician">Actualizar Técnico</h4>
-    <h4 class="card-title" *ngIf="!technician">Novo Técnico</h4>
-  </div>
+<!--<div class="card" style="max-width: 400px; margin: auto; font-size: 0.9rem;">-->
+<!--  <div class="card-header text-center">-->
+<!--    <h4 class="card-title" *ngIf="technician">Actualizar Técnico</h4>-->
+<!--    <h4 class="card-title" *ngIf="!technician">Novo Técnico</h4>-->
+<!--  </div>-->
 
-  <div class="card-body">
-    <form [formGroup]="formTechnician">
-      <!-- Full Name -->
-      <div class="row mb-2">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="form-label" for="inputFullName">Nome Completo</label>
-            <input type="text" class="form-control form-control-sm" id="inputFullName" formControlName="fullName">
-          </div>
-        </div>
+<!--  <div class="card-body">-->
+<!--    <form [formGroup]="formTechnician">-->
+<!--      &lt;!&ndash; Full Name &ndash;&gt;-->
+<!--      <div class="row mb-2">-->
+<!--        <div class="col-md-12">-->
+<!--          <div class="form-group">-->
+<!--            <label class="form-label" for="inputFullName">Nome Completo</label>-->
+<!--            <input type="text" class="form-control form-control-sm" id="inputFullName" formControlName="fullName">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Identification Number and NUIT &ndash;&gt;-->
+<!--      <div class="row mb-2">-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="form-group">-->
+<!--            <label class="form-label" for="inputIdentificationNumber">BI</label>-->
+<!--            <input type="text" class="form-control form-control-sm" id="inputIdentificationNumber" formControlName="identificationNumber">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="form-group">-->
+<!--            <label class="form-label" for="inputTaxNumber">NUIT</label>-->
+<!--            <input type="text" class="form-control form-control-sm" id="inputTaxNumber" formControlName="taxNumber">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Hiring Date and Position &ndash;&gt;-->
+<!--      <div class="row mb-2">-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="form-group">-->
+<!--            <label class="form-label" for="inputHiringDate">Data de Admissão</label>-->
+<!--            <input type="datetime-local" class="form-control form-control-sm" id="inputHiringDate" formControlName="hiringDate">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="form-group">-->
+<!--            <label class="form-label" for="inputPosition">Posição</label>-->
+<!--            <select id="inputPosition" class="form-select form-select-sm" formControlName="positionId">-->
+<!--              <option *ngFor="let positions of position" [value]="positions.id">-->
+<!--                {{positions.description}}-->
+<!--              </option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Buttons &ndash;&gt;-->
+<!--      <div class="row mt-3">-->
+<!--        <div class="col-md-12 text-center">-->
+<!--          <button type="submit" class="btn btn-primary btn-sm me-2" [disabled]="formTechnician.invalid" (click)="onCreate()">-->
+<!--            <span *ngIf="!technician">Criar</span>-->
+<!--            <span *ngIf="technician">Actualizar</span>-->
+<!--          </button>-->
+<!--          <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">Cancelar</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="card" style="max-width: 600px; margin: auto;">
+  <div class="card-body" style="padding-left: 15%; margin:0px">
+    <fieldset class="form-fieldset">
+      <div class="card-title text-center">
+        <h3 *ngIf="technician">Atualizar Técnico</h3>
+        <h3 *ngIf="!technician">Adicionar Técnico</h3>
       </div>
-
-      <!-- Identification Number and NUIT -->
-      <div class="row mb-2">
+      <form [formGroup]="formTechnician" class="row g-3">
         <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-label" for="inputIdentificationNumber">BI</label>
-            <input type="text" class="form-control form-control-sm" id="inputIdentificationNumber" formControlName="identificationNumber">
-          </div>
+          <label for="inputUserName" class="form-label">Nome Completo</label>
+          <input type="text" id="inputUserName" class="form-control" formControlName="fullName" placeholder="Ana Maria ..." autocomplete="off">
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-label" for="inputTaxNumber">NUIT</label>
-            <input type="text" class="form-control form-control-sm" id="inputTaxNumber" formControlName="taxNumber">
-          </div>
-        </div>
-      </div>
-
-      <!-- Hiring Date and Position -->
-      <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-label" for="inputHiringDate">Data de Admissão</label>
-            <input type="datetime-local" class="form-control form-control-sm" id="inputHiringDate" formControlName="hiringDate">
-          </div>
+          <label for="inputIdentificationNumber" class="form-label">BI</label>
+          <input type="text" id="inputIdentificationNumber" class="form-control" formControlName="identificationNumber" placeholder="123456789F..." autocomplete="on">
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-label" for="inputPosition">Posição</label>
-            <select id="inputPosition" class="form-select form-select-sm" formControlName="positionId">
+          <label for="inputTaxNumber" class="form-label">NUIT</label>
+          <input type="email" id="inputTaxNumber" class="form-control" formControlName="taxNumber" placeholder="0987654321..." autocomplete="off">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="inputPosition">Posição</label>
+            <select id="inputPosition" class="form-select " formControlName="positionId">
               <option *ngFor="let positions of position" [value]="positions.id">
                 {{positions.description}}
               </option>
             </select>
-          </div>
         </div>
-      </div>
-
-      <!-- Buttons -->
-      <div class="row mt-3">
-        <div class="col-md-12 text-center">
-          <button type="submit" class="btn btn-primary btn-sm me-2" [disabled]="formTechnician.invalid" (click)="onCreate()">
+        <div class="col-md-4">
+          <label for="inputHiringDate" class="form-label">Data de admissão</label>
+          <input type="date" id="inputHiringDate" class="form-control" formControlName="hiringDate" placeholder="" autocomplete="off">
+        </div>
+        <div class="col-12 text-center mt-3">
+          <button type="button" class="btn btn-ghost-success" [disabled]="formTechnician.invalid" (click)="onCreate()">
             <span *ngIf="!technician">Criar</span>
-            <span *ngIf="technician">Actualizar</span>
+            <span *ngIf="technician">Atualizar</span>
           </button>
-          <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">Cancelar</button>
+          <button type="button" class="btn btn-ghost-danger" (click)="cancel()">Cancelar</button>
         </div>
-      </div>
-    </form>
+      </form>
+    </fieldset>
   </div>
 </div>
