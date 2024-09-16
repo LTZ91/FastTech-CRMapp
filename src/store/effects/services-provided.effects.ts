@@ -1,16 +1,6 @@
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, exhaustMap, map, of} from "rxjs";
 import {Injectable} from "@angular/core";
-import {ClientService} from "../../app/services/client.service";
-import {
-  addClient,
-  addClientFail,
-  addClientSuccess, deleteClient, deleteClientFail, deleteClientSuccess, editClient, editClientFail, editClientSuccess,
-  getAllClients,
-  getClientFail,
-  getClientSuccess
-} from "../actions/client.actions";
-import {ServicesProvided} from "../../app/models/services-provided";
 import {ServicesProvidedService} from "../../app/services/services-provided.service";
 import {
   addService,

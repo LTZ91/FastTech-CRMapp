@@ -1,35 +1,75 @@
-<div class="card" style="width: 350px; margin-bottom: 0px"  >
-  <div class="card-header text-center" >
-    <h3 *ngIf="service" class="card-title">Actualizar Serviço</h3>
-    <h3 *ngIf="!service" class="card-title">Novo Serviço</h3>
-  </div>
-  <div class="card-body">
-    <form [formGroup]="formService" class="row g-3">
-      <div class="col-md-12">
-        <label for="inputDescription" class="form-label">Descrição</label>
-        <input type="text" class="form-control" id="inputDescription" formControlName="description" placeholder="Ex: Manutenção SQl">
+<!--<div class="card" style="width: 350px; margin-bottom: 0px"  >-->
+<!--  <div class="card-header text-center" >-->
+<!--    <h3 *ngIf="service" class="card-title">Actualizar Serviço</h3>-->
+<!--    <h3 *ngIf="!service" class="card-title">Novo Serviço</h3>-->
+<!--  </div>-->
+<!--  <div class="card-body">-->
+<!--    <form [formGroup]="formService" class="row g-3">-->
+<!--      <div class="col-md-12">-->
+<!--        <label for="inputDescription" class="form-label">Descrição</label>-->
+<!--        <input type="text" class="form-control" id="inputDescription" formControlName="description" placeholder="Ex: Manutenção SQl">-->
+<!--      </div>-->
+<!--      <div class="col-md-12">-->
+<!--        <label for="inputPrice" class="form-label">Preço</label>-->
+<!--        <select id="inputPrice" class="form-select" formControlName="priceId">-->
+<!--          <option *ngFor="let prices of price" [value]="prices.id">-->
+<!--            {{prices.value | currency}}-->
+<!--          </option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--      <div formArrayName="conditions" class="col-md-12">-->
+<!--        <div *ngFor="let condition of conditionsGroup.controls; let i=index">-->
+<!--          <label for="condition{{i}}" class="form-label">Condições</label>-->
+<!--          <textarea id="condition{{i}}" class="form-control" placeholder="Ex: este serviço está sujeito a ..." formControlName="{{i}}"></textarea>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-12 text-center mt-3">-->
+<!--        <button type="submit" class="btn btn-primary" [disabled]="formService.invalid" (click)="onCreate()">-->
+<!--          <span *ngIf="!service">Add</span>-->
+<!--          <span *ngIf="service">Update</span>-->
+<!--        </button>-->
+<!--        <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="card" style="max-width: 600px; margin: auto;">
+  <div class="card-body" style="padding-left: 10% ;margin: 0">
+    <fieldset class="form-fieldset">
+      <div class="card-title text-center">
+        <h3 *ngIf="service">Atualizar Serviço</h3>
+        <h3 *ngIf="!service">Adicionar Serviço</h3>
       </div>
-      <div class="col-md-12">
-        <label for="inputPrice" class="form-label">Preço</label>
-        <select id="inputPrice" class="form-select" formControlName="priceId">
-          <option *ngFor="let prices of price" [value]="prices.id">
-            {{prices.value | currency}}
-          </option>
-        </select>
-      </div>
-      <div formArrayName="conditions" class="col-md-12">
-        <div *ngFor="let condition of conditionsGroup.controls; let i=index">
-          <label for="condition{{i}}" class="form-label">Condições</label>
-          <textarea id="condition{{i}}" class="form-control" placeholder="Ex: este serviço está sujeito a ..." formControlName="{{i}}"></textarea>
+      <form [formGroup]="formService" class="row g-3">
+        <div class="col-md-6">
+          <label for="inputDescription" class="form-label">Descrição</label>
+          <input type="text" id="inputDescription" class="form-control" formControlName="description" placeholder="Ex: Manutenção SQL..." autocomplete="off">
         </div>
-      </div>
-      <div class="col-12 text-center mt-3">
-        <button type="submit" class="btn btn-primary" [disabled]="formService.invalid" (click)="onCreate()">
-          <span *ngIf="!service">Add</span>
-          <span *ngIf="service">Update</span>
-        </button>
-        <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
-      </div>
-    </form>
+        <div class="col-md-6">
+          <label for="inputPrice" class="form-label">Preço</label>
+          <select id="inputPrice" class="form-select" formControlName="priceId">-->
+            <option *ngFor="let prices of price" [value]="prices.id">
+              {{prices.value | currency}}
+            </option>
+          </select>
+        </div>
+        <div formArrayName="conditions" class="col-md-12">
+          <div *ngFor="let condition of conditionsGroup.controls; let i=index">
+            <label for="condition{{i}}" class="form-label">Condições</label>
+            <textarea id="condition{{i}}" class="form-control" placeholder="Ex: este serviço está sujeito a ..." formControlName="{{i}}"></textarea>
+          </div>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+          <button type="button" class="btn btn-ghost-success" [disabled]="formService.invalid" (click)="onCreate()">
+            <span *ngIf="!service">Criar</span>
+            <span *ngIf="service">Atualizar</span>
+          </button>
+          <button type="button" class="btn btn-ghost-danger" (click)="cancel()">Cancelar</button>
+        </div>
+      </form>
+    </fieldset>
   </div>
 </div>
