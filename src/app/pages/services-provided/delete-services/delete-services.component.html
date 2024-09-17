@@ -1,13 +1,28 @@
-<div class="card">
-  <div class="dialog">
-    <h2 *ngIf="service">Delete Service</h2>
+<!--<div class="card">-->
+<!--  <div class="dialog">-->
+<!--    <h2 *ngIf="service">Delete Service</h2>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <p>Do you want to delete this service?</p>-->
+<!--  </div>-->
+<!--  <div class="container">-->
+<!--    <button type="submit" class="btn btn-danger botao " (click)="onDeleteService()">delete</button>-->
+<!--    <button type="submit" class="btn btn-primary botao" (click)="cancel()">cancel</button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="card" style="max-width: 600px; margin: auto;">
+  <div class="card-header text-center">
+    <h3 class="card-title text-center" *ngIf="service">Excluír Serviço</h3>
   </div>
-  <div>
-    <p>Do you want to delete this service?</p>
+
+  <div class="card-body text-center">
+    <h4>Pretende excluír este Serviço?</h4>
   </div>
-  <div class="container">
-    <button type="submit" class="btn btn-danger botao " (click)="onDeleteService()">delete</button>
-    <button type="submit" class="btn btn-primary botao" (click)="cancel()">cancel</button>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-outline-danger me-3"  (click)="onDeleteService()">Apagar</button>
+    <button type="button" class="btn btn-outline-primary" (click)="cancel()">Cancelar</button>
   </div>
 </div>
 

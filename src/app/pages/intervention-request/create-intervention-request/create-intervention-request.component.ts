@@ -103,5 +103,6 @@ export class CreateInterventionRequestComponent implements OnInit{
   }
   cancel() {
     this.formInterventionRequest.reset();
+    // this.store.dispatch(hideDialog());
   }
 }

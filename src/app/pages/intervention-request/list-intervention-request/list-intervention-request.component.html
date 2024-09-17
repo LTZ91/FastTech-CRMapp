@@ -229,7 +229,7 @@
                     <th>Id</th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-name">Cliente</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Tarefa</button></th>
-                    <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Tecnico</button></th>
+<!--                    <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Tecnico</button></th>-->
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Date Inicio</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-date-f">Date Fim</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-progress">Progresso</button></th>
@@ -242,18 +242,23 @@
                     <td class="sort-id">{{request.id}}</td>
                     <td class="sort-name">{{request.customer}}</td>
                     <td class="sort-task">{{request.interventionReason}}</td>
-                    <td class="sort-tech">{{request.technician}}</td>
+<!--                    <td class="sort-tech">{{request.technician}}</td>-->
                     <td class="sort-date-i">{{request.dateRequest}}</td>
                     <td class="sort-date-f">24/08/24</td>
                     <td class="sort-progress" data-progress="">
                       {{request.status}}<span class="badge bg-green text-green-fg"></span>
                     </td>
                     <td>
-                      <a (click)="onEdit(request)" type="button" href="" data-toggle="modal">Editar</a>
+                      <a (click)="onEdit(request)" type="button" href="" data-toggle="modal">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit" ><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                      </a>
+                      <a (click)="onDelete(request)">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash" style="margin-left: 5%"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                      </a>
                     </td>
-                    <td>
-                      <a (click)="onDelete(request)">Apagar</a>
-                    </td>
+<!--                    <td>-->
+
+<!--                    </td>-->
                   </tr>
                   </tbody>
                 </table>
