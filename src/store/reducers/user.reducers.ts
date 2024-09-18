@@ -14,6 +14,9 @@ export interface IUserState{
 
   userListAll : IUser [] |null,
   user: IUser | null,
+  userName: string;
+  name: string;
+  fullName: string;
   isUpdated: boolean,
   isDelete: boolean,
   isOpen: boolean,
@@ -24,6 +27,9 @@ export interface IUserState{
 const initialState: IUserState = {
   userListAll: null,
   user: null,
+  userName: '',
+  name: '',
+  fullName: '',
   isUpdated: false,
   isDelete: false,
   isOpen: false,

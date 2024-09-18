@@ -7,6 +7,8 @@ export interface InterventionRequest {
   technician: string,
   contractTypeId: number,
   contractType: string,
+  priorityId: number,
+  priority: string,
   dateRequest: string,
   interventionReason: string[],
   cancellationReason: string,

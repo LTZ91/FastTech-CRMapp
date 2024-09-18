@@ -19,6 +19,7 @@ import {
   getInterventionsRequestFail,
   getInterventionsRequestSuccess
 } from "../actions/intervention-request.actions";
+import {deleteServiceFail, deleteServiceSuccess} from "../actions/services-provided.actions";
 
 
 @Injectable()
@@ -86,5 +87,4 @@ export class InterventionRequestEffects{
       )
     )
   )
-
 }

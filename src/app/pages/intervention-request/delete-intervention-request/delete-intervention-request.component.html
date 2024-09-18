@@ -1,13 +1,15 @@
 <div class="card" style="max-width: 600px; margin: auto;">
   <div class="card-header text-center">
-    <h3 class="card-title text-center"  *ngIf="intervention">Excluír pedido de intervenção</h3>
+    <h3 class="card-title text-center" *ngIf="intervention">Excluír Cliente</h3>
   </div>
-  <div class="card-body text-center" >
-    <h4>Pretende excluír este Ticket?</h4>
+
+  <div class="card-body text-center">
+    <h4>Pretende excluír este Cliente?</h4>
   </div>
 
   <div class="text-center">
-    <button type="button" class="btn btn-ghost-secondary me-3"  (click)="onDeleteInterventionRequest()">Apagar</button>
-    <button type="button" class="btn btn-ghost-danger" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-outline-danger me-3"  (click)="onDeleteInterventionRequest()">Apagar</button>
+    <button type="button" class="btn btn-outline-primary" (click)="cancel()">Cancelar</button>
   </div>
 </div>
+

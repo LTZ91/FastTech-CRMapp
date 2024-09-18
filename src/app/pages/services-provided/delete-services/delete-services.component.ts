@@ -1,12 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ClientService} from "../../../services/client.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {ClientState} from "../../../../store/reducers/client.reducers";
-import {Client} from "../../../models/client";
-import {addClient, deleteClient} from "../../../../store/actions/client.actions";
-import {hideDialog} from "../../../../store/actions/user.actions";
+import {hideDialog} from "../../../../store/actions/services-provided.actions";
 import {ServicesProvidedService} from "../../../services/services-provided.service";
 import {ServiceState} from "../../../../store/reducers/services-provided.reducers";
 import {ServicesProvided} from "../../../models/services-provided";

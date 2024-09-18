@@ -86,6 +86,14 @@
                     </div>
                   </div>
               </div>
+              <div class="col-md-6">
+                <label class="form-label select-label">Prioridade</label>
+                <select class="select form-control" formControlName="priorityId">
+                  <option *ngFor="let priorities of priority" [value]="priorities.id">
+                    {{priorities.description}}
+                  </option>
+                </select>
+              </div>
               <div class="col-12 text-center mt-3">
                 <button type="button" class="btn btn-ghost-success" [disabled]="formInterventionRequest.invalid" (click)="onCreate()">
                   <span *ngIf="!interventionRequest">Criar</span>

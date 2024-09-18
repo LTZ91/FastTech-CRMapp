@@ -228,11 +228,11 @@
                   <tr>
                     <th>Id</th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-name">Cliente</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-client-contact">Solicitante</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Tarefa</button></th>
-<!--                    <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Tecnico</button></th>-->
-                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Date Inicio</button></th>
-                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-f">Date Fim</button></th>
-                    <th style="width:240px;"><button class="table-sort" data-sort="sort-progress">Progresso</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Data do Pedido</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-f">Prioridade</button></th>
+                    <th style="width:240px;"><button class="table-sort" >Alocar</button></th>
                     <th>Acções</th>
                   </tr>
                   </thead>
@@ -241,13 +241,15 @@
                   <tr *ngFor="let request of interventionRequest ">
                     <td class="sort-id">{{request.id}}</td>
                     <td class="sort-name">{{request.customer}}</td>
+                    <td class="sort-tech">{{request.customerContact}}</td>
                     <td class="sort-task">{{request.interventionReason}}</td>
-<!--                    <td class="sort-tech">{{request.technician}}</td>-->
                     <td class="sort-date-i">{{request.dateRequest}}</td>
-                    <td class="sort-date-f">24/08/24</td>
-                    <td class="sort-progress" data-progress="">
-                      {{request.status}}<span class="badge bg-green text-green-fg"></span>
-                    </td>
+                    <td class="sort-priority">{{request.priority}}</td>
+                    <td>Alocar</td>
+<!--                    <td class="sort-progress" data-progress="">-->
+<!--                      {{request.status}}-->
+<!--&lt;!&ndash;                      <span class="badge bg-green text-green-fg"></span>&ndash;&gt;-->
+<!--                    </td>-->
                     <td>
                       <a (click)="onEdit(request)" type="button" href="" data-toggle="modal">
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit" ><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
