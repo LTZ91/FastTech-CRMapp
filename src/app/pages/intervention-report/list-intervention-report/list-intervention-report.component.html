@@ -1,63 +1,4 @@
 
-<!--<div class="input-group rounded" >-->
-<!--  <input style="margin-left:80%" id="datatable_filter" type="search" class="form-control rounded" [formControl]="filter"-->
-<!--         value="filter" placeholder="Search"-->
-<!--  />-->
-<!--  <span class="input-group-text border-0" id="search-addon" (keyup)="search($event)">-->
-<!--    <i class="fas fa-search"></i>-->
-<!--  </span>-->
-<!--</div>-->
-
-
-<!--<div class="table-container py-2 h-100">-->
-<!--  <div><h4>Relatórios de Intervençao</h4></div>-->
-<!--  <table class="table table-striped"  style="font-size: 5px;">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="row">ID</th>-->
-<!--      <th scope="row">Modo de Intervençao</th>-->
-<!--      <th scope="row">Contacto</th>-->
-<!--      <th scope="row">Técnico</th>-->
-<!--      <th scope="row">Data</th>-->
-<!--      <th scope="row">Duracao</th>-->
-<!--      <th scope="row">Motivo da Intervençao</th>-->
-<!--      <th scope="row">Actividades Realizadas</th>-->
-<!--      <th scope="row">Actividades Pendentes</th>-->
-<!--&lt;!&ndash;      <th scope="row">Acçoes</th>&ndash;&gt;-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let report of interventionReport">-->
-<!--    <td>{{report.id}}</td>-->
-<!--    <td>{{report.interventionMode}}</td>-->
-<!--    <td>{{report.customerContact}}</td>-->
-<!--    <td>{{report.technician}}</td>-->
-<!--    <td>{{report.date}}</td>-->
-<!--&lt;!&ndash;    <td>{{report.startTime}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{report.endTime}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{report.breakTime}}</td>&ndash;&gt;-->
-<!--    <td>{{report.totalDuration}}</td>-->
-<!--&lt;!&ndash;    <td>{{report.discount}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{report.discountReason}}</td>&ndash;&gt;-->
-<!--    <td>{{report.interventionReason}}</td>-->
-<!--    <td>{{report.activitiesPerformed}}</td>-->
-<!--    <td>{{report.pendingActivities}}</td>-->
-<!--&lt;!&ndash;    <th>&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;      <span class="material-symbols-outlined" type="button" (click)="onEdit(report)">close</span>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;      <span type="button" class="material-icons delete"  (click)="onDelete(report)">&ndash;&gt;-->
-<!--&lt;!&ndash;        close&ndash;&gt;-->
-<!--&lt;!&ndash;      </span>&ndash;&gt;-->
-<!--&lt;!&ndash;      <span type="button" class="material-symbols-outlined" style="padding-right: 80px" (click)="onSend(report.id)">&ndash;&gt;-->
-<!--&lt;!&ndash;       send&ndash;&gt;-->
-<!--&lt;!&ndash;      </span>&ndash;&gt;-->
-<!--&lt;!&ndash;    </th>&ndash;&gt;-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
-<!--</div>-->
-<!--<div>-->
-<!--  <button mat-mini-fab class="add" (click)="openInterventionModal()"><span class="material-symbols-outlined" >add</span></button>-->
-<!--</div>-->
 
 <div class="page-wrapper">
   <!-- Page header -->
@@ -76,7 +17,7 @@
             <a href="#" (click)="onSubmit()" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
               <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-              Criar Intervenção
+              Criar relatório
             </a>
             <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
               <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -109,7 +50,7 @@
                     <th style="width:60px;"><button class="table-sort" data-sort="sort-hour">Horas</button></th>
                     <th style="width:120px;"><button class="table-sort" data-sort="sort-progress">Progresso</button></th>
                     <th style="width:60px;"></th>
-                    <th style="width:60px;">Accoes</th>
+                    <th style="width:30px;">Accoes</th>
                   </tr>
                   </thead>
                   <tbody class="table-tbody">

@@ -216,7 +216,7 @@ export const routes: Routes = [
     DeleteInterventionRequestComponent
   },
   {
-    path:'request-details/request/:id', component:
+    path:'request-details/:id', component:
     RequestDetailsComponent
   },
   {

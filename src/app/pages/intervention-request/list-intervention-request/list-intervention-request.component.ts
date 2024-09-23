@@ -17,9 +17,7 @@ import {CreateInterventionRequestComponent} from "../create-intervention-request
 import {DeleteInterventionRequestComponent} from "../delete-intervention-request/delete-intervention-request.component";
 import {InterventionStatusService} from "../../../services/intervention-status.service";
 import {InterventionStatus} from "../../../models/intervention-status";
-import {
-  CreateInterventionReportComponent
-} from "../../intervention-report/create-intervention-report/create-intervention-report.component";
+
 @Component({
   selector: 'app-list-intervention-request',
   templateUrl: './list-intervention-request.component.html',
@@ -136,14 +134,17 @@ export class ListInterventionRequestComponent implements OnInit{
     this.store.dispatch(showDialog())
   }
 
-  requestDetails(request: InterventionRequest) {
-    console.log(request)
-    this.router.navigateByUrl(`/request-details/${request.id}`)
+  // requestDetails(request: InterventionRequest) {
+  //   console.log(request)
+  //   this.router.navigateByUrl(`/request-details/${request.id}`)
+  // }
+
+  // onCreateInterventionRequest() {
+  //   this.dialog.open(CreateInterventionRequestComponent);
+  // }
+
+
+  onDetails() {
+
   }
-
-  onCreateInterventionRequest() {
-    this.dialog.open(CreateInterventionRequestComponent);
-  }
-
-
 }

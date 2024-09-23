@@ -14,6 +14,9 @@ import {ClientContact} from "../../../models/client-contact";
 import {ClientContactService} from "../../../services/client-contact.service";
 import {PriorityService} from "../../../services/priority.service";
 import {Priority} from "../../../models/priority";
+import {ClassificationService} from "../../../services/classification.service";
+import {Client} from "../../../models/client";
+import {ClientService} from "../../../services/client.service";
 
 @Component({
   selector: 'app-create-intervention-request',
@@ -26,7 +29,9 @@ export class CreateInterventionRequestComponent implements OnInit{
     private interventionRequestService: InterventionRequestService,
     private technicianService: TechnicianService,
     private clientContactService: ClientContactService,
+    private clientService: ClientService,
     private priorityService: PriorityService,
+    private classificationService: ClassificationService,
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <InterventionRequestState>,
@@ -40,7 +45,9 @@ export class CreateInterventionRequestComponent implements OnInit{
   interventionsRequests! : InterventionRequest [];
   technician! : Technician[];
   clientContact! : ClientContact[];
+  client! : Client[];
   priority! : Priority[];
+  classification! : Priority[];
   formInterventionRequest!: FormGroup;
   selectInterventionRequestIsOpen$ = this.store.pipe(select (selectInterventionRequestIsOpen));
   // private dialogRef!: MatDialogRef<boolean>;
@@ -49,11 +56,14 @@ export class CreateInterventionRequestComponent implements OnInit{
 
     this.getClientContact();
     this.getPriority();
+    this.getClient();
+    this.getClassification();
     if(this.interventionRequest){
       this.formInterventionRequest = this.formBuilder.group({
         id: new FormControl(this.interventionRequest.id, Validators.required),
         customerContactId: new FormControl(this.interventionRequest.customerContactId, Validators.required),
         priorityId: new FormControl(this.interventionRequest.technicianId, Validators.required),
+        classificationId: new FormControl(this.interventionRequest.technicianId, Validators.required),
         dateRequest: new FormControl(this.interventionRequest.dateRequest, Validators.required),
         interventionReason: new FormArray([new FormControl(this.interventionRequest.interventionReason[5], Validators.required)]),
       });
@@ -61,6 +71,7 @@ export class CreateInterventionRequestComponent implements OnInit{
       this.formInterventionRequest = this.formBuilder.group({
         customerContactId: new FormControl(``, Validators.required),
         priorityId: new FormControl(``, Validators.required),
+        classificationId: new FormControl(``, Validators.required),
         dateRequest: new FormControl(``, Validators.required),
         interventionReason:  new FormArray([new FormControl(``, Validators.required)]),
       });
@@ -77,6 +88,22 @@ export class CreateInterventionRequestComponent implements OnInit{
     this.clientContactService.readAll().subscribe(value => {
       if(value){
         this.clientContact=value;
+      }
+    })
+  }
+
+  getClient(){
+    this.clientService.readAll().subscribe(value => {
+      if(value){
+        this.client=value;
+      }
+    })
+  }
+
+  getClassification(){
+    this.classificationService.readAll().subscribe(value => {
+      if(value){
+        this.classification=value;
       }
     })
   }
