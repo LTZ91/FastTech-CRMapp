@@ -71,7 +71,7 @@
       <div class="col">
         <!-- Page pre-title -->
         <h2 class="page-title">
-          Serviços
+          Contratos
         </h2>
       </div>
       <!-- Page title actions -->
@@ -80,7 +80,7 @@
           <button href="#" (click)="onSubmit()" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-            Novo Serviço
+            Novo Contrato
           </button>
           <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -102,7 +102,7 @@
           <tr>
             <th style="width:240px;"><button class="table-sort" data-sort="sort-name">ID</button></th>
             <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Descrição</button></th>
-            <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Preço</button></th>
+<!--            <th style="width:240px;"><button class="table-sort" data-sort="sort-tech">Preço</button></th>-->
             <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Horas</button></th>
             <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Condições</button></th>
             <th>Acções</th>
@@ -113,7 +113,7 @@
           <tr *ngFor="let services of service ">
             <td class="sort-id">{{services.id}}</td>
             <td class="sort-description">{{services.description}}</td>
-            <td class="sort-price">{{services.price}}</td>
+<!--            <td class="sort-price">{{services.price}}</td>-->
             <td class="sort-hour">{{services.hour}}h</td>
             <td class="sort-conditions">{{services.conditions}}</td>
 

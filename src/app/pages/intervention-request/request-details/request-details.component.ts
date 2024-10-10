@@ -95,4 +95,8 @@ export class RequestDetailsComponent {
   send() {
 
   }
+
+  onEdit() {
+
+  }
 }

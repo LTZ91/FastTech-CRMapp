@@ -39,22 +39,22 @@
   <div class="card-body" style="margin: 0; width: 400px">
     <fieldset class="form-fieldset">
       <div class="card-title text-center">
-        <h3 *ngIf="service">Atualizar Serviço</h3>
-        <h3 *ngIf="!service">Adicionar Serviço</h3>
+        <h3 *ngIf="service">Atualizar Contrato</h3>
+        <h3 *ngIf="!service">Adicionar Contrato</h3>
       </div>
       <form [formGroup]="formService" class="row g-3">
         <div class="col-md-6">
           <label for="inputDescription" class="form-label">Descrição</label>
           <input type="text" id="inputDescription" class="form-control" formControlName="description" placeholder="Ex: Manutenção SQL..." autocomplete="off">
         </div>
-        <div class="col-md-6">
-          <label for="inputPrice" class="form-label">Preço</label>
-          <select id="inputPrice" class="form-select" formControlName="priceId">-->
-            <option *ngFor="let prices of price" [value]="prices.id">
-              {{prices.value | currency}}
-            </option>
-          </select>
-        </div>
+<!--        <div class="col-md-6">-->
+<!--          <label for="inputPrice" class="form-label">Preço</label>-->
+<!--          <select id="inputPrice" class="form-select" formControlName="priceId">&ndash;&gt;-->
+<!--            <option *ngFor="let prices of price" [value]="prices.id">-->
+<!--              {{prices.value | currency}}-->
+<!--            </option>-->
+<!--          </select>-->
+<!--        </div>-->
         <div formArrayName="conditions" class="col-md-12">
           <div *ngFor="let condition of conditionsGroup.controls; let i=index">
             <label for="condition{{i}}" class="form-label">Condições</label>
