@@ -1,6 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
 import {
-  getInterventionRequestById, getInterventionRequestByIdFail,
+  getInterventionRequestById,
+  getInterventionRequestByIdFail,
   getInterventionRequestByIdSuccess,
   hideDialog,
   showDialog
@@ -58,6 +59,7 @@ export const interventionRequestReducers = createReducer(
   on(getInterventionsRequestFail, (state, {payload}) => {
     return{...state, payload}
   }),
+
   on(getInterventionRequestById, (state) => {
     return { ...state, selectedInterventionRequest: null };
   }),
@@ -67,6 +69,7 @@ export const interventionRequestReducers = createReducer(
   on(getInterventionRequestByIdFail, (state, { payload }) => {
     return { ...state, error: payload };
   }),
+
   on(addInterventionRequest, (state)=>{
     return{...state, interventionRequest: null, isSaved: false, isOpen: true}
   }),
@@ -76,6 +79,7 @@ export const interventionRequestReducers = createReducer(
   on(addInterventionRequestFail, (state, {payload}) => {
     return{...state, payload, isSaved: false, isOpen: false}
   }),
+
   on(editInterventionRequest, (state, {payload}) =>{
     return{...state, interventionRequest: payload, isOpen: true}
   }),
@@ -85,6 +89,7 @@ export const interventionRequestReducers = createReducer(
   on(editInterventionRequestFail, (state, {payload}) =>{
     return{...state, payload, isUpdated: false, isOpen: false}
   }),
+
   on(deleteInterventionRequest, (state, {payload}) =>{
     return{...state, interventionRequest: payload, isOpen: true}
   }),
@@ -94,6 +99,7 @@ export const interventionRequestReducers = createReducer(
   on(deleteInterventionRequestFail, (state, {payload}) =>{
     return{...state,  payload, isDelete: false}
   }),
+
   on(showDialog, (state) =>{
     return {...state, isOpen: true}
   }),

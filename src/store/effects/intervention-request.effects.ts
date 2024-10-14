@@ -39,7 +39,9 @@ export class InterventionRequestEffects{
           )
         )
       )
-    ))
+    )
+  );
+
 
   getInterventionRequestById$ = createEffect(() =>
     this.actions$.pipe(
@@ -62,7 +64,7 @@ export class InterventionRequestEffects{
         )
       )
     )
-  )
+  );
 
   editInterventionRequest = createEffect(() =>
     this.actions$.pipe(
@@ -74,7 +76,7 @@ export class InterventionRequestEffects{
         )
       )
     )
-  )
+  );
 
   deleteInterventionRequest = createEffect(() =>
     this.actions$.pipe(
@@ -86,5 +88,5 @@ export class InterventionRequestEffects{
         )
       )
     )
-  )
+  );
 }

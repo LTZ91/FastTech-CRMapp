@@ -77,10 +77,10 @@
                     </div>
                     <div class="col">
                       <div class="font-weight-medium">
-                        0
+                        {{await}}
                       </div>
                       <div class="text-secondary">
-                        Tarefas Pendentes
+                        Tarefas A espera de Aprovação
                       </div>
                     </div>
                   </div>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="col">
                       <div class="font-weight-medium">
-                        0
+                           0
                       </div>
                       <div class="text-secondary">
                         Tarefas Concluidas
@@ -158,7 +158,7 @@
                   <tr>
                     <th>Id</th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-name">Cliente</button></th>
-                    <th style="width:240px;"><button class="table-sort" data-sort="sort-client-contact">Solicitante</button></th>
+<!--                    <th style="width:240px;"><button class="table-sort" data-sort="sort-client-contact">Solicitante</button></th>-->
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Tarefa</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Data do Pedido</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-date-f">Prioridade</button></th>
@@ -170,7 +170,7 @@
                   <tr *ngFor="let request of interventionRequest ">
                     <td class="sort-id">{{request.id}}</td>
                     <td class="sort-name">{{request.customer}}</td>
-                    <td class="sort-tech">{{request.customerContact}}</td>
+<!--                    <td class="sort-tech">{{request.customerContact}}</td>-->
                     <td class="sort-task">{{request.interventionReason}}</td>
                     <td class="sort-date-i">{{request.dateRequest}}</td>
                     <td class="sort-priority">{{request.priority}}</td>

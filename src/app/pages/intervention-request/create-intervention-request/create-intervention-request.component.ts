@@ -17,6 +17,9 @@ import {Priority} from "../../../models/priority";
 import {ClassificationService} from "../../../services/classification.service";
 import {Client} from "../../../models/client";
 import {ClientService} from "../../../services/client.service";
+import {PeriodService} from "../../../services/period.service";
+import {Period} from "../../../models/period";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-intervention-request',
@@ -24,21 +27,22 @@ import {ClientService} from "../../../services/client.service";
   styleUrl: './create-intervention-request.component.scss'
 })
 export class CreateInterventionRequestComponent implements OnInit{
-  @Input() secondFormGroup: FormGroup;
+  // @Input() secondFormGroup: FormGroup;
   constructor(
     private interventionRequestService: InterventionRequestService,
-    private technicianService: TechnicianService,
     private clientContactService: ClientContactService,
     private clientService: ClientService,
     private priorityService: PriorityService,
+    private periodService: PeriodService,
     private classificationService: ClassificationService,
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <InterventionRequestState>,
-  ) {
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: [''],
-    });
+  )
+  {
+    // this.secondFormGroup = this.formBuilder.group({
+    //   secondCtrl: [''],
+    // });
   }
 
   interventionRequest !: InterventionRequest;
@@ -47,6 +51,7 @@ export class CreateInterventionRequestComponent implements OnInit{
   clientContact! : ClientContact[];
   client! : Client[];
   priority! : Priority[];
+  period! : Period[];
   classification! : Priority[];
   formInterventionRequest!: FormGroup;
   selectInterventionRequestIsOpen$ = this.store.pipe(select (selectInterventionRequestIsOpen));
@@ -56,24 +61,33 @@ export class CreateInterventionRequestComponent implements OnInit{
 
     this.getClientContact();
     this.getPriority();
+    this.getPeriod();
     this.getClient();
     this.getClassification();
     if(this.interventionRequest){
       this.formInterventionRequest = this.formBuilder.group({
         id: new FormControl(this.interventionRequest.id, Validators.required),
         customerContactId: new FormControl(this.interventionRequest.customerContactId, Validators.required),
-        priorityId: new FormControl(this.interventionRequest.technicianId, Validators.required),
-        classificationId: new FormControl(this.interventionRequest.technicianId, Validators.required),
+        priorityId: new FormControl(this.interventionRequest.priorityId, Validators.required),
+        interventionClassificationId: new FormControl(this.interventionRequest.interventionClassificationId, Validators.required),
         dateRequest: new FormControl(this.interventionRequest.dateRequest, Validators.required),
+        expectedDateTEnd: new FormControl(this.interventionRequest.expectedDateTEnd, Validators.required),
         interventionReason: new FormArray([new FormControl(this.interventionRequest.interventionReason[5], Validators.required)]),
+        periodId: new FormControl(this.interventionRequest.periodId, Validators.required),
+        emailToSendReport: new FormControl(this.interventionRequest.emailToSendReport, Validators.required),
+
       });
     }else {
       this.formInterventionRequest = this.formBuilder.group({
         customerContactId: new FormControl(``, Validators.required),
         priorityId: new FormControl(``, Validators.required),
-        classificationId: new FormControl(``, Validators.required),
+        interventionClassificationId: new FormControl(``, Validators.required),
         dateRequest: new FormControl(``, Validators.required),
+        expectedDateTEnd: new FormControl(``, Validators.required),
         interventionReason:  new FormArray([new FormControl(``, Validators.required)]),
+        periodId: new FormControl(``, Validators.required),
+        emailToSendReport: new FormControl(``, Validators.required),
+
       });
     }
 
@@ -115,6 +129,13 @@ export class CreateInterventionRequestComponent implements OnInit{
       }
     })
   }
+  getPeriod(){
+    this.periodService.readAll().subscribe(value => {
+      if(value){
+        this.period=value;
+      }
+    })
+  }
   onCreate() {
     if (this.interventionRequest) {
       this.store.dispatch(editInterventionRequest({payload: this.formInterventionRequest.value}));
@@ -124,7 +145,7 @@ export class CreateInterventionRequestComponent implements OnInit{
       this.store.dispatch(addInterventionRequest({payload: this.formInterventionRequest.value}));
       this.interventionRequestService.showMessageSuccess('Ticket aberto  com Sucesso')
     }
-    // this.modalRef.close("true")
+
 
   }
 

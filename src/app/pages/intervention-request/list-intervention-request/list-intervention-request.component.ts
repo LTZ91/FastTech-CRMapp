@@ -25,17 +25,20 @@ import {InterventionStatus} from "../../../models/intervention-status";
 })
 export class ListInterventionRequestComponent implements OnInit{
 
+
+
   constructor( private interventionRequestService: InterventionRequestService,
                private interventionStatusService: InterventionStatusService,
                private router: Router,
                public dialog: MatDialog,
                private store: Store<InterventionRequestState>) { }
 
+
   @Input()
   interventionRequestList!: InterventionRequest[];
   interventionRequest!: InterventionRequest[] | null;
   status!: InterventionStatus[];
-
+  await!: number;
   @Output() onSelectedInterventionRequest = new EventEmitter<InterventionRequest>();
   selectAllInterventionRequest$ = this.store.pipe(select (selectAllInterventionsRequest));
   selectInterventionRequestUpdate$ = this.store.pipe(select(selectInterventionsRequestUpdate));
@@ -44,11 +47,13 @@ export class ListInterventionRequestComponent implements OnInit{
   selectInterventionRequestIsSaved$ = this.store.pipe(select (selectInterventionRequestIsSaved));
   private dialogRef!: MatDialogRef<any>;
 
+
   filter = new FormControl('', { nonNullable: true });
   dataFilter!: InterventionRequest[] | null;
   interventionRequest$!: Observable<InterventionRequest[] | null>;
 
   ngOnInit(): void {
+    this.close();
     this.selectAllInterventionRequest$.subscribe(data =>{
       if(data){
         this.interventionRequest = data;
@@ -79,14 +84,26 @@ export class ListInterventionRequestComponent implements OnInit{
       }
     })
 
+
+
   }
 
   getAll(){
     this.interventionRequestService.readAll().subscribe(value => {
       if (value){
         this.interventionRequestList= value;
+
       }
     })
+  }
+
+  close() {
+    this.interventionStatusService.countAllInterventionAwaiting().subscribe(value => {
+        if (value) {
+          this.await = value;
+        }
+      },
+    );
   }
 
 

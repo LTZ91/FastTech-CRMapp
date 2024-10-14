@@ -110,20 +110,24 @@
               <div class="col-md-6">
                 <label class="form-label select-label">Cliente</label>
                   <select class="select form-control" formControlName="customerContactId">
-                    <option *ngFor="let customer of client" [value]="customer.id">
-                      {{customer.commercialName}}
+                    <option *ngFor="let customer of clientContact" [value]="customer.id">
+                      {{customer.customer}}
                     </option>
                   </select>
               </div>
               <div class="col-md-6">
-                <label for="inputDateRequest" class="form-label">Data do Pedido</label>
-                <input type="date" id="inputDateRequest" class="form-control" formControlName="dateRequest">
+                <label class="form-label">Intervention Reason</label>
+                <div formArrayName="interventionReason">
+                  <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
+                    <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row gx-3 mb-3">
               <div class="col-md-6">
                 <label class="form-label select-label">Classificação</label>
-                <select class="select form-control" formControlName="classificationId">
+                <select class="select form-control" formControlName="interventionClassificationId">
                   <option *ngFor="let classifications of classification" [value]="classifications.id">
                     {{classifications.description}}
                   </option>
@@ -137,20 +141,35 @@
                     </option>
                   </select>
               </div>
+            </div>
+            <div class="row gx-3 mb-3">
               <div class="col-md-6">
-                <label for="inputDateRequest" class="form-label">E-mail do remetente</label>
-                <input type="text" id="" class="form-control" formControlName="dateRequest">
+                <label class="form-label select-label">Period</label>
+                <select class="select form-control" formControlName="periodId">
+                  <option *ngFor="let periods of period" [value]="periods.id">
+                    {{periods.description}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="emailToSendReport" class="form-label">E-mail do remetente</label>
+                <input type="email" id="emailToSendReport" class="form-control" formControlName="emailToSendReport">
               </div>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Intervention Reason</label>
-                <div formArrayName="interventionReason">
-                  <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
-                    <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>
-                  </div>
-                </div>
+            <div class="row gx-3 mb-3">
+              <div class="col-md-6">
+                <label for="inputDateRequest" class="form-label">Data do Pedido</label>
+                <input type="date" id="inputDateRequest" class="form-control" formControlName="dateRequest">
+              </div>
+              <div class="col-md-6">
+                <label for="expectedDateTEnd" class="form-label">Data do fim</label>
+                <input type="date" id="expectedDateTEnd" class="form-control" formControlName="expectedDateTEnd">
+              </div>
             </div>
-            <button class="btn btn-primary" type="button" (click)="onCreate()">Criar</button>
+            <div>
+              <button class="btn btn-primary" type="button" (click)="onCreate()">Criar</button>
+              <button class="btn btn-danger" type="button" (click)="cancel()">Cancelar</button>
+            </div>
           </div>
         </div>
       </div>

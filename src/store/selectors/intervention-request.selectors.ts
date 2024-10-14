@@ -13,6 +13,26 @@ export const selectAllInterventionsRequest  = createSelector(
   listAll
 )
 
+export const selectAllInterventionsRequestClosed  = createSelector(
+  interventionRequestState,
+  listAll
+)
+
+export const selectAllInterventionsRequestOpen  = createSelector(
+  interventionRequestState,
+  listAll
+)
+
+export const selectAllInterventionsRequestAwaiting  = createSelector(
+  interventionRequestState,
+  listAll
+)
+
+export const selectAllInterventionsRequestInProgress  = createSelector(
+  interventionRequestState,
+  listAll
+)
+
 export const selectInterventionsRequestUpdate = createSelector(
   interventionRequestState,
   interventionRequestIsUpdate
