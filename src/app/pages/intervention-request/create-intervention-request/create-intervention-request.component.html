@@ -110,8 +110,8 @@
               <div class="col-md-6">
                 <label class="form-label select-label">Cliente</label>
                   <select class="select form-control" formControlName="customerContactId">
-                    <option *ngFor="let customer of clientContact" [value]="customer.id">
-                      {{customer.customer}}
+                    <option *ngFor="let customers of clientContact" [value]="customers.id">
+                      {{customers.customer}}
                     </option>
                   </select>
               </div>
@@ -166,7 +166,7 @@
                 <input type="date" id="expectedDateTEnd" class="form-control" formControlName="expectedDateTEnd">
               </div>
             </div>
-            <div>
+            <div class="col-12 text-center mt-3">
               <button class="btn btn-primary" type="button" (click)="onCreate()">Criar</button>
               <button class="btn btn-danger" type="button" (click)="cancel()">Cancelar</button>
             </div>

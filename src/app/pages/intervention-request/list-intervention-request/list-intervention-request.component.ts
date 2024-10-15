@@ -39,6 +39,10 @@ export class ListInterventionRequestComponent implements OnInit{
   interventionRequest!: InterventionRequest[] | null;
   status!: InterventionStatus[];
   await!: number;
+  close!: number;
+  progress!: number;
+  total!: number;
+  open!: number;
   @Output() onSelectedInterventionRequest = new EventEmitter<InterventionRequest>();
   selectAllInterventionRequest$ = this.store.pipe(select (selectAllInterventionsRequest));
   selectInterventionRequestUpdate$ = this.store.pipe(select(selectInterventionsRequestUpdate));
@@ -53,7 +57,11 @@ export class ListInterventionRequestComponent implements OnInit{
   interventionRequest$!: Observable<InterventionRequest[] | null>;
 
   ngOnInit(): void {
-    this.close();
+    this.interventionAwaiting();
+    this.interventionClose();
+    this.interventionInProgress();
+    this.interventionOpen();
+    this.interventionTotal();
     this.selectAllInterventionRequest$.subscribe(data =>{
       if(data){
         this.interventionRequest = data;
@@ -97,7 +105,7 @@ export class ListInterventionRequestComponent implements OnInit{
     })
   }
 
-  close() {
+  interventionAwaiting() {
     this.interventionStatusService.countAllInterventionAwaiting().subscribe(value => {
         if (value) {
           this.await = value;
@@ -105,6 +113,43 @@ export class ListInterventionRequestComponent implements OnInit{
       },
     );
   }
+
+  interventionOpen() {
+    this.interventionStatusService.countAllInterventionOpen().subscribe(value => {
+        if (value) {
+          this.open = value;
+        }
+      },
+    );
+  }
+
+  interventionClose() {
+    this.interventionStatusService.countAllInterventionClosed().subscribe(value => {
+        if (value) {
+          this.close = value;
+        }
+      },
+    );
+  }
+
+  interventionInProgress() {
+    this.interventionStatusService.countAllInterventionInProgress().subscribe(value => {
+        if (value) {
+          this.progress = value;
+        }
+      },
+    );
+  }
+
+  interventionTotal() {
+    this.interventionStatusService.countAllIntervention().subscribe(value => {
+        if (value) {
+          this.total = value;
+        }
+      },
+    );
+  }
+
 
 
 

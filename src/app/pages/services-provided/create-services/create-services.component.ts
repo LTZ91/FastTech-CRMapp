@@ -40,7 +40,6 @@ export class CreateServicesComponent implements  OnInit{
         id: new FormControl(this.service.id, Validators.required),
         description: new FormControl(this.service.description, Validators.required),
         priceId: new FormControl(this.service.price, Validators.required),
-        // hourId: new FormControl(this.service.hour, Validators.required),
         conditions:  new FormArray([new FormControl(this.service.conditions[5], Validators.required)]),
 
       });
@@ -48,7 +47,6 @@ export class CreateServicesComponent implements  OnInit{
       this.formService = this.formBuilder.group({
         description: new FormControl(``, Validators.required),
         priceId: new FormControl(``, Validators.required),
-        // hourId: new FormControl(``, Validators.required),
         conditions:  new FormArray([new FormControl(``, Validators.required)]),
 
       });
@@ -74,7 +72,7 @@ export class CreateServicesComponent implements  OnInit{
     if (this.service) {
       this.store.dispatch(editService({payload: this.formService.value}));
       this.store.dispatch(hideDialog());
-      this.serviceService.showMessageSuccess('Editado com Sucesso')
+      this.serviceService.showMessageSuccess('Actualizado com Sucesso')
     } else {
       this.store.dispatch(addService({payload: this.formService.value}));
       this.serviceService.showMessageSuccess('Serviço Criado com Sucesso')

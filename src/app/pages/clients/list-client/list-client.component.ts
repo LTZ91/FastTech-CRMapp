@@ -107,7 +107,7 @@ export class ListClientComponent implements OnInit{
       this.dataFilter = this.client
     }else{
       this.dataFilter= this.client!.filter(client =>
-        client.fiscalName.toLowerCase().includes(text.toLowerCase())
+        client.commercialName.toLowerCase().includes(text.toLowerCase())
       );
     }
     return this.dataFilter;

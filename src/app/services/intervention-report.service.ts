@@ -95,7 +95,7 @@ export class InterventionReportService {
 
   showMessageFail(msg: string): void {
     this.snackBar.open(msg, "X", {
-      duration: 2000,
+      duration: 4000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ["msg-error"]  ,
@@ -103,7 +103,7 @@ export class InterventionReportService {
   }
   showMessageSuccess(msg: string){
     this.snackBar.open(msg, "X", {
-      duration: 2000,
+      duration: 4000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ["msg-success"] ,

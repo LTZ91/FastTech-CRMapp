@@ -1,107 +1,50 @@
-
-
-<!--<div class="card" style="max-width: 500px; margin-top: 0%; margin-bottom: 0%">-->
-<!--  <div class="card-header">-->
-<!--    <h4 class="card-title" *ngIf="client">Actualizar cliente</h4>-->
-<!--    <h4 class="card-title" *ngIf="!client">Novo cliente</h4>-->
-<!--  </div>-->
-
-<!--  <div class="card-body" style="margin-left: 10%">-->
-<!--    <form class="row g-2" [formGroup]="formClient">-->
-<!--      <div class="col-md-6">-->
-<!--        <label for="inputReference" class="form-label" style="font-size: 12px;">Referência</label>-->
-<!--        <input type="text" class="form-control form-control-sm" id="inputReference" formControlName="reference">-->
-<!--      </div>-->
-<!--      <div class="col-md-6">-->
-<!--        <label for="inputFiscalName" class="form-label" style="font-size: 12px;">Nome Fiscal</label>-->
-<!--        <input type="text" class="form-control form-control-sm" id="inputFiscalName" formControlName="fiscalName">-->
-<!--      </div>-->
-<!--      <div class="col-md-6">-->
-<!--        <label for="inputCommercialName" class="form-label" style="font-size: 12px;">Nome comercial</label>-->
-<!--        <input type="text" class="form-control form-control-sm" id="inputCommercialName" formControlName="commercialName">-->
-<!--      </div>-->
-<!--      <div class="col-md-6">-->
-<!--        <label for="inputNuit" class="form-label" style="font-size: 12px;">NUIT</label>-->
-<!--        <input type="text" class="form-control form-control-sm" id="inputNuit" formControlName="taxNumber">-->
-<!--      </div>-->
-<!--      <div class="col-md-4">-->
-<!--        <label for="inputPerson" class="form-label" style="font-size: 12px;">Pessoa</label>-->
-<!--        <select id="inputPerson" class="form-select form-select-sm" formControlName="personId">-->
-<!--          <option *ngFor="let persons of person" [value]="persons.id">-->
-<!--            {{persons.designation}}-->
-<!--          </option>-->
-<!--        </select>-->
-<!--      </div>-->
-<!--      <div class="col-md-4">-->
-<!--        <label for="inputCountry" class="form-label" style="font-size: 12px;">País</label>-->
-<!--        <select id="inputCountry" class="form-select form-select-sm" formControlName="countryId">-->
-<!--          <option *ngFor="let countries of country" [value]="countries.id">-->
-<!--            {{countries.designation}}-->
-<!--          </option>-->
-<!--        </select>-->
-<!--      </div>-->
-<!--      <div class="col-md-4">-->
-<!--        <label for="inputLanguage" class="form-label" style="font-size: 12px;">Língua</label>-->
-<!--        <select id="inputLanguage" class="form-select form-select-sm" formControlName="languageId">-->
-<!--          <option *ngFor="let languages of language" [value]="languages.id">-->
-<!--            {{languages.designation}}-->
-<!--          </option>-->
-<!--        </select>-->
-<!--      </div>-->
-<!--    </form>-->
-<!--  </div>-->
-
-<!--  <div class="text-center">-->
-<!--    <button type="button" class="btn btn-primary btn-sm me-2" [disabled]="formClient.invalid" (click)="onCreate()">-->
-<!--      <span *ngIf="!client">Add</span>-->
-<!--      <span *ngIf="client">Update</span>-->
-<!--    </button>-->
-<!--    <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">Cancel</button>-->
-<!--  </div>-->
-<!--</div>-->
-
-<div >
-  <div class="card-body" style="margin: 0; width: 400px">
-    <fieldset class="form-fieldset">
-      <div class="card-title text-center">
-        <h3 *ngIf="client">Atualizar Cliente</h3>
-        <h3 *ngIf="!client">Adicionar Cliente</h3>
-      </div>
-      <form [formGroup]="formClient" class="row g-3">
-        <div class="col-md-6">
-          <label for="inputReference" class="form-label" style="font-size: 12px;">Referência</label>
-          <input type="text" class="form-control form-control-sm" id="inputReference" formControlName="reference">
+<div>
+    <div class="card-body" style="width: 600px; margin: 0;">
+      <fieldset class="form-fieldset">
+        <div class="card-title text-center">
+          <h3 *ngIf="client"><strong>Atualizar Cliente</strong></h3>
+          <h3 *ngIf="!client"><strong>Adicionar Cliente</strong></h3>
         </div>
-        <div class="col-md-6">
-                  <label for="inputCommercialName" class="form-label" style="font-size: 12px;">Nome</label>
-                  <input type="text" class="form-control form-control-sm" id="inputCommercialName" formControlName="commercialName">
-        </div>
-        <div class="col-md-4">
-                  <label for="inputPerson" class="form-label" style="font-size: 12px;">Pessoa</label>
-                  <select id="inputPerson" class="form-select form-select-sm" formControlName="personId">
-                    <option *ngFor="let persons of person" [value]="persons.id">
-                      {{persons.designation}}
-                    </option>
-                  </select>
-        </div>
-<!--        <div formArrayName="conditions" class="col-md-12">-->
-<!--          <div *ngFor="let condition of conditionsGroup.controls; let i=index">-->
-<!--            <label for="condition{{i}}" class="form-label">Condições</label>-->
-<!--            <textarea id="condition{{i}}" class="form-control" placeholder="Ex: este serviço está sujeito a ..." formControlName="{{i}}"></textarea>-->
-<!--          </div>-->
-<!--        </div>-->
-        <div class="col-md-6">
-                  <label for="inputNuit" class="form-label" style="font-size: 12px;">Responsável Técnico</label>
-                  <input type="text" class="form-control form-control-sm" id="inputNuit" formControlName="taxNumber">
-                </div>
-        <div class="col-12 text-center mt-3">
-          <button type="button" class="btn btn-ghost-success" [disabled]="formClient.invalid" (click)="onCreate()">
-            <span *ngIf="!client">Criar</span>
-            <span *ngIf="client">Atualizar</span>
-          </button>
-          <button type="button" class="btn btn-ghost-danger" (click)="cancel()">Cancelar</button>
-        </div>
-      </form>
-    </fieldset>
+        <form [formGroup]="formClient" class="row g-3">
+          <div class="col-md-6">
+            <label for="inputCommercialName" class="form-label">Nome</label>
+            <input type="text" id="inputCommercialName" class="form-control" formControlName="commercialName" placeholder="Asamoc..." autocomplete="on">
+          </div>
+          <div class="col-md-6">
+            <label for="inputReference" class="form-label">Referência</label>
+            <input type="text" id="inputReference" class="form-control" formControlName="reference" placeholder="ASC..." autocomplete="on">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPerson" class="form-label" style="font-size: 12px;">Pessoa</label>
+            <select id="inputPerson" class="form-select form-select-md" formControlName="personId">
+              <option *ngFor="let persons of person" [value]="persons.id">
+                {{persons.designation}}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="inputCountry" class="form-label" style="font-size: 12px;">País</label>
+            <select id="inputCountry" class="form-select form-select-md" formControlName="countryId">
+              <option *ngFor="let countries of country" [value]="countries.id">
+                {{countries.designation}}
+              </option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="inputObservation" class="form-label" style="font-size: 12px;">Observações</label>
+            <textarea type="text" id="inputObservation" class="form-control mb-2" placeholder="" formControlName="observation"></textarea>
+          </div>
+          <div class="col-12 text-center mt-3">
+            <button type="button" class="btn btn-ghost-success" [disabled]="formClient.invalid" (click)="onCreate()">
+              <span *ngIf="!client">Criar</span>
+              <span *ngIf="client">Atualizar</span>
+            </button>
+            <button type="button" class="btn btn-ghost-danger" (click)="cancel()">Cancelar</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
   </div>
-</div>
+
+
+

@@ -36,7 +36,7 @@ export class InterventionStatusService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionStatus[]>(`${API_URL}/api/Dashboard/Intervention/Closed`, option)
+    return this.httpClient.get<number>(`${API_URL}/api/Dashboard/Intervention/Closed`, option)
   }
 
   countAllInterventionOpen(){
@@ -44,7 +44,7 @@ export class InterventionStatusService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionStatus[]>(`${API_URL}/api/Dashboard/Intervention/Open`, option)
+    return this.httpClient.get<number>(`${API_URL}/api/Dashboard/Intervention/Open`, option)
   }
 
   countAllInterventionInProgress(){
@@ -52,7 +52,7 @@ export class InterventionStatusService {
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-    return this.httpClient.get<InterventionStatus[]>(`${API_URL}/api/Dashboard/Intervention/InProgress`, option)
+    return this.httpClient.get<number>(`${API_URL}/api/Dashboard/Intervention/InProgress`, option)
   }
 
   countAllInterventionAwaiting(){
@@ -61,6 +61,14 @@ export class InterventionStatusService {
         'Content-Type': 'application/json'
       })}
     return this.httpClient.get<number>(`${API_URL}/api/Dashboard/Intervention/WaitingForApproval`, option)
+  }
+
+  countAllIntervention(){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+    return this.httpClient.get<number>(`${API_URL}/api/Dashboard/Intervention/total`, option)
   }
 
 }

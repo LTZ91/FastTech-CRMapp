@@ -9,11 +9,9 @@ import {ClientState} from "../../../../store/reducers/client.reducers";
 import {addClient, editClient} from "../../../../store/actions/client.actions";
 import {selectClientIsOpen} from "../../../../store/selectors/client.selectors";
 import {Country} from "../../../models/country";
-import {Language} from "../../../models/language";
 import {Person} from "../../../models/person";
 import {CountryService} from "../../../services/country.service";
 import {PersonService} from "../../../services/person.service";
-import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-create-client',
@@ -26,7 +24,6 @@ export class CreateClientComponent implements OnInit{
     private clientService: ClientService,
     private countryService: CountryService,
     private personService: PersonService,
-    private languageService: LanguageService,
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <ClientState>,
@@ -35,7 +32,6 @@ export class CreateClientComponent implements OnInit{
    client !: Client;
   clients! : Client [];
   country! : Country [];
-  language! : Language [];
   person! : Person [];
   formClient!: FormGroup;
   selectClientIsOpen$ = this.store.pipe(select (selectClientIsOpen));
@@ -44,29 +40,23 @@ export class CreateClientComponent implements OnInit{
   ngOnInit(): void {
 
     this.getCountries();
-    this.getLanguage();
     this.getPerson();
     if(this.client){
       this.formClient = this.formBuilder.group({
         id: new FormControl(this.client.id, Validators.required),
         reference: new FormControl(this.client.reference, Validators.required),
-        fiscalName: new FormControl(this.client.fiscalName, Validators.required),
         commercialName: new FormControl(this.client.commercialName, Validators.required),
-        taxNumber: new FormControl(this.client.taxNumber, Validators.required),
         personId: new FormControl(this.client.personId, Validators.required),
         countryId: new FormControl(this.client.countryId, Validators.required),
-        languageId: new FormControl(this.client.languageId, Validators.required),
+        observation: new FormControl(this.client.observation, Validators.required),
       });
     }else {
       this.formClient = this.formBuilder.group({
         reference: new FormControl(``, Validators.required),
-        fiscalName: new FormControl(``, Validators.required),
         commercialName: new FormControl(``, Validators.required),
-        taxNumber: new FormControl(``, Validators.required),
         personId: new FormControl(``, Validators.required),
         countryId: new FormControl(``, Validators.required),
-        languageId: new FormControl(``, Validators.required),
-
+        observation: new FormControl(``, Validators.required),
       });
     }
 
@@ -78,14 +68,6 @@ export class CreateClientComponent implements OnInit{
     this.countryService.readAllCountries().subscribe(value => {
       if(value){
         this.country=value;
-      }
-    })
-  }
-
-  getLanguage(){
-    this.languageService.readAllLanguages().subscribe(value => {
-      if(value){
-        this.language=value;
       }
     })
   }

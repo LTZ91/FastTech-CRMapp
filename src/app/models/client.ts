@@ -1,13 +1,10 @@
 export interface Client{
-  id: string,
+  id: number,
   reference: string,
-  fiscalName: string,
   commercialName: string,
-  taxNumber: string,
+  observation: string,
   personId: number,
-    person: string,
+  person: string,
   countryId: number,
-    country: string,
-  languageId: number,
-    language: string
+  country: string
 }
