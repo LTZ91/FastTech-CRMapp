@@ -55,14 +55,14 @@
                   </thead>
                   <tbody class="table-tbody">
 
-                  <tr>
+                  <tr *ngFor="let report of interventionReport">
                     <td></td>
-                    <td class="sort-name"></td>
-                    <td class="sort-name"></td>
-                    <td class="sort-task"></td>
-                    <td class="sort-tech"></td>
-                    <td class="sort-date-i"></td>
-                    <td class="sort-hour"></td>
+                    <td class="sort-name">{{report.interventionMode}}</td>
+                    <td class="sort-name">{{report.interventionReason}}</td>
+                    <td class="sort-task">{{report.customerContact}}</td>
+                    <td class="sort-tech">{{report.technician}}</td>
+                    <td class="sort-date-i">{{report.date}}</td>
+                    <td class="sort-hour">{{report.totalDuration}}</td>
                     <td class="sort-progress" data-progress="2">
 <!--                      <span class="badge bg-green text-green-fg">Concluido</span>-->
                     </td>

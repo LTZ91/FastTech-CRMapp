@@ -48,13 +48,13 @@ export class InterventionReportService {
     return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/:id`, option);
   }
 
-  getInterventionReportByIntRequestId(requestId: InterventionRequest){
+  getInterventionReportByIntRequestId(requestId: number){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/request/${requestId.id}`, option);
+    return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/${requestId}/request`, option);
   }
   delete(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({

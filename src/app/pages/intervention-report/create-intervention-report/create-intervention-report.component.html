@@ -4,7 +4,7 @@
       <div class="card-header">
         <h3 class="card-title"><strong>Relatório de Intervenção</strong></h3>
       </div>
-      <div class="card-body">
+      <div class="card-body" [formGroup]="formInterventionReport">
         <div class="mb-3">
           <label class="form-label">Pedido de Intervenção</label>
           <select class="select form-control" formControlName="interventionRequestId">
@@ -80,18 +80,18 @@
           <div class="row gx-3 mb-3">
             <div class="col-md-3">
               <label class="form-label">Início</label>
-              <input type="time" class="form-control" formControlName="startTime">
+              <input type="datetime-local" class="form-control" formControlName="startTime">
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label class="form-label">Fim</label>
-                <input type="time" class="form-control" formControlName="endTime">
+                <input type="datetime-local" class="form-control" formControlName="endTime">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label class="form-label">Pausa</label>
-                <input type="time" class="form-control" formControlName="breakTime">
+                <input type="number" class="form-control" formControlName="breakTime">
               </div>
             </div>
             <div class="col-md-3">
@@ -112,16 +112,30 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label class="form-label">Desconto</label>
+                <input type="number" class="form-control" formControlName="discount">
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="mb-3">
+                <label class="form-label">Motivo do desconto</label>
+                <input type="text" class="form-control" formControlName="discountReason">
+              </div>
+            </div>
+
           </div>
           <div class="modal-footer">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            <button href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
               Cancel
-            </a>
-            <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+            </button>
+            <button  class="btn btn-primary ms-auto" (click)="onCreate()">
 
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
               Criar
-            </a>
+            </button>
           </div>
         </div>
       </div>

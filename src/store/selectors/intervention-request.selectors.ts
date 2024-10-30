@@ -13,6 +13,11 @@ export const selectAllInterventionsRequest  = createSelector(
   listAll
 )
 
+export  const  selectSelectedRequest=createSelector(
+  interventionRequestState,
+  state=>state.selectedInterventionRequest);
+
+
 export const selectAllInterventionsRequestClosed  = createSelector(
   interventionRequestState,
   listAll
@@ -62,5 +67,5 @@ export const selectInterventionRequestIsSaved = createSelector(
 
 export const selectInterventionRequestById = createSelector(
   interventionRequestState,
-  state => state.interventionRequest
+  state => state.selectedInterventionRequest
 );

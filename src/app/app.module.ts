@@ -87,6 +87,7 @@ import { ContractDetailsComponent } from './pages/contract/contract-details/cont
 import { TechnicianDetailsComponent } from './pages/technician/technician-details/technician-details.component';
 import {MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {NgOptimizedImage} from "@angular/common";
+import { InterventionRequestItemComponent } from './pages/intervention-request/intervention-request-item/intervention-request-item.component';
 
 
 @NgModule({
@@ -136,6 +137,7 @@ import {NgOptimizedImage} from "@angular/common";
     RequestDetailsComponent,
     ContractDetailsComponent,
     TechnicianDetailsComponent,
+    InterventionRequestItemComponent,
   ],
     imports: [
         BrowserModule,

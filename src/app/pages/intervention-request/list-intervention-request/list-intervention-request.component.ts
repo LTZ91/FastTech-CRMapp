@@ -115,7 +115,7 @@ export class ListInterventionRequestComponent implements OnInit{
   }
 
   interventionOpen() {
-    this.interventionStatusService.countAllInterventionOpen().subscribe(value => {
+    this.interventionStatusService.countAllIntervention().subscribe(value => {
         if (value) {
           this.open = value;
         }

@@ -1,61 +1,36 @@
-<div class="d-flex justify-content-center mt-5">
-  <div class="col-12 col-xl-10 col-md-8 col-lg-6">
-    <!-- Detalhes do Pedido de Intervenção -->
-    <div class="card mb-6" *ngIf="request">
-      <div class="card-header">
-        <h3>Detalhes do Pedido de Intervenção</h3>
-      </div>
-      <div class="card-body">
-        <div class="row gx-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Cliente</label>
-            <p class="form-control-static">{{ request.customer }}</p>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Data do Pedido</label>
-            <p class="form-control-static">{{request.dateRequest | date: 'dd/MM/yyyy'}}</p>
-          </div>
-        </div>
-        <div class="row gx-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Classificação</label>
-            <p class="form-control-static">{{ request.interventionClassification }}</p>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Prioridade</label>
-            <p class="form-control-static">{{ request.priority }}</p>
-          </div>
-        </div>
-        <div class="row gx-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label">E-mail do Remetente</label>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Data de Conclusão (Estimativa)</label>
-          </div>
-        </div>
-        <div class="row gx-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Razão da Intervenção</label>
-            <div *ngFor="let reason of request.interventionReason">
-              <p class="form-control-static">{{reason}}</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Alocar Técnico</label>
-            <select class="select form-control" formControlName="classificationId">
-              <option>
+<!-- Navegação em abas -->
+<ul class="nav  nav-justified" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+      Detalhes
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+      Relatório de Intervenção
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+      Enviar
+    </a>
+  </li>
+</ul>
 
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Estado</label>
-          <p class="form-control-static">{{request.status}}</p>
-        </div>
-        <button class="btn btn-primary" type="button">Confirmar</button>
-      </div>
-    </div>
+<!-- Conteúdo das abas -->
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <app-intervention-request-item></app-intervention-request-item>
+
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <app-list-intervention-report [interventionReportList]="report"></app-list-intervention-report>
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    Conteúdo da aba Contact
   </div>
 </div>
+
+
+

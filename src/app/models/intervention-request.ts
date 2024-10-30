@@ -1,7 +1,7 @@
 export interface InterventionRequest {
   id: number,
   reference: string,
-  customer: null,
+  customer: string,
   customerContactId: number,
   customerContact: string,
   technicianId: number,
@@ -15,7 +15,7 @@ export interface InterventionRequest {
   cancellationReason: string[],
   statusId: number,
   status: string,
-  interventionClassificationId: number,
+  classificationId: number,
   interventionClassification: string,
   expectedDateTEnd: string,
   emailToSendReport: string,

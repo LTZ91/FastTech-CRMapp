@@ -58,17 +58,21 @@ export class InterventionReportEffects{
     )
   )
 
-  // getInterventionReportByIntRequestId$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(getInterventionReportByIntRequestId),
-  //     exhaustMap((action) =>
-  //       this.interventionReportService.getInterventionReportByIntRequestId(action.).pipe(
-  //         map((response) => getInterventionReportByIntRequestIdSuccess({ payload: response })),
-  //         catchError((error) => of(getInterventionReportByIntRequestIdFail({ payload: error })))
-  //       )
-  //     )
-  //   )
-  // );
+  getInterventionReportByIntRequestId$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getInterventionReportByIntRequestId),
+      mergeMap(action =>
+        this.interventionReportService.getInterventionReportByIntRequestId(action.payload).pipe(
+          map(response =>
+            getInterventionReportByIntRequestIdSuccess({ payload: response })
+          ),
+          catchError(error =>
+            of(getInterventionReportByIntRequestIdFail({ payload: error }))
+          )
+        )
+      )
+    )
+  );
 
 
 

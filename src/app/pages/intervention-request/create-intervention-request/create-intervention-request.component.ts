@@ -20,6 +20,7 @@ import {ClientService} from "../../../services/client.service";
 import {PeriodService} from "../../../services/period.service";
 import {Period} from "../../../models/period";
 import {MatDialogRef} from "@angular/material/dialog";
+import {ClassificationRequest} from "../../../models/classification-request";
 
 @Component({
   selector: 'app-create-intervention-request',
@@ -52,7 +53,7 @@ export class CreateInterventionRequestComponent implements OnInit{
   client! : Client[];
   priority! : Priority[];
   period! : Period[];
-  classification! : Priority[];
+  classification! : ClassificationRequest[];
   formInterventionRequest!: FormGroup;
   selectInterventionRequestIsOpen$ = this.store.pipe(select (selectInterventionRequestIsOpen));
   // private dialogRef!: MatDialogRef<boolean>;
@@ -69,7 +70,7 @@ export class CreateInterventionRequestComponent implements OnInit{
         id: new FormControl(this.interventionRequest.id, Validators.required),
         customerContactId: new FormControl(this.interventionRequest.customerContactId, Validators.required),
         priorityId: new FormControl(this.interventionRequest.priorityId, Validators.required),
-        interventionClassificationId: new FormControl(this.interventionRequest.interventionClassificationId, Validators.required),
+        classificationId: new FormControl(this.interventionRequest.classificationId, Validators.required),
         dateRequest: new FormControl(this.interventionRequest.dateRequest, Validators.required),
         expectedDateTEnd: new FormControl(this.interventionRequest.expectedDateTEnd, Validators.required),
         interventionReason: new FormArray([new FormControl(this.interventionRequest.interventionReason[5], Validators.required)]),
@@ -81,7 +82,7 @@ export class CreateInterventionRequestComponent implements OnInit{
       this.formInterventionRequest = this.formBuilder.group({
         customerContactId: new FormControl(``, Validators.required),
         priorityId: new FormControl(``, Validators.required),
-        interventionClassificationId: new FormControl(``, Validators.required),
+        classificationId: new FormControl(``, Validators.required),
         dateRequest: new FormControl(``, Validators.required),
         expectedDateTEnd: new FormControl(``, Validators.required),
         interventionReason:  new FormArray([new FormControl(``, Validators.required)]),
@@ -101,6 +102,7 @@ export class CreateInterventionRequestComponent implements OnInit{
   getClientContact(){
     this.clientContactService.readAll().subscribe(value => {
       if(value){
+        console.log(value)
         this.clientContact=value;
       }
     })
@@ -117,6 +119,7 @@ export class CreateInterventionRequestComponent implements OnInit{
   getClassification(){
     this.classificationService.readAll().subscribe(value => {
       if(value){
+        console.log(value)
         this.classification=value;
       }
     })

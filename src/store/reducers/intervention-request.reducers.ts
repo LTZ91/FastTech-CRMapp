@@ -30,6 +30,7 @@ export interface InterventionRequestState{
   interventionRequestListAll : InterventionRequest [] |null,
   interventionRequest: InterventionRequest | null,
   selectedInterventionRequest: InterventionRequest | null,
+  selectedRequestId: number | null;
   isUpdated: boolean,
   isDelete: boolean,
   isOpen: boolean,
@@ -41,6 +42,7 @@ const initialState: InterventionRequestState = {
   interventionRequestListAll: null,
   interventionRequest: null,
   selectedInterventionRequest:  null,
+  selectedRequestId: null,
   isUpdated: false,
   isDelete: false,
   isOpen: false,
@@ -64,7 +66,7 @@ export const interventionRequestReducers = createReducer(
     return { ...state, selectedInterventionRequest: null };
   }),
   on(getInterventionRequestByIdSuccess, (state, { payload }) => {
-    return { ...state, selectedInterventionRequest: payload };
+    return { ...state, selectedInterventionRequest: payload , selectedRequestId: payload.id, isLoading: false};
   }),
   on(getInterventionRequestByIdFail, (state, { payload }) => {
     return { ...state, error: payload };

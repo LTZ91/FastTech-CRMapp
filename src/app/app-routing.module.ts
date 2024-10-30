@@ -61,6 +61,9 @@ import {ClientDetailsComponent} from "./pages/clients/client-details/client-deta
 import {RequestDetailsComponent} from "./pages/intervention-request/request-details/request-details.component";
 import {TechnicianDetailsComponent} from "./pages/technician/technician-details/technician-details.component";
 import {ContractDetailsComponent} from "./pages/contract/contract-details/contract-details.component";
+import {
+  InterventionRequestItemComponent
+} from "./pages/intervention-request/intervention-request-item/intervention-request-item.component";
 
 export const routes: Routes = [
   {
@@ -214,6 +217,10 @@ export const routes: Routes = [
   {
     path:'delete-intervention-request', component:
     DeleteInterventionRequestComponent
+  },
+  {
+    path:'intervention-request-item', component:
+    InterventionRequestItemComponent
   },
   {
     path:'request-details/:id', component:

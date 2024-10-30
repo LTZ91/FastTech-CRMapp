@@ -1,175 +1,135 @@
-<!--<div class="modal-blur " tabindex="-1" role="dialog" aria-hidden="true" style="margin:auto;">-->
-<!--      <div>-->
-<!--        <div class="card-body modal-content" style="margin:auto; width: 450px">-->
-<!--          <fieldset class="form-fieldset">-->
-<!--            <div class="card-title text-center">-->
-<!--              <h3 *ngIf="interventionRequest">Atualizar Pedido de Intervenção</h3>-->
-<!--              <h3 *ngIf="!interventionRequest">Adicionar Pedido de Intervenção</h3>-->
-<!--            </div>-->
-<!--            <form [formGroup]="formInterventionRequest" class="row g-3">-->
-<!--              <div class="col-md-6">-->
-<!--                <label class="form-label select-label">Customer Contact</label>-->
-<!--                  <select class="select form-control" formControlName="customerContactId">-->
-<!--                    <option *ngFor="let customer of clientContact" [value]="customer.id">-->
-<!--                      {{customer.fullName}}-->
-<!--                    </option>-->
-<!--                  </select>-->
-<!--              </div>-->
-<!--              <div class="col-md-6">-->
-<!--                <label for="inputDateRequest" class="form-label">Data do Pedido</label>-->
-<!--                <input type="date" id="inputDateRequest" class="form-control" formControlName="dateRequest"  >-->
-<!--              </div>-->
-<!--              <div class="col-md-12">-->
-<!--                <label class="form-label">Intervention Reason</label>-->
-<!--                  <div formArrayName="interventionReason">-->
-<!--                    <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">-->
-<!--                      <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-6">-->
-<!--                <label class="form-label select-label">Prioridade</label>-->
-<!--                <select class="select form-control" formControlName="priorityId">-->
-<!--                  <option *ngFor="let priorities of priority" [value]="priorities.id">-->
-<!--                    {{priorities.description}}-->
-<!--                  </option>-->
-<!--                </select>-->
-<!--              </div>-->
-<!--              <div class="col-md-6">-->
-<!--                <label class="form-label select-label">Classificação</label>-->
-<!--                <select class="select form-control" formControlName="classificationId">-->
-<!--                  <option *ngFor="let classifications of classification" [value]="classifications.id">-->
-<!--                    {{classifications.description}}-->
-<!--                  </option>-->
-<!--                </select>-->
-<!--              </div>-->
-<!--              <div class="col-12 text-center mt-3">-->
-<!--                <button type="button" class="btn btn-ghost-success" [disabled]="formInterventionRequest.invalid" (click)="onCreate()">-->
-<!--                  <span *ngIf="!interventionRequest">Criar</span>-->
-<!--                  <span *ngIf="interventionRequest">Atualizar</span>-->
-<!--                </button>-->
-<!--                <button type="button" class="btn btn-ghost-danger" (click)="cancel()">Cancelar</button>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--          </fieldset>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--</div>-->
-
-
-<!--<div class="container-md" style="width: 80%">-->
-<!--  <div class="card"  *ngIf="request">-->
-<!--    <div class="card-header">-->
-<!--      <div class="d-flex justify-content-between">-->
-<!--        <div>-->
-<!--&lt;!&ndash;          <span class="badge bg-primary me-2">INT {{request.id}}</span>&ndash;&gt;-->
-<!--          <h4 class="text-muted"> <strong>Cliente: </strong>  <a routerLink="#">{{request.customer}}</a></h4>-->
-<!--        </div>-->
-<!--&lt;!&ndash;        <div>&ndash;&gt;-->
-<!--&lt;!&ndash;          <span class="text-muted">{{request.dateRequest}}</span>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="card-body">-->
-<!--      <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--          <h4 class="text-muted"><strong>Classificação:</strong> {{request.interventionClassification}}</h4>-->
-<!--          <h4 class="text-muted"><strong>Solicitante:</strong> {{request.customerContact}}</h4>-->
-<!--          <h4 class="text-muted"><strong>Prioridade:</strong> {{request.priority}}</h4>-->
-<!--        </div>-->
-<!--        <div class="col-md-4">-->
-<!--          <h4 class="text-muted" ><strong>Técnico:</strong> {{request.technician}}</h4>-->
-<!--          <h4 class="text-muted" ><strong>Estado:</strong> {{request.status}}</h4>-->
-<!--          <h4 class="text-muted" ><strong>Data do pedido:</strong> {{request.dateRequest}}</h4>-->
-<!--        </div>-->
-
-
-<!--      </div>-->
-<!--</div>-->
-<!--  </div>-->
-<!--</div>-->
-
-<div class="container-xl px-6 mt-2" style="margin-right: 20px">
-  <div class="nav nav-borders">
-    <div class="nav-link active ms-0" >
-      <h3 *ngIf="interventionRequest">Atualizar Pedido de Intervenção</h3>
-      <h3 *ngIf="!interventionRequest">Adicionar Pedido de Intervenção</h3>
-    </div>
-  </div>
-  <hr class="mt-0 mb-4">
-  <div class="row">
-    <div class="col-xl-8">
-      <!-- Account details card-->
-      <div class="card mb-3">
-<!--        <div class="card-header">-->
-<!--             </div>-->
-        <div class="card-body" [formGroup]="formInterventionRequest" >
+<div class="card" style="margin-top: 50px; width: 800px; margin-left: 250px">
+  <div role="document">
+    <div class="card-content">
+      <div class="card-header">
+        <h3 class="card-title"><strong>Pedido de Intervenção</strong></h3>
+      </div>
+      <div class="card-body" [formGroup]="formInterventionRequest">
+        <div class="mb-3">
+          <label class="form-label">Cliente</label>
+          <select class="select form-control" formControlName="customerContactId">
+            <option *ngFor="let customer of clientContact" [value]="customer.id">
+              {{customer.customer}}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
           <div>
-            <div class="row gx-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label select-label">Cliente</label>
-                  <select class="select form-control" formControlName="customerContactId">
-                    <option *ngFor="let customers of clientContact" [value]="customers.id">
-                      {{customers.customer}}
-                    </option>
-                  </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Intervention Reason</label>
-                <div formArrayName="interventionReason">
-                  <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
-                    <textarea type="text" class="form-control mb-2" placeholder="Intervention Reason..." formControlName="{{i}}"></textarea>
-                  </div>
-                </div>
+            <label class="form-label">Motivo da Intervenção</label>
+            <div formArrayName="interventionReason">
+              <div *ngFor="let interventionReason of interventionReasonGroup.controls; let i = index">
+                <textarea type="text" class="form-control mb-2"  formControlName="{{i}}"></textarea>
               </div>
             </div>
-            <div class="row gx-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label select-label">Classificação</label>
-                <select class="select form-control" formControlName="interventionClassificationId">
-                  <option *ngFor="let classifications of classification" [value]="classifications.id">
-                    {{classifications.description}}
-                  </option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label select-label">Prioridade</label>
-                  <select class="select form-control" formControlName="priorityId">
-                    <option *ngFor="let priorities of priority" [value]="priorities.id">
-                      {{priorities.description}}
-                    </option>
-                  </select>
-              </div>
+          </div>
+        </div>
+        <!--        <label class="form-label">Report type</label>-->
+        <!--        <div class="form-selectgroup-boxes row mb-3">-->
+        <!--          <div class="col-lg-6">-->
+        <!--            <label class="form-selectgroup-item">-->
+        <!--              <input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked>-->
+        <!--              <span class="form-selectgroup-label d-flex align-items-center p-3">-->
+        <!--                    <span class="me-3">-->
+        <!--                      <span class="form-selectgroup-check"></span>-->
+        <!--                    </span>-->
+        <!--                    <span class="form-selectgroup-label-content">-->
+        <!--                      <span class="form-selectgroup-title strong mb-1">Simple</span>-->
+        <!--                      <span class="d-block text-secondary">Provide only basic data needed for the report</span>-->
+        <!--                    </span>-->
+        <!--                  </span>-->
+        <!--            </label>-->
+        <!--          </div>-->
+        <!--          <div class="col-lg-6">-->
+        <!--            <label class="form-selectgroup-item">-->
+        <!--              <input type="radio" name="report-type" value="1" class="form-selectgroup-input">-->
+        <!--              <span class="form-selectgroup-label d-flex align-items-center p-3">-->
+        <!--                    <span class="me-3">-->
+        <!--                      <span class="form-selectgroup-check"></span>-->
+        <!--                    </span>-->
+        <!--                    <span class="form-selectgroup-label-content">-->
+        <!--                      <span class="form-selectgroup-title strong mb-1">Advanced</span>-->
+        <!--                      <span class="d-block text-secondary">Insert charts and additional advanced analyses to be inserted in the report</span>-->
+        <!--                    </span>-->
+        <!--                  </span>-->
+        <!--            </label>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div class="row">
+          <div class="col-lg-8">
+            <!--            <div class="mb-3">-->
+            <!--              <label class="form-label">Report url</label>-->
+            <!--              <div class="input-group input-group-flat">-->
+            <!--                    <span class="input-group-text">-->
+            <!--                      https://tabler.io/reports/-->
+            <!--                    </span>-->
+            <!--                <input type="text" class="form-control ps-0"  value="report-01" autocomplete="off">-->
+            <!--              </div>-->
+            <!--            </div>-->
+          </div>
+          <!--          <div class="col-lg-6">-->
+          <!--            <div class="mb-3">-->
+          <!--              <label class="form-label">Modo de Intervenção</label>-->
+          <!--              <select class="select form-control" formControlName="customerContactId">-->
+          <!--                <option *ngFor="let mode of interventionMode" [value]="mode.id">-->
+          <!--                  {{mode.mode}}-->
+          <!--                </option>-->
+          <!--              </select>-->
+          <!--            </div>-->
+          <!--          </div>-->
+
+          <div class="row gx-3 mb-3">
+            <div class="col-md-4">
+              <label class="form-label">Data do pedido</label>
+              <input type="date" class="form-control" formControlName="dateRequest">
             </div>
-            <div class="row gx-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label select-label">Period</label>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label">Período</label>
                 <select class="select form-control" formControlName="periodId">
-                  <option *ngFor="let periods of period" [value]="periods.id">
-                    {{periods.description}}
+                  <option *ngFor="let periodo of period" [value]="periodo.id">
+                    {{periodo.description}}
                   </option>
                 </select>
               </div>
-              <div class="col-md-6">
-                <label for="emailToSendReport" class="form-label">E-mail do remetente</label>
-                <input type="email" id="emailToSendReport" class="form-control" formControlName="emailToSendReport">
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label">Data de Conclusão</label>
+                <input type="date" class="form-control" formControlName="expectedDateTEnd">
               </div>
             </div>
-            <div class="row gx-3 mb-3">
-              <div class="col-md-6">
-                <label for="inputDateRequest" class="form-label">Data do Pedido</label>
-                <input type="date" id="inputDateRequest" class="form-control" formControlName="dateRequest">
-              </div>
-              <div class="col-md-6">
-                <label for="expectedDateTEnd" class="form-label">Data do fim</label>
-                <input type="date" id="expectedDateTEnd" class="form-control" formControlName="expectedDateTEnd">
-              </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Prioridade</label>
+            <select class="select form-control" formControlName="priorityId">
+              <option *ngFor="let prioridade of priority" [value]="prioridade.id">
+                {{prioridade.description}}
+              </option>
+            </select>
+          </div>
+            <div class="col-md-6">
+              <label class="form-label">Classificação do pedido</label>
+              <select class="select form-control" formControlName="classificationId">
+                <option *ngFor="let classificacao of classification " [value]="classificacao.id">
+                  {{classificacao.description}}
+                </option>
+              </select>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="form-label">E-mail destinatário</label>
+              <input type="email" class="form-control" formControlName="emailToSendReport">
             </div>
-            <div class="col-12 text-center mt-3">
-              <button class="btn btn-primary" type="button" (click)="onCreate()">Criar</button>
-              <button class="btn btn-danger" type="button" (click)="cancel()">Cancelar</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button  class="btn btn-link link-secondary" (click)="cancel()">
+              Cancel
+            </button>
+            <button  class="btn btn-primary ms-auto" (click)="onCreate()">
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+              Criar
+            </button>
           </div>
         </div>
       </div>

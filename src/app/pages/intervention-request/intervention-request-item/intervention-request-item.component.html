@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="col-12 col-xl-10 col-md-8 col-lg-6">
+    <!-- Detalhes do Pedido de Intervenção -->
+    <div class="card mb-6" *ngIf="request">
+      <div class="card-header">
+        <h3><small><strong>Ref: {{request.reference}}</strong></small> Detalhes do Pedido de Intervenção</h3>
+      </div>
+      <div class="card-body">
+        <div class="row gx-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Cliente</label>
+            <p class="form-control-static">{{ request.customer }}</p>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Data do Pedido</label>
+            <p class="form-control-static">{{request.dateRequest | date: 'dd/MM/yyyy'}}</p>
+          </div>
+        </div>
+        <div class="row gx-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Classificação</label>
+            <p class="form-control-static">{{ request.interventionClassification }}</p>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Prioridade</label>
+            <p class="form-control-static">{{ request.priority }}</p>
+          </div>
+        </div>
+        <div class="row gx-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">E-mail do Remetente</label>
+            <p class="form-control-static">{{ request.emailToSendReport}}</p>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Data de Conclusão</label>
+            <p class="form-control-static">{{ request.expectedDateTEnd | date: 'dd/MM/yyyy' }}</p>
+          </div>
+        </div>
+        <div class="row gx-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Razão da Intervenção</label>
+            <div *ngFor="let reason of request.interventionReason">
+              <p class="form-control-static">{{reason}}</p>
+            </div>
+          </div>
+          <!--          <div class="col-md-6">-->
+          <!--            <label class="form-label">Alocar Técnico</label>-->
+          <!--            <select class="select form-control" formControlName="classificationId">-->
+          <!--              <option>-->
+
+          <!--              </option>-->
+          <!--            </select>-->
+          <!--          </div>-->
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Estado</label>
+          <p class="form-control-static">{{request.status}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

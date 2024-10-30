@@ -1,5 +1,5 @@
 export interface ClientContact {
-  id: string,
+  id: number,
   fullName: string,
   position: string,
   customerId: number,

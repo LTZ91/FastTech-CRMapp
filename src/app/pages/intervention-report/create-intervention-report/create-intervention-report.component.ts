@@ -11,8 +11,14 @@ import {InterventionStatusService} from "../../../services/intervention-status.s
 import {InterventionReportState} from "../../../../store/reducers/intervention-report.reducers";
 import {InterventionMode} from "../../../models/intervention-mode";
 import {selectInterventionReportIsOpen} from "../../../../store/selectors/intervention-report.selectors";
-import {addInterventionReport, closeInterventionReport} from "../../../../store/actions/intervention-report.actions";
+import {
+  addInterventionReport,
+  addInterventionReportSuccess,
+  closeInterventionReport
+} from "../../../../store/actions/intervention-report.actions";
 import {InterventionReport} from "../../../models/intervention-report";
+import {InterventionRequestState} from "../../../../store/reducers/intervention-request.reducers";
+import {selectSelectedRequest} from "../../../../store/selectors/intervention-request.selectors";
 
 @Component({
   selector: 'app-create-intervention-report',
@@ -21,6 +27,9 @@ import {InterventionReport} from "../../../models/intervention-report";
 
 })
 export class CreateInterventionReportComponent implements OnInit{
+
+  id! : number | undefined;
+
   @Input() firstFormGroup: FormGroup;
   constructor(
     private interventionReportService: InterventionReportService,
@@ -30,6 +39,7 @@ export class CreateInterventionReportComponent implements OnInit{
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store <InterventionReportState>,
+    private store2: Store <InterventionRequestState>,
   ) {
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: [''],
@@ -38,17 +48,31 @@ export class CreateInterventionReportComponent implements OnInit{
 
   interventionReport !: InterventionReport;
   interventionRequest! : InterventionRequest [];
+  request? : InterventionRequest | null ;
   interventionReports! : InterventionReport [];
   interventionMode! : InterventionMode[];
   formInterventionReport!: FormGroup;
-  selectInterventionReportIsOpen$ = this.store.pipe(select (selectInterventionReportIsOpen));
+  selectInterventionReport$ = this.store.pipe(select (selectInterventionReportIsOpen));
+  selectInterventionRequest$ = this.store2.pipe(select (selectSelectedRequest));
   // private dialogRef!: MatDialogRef<boolean>;
   isOpen !: boolean;
   ngOnInit(): void {
 
+    this.selectInterventionRequest$.subscribe(
+      {next : (request) =>
+        {
+          this.id = request?.id;
+        }
+
+      }
+    )
 
     this.getInterventionMode();
     this.getInterventionRequest();
+    this.createReport()
+  }
+
+  createReport(){
     if(this.interventionReport){
       this.formInterventionReport = this.formBuilder.group({
         id: new FormControl(this.interventionReport.id, Validators.required),
@@ -65,7 +89,7 @@ export class CreateInterventionReportComponent implements OnInit{
       });
     }else {
       this.formInterventionReport = this.formBuilder.group({
-        interventionRequestId: new FormControl(``, Validators.required),
+        interventionRequestId: new FormControl(this.id),
         startTime: new FormControl(``, Validators.required),
         endTime: new FormControl(``, Validators.required),
         breakTime: new FormControl(``, Validators.required),
@@ -77,8 +101,6 @@ export class CreateInterventionReportComponent implements OnInit{
 
       });
     }
-
-
   }
 
   getInterventionMode(){
