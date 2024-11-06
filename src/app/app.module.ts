@@ -88,6 +88,7 @@ import { TechnicianDetailsComponent } from './pages/technician/technician-detail
 import {MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {NgOptimizedImage} from "@angular/common";
 import { InterventionRequestItemComponent } from './pages/intervention-request/intervention-request-item/intervention-request-item.component';
+import { AllocateInterventionRequestComponent } from './pages/allocate-intervention-request/allocate-intervention-request.component';
 
 
 @NgModule({
@@ -138,6 +139,7 @@ import { InterventionRequestItemComponent } from './pages/intervention-request/i
     ContractDetailsComponent,
     TechnicianDetailsComponent,
     InterventionRequestItemComponent,
+    AllocateInterventionRequestComponent,
   ],
     imports: [
         BrowserModule,

@@ -64,6 +64,9 @@ import {ContractDetailsComponent} from "./pages/contract/contract-details/contra
 import {
   InterventionRequestItemComponent
 } from "./pages/intervention-request/intervention-request-item/intervention-request-item.component";
+import {
+  AllocateInterventionRequestComponent
+} from "./pages/allocate-intervention-request/allocate-intervention-request.component";
 
 export const routes: Routes = [
   {
@@ -221,6 +224,10 @@ export const routes: Routes = [
   {
     path:'intervention-request-item', component:
     InterventionRequestItemComponent
+  },
+  {
+    path:'allocate-intervention-request', component:
+    AllocateInterventionRequestComponent
   },
   {
     path:'request-details/:id', component:

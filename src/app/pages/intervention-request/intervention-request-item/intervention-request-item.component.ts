@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {InterventionRequest} from "../../../models/intervention-request";
 import {InterventionReport} from "../../../models/intervention-report";
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {InterventionRequestService} from "../../../services/intervention-request.service";
 import {InterventionReportService} from "../../../services/intervention-report.service";
 import {InterventionModeService} from "../../../services/intervention-mode.service";
