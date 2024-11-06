@@ -43,20 +43,44 @@
               <p class="form-control-static">{{reason}}</p>
             </div>
           </div>
-          <!--          <div class="col-md-6">-->
-          <!--            <label class="form-label">Alocar Técnico</label>-->
-          <!--            <select class="select form-control" formControlName="classificationId">-->
-          <!--              <option>-->
-
-          <!--              </option>-->
-          <!--            </select>-->
-          <!--          </div>-->
+<!--          <div class="col-md-6">-->
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Alocar Ticket</button>-->
+<!--          </div>-->
         </div>
         <div class="mb-3">
           <label class="form-label">Estado</label>
           <p class="form-control-static">{{request.status}}</p>
         </div>
       </div>
+<!--      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog">-->
+<!--          <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--              <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicione o Técnico</h1>-->
+<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body"  [formGroup]="formInterventionRequest">-->
+<!--              <div>-->
+<!--                <input formControlName="id" [value]="1" placeholder="{{request.interventionReason}}">-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <label class="form-label">Técnico</label>-->
+<!--                <select class="select form-control" formControlName="technician">-->
+<!--                  <option *ngFor="let users of technicians" [value]="users.id">-->
+<!--                    {{users.userName}}-->
+<!--                  </option>-->
+<!--                </select>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--              <button type="button" class="btn btn-primary" (click)="alocar()" >Adicionar</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
     </div>
   </div>
 </div>

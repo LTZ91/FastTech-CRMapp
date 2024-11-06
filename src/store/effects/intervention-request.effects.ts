@@ -1,11 +1,12 @@
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {catchError, exhaustMap, map, of} from "rxjs";
+import {catchError, exhaustMap, map, mergeMap, of} from "rxjs";
 import {Injectable} from "@angular/core";
 import {InterventionRequestService} from "../../app/services/intervention-request.service";
 import {
   addInterventionRequest,
   addInterventionRequestFail,
   addInterventionRequestSuccess,
+
   deleteInterventionRequest,
   deleteInterventionRequestFail,
   deleteInterventionRequestSuccess,
@@ -19,7 +20,6 @@ import {
   getInterventionsRequestFail,
   getInterventionsRequestSuccess
 } from "../actions/intervention-request.actions";
-import {deleteServiceFail, deleteServiceSuccess} from "../actions/services-provided.actions";
 
 
 @Injectable()
@@ -77,6 +77,18 @@ export class InterventionRequestEffects{
       )
     )
   );
+
+  // allocateInterventionRequest$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(allocateInterventionRequest),
+  //     mergeMap(action =>
+  //       this.interventionRequestService.allocateInterventionRequest(action.id, action.userId).pipe(
+  //         map(intervention => allocateInterventionRequestSuccess({ payload: intervention })),
+  //         catchError(error => of(allocateInterventionRequestFail({ payload: error })))
+  //       )
+  //     )
+  //   )
+  // );
 
   deleteInterventionRequest = createEffect(() =>
     this.actions$.pipe(

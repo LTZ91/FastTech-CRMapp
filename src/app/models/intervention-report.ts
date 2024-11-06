@@ -16,7 +16,7 @@ export interface InterventionReport {
   endTime: DateTime,
   breakTime: number,
   totalDuration: string,
-  discount: number,
+  discount: boolean,
   discountReason: string,
   interventionReason: string[],
   activitiesPerformed: string[],

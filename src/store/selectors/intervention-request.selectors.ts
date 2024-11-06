@@ -47,6 +47,11 @@ export const selectAllInterventionRequestUpdate = createSelector(
   state => state.isUpdated
 )
 
+export const selectAllocateInterventionRequestUpdate = createSelector(
+  interventionRequestState,
+  state => state.isUpdated
+)
+
 export  const selectInterventionRequestDelete = createSelector(
   interventionRequestState,
   interventionRequestIsDelete

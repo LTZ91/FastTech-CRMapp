@@ -5,6 +5,7 @@ import {API_URL} from "../../environments/environment";
 import {InterventionRequest} from "../models/intervention-request";
 import {catchError, EMPTY, map, Observable} from "rxjs";
 import {InterventionReport} from "../models/intervention-report";
+import {IUser} from "../models/user";
 
 @Injectable({
   providedIn: 'root'
@@ -52,13 +53,12 @@ export class InterventionRequestService {
     return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}`, option);
   }
 
-  allocateInterventionRequest(id: number){
+  allocateInterventionRequest(id: number, userId: string){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
-
-    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}/technician`, option);
+    return this.httpClient.put<InterventionRequest>(`${API_URL}/api/Interventions/request/${id}/technician`, userId, option);
   }
 
 

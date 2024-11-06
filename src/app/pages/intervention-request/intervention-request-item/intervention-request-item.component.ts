@@ -1,23 +1,22 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {InterventionRequest} from "../../../models/intervention-request";
 import {InterventionReport} from "../../../models/intervention-report";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {InterventionMode} from "../../../models/intervention-mode";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {InterventionRequestService} from "../../../services/intervention-request.service";
 import {InterventionReportService} from "../../../services/intervention-report.service";
 import {InterventionModeService} from "../../../services/intervention-mode.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {select, Store} from "@ngrx/store";
-import {InterventionReportState} from "../../../../store/reducers/intervention-report.reducers";
-import {
-  selectAllInterventionReport,
-  selectAllInterventionReportDelete,
-  selectInterventionReportIsOpen,
-  selectInterventionReportIsSaved,
-  selectIntReportByIntRequestId
-} from "../../../../store/selectors/intervention-report.selectors";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {InterventionRequestState} from "../../../../store/reducers/intervention-request.reducers";
+import {UserService} from "../../../services/user.service";
+import {
+  selectSelectedRequest
+} from "../../../../store/selectors/intervention-request.selectors";
+import {IUser} from "../../../models/user";
+import {ClassificationService} from "../../../services/classification.service";
+
+
 
 @Component({
   selector: 'app-intervention-request-item',
@@ -27,16 +26,18 @@ import {InterventionRequestState} from "../../../../store/reducers/intervention-
 export class InterventionRequestItemComponent implements OnInit {
   request!: InterventionRequest;
   report!: InterventionReport;
-  formInterventionReport!: FormGroup;
-  interventionMode! : InterventionMode[];
   interventionRequest! : InterventionRequest[];
-
+  formInterventionRequest!: FormGroup;
+  requestId! : number ;
+  technicians: any[] = [];  // Lista de técnicos para seleção
 
   constructor(private interventionRequestService: InterventionRequestService,
               private interventionReportService: InterventionReportService,
+              private userService: UserService,
               private interventionModeService: InterventionModeService,
-
+              private classificationService: ClassificationService,
               private router: Router,
+              public dialog: MatDialog,
               private store: Store<InterventionRequestState>,
               private formBuilder: FormBuilder,
               private route: ActivatedRoute) {
@@ -49,43 +50,57 @@ export class InterventionRequestItemComponent implements OnInit {
   interventionReportList!: InterventionReport[];
   interventionReport!: InterventionReport[] | null;
   firstFormGroup: FormGroup;
+  intervention? : InterventionRequest | null ;
+  user! : IUser[];
 
   @Output() onSelectedInterventionRequest = new EventEmitter<InterventionReport>();
-  selectAllInterventionReport$ = this.store.pipe(select (selectAllInterventionReport));
-  selectIntReportByIntRequestId$ = this.store.pipe(select(selectIntReportByIntRequestId));
-  selectInterventionReportDelete$ = this.store.pipe(select (selectAllInterventionReportDelete));
-  selectInterventionReportIsOpen$ = this.store.pipe(select (selectInterventionReportIsOpen));
-  selectInterventionReportIsSaved$ = this.store.pipe(select (selectInterventionReportIsSaved));
+  selectInterventionRequest$ = this.store.pipe(select (selectSelectedRequest));
   private dialogRef!: MatDialogRef<any>;
 
 
   ngOnInit(): void {
+
+
     const idParam = this.route.snapshot.paramMap.get('id');
     const id = idParam ? +idParam : null;
 
     if (id !== null) {
       this.interventionRequestService.getInterventionRequestById(id).subscribe(data => {
         if (data) {
+          console.log(this.selectInterventionRequest$)
           this.request = data;
           console.log(data);
         }
       })
+
     } else {
       console.error('ID is null');
     }
 
+    // if (this.selectInterventionRequest$){
+    //   this.formInterventionRequest = this.formBuilder.group({
+    //     id: new FormControl (this.request.id),
+    //     technician: new FormControl ('', [Validators.required]),
+    //   });
+    // }
 
+
+    this.getUser()
 
   }
 
-  send() {
-
+  getUser() {
+    this.userService.readAll().subscribe(technicians => {
+      this.technicians = technicians;
+    });
   }
 
-  onEdit() {
 
-  }
-
-
+  //
+  // alocar() {
+  //   console.log(this.formInterventionRequest.value);
+  //   // this.store.dispatch(allocateInterventionRequest({payload: this.formInterventionRequest.value}));
+  //   this.interventionRequestService.showMessageSuccess('Ticket alocado  com Sucesso')
+  // }
 
 }
