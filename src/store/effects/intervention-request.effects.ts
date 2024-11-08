@@ -6,6 +6,9 @@ import {
   addInterventionRequest,
   addInterventionRequestFail,
   addInterventionRequestSuccess,
+  allocateInterventionRequest,
+  allocateInterventionRequestFail,
+  allocateInterventionRequestSuccess,
 
   deleteInterventionRequest,
   deleteInterventionRequestFail,
@@ -78,17 +81,17 @@ export class InterventionRequestEffects{
     )
   );
 
-  // allocateInterventionRequest$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(allocateInterventionRequest),
-  //     mergeMap(action =>
-  //       this.interventionRequestService.allocateInterventionRequest(action.id, action.userId).pipe(
-  //         map(intervention => allocateInterventionRequestSuccess({ payload: intervention })),
-  //         catchError(error => of(allocateInterventionRequestFail({ payload: error })))
-  //       )
-  //     )
-  //   )
-  // );
+  allocateInterventionRequest$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(allocateInterventionRequest),
+      mergeMap(action =>
+        this.interventionRequestService.allocateInterventionRequest(action.id, action.userId).pipe(
+          map(intervention => allocateInterventionRequestSuccess({ payload: intervention })),
+          catchError(error => of(allocateInterventionRequestFail({ payload: error })))
+        )
+      )
+    )
+  );
 
   deleteInterventionRequest = createEffect(() =>
     this.actions$.pipe(

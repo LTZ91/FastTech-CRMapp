@@ -162,6 +162,7 @@
 <!--                    <th style="width:240px;"><button class="table-sort" data-sort="sort-client-contact">Solicitante</button></th>-->
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-task">Tarefa</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Data do Pedido</button></th>
+                    <th style="width:240px;"><button class="table-sort" data-sort="sort-date-i">Data de Fim</button></th>
                     <th style="width:240px;"><button class="table-sort" data-sort="sort-date-f">Prioridade</button></th>
                     <th style="width: 100px">Acções</th>
                   </tr>
@@ -174,7 +175,8 @@
                     <td class="sort-name">{{request.customer}}</td>
 <!--                    <td class="sort-tech">{{request.customerContact}}</td>-->
                     <td class="sort-task">{{request.interventionReason}}</td>
-                    <td class="sort-date-i">{{request.dateRequest}}</td>
+                    <td class="sort-date-i">{{request.dateRequest | date: 'dd/MM/yyyy'}}</td>
+                    <td class="sort-date-i">{{request.expectedDateTEnd | date: 'dd/MM/yyyy'}}</td>
                     <td class="sort-priority">{{request.priority}}</td>
 <!--                    <td class="sort-progress" data-progress="">-->
 <!--                      {{request.status}}-->

@@ -21,9 +21,9 @@ export const deleteInterventionRequest = createAction('[INTERVENTION-REQUEST] De
 export const deleteInterventionRequestSuccess = createAction('[INTERVENTION-REQUEST] Delete Intervention Request Success', props<{payload: InterventionRequest}>())
 export const deleteInterventionRequestFail = createAction('[INTERVENTION-REQUEST] Delete Intervention Request Fail', props<{payload: any}>())
 
-// export const allocateInterventionRequest = createAction('[INTERVENTION-REQUEST] Allocate Intervention Request ', props<{id: number; userId: string}>())
-// export const allocateInterventionRequestSuccess = createAction('[INTERVENTION-REQUEST] Allocate Intervention Request Success', props<{payload:InterventionRequest}>())
-// export const allocateInterventionRequestFail = createAction('[INTERVENTION-REQUEST] Allocate Intervention Request Fail', props<{payload: any}>())
+export const allocateInterventionRequest = createAction('[INTERVENTION-REQUEST] Allocate Intervention Request ', props<{id: number; userId: string}>())
+export const allocateInterventionRequestSuccess = createAction('[INTERVENTION-REQUEST] Allocate Intervention Request Success', props<{payload:InterventionRequest}>())
+export const allocateInterventionRequestFail = createAction('[INTERVENTION-REQUEST] Allocate Intervention Request Fail', props<{payload: any}>())
 
 export const showDialog = createAction('[INTERVENTION-REQUEST], Show Dialog')
 export const hideDialog = createAction('[INTERVENTION-REQUEST], Hide Dialog')

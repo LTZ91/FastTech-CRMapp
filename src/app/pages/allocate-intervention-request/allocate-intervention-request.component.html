@@ -1,5 +1,4 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Alocar Ticket</button>
-
+<button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" >Alocar Ticket</button>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -8,9 +7,10 @@
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicione o Técnico</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" [formGroup]="formInterventionRequest"  >
-        <div>
-          <input formControlName="id" [value]="1" placeholder="">
+      <div class="modal-body" [formGroup]="formInterventionRequest" >
+        <div *ngIf="request">
+<!--          <input formControlName="id"  placeholder="{{request?.interventionReason}}">-->
+           <p ><strong> Motivo da Intervenção:</strong> {{request.interventionReason}}</p>
         </div>
         <div>
           <label class="form-label">Técnico</label>
@@ -23,7 +23,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  >Adicionar</button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()" >Adicionar</button>
       </div>
     </div>
   </div>

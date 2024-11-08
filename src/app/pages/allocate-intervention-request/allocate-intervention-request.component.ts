@@ -3,11 +3,13 @@ import {InterventionRequestService} from "../../services/intervention-request.se
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
 import {InterventionRequestState} from "../../../store/reducers/intervention-request.reducers";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {IUser} from "../../models/user";
 import {InterventionRequest} from "../../models/intervention-request";
+import {selectSelectedRequest} from "../../../store/selectors/intervention-request.selectors";
+import {allocateInterventionRequest} from "../../../store/actions/intervention-request.actions";
 
 @Component({
   selector: 'app-allocate-intervention-request',
@@ -16,10 +18,16 @@ import {InterventionRequest} from "../../models/intervention-request";
 })
 export class AllocateInterventionRequestComponent implements OnInit{
 
+  request!: InterventionRequest | null;
+
+
+  selectedRequest$ = this.store.pipe(select(selectSelectedRequest))
+
+
   constructor(private interventionRequestService: InterventionRequestService,
               private userService: UserService,
               private router: Router,
-              public dialog: MatDialog,
+              public  dialog: MatDialog,
               private store: Store<InterventionRequestState>,
               private formBuilder: FormBuilder,
               private route: ActivatedRoute) {
@@ -28,14 +36,38 @@ export class AllocateInterventionRequestComponent implements OnInit{
   interventionRequest !: InterventionRequest;
   technician! : IUser[];
   formInterventionRequest!: FormGroup;
-
+  formService!: FormGroup;
   @Input()
   user! : IUser[];
 
+  @Input()
+  requestId! : number ;
+
   ngOnInit(): void {
-    if(this.interventionRequest){
-      this.formInterventionRequest = this.formBuilder.group({
-        id: new FormControl(``, Validators.required),
+
+    this.formService = this.formBuilder.group({
+      description: new FormControl(``, Validators.required),
+      priceId: new FormControl(``, Validators.required),
+      conditions:  new FormArray([new FormControl(``, Validators.required)]),
+
+    });
+
+    this.selectedRequest$.subscribe(
+      {next : (request) =>
+          {
+            if (request){
+              this.requestId = request.id;
+              this.request = request;
+            }
+
+        }
+
+      }
+    )
+
+    if(this.requestId){
+      this.formInterventionRequest = new FormGroup({
+        id: new FormControl(this.requestId),
         technician: new FormControl(``, Validators.required),
       })
     }
@@ -46,8 +78,26 @@ export class AllocateInterventionRequestComponent implements OnInit{
 
   getUser() {
     this.userService.readAll().subscribe(technicians => {
-      this.technician = technicians;
+      if (technicians){
+        console.log(technicians)
+        this.technician = technicians;
+      }
+
     });
   }
 
+
+
+  cancel() {
+    this.router.navigateByUrl('/intervention-request-details');
+  }
+
+  protected readonly onsubmit = onsubmit;
+
+  onSubmit() {
+    const { id, userId } = this.formInterventionRequest.value;
+    console.log(this.formInterventionRequest.value);
+    this.store.dispatch(allocateInterventionRequest({ id, userId : this.formInterventionRequest.value}));
+    this.interventionRequestService.showMessageSuccess('Ticket alocado com Sucesso');
+  }
 }

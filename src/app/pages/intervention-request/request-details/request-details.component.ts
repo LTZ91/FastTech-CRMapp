@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {InterventionRequest} from "../../../models/intervention-request";
 import {
-  selectAllInterventionsRequest,
-  selectInterventionRequestById
+    selectAllInterventionsRequest,
+    selectInterventionRequestById, selectSelectedRequest
 } from "../../../../store/selectors/intervention-request.selectors";
 import {select, Store} from "@ngrx/store";
 import {InterventionRequestService} from "../../../services/intervention-request.service";
@@ -27,28 +27,29 @@ export class RequestDetailsComponent implements OnInit {
   interventionRequest?: InterventionRequest | null;
   id?: number;
 
-  request$ = this.store1.pipe(select(selectInterventionRequestById))
-  report$ = this.store2.pipe(select(selectAllInterventionReport))
+  selectedRequest$ = this.storeRequest.pipe(select(selectSelectedRequest))
+  request$ = this.storeRequest.pipe(select(selectInterventionRequestById))
+  report$ = this.storeReport.pipe(select(selectAllInterventionReport))
   report : InterventionReport [] = [];
 
   constructor(private interventionRequestService: InterventionRequestService,
               private interventionReportService: InterventionReportService,
               private route: ActivatedRoute,
-               private store1: Store<InterventionRequestState>,
-               private store2: Store<InterventionReportState>,) {
+               private storeRequest: Store<InterventionRequestState>,
+               private storeReport: Store<InterventionReportState>,) {
   }
 
   ngOnInit(): void {
 
     this.route.params.subscribe(param => {
       if (param) {
-        this.store1.dispatch(getInterventionRequestById ({payload : +param['id']}));
+        this.storeRequest.dispatch(getInterventionRequestById ({payload : +param['id']}));
       }
     });
 
     this.request$.subscribe(interventionRequest => {
       if (interventionRequest) {
-        this.store2.dispatch(getInterventionReportByIntRequestId ({payload: interventionRequest.id}));
+        this.storeReport.dispatch(getInterventionReportByIntRequestId ({payload: interventionRequest.id}));
       }
     });
 
@@ -58,7 +59,6 @@ export class RequestDetailsComponent implements OnInit {
       }
     })
   }
-
 
 
 }

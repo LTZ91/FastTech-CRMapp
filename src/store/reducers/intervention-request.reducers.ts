@@ -1,5 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {
+  allocateInterventionRequest, allocateInterventionRequestFail, allocateInterventionRequestSuccess,
   getInterventionRequestById,
   getInterventionRequestByIdFail,
   getInterventionRequestByIdSuccess,
@@ -92,15 +93,15 @@ export const interventionRequestReducers = createReducer(
     return{...state, payload, isUpdated: false, isOpen: false}
   }),
 
-  // on(allocateInterventionRequest, (state, {payload}) =>{
-  //   return{...state, interventionRequest: payload, isOpen: true}
-  // }),
-  // on(allocateInterventionRequestSuccess, (state, {payload}) =>{
-  //   return{...state, interventionRequest: payload, isUpdated: true, isOpen: false}
-  // }),
-  // on(allocateInterventionRequestFail, (state, {payload}) =>{
-  //   return{...state, payload, isUpdated: false, isOpen: false}
-  // }),
+  on(allocateInterventionRequest, (state) =>{
+    return{...state,  isOpen: true}
+  }),
+  on(allocateInterventionRequestSuccess, (state, {payload}) =>{
+    return{...state, interventionRequest: payload, isUpdated: true, isOpen: false}
+  }),
+  on(allocateInterventionRequestFail, (state, {payload}) =>{
+    return{...state, payload, isUpdated: false, isOpen: false}
+  }),
 
   on(deleteInterventionRequest, (state, {payload}) =>{
     return{...state, interventionRequest: payload, isOpen: true}

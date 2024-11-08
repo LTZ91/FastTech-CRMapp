@@ -77,23 +77,9 @@ export class InterventionRequestItemComponent implements OnInit {
       console.error('ID is null');
     }
 
-    // if (this.selectInterventionRequest$){
-    //   this.formInterventionRequest = this.formBuilder.group({
-    //     id: new FormControl (this.request.id),
-    //     technician: new FormControl ('', [Validators.required]),
-    //   });
-    // }
-
-
-    this.getUser()
 
   }
 
-  getUser() {
-    this.userService.readAll().subscribe(technicians => {
-      this.technicians = technicians;
-    });
-  }
 
 
   //
