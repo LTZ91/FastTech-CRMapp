@@ -89,6 +89,7 @@ import {MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {NgOptimizedImage} from "@angular/common";
 import { InterventionRequestItemComponent } from './pages/intervention-request/intervention-request-item/intervention-request-item.component';
 import { AllocateInterventionRequestComponent } from './pages/allocate-intervention-request/allocate-intervention-request.component';
+import { ListInterventionRequestStatusComponent } from './pages/intervention-request/list-intervention-request-status/list-intervention-request-status.component';
 
 
 @NgModule({
@@ -140,6 +141,7 @@ import { AllocateInterventionRequestComponent } from './pages/allocate-intervent
     TechnicianDetailsComponent,
     InterventionRequestItemComponent,
     AllocateInterventionRequestComponent,
+    ListInterventionRequestStatusComponent,
   ],
     imports: [
         BrowserModule,

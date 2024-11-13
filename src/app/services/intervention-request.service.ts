@@ -67,13 +67,13 @@ export class InterventionRequestService {
     return EMPTY;
   }
 
-  getInterventionRequestByStatus(status: InterventionRequest){
+  getInterventionRequestByStatus(statusId: number){
     const option = {headers: new HttpHeaders({
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${status.status}/status`, option);
+    return this.httpClient.get<InterventionRequest>(`${API_URL}/api/Interventions/${statusId}/status`, option);
   }
   getInterventionReportByIntRequestId(request: InterventionRequest){
     const option = {headers: new HttpHeaders({

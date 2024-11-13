@@ -20,6 +20,9 @@ import {
   getInterventionRequestById,
   getInterventionRequestByIdFail,
   getInterventionRequestByIdSuccess,
+  getInterventionRequestByStatus,
+  getInterventionRequestByStatusFail,
+  getInterventionRequestByStatusSuccess,
   getInterventionsRequestFail,
   getInterventionsRequestSuccess
 } from "../actions/intervention-request.actions";
@@ -57,6 +60,19 @@ export class InterventionRequestEffects{
       )
     )
   );
+
+  getInterventionRequestByStatusId$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getInterventionRequestByStatus),
+      exhaustMap((action) =>
+        this.interventionRequestService.getInterventionRequestByStatus(action.payload).pipe(
+          map((response) => getInterventionRequestByStatusSuccess({ payload: response })),
+          catchError((error) => of(getInterventionRequestByStatusFail({ payload: error })))
+        )
+      )
+    )
+  );
+
   addInterventionsRequest = createEffect(() =>
     this.actions$.pipe(
       ofType(addInterventionRequest),

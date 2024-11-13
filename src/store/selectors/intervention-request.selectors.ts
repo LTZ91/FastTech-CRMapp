@@ -73,4 +73,10 @@ export const selectInterventionRequestIsSaved = createSelector(
 export const selectInterventionRequestById = createSelector(
   interventionRequestState,
   state => state.selectedInterventionRequest
-);
+)
+
+export const selectInterventionRequestByStatusId = createSelector(
+    interventionRequestState,
+    state => state.selectedInterventionRequest
+  )
+;

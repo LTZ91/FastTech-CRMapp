@@ -35,7 +35,7 @@
 
           <div class="row row-cards">
 
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
               <div class="card card-sm">
                 <div class="card-body">
                   <div class="row align-items-center">
@@ -53,7 +53,7 @@
                         {{total}}
                       </div>
                       <div class="text-secondary">
-                        Total de Tarefas
+                        Total de Tickets
                       </div>
                     </div>
                   </div>
@@ -61,7 +61,7 @@
               </div>
             </div>
 
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
               <div class="card card-sm">
                 <div class="card-body">
                   <div class="row align-items-center">
@@ -80,7 +80,7 @@
                         {{await}}
                       </div>
                       <div class="text-secondary">
-                        Tarefas A espera de Aprovação
+                        Tickets A espera de Aprovação
                       </div>
                     </div>
                   </div>
@@ -88,7 +88,36 @@
               </div>
             </div>
 
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
+              <div class="card card-sm">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                            <span class="bg-purple text-white avatar">
+                              <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-plus">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                <path d="M10 14h4" /><path d="M12 12v4" />
+
+                              </svg>
+                            </span>
+                    </div>
+                    <div class="col">
+                      <div class="font-weight-medium">
+                        {{open}}
+                      </div>
+                      <div class="text-secondary">
+                        Tickets Abertos
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-sm-6 col-lg-4">
               <div class="card card-sm">
                 <div class="card-body">
                   <div class="row align-items-center">
@@ -110,7 +139,7 @@
                         {{progress}}
                       </div>
                       <div class="text-secondary">
-                        Progresso
+                        Tickets em Progresso
                       </div>
                     </div>
                   </div>
@@ -118,7 +147,7 @@
               </div>
             </div>
 
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
               <div class="card card-sm">
                 <div class="card-body">
                   <div class="row align-items-center">
@@ -137,7 +166,7 @@
                            {{close}}
                       </div>
                       <div class="text-secondary">
-                        Tarefas Concluidas
+                        Tickets Concluídos
                       </div>
                     </div>
                   </div>

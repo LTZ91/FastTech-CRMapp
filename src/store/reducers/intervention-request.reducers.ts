@@ -1,9 +1,14 @@
 import {createReducer, on} from "@ngrx/store";
 import {
-  allocateInterventionRequest, allocateInterventionRequestFail, allocateInterventionRequestSuccess,
+  allocateInterventionRequest,
+  allocateInterventionRequestFail,
+  allocateInterventionRequestSuccess,
   getInterventionRequestById,
   getInterventionRequestByIdFail,
   getInterventionRequestByIdSuccess,
+  getInterventionRequestByStatus,
+  getInterventionRequestByStatusFail,
+  getInterventionRequestByStatusSuccess,
   hideDialog,
   showDialog
 } from "../actions/intervention-request.actions";
@@ -32,6 +37,7 @@ export interface InterventionRequestState{
   interventionRequest: InterventionRequest | null,
   selectedInterventionRequest: InterventionRequest | null,
   selectedRequestId: number | null;
+  selectedRequestStatusId: number | null;
   isUpdated: boolean,
   isDelete: boolean,
   isOpen: boolean,
@@ -44,6 +50,7 @@ const initialState: InterventionRequestState = {
   interventionRequest: null,
   selectedInterventionRequest:  null,
   selectedRequestId: null,
+  selectedRequestStatusId: null,
   isUpdated: false,
   isDelete: false,
   isOpen: false,
@@ -70,6 +77,16 @@ export const interventionRequestReducers = createReducer(
     return { ...state, selectedInterventionRequest: payload , selectedRequestId: payload.id, isLoading: false};
   }),
   on(getInterventionRequestByIdFail, (state, { payload }) => {
+    return { ...state, error: payload };
+  }),
+
+  on(getInterventionRequestByStatus, (state) => {
+    return { ...state, selectedInterventionRequest: null };
+  }),
+  on(getInterventionRequestByStatusSuccess, (state, { payload }) => {
+    return { ...state, selectedInterventionRequest: payload , selectedRequestStatusId: payload.id, isLoading: false};
+  }),
+  on(getInterventionRequestByStatusFail, (state, { payload }) => {
     return { ...state, error: payload };
   }),
 

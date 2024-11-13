@@ -9,6 +9,10 @@ export const getInterventionRequestById = createAction('[INTERVENTION-REQUEST] G
 export const getInterventionRequestByIdFail = createAction('[INTERVENTION-REQUEST] GET Interventions Request BY ID FAIL', props<{ payload: any }>());
 export const getInterventionRequestByIdSuccess = createAction('[INTERVENTION-REQUEST] GET Interventions Request BY ID SUCCESS', props<{ payload: InterventionRequest }>());
 
+export const getInterventionRequestByStatus = createAction('[INTERVENTION-REQUEST] GET Interventions Request BY STATUS', props<{ payload: number }>());
+export const getInterventionRequestByStatusFail = createAction('[INTERVENTION-REQUEST] GET Interventions Request BY STATUS FAIL', props<{ payload: any }>());
+export const getInterventionRequestByStatusSuccess = createAction('[INTERVENTION-REQUEST] GET Interventions Request BY STATUS SUCCESS', props<{ payload: InterventionRequest }>());
+
 export const addInterventionRequest = createAction('[INTERVENTION-REQUEST] Add Intervention Request', props<{payload: InterventionRequest}>())
 export const addInterventionRequestSuccess = createAction('[INTERVENTION-REQUEST] Add Intervention Request Success', props<{payload: InterventionRequest}>() )
 export const addInterventionRequestFail = createAction('[INTERVENTION-REQUEST] Add Intervention Request Fail', props<{payload: any}>())

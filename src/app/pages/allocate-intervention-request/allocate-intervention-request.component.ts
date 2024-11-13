@@ -19,7 +19,7 @@ import {allocateInterventionRequest} from "../../../store/actions/intervention-r
 export class AllocateInterventionRequestComponent implements OnInit{
 
   request!: InterventionRequest | null;
-
+  isTicketAllocated = false;
 
   selectedRequest$ = this.store.pipe(select(selectSelectedRequest))
 
@@ -36,7 +36,7 @@ export class AllocateInterventionRequestComponent implements OnInit{
   interventionRequest !: InterventionRequest;
   technician! : IUser[];
   formInterventionRequest!: FormGroup;
-  formService!: FormGroup;
+  // formService!: FormGroup;
   @Input()
   user! : IUser[];
 
@@ -45,12 +45,12 @@ export class AllocateInterventionRequestComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.formService = this.formBuilder.group({
-      description: new FormControl(``, Validators.required),
-      priceId: new FormControl(``, Validators.required),
-      conditions:  new FormArray([new FormControl(``, Validators.required)]),
-
-    });
+    // this.formService = this.formBuilder.group({
+    //   description: new FormControl(``, Validators.required),
+    //   priceId: new FormControl(``, Validators.required),
+    //   conditions:  new FormArray([new FormControl(``, Validators.required)]),
+    //
+    // });
 
     this.selectedRequest$.subscribe(
       {next : (request) =>
@@ -74,6 +74,8 @@ export class AllocateInterventionRequestComponent implements OnInit{
 
     this.getUser()
 
+    const savedState = localStorage.getItem('isTicketAllocated');
+    this.isTicketAllocated = savedState === 'true';
   }
 
   getUser() {
@@ -99,5 +101,8 @@ export class AllocateInterventionRequestComponent implements OnInit{
     console.log(this.formInterventionRequest.value);
     this.store.dispatch(allocateInterventionRequest({ id, userId : this.formInterventionRequest.value}));
     this.interventionRequestService.showMessageSuccess('Ticket alocado com Sucesso');
+
+    // this.isTicketAllocated = true;
+    // localStorage.setItem('isTicketAllocated', 'true');
   }
 }
