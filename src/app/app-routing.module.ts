@@ -67,6 +67,9 @@ import {
 import {
   AllocateInterventionRequestComponent
 } from "./pages/allocate-intervention-request/allocate-intervention-request.component";
+import {
+  ListInterventionRequestStatusComponent
+} from "./pages/intervention-request/list-intervention-request-status/list-intervention-request-status.component";
 
 export const routes: Routes = [
   {
@@ -212,6 +215,10 @@ export const routes: Routes = [
   {
     path:'list-intervention-request', component:
     ListInterventionRequestComponent
+  },
+  {
+    path:'list-intervention-request-status', component:
+    ListInterventionRequestStatusComponent
   },
   {
     path:'create-intervention-request', component:

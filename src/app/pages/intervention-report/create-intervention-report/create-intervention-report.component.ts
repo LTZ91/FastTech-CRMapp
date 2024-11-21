@@ -93,7 +93,7 @@ export class CreateInterventionReportComponent implements OnInit{
         startTime: new FormControl(``, Validators.required),
         endTime: new FormControl(``, Validators.required),
         breakTime: new FormControl(``, Validators.required),
-        discount: new FormControl(``, Validators.required),
+        discount: new FormControl([false], Validators.required),
         discountReason: new FormControl(``, Validators.required),
         activitiesPerformed:  new FormArray([new FormControl(``, Validators.required)]),
         pendingActivities:  new FormArray([new FormControl(``, Validators.required)]),
@@ -127,6 +127,8 @@ export class CreateInterventionReportComponent implements OnInit{
       console.log(this.formInterventionReport.value);
       this.store.dispatch(addInterventionReport({payload: this.formInterventionReport.value}));
       this.interventionReportService.showMessageSuccess('Relatório de Intervenção criado  com Sucesso')
+      this.router.navigate(['/list-intervention-report']);
+
     }
     // this.modalRef.close("true")
 

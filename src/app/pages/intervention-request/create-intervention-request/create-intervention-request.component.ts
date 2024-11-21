@@ -83,7 +83,7 @@ export class CreateInterventionRequestComponent implements OnInit{
         customerContactId: new FormControl(``, Validators.required),
         priorityId: new FormControl(``, Validators.required),
         classificationId: new FormControl(``, Validators.required),
-        dateRequest: new FormControl(``, Validators.required),
+        dateRequest: new FormControl(new Date().toISOString().substring(0, 10), Validators.required),
         expectedDateTEnd: new FormControl(``, Validators.required),
         interventionReason:  new FormArray([new FormControl(``, Validators.required)]),
         periodId: new FormControl(``, Validators.required),
@@ -147,6 +147,7 @@ export class CreateInterventionRequestComponent implements OnInit{
     } else {
       this.store.dispatch(addInterventionRequest({payload: this.formInterventionRequest.value}));
       this.interventionRequestService.showMessageSuccess('Ticket aberto  com Sucesso')
+      this.router.navigate(['/list-intervention-request']);
     }
 
 

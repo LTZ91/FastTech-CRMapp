@@ -209,4 +209,8 @@ export class ListInterventionRequestComponent implements OnInit{
   onDetails() {
 
   }
+
+  list() {
+    this.router.navigateByUrl('/list-intervention-request-status');
+  }
 }
