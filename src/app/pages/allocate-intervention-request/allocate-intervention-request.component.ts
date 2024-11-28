@@ -45,12 +45,7 @@ export class AllocateInterventionRequestComponent implements OnInit{
 
   ngOnInit(): void {
 
-    // this.formService = this.formBuilder.group({
-    //   description: new FormControl(``, Validators.required),
-    //   priceId: new FormControl(``, Validators.required),
-    //   conditions:  new FormArray([new FormControl(``, Validators.required)]),
-    //
-    // });
+
 
     this.selectedRequest$.subscribe(
       {next : (request) =>

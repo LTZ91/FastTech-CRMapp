@@ -54,7 +54,7 @@ export class InterventionReportService {
         'Content-Type': 'application/json'
       })}
 
-    return this.httpClient.get<InterventionReport>(`${API_URL}/api/Interventions/${requestId}/request`, option);
+    return this.httpClient.get<InterventionReport[]>(`${API_URL}/api/Interventions/${requestId}/request`, option);
   }
   delete(intReport: InterventionReport){
     const option = {headers: new HttpHeaders({

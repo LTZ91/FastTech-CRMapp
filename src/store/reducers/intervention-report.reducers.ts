@@ -96,15 +96,15 @@ export const interventionReportReducers = createReducer(
     return { ...state, error: payload };
   }),
 
-  on(getInterventionReportByIntRequestId, (state) => {
-    return { ...state, selectedInterventionReportByIntReqID: null };
-  }),
-  on(getInterventionReportByIntRequestIdSuccess, (state, { payload }) => {
-    return { ...state, selectedInterventionReportByIntReqID: payload };
-  }),
-  on(getInterventionReportByIntRequestIdFail, (state, { payload }) => {
-    return { ...state, error: payload };
-  }),
+  // on(getInterventionReportByIntRequestId, (state) => {
+  //   return { ...state, selectedInterventionReportByIntReqID: null };
+  // }),
+  // on(getInterventionReportByIntRequestIdSuccess, (state, { payload }) => {
+  //   return { ...state, selectedInterventionReportByIntReqID: payload };
+  // }),
+  // on(getInterventionReportByIntRequestIdFail, (state, { payload }) => {
+  //   return { ...state, error: payload };
+  // }),
 
   on(addInterventionReport, (state)=>{
     return{...state, interventionReport: null, isSaved: false, isOpen: true}

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {select, Store} from "@ngrx/store";
 import {FormControl} from "@angular/forms";
@@ -26,12 +26,19 @@ import {DeleteInterventionReportComponent} from "../delete-intervention-report/d
   styleUrl: './list-intervention-report.component.scss'
 })
 export class ListInterventionReportComponent implements OnInit{
+
+  reports!: InterventionReport[];
+  loading: boolean = false;
+  errorMessage: string | null = null;
+
+
   constructor( private interventionReportService: InterventionReportService,
                private router: Router,
+               private route: ActivatedRoute,
                public dialog: MatDialog,
                private store: Store<InterventionReportState>) { }
 
-  @Input()
+
   interventionReportList!: InterventionReport[];
   interventionReport!: InterventionReport[] | null;
 
@@ -49,36 +56,54 @@ export class ListInterventionReportComponent implements OnInit{
 
 
   ngOnInit(): void {
+
+
     this.selectAllInterventionReport$.subscribe(data =>{
-      if(data){
-        this.interventionReport = data;
-      }
+    if(data){
+    this.interventionReport = data;
+    }
     })
     this.store.dispatch(getAllInterventionReport());
 
-    this.selectInterventionReportUpdate$.subscribe(data =>{
-      if(data) {
-        this.store.dispatch(getAllInterventionReport())
-      }
-    })
+    // this.selectInterventionReportUpdate$.subscribe(data =>{
+    // if(data) {
+    //     this.store.dispatch(getAllInterventionReport())
+    //   }
+    // })
+    //
+    // this.selectInterventionReportDelete$.subscribe(data =>{
+    //   if(data) {
+    //     this.store.dispatch(getAllInterventionReport())
+    //   }
+    // })
+    //
+    // this.selectInterventionReportIsOpen$.subscribe(data =>{
+    //   if(!data && this.dialogRef){
+    //     this.dialogRef.close(data)
+    //   }
+    // })
+    // this.selectInterventionReportIsSaved$.subscribe(data => {
+    // if(data){
+    // this.store.dispatch(getAllInterventionReport())
+    // }
+    // })
 
-    this.selectInterventionReportDelete$.subscribe(data =>{
-      if(data) {
-        this.store.dispatch(getAllInterventionReport())
-      }
-    })
+  }
 
-    this.selectInterventionReportIsOpen$.subscribe(data =>{
-      if(!data && this.dialogRef){
-        this.dialogRef.close(data)
-      }
-    })
-    this.selectInterventionReportIsSaved$.subscribe(data => {
-      if(data){
-        this.store.dispatch(getAllInterventionReport())
-      }
-    })
+  fetchReports(requestId: number): void {
+    this.loading = true;
+    this.errorMessage = null;
 
+    this.interventionReportService.getInterventionReportByIntRequestId(requestId).subscribe({
+      next: (data) => {
+        this.reports = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        this.errorMessage = 'Erro ao carregar os relatórios. Tente novamente.';
+        this.loading = false;
+      },
+    });
   }
 
   getAll(){

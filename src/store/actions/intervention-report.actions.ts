@@ -14,7 +14,7 @@ export const getInterventionReportByIdSuccess = createAction('[INTERVENTION-REPO
 
 export const getInterventionReportByIntRequestId = createAction('[INTERVENTION-REPORT] GET Interventions Report BY  IntRequestID', props<{ payload: number }>());
 export const getInterventionReportByIntRequestIdFail = createAction('[INTERVENTION-REPORT] GET Interventions Report BY IntRequestID FAIL', props<{ payload: any }>());
-export const getInterventionReportByIntRequestIdSuccess = createAction('[INTERVENTION-REPORT] GET Interventions Report BY IntRequestID SUCCESS', props<{ payload: InterventionReport  }>());
+export const getInterventionReportByIntRequestIdSuccess = createAction('[INTERVENTION-REPORT] GET Interventions Report BY IntRequestID SUCCESS', props<{ payload: InterventionReport [] }>());
 
 
 export const getInterventionReportMailById = createAction('[INTERVENTION-REPORT] GET Interventions Report Mail BY ID', props<{ payload: number }>());
